@@ -1,0 +1,86 @@
+Return-Path: <>
+Delivered-To: lifeincm@d728b.dimedns.com
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id IJb/Egr3vF4ITgEAM5vZiw
+	(envelope-from <>)
+	for <lifeincm@d728b.dimedns.com>; Thu, 14 May 2020 03:45:14 -0400
+Return-path: <>
+Envelope-to: lifeincm@d728b.dimedns.com
+Delivery-date: Thu, 14 May 2020 03:45:14 -0400
+Received: from mailnull by d728b.dimedns.com with local (Exim 4.93)
+	id 1jZ8YM-000Rmh-7B
+	for lifeincm@d728b.dimedns.com; Thu, 14 May 2020 03:45:14 -0400
+X-Failed-Recipients: damirakyan@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@d728b.dimedns.com>
+To: lifeincm@d728b.dimedns.com
+References: <E1jZ8YL-000RmI-Ah@d728b.dimedns.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1589442314-eximdsn-1337932992
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1jZ8YM-000Rmh-7B@d728b.dimedns.com>
+Date: Thu, 14 May 2020 03:45:14 -0400
+
+--1589442314-eximdsn-1337932992
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  damirakyan@gmail.com
+    host gmail-smtp-in.l.google.com [74.125.195.26]
+    SMTP error from remote mail server after end of data:
+    550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain's
+    550-5.7.26 DMARC policy. Please contact the administrator of yahoo.com domain
+    550-5.7.26 if this was a legitimate mail. Please visit
+    550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+    550 5.7.26 DMARC initiative. 61si1479277plf.105 - gsmtp
+
+--1589442314-eximdsn-1337932992
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; d728b.dimedns.com
+
+Action: failed
+Final-Recipient: rfc822;damirakyan@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain's
+ 550-5.7.26 DMARC policy. Please contact the administrator of yahoo.com domain
+ 550-5.7.26 if this was a legitimate mail. Please visit
+ 550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+ 550 5.7.26 DMARC initiative. 61si1479277plf.105 - gsmtp
+
+--1589442314-eximdsn-1337932992
+Content-type: message/rfc822
+
+Return-path: <lifeincm@d728b.dimedns.com>
+Received: from lifeincm by d728b.dimedns.com with local (Exim 4.93)
+	(envelope-from <lifeincm@d728b.dimedns.com>)
+	id 1jZ8YL-000RmI-Ah
+	for damirakyan@gmail.com; Thu, 14 May 2020 03:45:13 -0400
+To: damirakyan@gmail.com
+Subject: form submission
+X-PHP-Script: lifeincmyk.org/html_form_send.php for 89.187.178.140
+X-PHP-Originating-Script: 1397:html_form_send.php
+From: genia.stable@yahoo.com
+Reply-To: genia.stable@yahoo.com
+X-Mailer: PHP/7.2.30
+Message-Id: <E1jZ8YL-000RmI-Ah@d728b.dimedns.com>
+Date: Thu, 14 May 2020 03:45:13 -0400
+
+Form details below.
+
+Name:Genia Stable
+Email: genia.stable@yahoo.com
+Comments: Log in https://bit.ly/exercisefitnessandhealth
+
+Free to all who need it - and everyone does need it. My Blog explains all you need to know about exercise - what it involves, how it is measured, how much you should take, the effect on health and lifespan and the great improvement in quality of life which regular physical activity brings
+
+Sign up and I will send you a weekly update
+
+
+--1589442314-eximdsn-1337932992--

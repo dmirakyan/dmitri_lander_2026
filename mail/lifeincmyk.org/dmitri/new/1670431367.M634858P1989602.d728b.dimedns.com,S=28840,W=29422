@@ -1,0 +1,582 @@
+Return-Path: <pm_bounces@ab.mtasv.net>
+Delivered-To: dmitri@lifeincmyk.org
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id SAAmI4fCkGPiWx4AM5vZiw
+	(envelope-from <pm_bounces@ab.mtasv.net>)
+	for <dmitri@lifeincmyk.org>; Wed, 07 Dec 2022 11:42:47 -0500
+Return-path: <pm_bounces@ab.mtasv.net>
+Envelope-to: dmitri@lifeincmyk.org
+Delivery-date: Wed, 07 Dec 2022 11:42:47 -0500
+Received: from mta13-ab1.mtasv.net ([50.31.205.13]:51101)
+	by d728b.dimedns.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <pm_bounces@ab.mtasv.net>)
+	id 1p2xVM-008i0y-6t
+	for dmitri@lifeincmyk.org;
+	Wed, 07 Dec 2022 11:42:47 -0500
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=ab20220416; d=ab.mtasv.net;
+ h=From:Date:Subject:Message-Id:Reply-To:To:List-Unsubscribe:List-ID:List-Unsubscribe:MIME-Version:Content-Type:Date:From:Message-ID:Reply-To:Sender:Subject:To:CC;
+ bh=cGXgGx38PUqCvOt9zg0ULnvtWSo=;
+ b=B2tRY/OzT1r2qTa0XAp6nQB6aX4KigeKgKsPsDoOu7Y9rvaKoxCmZWM/X0yJeoP2hou3nwHwbn7T
+   tYlqtyepTsUCbGMNvkJpZrQN+T7KO80MvzRsBr6Q1v+PhsIGNBYKTzsjl1YrHDanDmommtoq1MQd
+   Ch8DNyEWw9u/fXZoBpc=
+Received: by mta13-ab1.mtasv.net id hi318227tk43 for <dmitri@lifeincmyk.org>; Wed, 7 Dec 2022 11:42:00 -0500 (envelope-from <pm_bounces@ab.mtasv.net>)
+X-PM-IP: 50.31.205.13
+X-IADB-IP: 50.31.205.13
+X-IADB-IP-REVERSE: 13.205.31.50
+From: Green Street <events@greenstreet.com>
+Date: Wed, 07 Dec 2022 16:42:00 +0000
+Subject: [Upcoming Webinar] U.S. Retail Sector =?utf-8?b?4oCT?= Brick and
+ Mortar Strikes Back
+Message-Id: <6074d9a1-ea7b-4e0e-87ca-65ff6f6cd5e0@mtasv.net>
+Reply-To: events@greenstreet.com
+To: "dmitri@lifeincmyk.org" <dmitri@lifeincmyk.org>
+List-Unsubscribe: =?utf-8?q?=3Chttps=3A=2F=2Fsubscriptions=2Epstmrk=2Eit=2Funsubscribe=2FpRGK9lmgcoBs2n95?=
+ =?utf-8?q?wvWuigLNKrGEHcsckePZQ1ZZFnFSfPdn1c1-hh9Em8Ii1w=5FeT8ofe8ryjkhYd?=
+ =?utf-8?q?=5Fa=5F=5FvxcTp-YsQH8xv870POkS8Y05IDpIxE1SVuR3jlY5eQqa=5F8bQa9-Vfkxy7?=
+ =?utf-8?q?gITlmAFou3gQDjmpJ4ujxlTNsOLlAVQTvXF9JBvtuxgvPAMgDEQ-kuBStZBDi?=
+ =?utf-8?q?l6L8gfNoiPIVWnyd0vyYXfoZi3IjmNCvmBOvchuYTInfwZBiZxgJO5DOgXZdK?=
+ =?utf-8?q?2QEAgEvuNmWGBxRJyj6MnFDATG4wJ1oyCxU4UF6c1yya3om0krTO5pfZChnCc?=
+ =?utf-8?q?A7DQVoIID84bwPkYh2R6kqo8cgl=5Fhg8D7dSiU=5FW8m8u1Vx1f8K5lPamRM6YXR?=
+ =?utf-8?q?rd65tww-URqdyWoDpkzwwfxH-otT-A9L3lqCZIrVCKzjngpVbW0v5tJAJvabY?=
+ =?utf-8?q?ulk81p6JUxDEO5FuMqfSdjSnVRsNRg6Y0mkLoYwrm-hlUxFBSQ3LjZO48YDFQ?=
+ =?utf-8?q?cSz1bxzjlerb-KxtQQeHPvya-Yvf7ojUGfc9bJt6ZLpYtHJbXajkj2cSNilVw?=
+ =?utf-8?q?2F4BQEGaIfqwX4frYF=5FmeKoLAfle01AwpCniHHbandlYX3Y=5FixQFDkjTyZSDV?=
+ =?utf-8?q?Dgx59dWw=5FUdIjajKz0UHAwc2BltziWLfop=5Fw=3E?=
+X-FBL: 8F5_QBEAvOrU.5w69s1nmf.phWbVsxR9Syu
+X-Msys-Api: {"campaign_id":"8F5_QBEAvOrU.5w69s1nmf.phWbVsxR9Syu"}
+X-SMTPAPI: {"unique_args":{"campaign_id":"8F5_QBEAvOrU.5w69s1nmf.phWbVsxR9Syu"}}
+X-Pm-Message-Stream: broadcast-stream-2
+X-Mailgun-Variables: {"campaign_id":"8F5_QBEAvOrU.5w69s1nmf.phWbVsxR9Syu"}
+X-Mc-Tags: 8F5_QBEAvOrU.5w69s1nmf.phWbVsxR9Syu
+List-ID:U.S. Retail Sector =?utf-8?b?4oCT?= Brick and Mortar Strikes Back - f71d1ca21cb2 <5w69s1nmf.click11.bigmarker.com>
+X-Mailer: BigMarker Mailer
+List-Unsubscribe: <https://click11.bigmarker.com/subscription/5w69s1nmf/unsubscribe/phWbVsxR9Syu>
+Feedback-ID: s6371262-_:s6371262:a206403:postmark
+X-Complaints-To: abuse@postmarkapp.com
+X-PM-Message-Id: 6074d9a1-ea7b-4e0e-87ca-65ff6f6cd5e0
+X-PM-RCPT: |bTB8MjA2NDAzfDYzNzEyNjJ8ZG1pdHJpQGxpZmVpbmNteWsub3Jn|
+X-PM-Message-Options: v1;9Hcc_PIAriBnYBOfaIwCc2pArwEpj8bADPxlotR5l7A88DJXRSwiF5DrRjs3Bomp6mqljkX93LXLYlD8D_N7UUy0hf2tWnWYse3kz8uudrbwqH1XGZck8MSfxA1yrhjr4XcdBAbmrGDKjwuangBB3vOX3gA3mXJ_JZ5LIap03RxAWIxltzAfYwYq4-PboYZ7
+X-PM-MTA-Pool: application-bulk-1
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=mk3-ce5cd2c219af4b1183ddffd8c3adbe08
+X-Spam-Status: No, score=0.8
+X-Spam-Score: 8
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "d728b.dimedns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  You’re invited [https://d5ln38p3754yc.cloudfront.net/custom_emails/39264437/original/1670350017-13a0ac2e7e2d5d4b.png]
+    Green Street Webinar [Upcoming Webinar] U.S. Retail Sector – Brick and
+   Mortar [...] 
+ Content analysis details:   (0.8 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.1 HTTPS_HTTP_MISMATCH    BODY: No description available.
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.5 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+X-Spam-Flag: NO
+
+--mk3-ce5cd2c219af4b1183ddffd8c3adbe08
+Content-Type: multipart/alternative;
+	boundary=mk3-43a9bfa30816482aba62455ee9d67921; charset=UTF-8
+
+--mk3-43a9bfa30816482aba62455ee9d67921
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+You=E2=80=99re invited [https://d5ln38p3754yc.cloudfront.net/custom_em=
+ails/39264437/original/1670350017-13a0ac2e7e2d5d4b.png] Green
+Street Webinar [Upcoming Webinar] U.S. Retail Sector =E2=80=93 Brick a=
+nd Mortar Strikes Back
+[https://click11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9S=
+yu/UrRyU3bjcX?redirect_to=3Dhttps%3A%2F%2Fevents.greenstreet.com%2Fgre=
+en-street%2FU-S-Retail-Sector-Brick-and-Mortar-Strikes-Back%3Fbmid%3D6=
+063a86bcdc0%26amp%3Bsource_from%3Dinvitation]=20
+Thu, Dec 8, 2022 =C2=B7 9:00 AM =C2=B7 Pacific Time (US & Canada) Bric=
+k and mortar retail appears to have growing strength and is seemingly
+poised for continued success after emerging from a challenging period =
+in recent years. Join Green Street for a 40 minute
+discussion covering key aspects of the multi-faceted retail real estat=
+e environment with three of our analysts covering strip
+centers, malls, and net lease. Our analysts will discuss recent trends=
+ and the outlook for their sectors, which appears positive
+compared to recent years.
+
+
+
+REGISTER
+[https://click11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9S=
+yu/UrRyU3bjcX?redirect_to=3Dhttps%3A%2F%2Fevents.greenstreet.com%2Fgre=
+en-street%2FU-S-Retail-Sector-Brick-and-Mortar-Strikes-Back%3Fbmid%3D6=
+063a86bcdc0%26amp%3Bsource_from%3Dinvitation]=20
+Link
+
+https://events.greenstreet.com/green-street/U-S-Retail-Sector-Brick-an=
+d-Mortar-Strikes-Back?bmid=3D6063a86bcdc0&source_from=3Dinvitation
+[https://click11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9S=
+yu/UrRyU3bjcX?redirect_to=3Dhttps%3A%2F%2Fevents.greenstreet.com%2Fgre=
+en-street%2FU-S-Retail-Sector-Brick-and-Mortar-Strikes-Back%3Fbmid%3D6=
+063a86bcdc0%26amp%3Bsource_from%3Dinvitation]=20
+We look forward to you joining us,
+
+Green Street
+
+events@greenstreet.com [events@greenstreet.com]  Green Street=20
+
+ 100 Bayview Circle Suite 400 Newport Beach, CA 92660=20
+
+Disclosure: To see Green Street's disclosure in its entirety, please v=
+isit greenstreet.com
+
+Please note that emails sent to and from Green Street are subject to r=
+egulatory review and archiving by Green Street. This
+communication should not be interpreted as a solicitation for the purc=
+hase or sale of any security. Other important disclosure is
+on the Green Street website.
+
+ [https://d5ln38p3754yc.cloudfront.net/mailing_badge_logo/39264437/ori=
+ginal/1670350017-a9062af30b893fb8.png?1670350017]
+[https://click11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9S=
+yu/GPom04xppw?redirect_to=3Dhttps%3A%2F%2Fwww.greenstreet.com]
+
+[https://click11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9S=
+yu]
+Unsubscribe: https://subscriptions.pstmrk.it/unsubscribe/pRGK9lmgcoBs2=
+n95wvWuigLNKrGEHcsckePZQ1ZZFnFSfPdn1c1-hh9Em8Ii1w_eT8ofe8ryjkhYd_a__vx=
+cTp-YsQH8xv870POkS8Y05IDpIxE1SVuR3jlY5eQqa_8bQa9-Vfkxy7gITlmAFou3gQDjm=
+pJ4ujxlTNsOLlAVQTvXF9JBvtuxgvPAMgDEQ-kuBStZBDil6L8gfNoiPIVWnyd0vyYXfoZ=
+i3IjmNCvmBOvchuYTInfwZBiZxgJO5DOgXZdK2QEAgEvuNmWGBxRJyj6MnFDATG4wJ1oyC=
+xU4UF6c1yya3om0krTO5pfZChnCcA7DQVoIID84bwPkYh2R6kqo8cgl_hg8D7dSiU_W8m8=
+u1Vx1f8K5lPamRM6YXRrd65tww-URqdyWoDpkzwwfxH-otT-A9L3lqCZIrVCKzjngpVbW0=
+v5tJAJvabYulk81p6JUxDEO5FuMqfSdjSnVRsNRg6Y0mkLoYwrm-hlUxFBSQ3LjZO48YDF=
+QcSz1bxzjlerb-KxtQQeHPvya-Yvf7ojUGfc9bJt6ZLpYtHJbXajkj2cSNilVw2F4BQEGa=
+IfqwX4frYF_meKoLAfle01AwpCniHHbandlYX3Y_ixQFDkjTyZSDVDgx59dWw_UdIjajKz=
+0UHAwc2BltziWLfop_w
+--mk3-43a9bfa30816482aba62455ee9d67921
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<head>
+    <meta charset=3D"utf-8">
+    <meta name=3D"color-scheme" content=3D"light dark">
+    <style type=3D"text/css">
+@media (prefers-color-scheme: dark) {
+  .darkmode {
+    background-color: #f4f6f8 !important;
+    text-align: center;
+  }
+
+  .darkmode table {
+    background-color: #4c586e !important;
+  }
+
+  .darkmode #button_top table {
+    background-color: #1e1e1e !important;
+  }
+
+  .darkmode #button_bottom table {
+    background-color: #1e1e1e !important;
+  }
+
+  .darkmode p {
+    color: #ffffff !important;
+  }
+
+  .darkmode td:first-child {
+    color: #ffffff !important;
+  }
+
+  .darkmode a {
+    color: #ffffff !important;
+  }
+
+  #main_content > td:fist-child  tr {
+    background-color: #f4f6f8 !important;
+  }
+
+  #main_content > td:first-child {
+    background-color: #f4f6f8 !important;
+  }
+
+  .darkmode #footer_id div:first-child {
+    max-width: 728px;
+    margin: 0 auto;
+    background: #4c586e !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .darkmode #footer_id table {
+    background-color: #4c586e  !important;
+  }
+
+  .darkmode #footer_id td {
+    background-color: #4c586e  !important;
+  }
+
+  #main_content > td > table > tbody > tr {
+    background-color: #4c586e !important;
+  }
+
+  #content_section_tr {
+    background-color: #f4f6f8 !important;
+  }
+
+  #footer_id div {
+    background-color: #f4f6f8 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"1=
+00%" class=3D"darkmode">
+        <tbody><tr id=3D"conference_teaser_section">
+            <td bgcolor=3D"#eff1f5" height=3D"40" style=3D"padding: 0 =
+12px 0 12px;">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" width=3D"100%" style=3D"">
+                    <tbody><tr>
+                        <td align=3D"left" style=3D"font-family:'Helve=
+tica',Arial,sans-serif; font-size:12px; color:#4c586e;">
+                            You=E2=80=99re invited
+                        </td>
+                       =20
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+        <tr id=3D"main_content">
+            <td class=3D"main-content" align=3D"center" style=3D"paddi=
+ng: 10px 0 0 0; background-color: #f4f6f8; border-bottom: #f4f6f8 2px =
+solid;">
+                <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" width=3D"100%" style=3D"max-width: 728px;margin: 0 auto;">
+                    <tbody>
+                    <tr style=3D"background-color: #ffffff;width:728px=
+;" id=3D"banner_logo_section">
+                        <td align=3D"center">
+                            <table cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0" width=3D"100%">
+                                <tbody><tr>
+                                    <td align=3D"center" valign=3D"mid=
+dle">
+                                        <img src=3D"https://d5ln38p375=
+4yc.cloudfront.net/custom_emails/39264437/original/1670350017-13a0ac2e=
+7e2d5d4b.png" style=3D"width: 728px; height: auto;">
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <tr id=3D"content_section_tr" style=3D"background-=
+color: #ffffff;">
+                        <td align=3D"center" style=3D"padding: 40px 30=
+px 13px 30px;">
+                            <table cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0" width=3D"100%">
+                                <tbody><tr id=3D"email_description_sec=
+tion">
+                                    <td align=3D"center" style=3D"font=
+-family:'Helvetica',Arial,sans-serif; font-size:14px; color:#202630; p=
+adding-bottom:12px;">
+                                        Green Street Webinar
+                                    </td>
+                                </tr>
+                                <tr id=3D"conference_title_section">
+                                    <td align=3D"center" style=3D"font=
+-family:'Helvetica',Arial,sans-serif; font-size:24px; font-weight:bold=
+; color:#202630; padding-bottom:12px;">
+                                      <a href=3D"https://click11.bigma=
+rker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9Syu/UrRyU3bjcX?redirect=
+_to=3Dhttps%3A%2F%2Fevents.greenstreet.com%2Fgreen-street%2FU-S-Retail=
+-Sector-Brick-and-Mortar-Strikes-Back%3Fbmid%3D6063a86bcdc0%26amp%3Bso=
+urce_from%3Dinvitation" style=3D"color:#202630;text-decoration: none;"=
+>[Upcoming Webinar] U.S. Retail Sector =E2=80=93 Brick and Mortar Stri=
+kes Back</a>
+                                    </td>
+                                </tr>
+                                <tr id=3D"webinar_date_section_2">
+                                  <td align=3D"center" style=3D"font-f=
+amily:'Helvetica',Arial,sans-serif; font-size:14px; color:#202630; pad=
+ding-bottom:14px;">
+                                    Thu, Dec  8, 2022 =C2=B7  9:00 AM =
+=C2=B7 Pacific Time (US &amp; Canada)
+                                  </td>
+                                </tr>
+                                <tr id=3D"conference_message_section">
+                                  <td align=3D"left" style=3D"font-fam=
+ily:'Helvetica',Arial,sans-serif; font-size:14px; color:#202630; line-=
+height: 1.5em; word-break: break-word;">
+                                   =20
+                                    <p>Brick and mortar retail appears=
+ to have growing strength and is seemingly poised for continued succes=
+s after emerging from a challenging period in recent years.  Join Gree=
+n Street for a 40 minute discussion covering key aspects of the multi-=
+faceted retail real estate environment with three of our analysts cove=
+ring strip centers, malls, and net lease.  Our analysts will discuss r=
+ecent trends and the outlook for their sectors, which appears positive=
+ compared to recent years.=20
+<br>=20
+<br> </p>
+                                  </td>
+                                </tr>
+
+                                <tr id=3D"button_top">
+                                    <td align=3D"center" style=3D" fon=
+t-family:'Helvetica',Arial,sans-serif; font-size:14px; font-weight:bol=
+d; color:#202630; padding:34px 0 34px 0;">
+                                        <table cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0" width=3D"240" style=3D"border-radius:3px; bo=
+rder-collapse: collapse!important; background-color:#559B43; box-shado=
+w: inset 0 -1px 0 0 rgba(0, 0, 0, 0.3);">
+                                          <tbody><tr>
+                                            <td align=3D"center" style=
+=3D"font-family:'Helvetica',Arial,sans-serif; font-size:14px; font-wei=
+ght:bold; padding: 12px 5px;">
+                                              <a href=3D"https://click=
+11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9Syu/UrRyU3bjcX?=
+redirect_to=3Dhttps%3A%2F%2Fevents.greenstreet.com%2Fgreen-street%2FU-=
+S-Retail-Sector-Brick-and-Mortar-Strikes-Back%3Fbmid%3D6063a86bcdc0%26=
+amp%3Bsource_from%3Dinvitation" style=3D"text-decoration: none;display=
+:inline-block; line-height:18px; border-radius:3px; color:#FFFFFF; wor=
+d-break: break-all;">
+                                                REGISTER
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                =20
+                                <tr id=3D"details_section">
+                                  <td id=3D"" align=3D"center" style=3D=
+"padding: 13px 0 13px 0;">
+                                    <table cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0" width=3D"100%">
+                                      <tbody><tr>
+                                        <td align=3D"left" class=3D"ne=
+ed-change-grey" style=3D"font-family:'Helvetica',Arial,sans-serif; fon=
+t-size:14px; color:#202630; padding-bottom:13px; line-height: 1.5em;">=
+</td>
+                                      </tr>
+                                      <tr id=3D"details_link_section">
+                                        <td align=3D"left" style=3D"fo=
+nt-family:'Helvetica',Arial,sans-serif; font-size:14px; font-weight:bo=
+ld; color:#202630; padding-bottom:13px; line-height: 1.5em;">
+                                            <p style=3D"max-width: 668=
+px;">Link</p>
+                                            <span style=3D"max-width: =
+668px; display: block; font-weight: normal;">
+                                              <a href=3D"https://click=
+11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phWbVsxR9Syu/UrRyU3bjcX?=
+redirect_to=3Dhttps%3A%2F%2Fevents.greenstreet.com%2Fgreen-street%2FU-=
+S-Retail-Sector-Brick-and-Mortar-Strikes-Back%3Fbmid%3D6063a86bcdc0%26=
+amp%3Bsource_from%3Dinvitation" class=3D"link-preview" target=3D"_blan=
+k" style=3D"color: #559B43">https://events.greenstreet.com/green-stree=
+t/U-S-Retail-Sector-Brick-and-Mortar-Strikes-Back?bmid=3D6063a86bcdc0&=
+amp;source_from=3Dinvitation</a>
+                                            </span>
+                                        </td>
+                                      </tr>
+                                     =20
+                                     =20
+                                     =20
+                                      <tr id=3D"dial_in_section">
+                                       =20
+                                      </tr>
+
+                                     =20
+                                    </tbody></table>
+                                  </td>
+                                </tr>
+                                =20
+                                 =20
+                               =20
+                               =20
+                                <tr id=3D"conference_message_to_sectio=
+n">
+                                    <td align=3D"left" style=3D"font-f=
+amily:'Helvetica',Arial,sans-serif; font-size:14px; color:#202630; pad=
+ding-bottom:13px;">
+                                        <p>We look forward to you join=
+ing us,</p>
+                                    </td>
+                                </tr>
+                                <tr id=3D"email_from_section">
+                                  <td align=3D"left" style=3D"font-fam=
+ily:'Helvetica',Arial,sans-serif; font-size:14px; font-weight:bold; co=
+lor:#202630; padding-bottom:13px;">
+                                    <p style=3D"max-width: 668px;"><sp=
+an style=3D"max-width: 668px; display: block; font-weight: normal; pad=
+ding-top: 5px;">Green Street</span></p>
+                                    <a href=3D"mailto:events@greenstre=
+et.com" style=3D"text-decoration:none;display:block; color:#202630;">e=
+vents@greenstreet.com</a>
+                                  </td>
+                                </tr>
+                                <tr id=3D"footer_id">
+                                  <td align=3D"center" style=3D"paddin=
+g: 30px 30px 13px 30px; background: #ffffff;">
+                                    <p id=3D"sent-by-tip-preview" styl=
+e=3D"max-width: 668px; line-height: 1.5em;">
+                                      <span style=3D"max-width: 668px;=
+ font-family: 'SF Pro Text', 'Helvetica',Arial,sans-serif; font-size: =
+14px; font-weight: 500; color: #2b374d; letter-spacing: -0.2px;">Green=
+ Street</span>
+                                    </p>
+
+                                    <p id=3D"mailing-address-tip-previ=
+ew" style=3D"max-width: 668px; line-height: 1.5em;">
+                                      <span style=3D"max-width: 668px;=
+ font-family: 'SF Pro Text', 'Helvetica',Arial,sans-serif; font-size: =
+14px; color: #717e94; letter-spacing: -0.2px;">100 Bayview Circle Suit=
+e 400 Newport Beach, CA 92660</span>
+                                    </p>
+
+                                   =20
+
+                                    <span id=3D"footer_description_sec=
+tion" style=3D"max-width: 668px; font-family: 'SF Pro Text', 'Helvetic=
+a',Arial,sans-serif; font-size: 13px; color: #717e94; line-height: 1.5=
+em; display: block;"><p>Disclosure: To see Green Street's disclosure i=
+n its entirety, please visit greenstreet.com</p>
+
+<p>Please note that emails sent to and from Green Street are subject t=
+o regulatory review and archiving by Green Street. This communication =
+should not be interpreted as a solicitation for the purchase or sale o=
+f any security. Other important disclosure is on the Green Street webs=
+ite.</p></span>
+
+                                    <p style=3D"max-width: 668px;"><a =
+href=3D"https://click11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf/phW=
+bVsxR9Syu/GPom04xppw?redirect_to=3Dhttps%3A%2F%2Fwww.greenstreet.com" =
+target=3D"_blank" style=3D"cursor: pointer;display: block;max-width: 1=
+50px;" id=3D"referral-program-badge-tip-preview">
+                                        <img src=3D"https://d5ln38p375=
+4yc.cloudfront.net/mailing_badge_logo/39264437/original/1670350017-a90=
+62af30b893fb8.png?1670350017" style=3D"width: auto;max-width: 100%">
+                                      </a></p>
+                                  </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+
+        </tr>
+        <!--- new email footer --->
+    </tbody></table>
+
+
+<img src=3D"https://click11.bigmarker.com/links/8F5_QBEAvOrU/5w69s1nmf=
+/phWbVsxR9Syu" width=3D"1" height=3D"1" alt=3D""><p style=3D"text-alig=
+n:center;margin:1em 0 3em;"><a href=3D"https://subscriptions.pstmrk.it=
+/unsubscribe/pRGK9lmgcoBs2n95wvWuigLNKrGEHcsckePZQ1ZZFnFSfPdn1c1-hh9Em=
+8Ii1w_eT8ofe8ryjkhYd_a__vxcTp-YsQH8xv870POkS8Y05IDpIxE1SVuR3jlY5eQqa_8=
+bQa9-Vfkxy7gITlmAFou3gQDjmpJ4ujxlTNsOLlAVQTvXF9JBvtuxgvPAMgDEQ-kuBStZB=
+Dil6L8gfNoiPIVWnyd0vyYXfoZi3IjmNCvmBOvchuYTInfwZBiZxgJO5DOgXZdK2QEAgEv=
+uNmWGBxRJyj6MnFDATG4wJ1oyCxU4UF6c1yya3om0krTO5pfZChnCcA7DQVoIID84bwPkY=
+h2R6kqo8cgl_hg8D7dSiU_W8m8u1Vx1f8K5lPamRM6YXRrd65tww-URqdyWoDpkzwwfxH-=
+otT-A9L3lqCZIrVCKzjngpVbW0v5tJAJvabYulk81p6JUxDEO5FuMqfSdjSnVRsNRg6Y0m=
+kLoYwrm-hlUxFBSQ3LjZO48YDFQcSz1bxzjlerb-KxtQQeHPvya-Yvf7ojUGfc9bJt6ZLp=
+YtHJbXajkj2cSNilVw2F4BQEGaIfqwX4frYF_meKoLAfle01AwpCniHHbandlYX3Y_ixQF=
+DkjTyZSDVDgx59dWw_UdIjajKz0UHAwc2BltziWLfop_w" style=3D"color:#A8AAAF;=
+font-family:Helvetica,Arial,sans-serif;font-size:12px;">Unsubscribe</a=
+></p><img src=3D"https://ea.pstmrk.it/open/v3_xdxKmT37jDphO41_3DZvHmXq=
+R-CGoVr9gSY3JI5FbQhGaYM6ULDXGspHCcKefSdgcuRNfpPUoVcAqJYDZRUejOsjPzPQQc=
+JCP5dZIY-mm9sBdLm3bDW-9jTfNEVGOTiKY_fU5USUndyrghUYsMZZ7oerHbzoY6sM_zt0=
+odAIm821M3H2uBX7dtRwe-Lz_z2liMFfcnTWHdUhJ5t8N9Kf10orK4VN18OYticVGYHTCO=
+5lt5RRpgEbsQq6MW4hiBxKVdKmeC0ijxSfYP_GCe6iZrBMm0w1BnHRQ271nWph8QusrELS=
+XeeYMnDy5fD2bLkqoQKZwmhLodrkTKHBMmWYw4UAQPbS-cfMTZFcvk2xMgmOMv3tHVgZxg=
+5GhSvPZfeUJ7fv5YLiXv_D6EJXl6w8X64jrqyun2IzPlxv2E_IxSlkHgq9ra-EmoGvJj77=
+X5PNmqqV5Krf3bvM3QECaepUtPQBF9b7Qu9QplBNTmJFLSTzEukWLKEdggN4_P7gSInP_B=
+tpBgiHL9rOJW2UM9I0_MR6GcQ_fA5DDK36IORBJkpxzKmhhKKrMb8FWaAy8eTi" width=3D=
+"1" height=3D"1" border=3D"0" alt=3D"" /></body>
+--mk3-43a9bfa30816482aba62455ee9d67921
+Content-Type: text/calendar; name=Invitation.ics
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=Invitation.ics
+
+QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KUFJPRElEOmljYWxlbmRhci1ydWJ5DQpD
+QUxTQ0FMRTpHUkVHT1JJQU4NCk1FVEhPRDpQVUJMSVNIDQpCRUdJTjpWRVZFTlQNCkRUU1RB
+TVA6MjAyMjEyMDZUMTkzMjE1Wg0KVUlEOmJpZ21hcmtlcl9jb25mZXJlbmNlX2Y3MWQxY2Ey
+MWNiMkBiaWdtYXJrZXIuY29tDQpEVFNUQVJUOjIwMjIxMjA4VDE3MDAwMFoNCkRURU5EOjIw
+MjIxMjA4VDE4MDAwMFoNCkRFU0NSSVBUSU9OOkJyaWNrIGFuZCBtb3J0YXIgcmV0YWlsIGFw
+cGVhcnMgdG8gaGF2ZSBncm93aW5nIHN0cmVuZ3RoIGFuZCBpcw0KICBzZWVtaW5nbHkgcG9p
+c2VkIGZvciBjb250aW51ZWQgc3VjY2VzcyBhZnRlciBlbWVyZ2luZyBmcm9tIGEgY2hhbGxl
+bmdpbmcgDQogcGVyaW9kIGluIHJlY2VudCB5ZWFycy4gIEpvaW4gR3JlZW4gU3RyZWV0IGZv
+ciBhIDQwIG1pbnV0ZSBkaXNjdXNzaW9uIGNvdmUNCiByaW5nIGtleSBhc3BlY3RzIG9mIHRo
+ZSBtdWx0aS1mYWNldGVkIHJldGFpbCByZWFsIGVzdGF0ZSBlbnZpcm9ubWVudCB3aXRoIA0K
+IHRocmVlIG9mIG91ciBhbmFseXN0cyBjb3ZlcmluZyBzdHJpcCBjZW50ZXJzXCwgbWFsbHNc
+LCBhbmQgbmV0IGxlYXNlLiAgT3VyDQogIGFuYWx5c3RzIHdpbGwgZGlzY3VzcyByZWNlbnQg
+dHJlbmRzIGFuZCB0aGUgb3V0bG9vayBmb3IgdGhlaXIgc2VjdG9yc1wsIHcNCiBoaWNoIGFw
+cGVhcnMgcG9zaXRpdmUgY29tcGFyZWQgdG8gcmVjZW50IHllYXJzLiBcblxuIERpYWwtaW4g
+YXZhaWxhYmxlIChsaQ0KIHN0ZW4gb25seSk6ICsxICgzMTIpIDI0OC05MzQ4ICBJRDogNjU0
+MjgzIyAgUGFzc2NvZGU6IDg0MjAjXG5cblZpZXcgYW5kIGF0DQogdGVuZCBhdCBodHRwczov
+L2V2ZW50cy5ncmVlbnN0cmVldC5jb20vZ3JlZW4tc3RyZWV0L1UtUy1SZXRhaWwtU2VjdG9y
+LUJyaWMNCiBrLWFuZC1Nb3J0YXItU3RyaWtlcy1CYWNrP2JtaWQ9NjA2M2E4NmJjZGMwDQpM
+T0NBVElPTjpodHRwczovL2V2ZW50cy5ncmVlbnN0cmVldC5jb20vZ3JlZW4tc3RyZWV0L1Ut
+Uy1SZXRhaWwtU2VjdG9yLUJyaWMNCiBrLWFuZC1Nb3J0YXItU3RyaWtlcy1CYWNrP2JtaWQ9
+NjA2M2E4NmJjZGMwDQpPUkdBTklaRVI6bWFpbHRvOmV2ZW50c0BncmVlbnN0cmVldC5jb20N
+ClNUQVRVUzpDT05GSVJNRUQNClNVTU1BUlk6VS5TLiBSZXRhaWwgU2VjdG9yIOKAkyBCcmlj
+ayBhbmQgTW9ydGFyIFN0cmlrZXMgQmFjaw0KWC1NSUNST1NPRlQtQ0RPLUFQUFQtU0VRVUVO
+Q0U6Mg0KWC1NSUNST1NPRlQtQ0RPLUJVU1lTVEFUVVM6QlVTWQ0KWC1NSUNST1NPRlQtQ0RP
+LUlOVEVOREVEU1RBVFVTOkJVU1kNClgtTUlDUk9TT0ZULUNETy1BTExEQVlFVkVOVDpGQUxT
+RQ0KWC1NSUNST1NPRlQtQ0RPLUlNUE9SVEFOQ0U6MQ0KWC1NSUNST1NPRlQtQ0RPLUlOU1RU
+WVBFOjANClgtTVMtT0xLLUZPUkNFSU5TUEVDVE9ST1BFTjpUUlVFDQpCRUdJTjpWQUxBUk0N
+CkFDVElPTjpBVURJTw0KVFJJR0dFUjotUFQxNU0NCkFUVEFDSDpCYXNzbw0KRU5EOlZBTEFS
+TQ0KRU5EOlZFVkVOVA0KRU5EOlZDQUxFTkRBUg0K
+
+--mk3-43a9bfa30816482aba62455ee9d67921--
+
+--mk3-ce5cd2c219af4b1183ddffd8c3adbe08
+Content-Type: text/calendar; name=invitation.ics
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=invitation.ics
+
+QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KUFJPRElEOmljYWxlbmRhci1ydWJ5DQpD
+QUxTQ0FMRTpHUkVHT1JJQU4NCk1FVEhPRDpQVUJMSVNIDQpCRUdJTjpWRVZFTlQNCkRUU1RB
+TVA6MjAyMjEyMDZUMTkzMjE1Wg0KVUlEOmJpZ21hcmtlcl9jb25mZXJlbmNlX2Y3MWQxY2Ey
+MWNiMkBiaWdtYXJrZXIuY29tDQpEVFNUQVJUOjIwMjIxMjA4VDE3MDAwMFoNCkRURU5EOjIw
+MjIxMjA4VDE4MDAwMFoNCkRFU0NSSVBUSU9OOkJyaWNrIGFuZCBtb3J0YXIgcmV0YWlsIGFw
+cGVhcnMgdG8gaGF2ZSBncm93aW5nIHN0cmVuZ3RoIGFuZCBpcw0KICBzZWVtaW5nbHkgcG9p
+c2VkIGZvciBjb250aW51ZWQgc3VjY2VzcyBhZnRlciBlbWVyZ2luZyBmcm9tIGEgY2hhbGxl
+bmdpbmcgDQogcGVyaW9kIGluIHJlY2VudCB5ZWFycy4gIEpvaW4gR3JlZW4gU3RyZWV0IGZv
+ciBhIDQwIG1pbnV0ZSBkaXNjdXNzaW9uIGNvdmUNCiByaW5nIGtleSBhc3BlY3RzIG9mIHRo
+ZSBtdWx0aS1mYWNldGVkIHJldGFpbCByZWFsIGVzdGF0ZSBlbnZpcm9ubWVudCB3aXRoIA0K
+IHRocmVlIG9mIG91ciBhbmFseXN0cyBjb3ZlcmluZyBzdHJpcCBjZW50ZXJzXCwgbWFsbHNc
+LCBhbmQgbmV0IGxlYXNlLiAgT3VyDQogIGFuYWx5c3RzIHdpbGwgZGlzY3VzcyByZWNlbnQg
+dHJlbmRzIGFuZCB0aGUgb3V0bG9vayBmb3IgdGhlaXIgc2VjdG9yc1wsIHcNCiBoaWNoIGFw
+cGVhcnMgcG9zaXRpdmUgY29tcGFyZWQgdG8gcmVjZW50IHllYXJzLiBcblxuIERpYWwtaW4g
+YXZhaWxhYmxlIChsaQ0KIHN0ZW4gb25seSk6ICsxICgzMTIpIDI0OC05MzQ4ICBJRDogNjU0
+MjgzIyAgUGFzc2NvZGU6IDg0MjAjXG5cblZpZXcgYW5kIGF0DQogdGVuZCBhdCBodHRwczov
+L2V2ZW50cy5ncmVlbnN0cmVldC5jb20vZ3JlZW4tc3RyZWV0L1UtUy1SZXRhaWwtU2VjdG9y
+LUJyaWMNCiBrLWFuZC1Nb3J0YXItU3RyaWtlcy1CYWNrP2JtaWQ9NjA2M2E4NmJjZGMwDQpM
+T0NBVElPTjpodHRwczovL2V2ZW50cy5ncmVlbnN0cmVldC5jb20vZ3JlZW4tc3RyZWV0L1Ut
+Uy1SZXRhaWwtU2VjdG9yLUJyaWMNCiBrLWFuZC1Nb3J0YXItU3RyaWtlcy1CYWNrP2JtaWQ9
+NjA2M2E4NmJjZGMwDQpPUkdBTklaRVI6bWFpbHRvOmV2ZW50c0BncmVlbnN0cmVldC5jb20N
+ClNUQVRVUzpDT05GSVJNRUQNClNVTU1BUlk6VS5TLiBSZXRhaWwgU2VjdG9yIOKAkyBCcmlj
+ayBhbmQgTW9ydGFyIFN0cmlrZXMgQmFjaw0KWC1NSUNST1NPRlQtQ0RPLUFQUFQtU0VRVUVO
+Q0U6Mg0KWC1NSUNST1NPRlQtQ0RPLUJVU1lTVEFUVVM6QlVTWQ0KWC1NSUNST1NPRlQtQ0RP
+LUlOVEVOREVEU1RBVFVTOkJVU1kNClgtTUlDUk9TT0ZULUNETy1BTExEQVlFVkVOVDpGQUxT
+RQ0KWC1NSUNST1NPRlQtQ0RPLUlNUE9SVEFOQ0U6MQ0KWC1NSUNST1NPRlQtQ0RPLUlOU1RU
+WVBFOjANClgtTVMtT0xLLUZPUkNFSU5TUEVDVE9ST1BFTjpUUlVFDQpCRUdJTjpWQUxBUk0N
+CkFDVElPTjpBVURJTw0KVFJJR0dFUjotUFQxNU0NCkFUVEFDSDpCYXNzbw0KRU5EOlZBTEFS
+TQ0KRU5EOlZFVkVOVA0KRU5EOlZDQUxFTkRBUg0K
+
+--mk3-ce5cd2c219af4b1183ddffd8c3adbe08--

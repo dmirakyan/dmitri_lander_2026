@@ -1,0 +1,92 @@
+Return-Path: <>
+Delivered-To: lifeincm@d728b.dimedns.com
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id kLVAASGjx19Nri8AM5vZiw
+	(envelope-from <>)
+	for <lifeincm@d728b.dimedns.com>; Wed, 02 Dec 2020 09:22:25 -0500
+Return-path: <>
+Envelope-to: lifeincm@d728b.dimedns.com
+Delivery-date: Wed, 02 Dec 2020 09:22:25 -0500
+Received: from mailnull by d728b.dimedns.com with local (Exim 4.93)
+	id 1kkT1U-00DGIx-Np
+	for lifeincm@d728b.dimedns.com; Wed, 02 Dec 2020 09:22:24 -0500
+X-Failed-Recipients: damirakyan@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@d728b.dimedns.com>
+To: lifeincm@d728b.dimedns.com
+References: <E1kkT1U-00DGIN-2r@d728b.dimedns.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1606918944-eximdsn-91749773
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1kkT1U-00DGIx-Np@d728b.dimedns.com>
+Date: Wed, 02 Dec 2020 09:22:24 -0500
+
+--1606918944-eximdsn-91749773
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  damirakyan@gmail.com
+    host gmail-smtp-in.l.google.com [74.125.137.27]
+    SMTP error from remote mail server after end of data:
+    550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain's
+    550-5.7.26 DMARC policy. Please contact the administrator of yahoo.com domain
+    550-5.7.26 if this was a legitimate mail. Please visit
+    550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+    550 5.7.26 DMARC initiative. t68si14392pgc.103 - gsmtp
+
+--1606918944-eximdsn-91749773
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; d728b.dimedns.com
+
+Action: failed
+Final-Recipient: rfc822;damirakyan@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain's
+ 550-5.7.26 DMARC policy. Please contact the administrator of yahoo.com domain
+ 550-5.7.26 if this was a legitimate mail. Please visit
+ 550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+ 550 5.7.26 DMARC initiative. t68si14392pgc.103 - gsmtp
+
+--1606918944-eximdsn-91749773
+Content-type: message/rfc822
+
+Return-path: <lifeincm@d728b.dimedns.com>
+Received: from lifeincm by d728b.dimedns.com with local (Exim 4.93)
+	(envelope-from <lifeincm@d728b.dimedns.com>)
+	id 1kkT1U-00DGIN-2r
+	for damirakyan@gmail.com; Wed, 02 Dec 2020 09:22:24 -0500
+To: damirakyan@gmail.com
+Subject: form submission
+X-PHP-Script: lifeincmyk.org/html_form_send.php for 110.74.222.71
+X-PHP-Originating-Script: 1397:html_form_send.php
+From: belanger.kristi@yahoo.com
+Reply-To: belanger.kristi@yahoo.com
+X-Mailer: PHP/7.2.34
+Message-Id: <E1kkT1U-00DGIN-2r@d728b.dimedns.com>
+Date: Wed, 02 Dec 2020 09:22:24 -0500
+
+Form details below.
+
+Name:Kristi Belanger
+Email: belanger.kristi@yahoo.com
+Comments: Hey
+
+
+I had already sent you an email earlier, but I had not received any answers yet.
+
+I have a question, i see a lot of items on this site I have made a screenshot of some products, https://screenshot.photos/product547 that you also sell in your store. But there items are 38% cheaper, well my question is what is the difference between your shop ,is it the quality or something else, i hope you can help me!
+
+Yours sincerely
+Kristi Belanger
+
+"Sent from my Ipad"
+
+
+--1606918944-eximdsn-91749773--

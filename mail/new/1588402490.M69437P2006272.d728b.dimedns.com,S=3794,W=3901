@@ -1,0 +1,107 @@
+Return-Path: <>
+Delivered-To: lifeincm@d728b.dimedns.com
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id +A5MAjoZrV4AnR4AM5vZiw
+	(envelope-from <>)
+	for <lifeincm@d728b.dimedns.com>; Sat, 02 May 2020 02:54:50 -0400
+Return-path: <>
+Envelope-to: lifeincm@d728b.dimedns.com
+Delivery-date: Sat, 02 May 2020 02:54:50 -0400
+Received: from mailnull by d728b.dimedns.com with local (Exim 4.93)
+	id 1jUm2z-008S0R-UW
+	for lifeincm@d728b.dimedns.com; Sat, 02 May 2020 02:54:50 -0400
+X-Failed-Recipients: damirakyan@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@d728b.dimedns.com>
+To: lifeincm@d728b.dimedns.com
+References: <E1jUm2y-008S09-RR@d728b.dimedns.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1588402489-eximdsn-1647873101
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1jUm2z-008S0R-UW@d728b.dimedns.com>
+Date: Sat, 02 May 2020 02:54:49 -0400
+
+--1588402489-eximdsn-1647873101
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  damirakyan@gmail.com
+    host gmail-smtp-in.l.google.com [74.125.20.27]
+    SMTP error from remote mail server after end of data:
+    550-5.7.26 Unauthenticated email from gmaill.com is not accepted due to domain's
+    550-5.7.26 DMARC policy. Please contact the administrator of gmaill.com domain
+    550-5.7.26 if this was a legitimate mail. Please visit
+    550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+    550 5.7.26 DMARC initiative. g30si3859649pfq.33 - gsmtp
+
+--1588402489-eximdsn-1647873101
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; d728b.dimedns.com
+
+Action: failed
+Final-Recipient: rfc822;damirakyan@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 Unauthenticated email from gmaill.com is not accepted due to domain's
+ 550-5.7.26 DMARC policy. Please contact the administrator of gmaill.com domain
+ 550-5.7.26 if this was a legitimate mail. Please visit
+ 550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+ 550 5.7.26 DMARC initiative. g30si3859649pfq.33 - gsmtp
+
+--1588402489-eximdsn-1647873101
+Content-type: message/rfc822
+
+Return-path: <lifeincm@d728b.dimedns.com>
+Received: from lifeincm by d728b.dimedns.com with local (Exim 4.93)
+	(envelope-from <lifeincm@d728b.dimedns.com>)
+	id 1jUm2y-008S09-RR
+	for damirakyan@gmail.com; Sat, 02 May 2020 02:54:48 -0400
+To: damirakyan@gmail.com
+Subject: form submission
+X-PHP-Script: lifeincmyk.org/html_form_send.php for 195.181.172.74
+X-PHP-Originating-Script: 1397:html_form_send.php
+From: no-reply@gmaill.com
+Reply-To: no-reply@gmaill.com
+X-Mailer: PHP/7.2.30
+Message-Id: <E1jUm2y-008S09-RR@d728b.dimedns.com>
+Date: Sat, 02 May 2020 02:54:48 -0400
+
+Form details below.
+
+Name:Dave Willis
+Email: no-reply@gmaill.com
+Comments: Hello, 
+ 
+We have available the following, with low minimum order requirements - if you or anyone you know is in need: 
+ 
+-3ply Disposable Masks 
+-KN95 masks and N95 masks with FDA, CE certificate 
+-Gloves, Gowns 
+-Sanitizing Wipes, Hand Sanitizer 
+-Face Shields 
+-Orla and No Touch Thermometers 
+ 
+ 
+Details: 
+We are based in the US 
+All products are produced in China 
+We are shipping out every day. 
+Minimum order size varies by product 
+We can prepare container loads and ship via AIR or SEA. 
+ 
+Please reply back with the product you need , the quantity needed, and the best contact phone number to call you 
+davewillis2008@gmail.com 
+ 
+Thank you 
+ 
+Dave Willis 
+Product Specialist
+
+
+--1588402489-eximdsn-1647873101--

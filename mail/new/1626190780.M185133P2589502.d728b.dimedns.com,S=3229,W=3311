@@ -1,0 +1,82 @@
+Return-Path: <>
+Delivered-To: lifeincm@d728b.dimedns.com
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id eFhHBryz7WA+gycAM5vZiw
+	(envelope-from <>)
+	for <lifeincm@d728b.dimedns.com>; Tue, 13 Jul 2021 11:39:40 -0400
+Return-path: <>
+Envelope-to: lifeincm@d728b.dimedns.com
+Delivery-date: Tue, 13 Jul 2021 11:39:40 -0400
+Received: from mailnull by d728b.dimedns.com with local (Exim 4.94.2)
+	id 1m3KVX-00B2A7-VE
+	for lifeincm@d728b.dimedns.com; Tue, 13 Jul 2021 11:39:40 -0400
+X-Failed-Recipients: damirakyan@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@d728b.dimedns.com>
+To: lifeincm@d728b.dimedns.com
+References: <E1m3KVX-00B29X-1L@d728b.dimedns.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1626190779-eximdsn-834799473
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1m3KVX-00B2A7-VE@d728b.dimedns.com>
+Date: Tue, 13 Jul 2021 11:39:39 -0400
+
+--1626190779-eximdsn-834799473
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  damirakyan@gmail.com
+    host gmail-smtp-in.l.google.com [142.250.141.26]
+    SMTP error from remote mail server after end of data:
+    550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain's
+    550-5.7.26 DMARC policy. Please contact the administrator of yahoo.com domain
+    550-5.7.26 if this was a legitimate mail. Please visit
+    550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+    550 5.7.26 DMARC initiative. w11si21412155otl.132 - gsmtp
+
+--1626190779-eximdsn-834799473
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; d728b.dimedns.com
+
+Action: failed
+Final-Recipient: rfc822;damirakyan@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain's
+ 550-5.7.26 DMARC policy. Please contact the administrator of yahoo.com domain
+ 550-5.7.26 if this was a legitimate mail. Please visit
+ 550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+ 550 5.7.26 DMARC initiative. w11si21412155otl.132 - gsmtp
+
+--1626190779-eximdsn-834799473
+Content-type: message/rfc822
+
+Return-path: <lifeincm@d728b.dimedns.com>
+Received: from lifeincm by d728b.dimedns.com with local (Exim 4.94.2)
+	(envelope-from <lifeincm@d728b.dimedns.com>)
+	id 1m3KVX-00B29X-1L
+	for damirakyan@gmail.com; Tue, 13 Jul 2021 11:39:39 -0400
+To: damirakyan@gmail.com
+Subject: form submission
+X-PHP-Script: lifeincmyk.org/html_form_send.php for 212.102.33.81
+X-PHP-Originating-Script: 1397:html_form_send.php
+From: ShakiraWillimon@yahoo.com
+Reply-To: ShakiraWillimon@yahoo.com
+X-Mailer: PHP/7.2.34
+Message-Id: <E1m3KVX-00B29X-1L@d728b.dimedns.com>
+Date: Tue, 13 Jul 2021 11:39:39 -0400
+
+Form details below.
+
+Name:Janie Storrs
+Email: ShakiraWillimon@yahoo.com
+Comments: Here is a list of 18 free traffic sources that you should be using: http://bit.ly/18freetrafficsources
+
+
+--1626190779-eximdsn-834799473--

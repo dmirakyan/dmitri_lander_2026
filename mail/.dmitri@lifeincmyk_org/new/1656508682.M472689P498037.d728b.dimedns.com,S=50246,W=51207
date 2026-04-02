@@ -1,0 +1,961 @@
+Return-Path: <1axcgzqnasnf76snr7t8iuoucim6rkrqtnvend-dmitri=lifeincmyk.org@bf03.hubspotemail.net>
+Delivered-To: dmitri@lifeincmyk.org
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id 8GO7GApRvGJ1mQcAM5vZiw
+	(envelope-from <1axcgzqnasnf76snr7t8iuoucim6rkrqtnvend-dmitri=lifeincmyk.org@bf03.hubspotemail.net>)
+	for <dmitri@lifeincmyk.org>; Wed, 29 Jun 2022 09:18:02 -0400
+Return-path: <1axcgzqnasnf76snr7t8iuoucim6rkrqtnvend-dmitri=lifeincmyk.org@bf03.hubspotemail.net>
+Envelope-to: dmitri@lifeincmyk.org
+Delivery-date: Wed, 29 Jun 2022 09:18:02 -0400
+Received: from pgg13u.bf03.hubspotemail.net ([54.174.52.88]:15797)
+	by d728b.dimedns.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <1axcgzqnasnf76snr7t8iuoucim6rkrqtnvend-dmitri=lifeincmyk.org@bf03.hubspotemail.net>)
+	id 1o6XKd-002wD1-KW
+	for dmitri@lifeincmyk.org;
+	Wed, 29 Jun 2022 09:18:02 -0400
+Received: by 172.16.28.112 with SMTP id axhgpp6gfjb4az5wkp9940instdfa6ey49claa;
+        Wed, 29 Jun 2022 13:17:15 GMT
+DKIM-Signature: v=1; s=hs2; d=bf03.hubspotemail.net; 
+        i=@bf03.hubspotemail.net; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=6PLdaMx77mNem7DGqHzi84DXU3XhntFsg8Km9kQIhE4=; 
+        b=BynewnMzRS0C0Z/d+Gsxm6xujVtYLBdCdxdZWUF+mS4yEOlimCnimaYP7ylmkL
+         fMEsdP4GXPSXjN54JTBWiQyHjAdAIADfSXVC/Dpdh+5qPsMlNjcR2zsYg8nWatR
+         2D1uIB4xKBvcA4tMZQWjWgx0KOSW972ZedA51HPuRyW93lWCaiFLZbqY5GD8izf
+         h8yXGRX7j8OqexTiBBLMUtAoWDz4YLvRoQp53wmlLbZ34vMCl7KiEwa64IFd07w
+         KJChT/E2UryEMu0W3v4c1mEoi3RHgvjhvZ1M4KrHZi0xVLM4wFT1TUGysyztBR9
+         Kmd4lFKkMsmRwiT5MFchF7fT2Yfw==; q=dns/txt; t=1656508635; 
+        x=1656681435;
+DKIM-Signature: v=1; s=hs1-3821121; d=greenstreet.com; 
+        i=@greenstreet.com; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=6PLdaMx77mNem7DGqHzi84DXU3XhntFsg8Km9kQIhE4=; 
+        b=PeAp5IZY5eoElD/1g6jte/ztc9pH3FghejqgXOPWTg6wRbM1oycABzya2uKjFb
+         mdemFZi2+RzKICVcUkKeedtLscmT5vT5psBw3SClbnioorzqt9925C5/vgq6CNQ
+         EVNYIRGRmTvVnIwUmk0dwA4/QFZNYoU2XK80RabVH7CYLQYjsq9WuKhVdfHOFUl
+         O9jUXQydhLyhxuEWacuM82xkrJYhIfoSTQxB1TVBmckp9fX0GvOqNWj2+eRq6YN
+         fhmYqHCl36A54MCtjlgqYIFxuB86ASRLiEKMKvLwrrRrcEwkOOSHA6hF8eGqg1m
+         Nx/ogmP/Rc6ez2+0RTg1FhY+N6pA==; q=dns/txt; t=1656508635; 
+        x=1656681435;
+X-HS-Cid: 1axfnpsgb52icbvmirkkqmxsvn6q9nvov21lnt
+List-Unsubscribe: <mailto:1axdnlxu9n3cgtdh1w6v6lraz4p9co6u5cvqax-dmitri=lifeincmyk.org@bf03.hubspotemail.net?subject=unsubscribe>
+Date: Wed, 29 Jun 2022 06:17:15 -0700
+From: Green Street Webinars <events@greenstreet.com>
+Reply-To: events@greenstreet.com
+To: dmitri@lifeincmyk.org
+Message-ID: <1656508556035.937f7a0d-be20-442b-af7d-0004e946f342@bf03.hubspotemail.net>
+Subject: Quantifying the Ecommerce Slowdown | U.S. Industrial Sector July
+ 2022 [Green Street Webinar]
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1187087_1493809920.1656508634673"
+X-Report-Abuse-To: abuse@hubspot.com (see
+ https://policy.hubspot.com/abuse-complaints)
+X-Spam-Status: No, score=3.6
+X-Spam-Score: 36
+X-Spam-Bar: +++
+X-Ham-Report: Spam detection software, running on the system "d728b.dimedns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Join Green Street on Thursday, July 14 for a discussion on
+    the U.S. Industrial Sector. banner graphic - industrial webinar-1 (https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/MWvw2lw6dz0N1CbxHM9JgRQW2qd3df4LVzB9M5Y3kw3pcXhV1-WJV7CgPf0VLDjx18vKxcqW4chsZn3S0z0GW1gXN0f4p3XHVVZn6lK7rtJdL
+    [...] 
+ Content analysis details:   (3.6 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+  3.5 KAM_WEBINAR            Spam for webinars
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+ -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium trust sender
+X-Spam-Flag: NO
+
+------=_Part_1187087_1493809920.1656508634673
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Join Green Street on Thursday, July 14 for a discussion on the U.S. Industr=
+ial Sector.
+
+banner graphic - industrial webinar-1 (https://info.greenstreet.com/e3t/Ctc=
+/T7+113/csgpw04/MWvw2lw6dz0N1CbxHM9JgRQW2qd3df4LVzB9M5Y3kw3pcXhV1-WJV7CgPf0=
+VLDjx18vKxcqW4chsZn3S0z0GW1gXN0f4p3XHVVZn6lK7rtJdLW89Ngm9528WnRW69WvgB2mrQZ=
+2W9jqY7t7b4M8MW7z1k0R6SbjcZW3H3VNL8vWc5sN8kkXBw9c5VJW4fc1w1732y2hVxGSVH6mgx=
+7HW9l70Q52NWSTvW86lyVM3lfmmKW78Y8y564y5t6W13q6FC13gMbtN4Rcs1cprt2fW9j7k6T6H=
+pY3PW6CqQf67v3_qwW1x8MVl7yGhxLW4kjFZ54pj8nxW1W1Z9j514tDGVNCtnk6cCcJgW6mYCrb=
+31Nvg6VY-jNk6RYzs6W6pv7fR1sT1R83hCB1 )
+
+U.S. Industrial Sector:
+
+Quantifying the Ecommerce Slowdown
+
+July 14, 2022
+
+10:00am PT | 1:00pm ET | 6:00pm BST | 7:00pm CEST
+
+REGISTER NOW
+(https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/MWvw2lw6dz0N1CbxHM9JgR=
+QW2qd3df4LVzB9M5Y3kw3pcXhV1-WJV7CgPf0VLDjx18vKxcqW4chsZn3S0z0GW1gXN0f4p3XHV=
+VZn6lK7rtJdLW89Ngm9528WnRW69WvgB2mrQZ2W9jqY7t7b4M8MW7z1k0R6SbjcZW3H3VNL8vWc=
+5sN8kkXBw9c5VJW4fc1w1732y2hVxGSVH6mgx7HW9l70Q52NWSTvW86lyVM3lfmmKW78Y8y564y=
+5t6W13q6FC13gMbtN4Rcs1cprt2fW9j7k6T6HpY3PW6CqQf67v3_qwW1x8MVl7yGhxLW4kjFZ54=
+pj8nxW1W1Z9j514tDGVNCtnk6cCcJgW6mYCrb31Nvg6VY-jNk6RYzs6W6pv7fR1sT1R83hCB1 )
+
+Recent news from Amazon and other major retailers suggests ecommerce-driven=
+ demand for industrial real estate seems poised to decelerate compared to t=
+he record levels seen over the past several years. Join us for a 30-minute =
+webinar to discuss:
+
+- Green Street=E2=80=99s revised ecommerce growth forecasts
+- Implications on future industrial tenant demand
+- Latest views on rent growth in a dynamic macroeconomic environment
+
+Vince Tibone
+
+Senior Analyst,
+
+Green Street
+
+Seth Laughlin
+
+Head of Enterprise Account Mgmt.,
+
+Green Street
+
+www.greenstreet.com (https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/MW=
+vw2lw6dz0N1CbxHM9JgRQW2qd3df4LVzB9M5Y3jD3pcWpV1-WJV7CgXxyW960xlT5-lQqWW4Q14=
+-N5SFQDmVV_mc-6ggvM7W4cYH7m7jzCX-W517xH94vVkvCW18B4rR9kPW4vW5DD0Zl7Qcf-lW7Y=
+cJxp94ZQn0W4YlF3b9kpyg2W1fkp071Ln5KQMySp9GQQb3nW3Gvv911gdmcSW3Z14Cp2KgtCfW7=
+0wxYz9dyl4MW6ZS3_f32_4k5W27vjrv8tT_pRW7cFQCv6mNBKsW8_8JS82PhY-NW89KtW-44Xnf=
+TW1PTwPg77sgqz37Lv1 )
+
+=C2=A9 2022, Green Street
+
+Disclosure: To see Green Street's disclosure in its entirety, please click =
+here (https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/MWvw2lw6dz0N1CbxH=
+M9JgRQW2qd3df4LVzB9M5Y3jX3pcWJV1-WJV7CgLG-W6GvdhR3QS1-XW6Q_f2R7PJYc2W4szcjQ=
+8SdYl5W2QvlLj88JSNPW61NWbM7Klv8mW2nNyBr6cXrYnW4P4bXL8WCXpQW4rFB8g4XyLg5W3-s=
+LNC6V_XPLW6lCP2438pLJsW26QwXd5Xvqv2W5WpvXs6Y_m5QW60sf_J2yGpmNW4FDgnz8tlyhbW=
+8fTnV28Zm4v1W2kTYVG2KK-_dW17G7Xk8MM6HvW1SWSDn8L5B8LW6bW6rF99m4ydW3_f6M02l1J=
+s6W8S4ShN2P_89dW2T-Wmy4fZ2k424G1 ) .
+
+Please note that emails sent to and from Green Street are subject to regula=
+tory review and archiving by Green Street. This communication should not be=
+ interpreted as a solicitation for the purchase or sale of any security. Ot=
+her important disclosure is on the Green Street website.
+
+Green Street, 100 Bayview Circle, Suite 400, Newport Beach, CA 92660, (949)=
+ 640-8780
+
+Unsubscribe (https://info.greenstreet.com/hs/manage-preferences/unsubscribe=
+-all?languagePreference=3Den&d=3DVndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4rzK=
+NX49Lbr7W7DzvzK17f7hvW76y-wj7ys7nvW6pj3234_lnX_N74x8lL28Mt0N8BF-Y-GKd_PV20N=
+7D4NMLPnW2cD8DC3KDjqRN7Xbr9r1Hx4q1&v=3D3 )
+
+Manage preferences (https://info.greenstreet.com/hs/manage-preferences/unsu=
+bscribe?languagePreference=3Den&d=3DVndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4=
+rzKNX49Lbr7W7DzvzK17f7hvW76y-wj7ys7nvW6pj3234_lnX_N74x8lL28Mt0N8BF-Y-GKd_PV=
+20N7D4NMLPnW2cD8DC3KDjqRN7Xbr9r1Hx4q1&v=3D3 )
+------=_Part_1187087_1493809920.1656508634673
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3=
+.org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:=
+v=3D"urn:schemas-microsoft-com:vml" lang=3D"en"><head>
+    <title>Quantifying the Ecommerce Slowdown | U.S. Industrial Sector July=
+ 2022 [Green Street Webinar]</title>
+    <meta property=3D"og:title" content=3D"Quantifying the Ecommerce Slowdo=
+wn | U.S. Industrial Sector July 2022 [Green Street Webinar]">
+    <meta name=3D"twitter:title" content=3D"Quantifying the Ecommerce Slowd=
+own | U.S. Industrial Sector July 2022 [Green Street Webinar]">
+   =20
+   =20
+   =20
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+    <!--[if gte mso 9]>
+  <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+  </xml>
+ =20
+  <style>
+    ul > li {
+      text-indent: -1em;
+    }
+  </style>
+<![endif]-->
+<!--[if mso]>
+<style type=3D"text/css">
+ body, td {font-family: Arial, Helvetica, sans-serif;}
+</style>
+<![endif]-->
+   =20
+     =20
+   =20
+  <meta name=3D"generator" content=3D"HubSpot"><meta property=3D"og:url" co=
+ntent=3D"https://info.greenstreet.com/-temporary-slug-fe52538a-8052-4faf-92=
+48-24ee3afdc9a1"><meta name=3D"robots" content=3D"noindex,follow"><!--[if !=
+((mso)|(IE))]><!-- --><style type=3D"text/css">.moz-text-html .hse-column-c=
+ontainer{max-width:600px !important;width:600px !important}
+.moz-text-html .hse-column{display:table-cell;vertical-align:top}.moz-text-=
+html .hse-section .hse-size-6{max-width:300px !important;width:300px !impor=
+tant}
+.moz-text-html .hse-section .hse-size-12{max-width:600px !important;width:6=
+00px !important}
+[owa] .hse-column-container{max-width:600px !important;width:600px !importa=
+nt}[owa] .hse-column{display:table-cell;vertical-align:top}
+[owa] .hse-section .hse-size-6{max-width:300px !important;width:300px !impo=
+rtant}
+[owa] .hse-section .hse-size-12{max-width:600px !important;width:600px !imp=
+ortant}
+@media only screen and (min-width:640px){.hse-column-container{max-width:60=
+0px !important;width:600px !important}
+.hse-column{display:table-cell;vertical-align:top}.hse-section .hse-size-6{=
+max-width:300px !important;width:300px !important}
+.hse-section .hse-size-12{max-width:600px !important;width:600px !important=
+}}@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_em=
+ail_entries_table img,.hs-stretch-cta .hs-cta-img{height:auto !important;wi=
+dth:100% !important}
+.display_block_on_small_screens{display:block}.hs_padded{padding-left:20px =
+!important;padding-right:20px !important}
+ul,blockquote{margin:0;padding:1em 40px}}</style><!--<![endif]--><style typ=
+e=3D"text/css">body[data-outlook-cycle] img.stretch-on-mobile,body[data-out=
+look-cycle] .hs_rss_email_entries_table img{height:auto !important;width:10=
+0% !important}
+body[data-outlook-cycle] .hs_padded{padding-left:20px !important;padding-ri=
+ght:20px !important}
+a[x-apple-data-detectors]{color:inherit !important;text-decoration:none !im=
+portant;font-size:inherit !important;font-family:inherit !important;font-we=
+ight:inherit !important;line-height:inherit !important}
+#outlook a{padding:0}.yshortcuts a{border-bottom:none !important}a{text-dec=
+oration:underline}
+.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass td=
+,.ExternalClass div,.ExternalClass span,.ExternalClass font{line-height:100=
+%}
+p{margin:0}body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-we=
+bkit-font-smoothing:antialiased;moz-osx-font-smoothing:grayscale}
+@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_emai=
+l_entries_table img,.hs-stretch-cta .hs-cta-img{height:auto !important;widt=
+h:100% !important}
+}@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_ema=
+il_entries_table img,.hs-stretch-cta .hs-cta-img{height:auto !important;wid=
+th:100% !important}
+}</style></head>
+  <body bgcolor=3D"#f5f1f1" style=3D"margin:0 !important; padding:0 !import=
+ant; font-family:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-br=
+eak:break-word">
+   =20
+<div id=3D"preview_text" style=3D"display:none!important;font-size:1px;colo=
+r:#f5f1f1;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:h=
+idden;">Join Green Street on Thursday, July 14 for a discussion on the U.S.=
+ Industrial Sector.</div>
+   =20
+<!--[if gte mso 9]>
+<v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+ =20
+    <v:fill type=3D"tile" size=3D"100%,100%" color=3D"#f5f1f1"/>
+ =20
+</v:background>
+<![endif]-->
+    <div class=3D"hse-body-background" style=3D"background-color:#f5f1f1" b=
+gcolor=3D"#f5f1f1">
+      <table role=3D"presentation" class=3D"hse-body-wrapper-table" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; margin:0; pad=
+ding:0; width:100% !important; min-width:320px !important; height:100% !imp=
+ortant" width=3D"100%" height=3D"100%">
+        <tbody><tr>
+          <td class=3D"hse-body-wrapper-td" valign=3D"top" style=3D"border-=
+collapse:collapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-s=
+erif; font-size:15px; color:#1a1939; word-break:break-word">
+            <div id=3D"hs_cos_wrapper_main" class=3D"hs_cos_wrapper hs_cos_=
+wrapper_widget hs_cos_wrapper_type_dnd_area" style=3D"color: inherit; font-=
+size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" d=
+ata-hs-cos-type=3D"dnd_area">  <div id=3D"section_1603929959647" class=3D"h=
+se-section hse-section-first" style=3D"padding-left:10px; padding-right:10p=
+x; padding-top:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1603929959647_0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_160392995958414" class=3D"hs_cos_wrapper=
+ hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit;=
+ font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"wid=
+get" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; color=
+:#1a1939; word-break:break-word; text-align:center; padding:0px; font-size:=
+0px">
+               =20
+                    <a href=3D"https://info.greenstreet.com/e3t/Ctc/T7+113/=
+csgpw04/MWvw2lw6dz0N1CbxHM9JgRQW2qd3df4LVzB9M5Y3kw3q2TyV1-WJV7CgQ6lW7WD6Sd4=
+vCVdJW6YxZsd3lF8xGW2PJxXM8Dhc-VW4LHyTc4qW2-2W39tCLB42877nW1kVc2d2kyXwgW8Hys=
+ZX1kBw-6MQ2Ykz5MLwlW7vvg426sSGzjW3bQTcr97KfxjW4sqk008lYYZyW1X1DPJ3SgknnW3vB=
+-c-50R49gW5Dsd0W7Pc-ZkW2GdX6W1xXm7gW2bgQLQ3HV6wqW8GGrqX1-8cM1N6ccgLYQmGlTVp=
+cCj95WGWwtW192Bpg9kK2VsW4tcWQP37Zd3-W3LZxMC6S8rqZW1d88hV6XP9hHW5-SdSl6FXRfK=
+W6FM43v2PGz35W96NbbK85q9BM354d1" target=3D"_blank" style=3D"color:#00a4bd; =
+mso-line-height-rule:exactly" data-hs-link-id=3D"0">
+               =20
+                <img alt=3D"banner graphic - industrial webinar-1" src=3D"h=
+ttps://info.greenstreet.com/hs-fs/hubfs/banner%20graphic%20-%20industrial%2=
+0webinar-1.png?width=3D1200&amp;upscale=3Dtrue&amp;name=3Dbanner%20graphic%=
+20-%20industrial%20webinar-1.png" style=3D"outline:none; text-decoration:no=
+ne; -ms-interpolation-mode:bicubic; border:none; max-width:100%; font-size:=
+16px" width=3D"600" align=3D"middle" srcset=3D"https://info.greenstreet.com=
+/hs-fs/hubfs/banner%20graphic%20-%20industrial%20webinar-1.png?upscale=3Dtr=
+ue&amp;width=3D1200&amp;upscale=3Dtrue&amp;name=3Dbanner%20graphic%20-%20in=
+dustrial%20webinar-1.png 600w, https://info.greenstreet.com/hs-fs/hubfs/ban=
+ner%20graphic%20-%20industrial%20webinar-1.png?upscale=3Dtrue&amp;width=3D2=
+400&amp;upscale=3Dtrue&amp;name=3Dbanner%20graphic%20-%20industrial%20webin=
+ar-1.png 1200w" sizes=3D"(max-width: 600px) 100vw, 600px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1611864314693" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1611864314693_0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_16118643145551" class=3D"hs_cos_wrapper =
+hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; =
+font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widg=
+et" data-hs-cos-type=3D"module">
+<!--[if gte mso 9]>
+<v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"f=
+alse" style=3D"width:600px; height:2pt;" fillcolor=3D"none">
+<v:fill type=3D"tile"/>
+<v:textbox inset=3D"0,0,0,0">
+<div>
+<![endif]-->
+<table role=3D"presentation" width=3D"100%" align=3D"center" border=3D"0" s=
+tyle=3D"position:relative; top:-1px; min-width:20px; width:100%; max-width:=
+100%; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; border-=
+collapse:collapse; font-size:1px">
+  <tbody><tr>
+   =20
+   =20
+   =20
+    <td width=3D"100%" valign=3D"middle" style=3D"border-collapse:collapse;=
+ mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; font-size:15=
+px; color:#1a1939; word-break:break-word; line-height:0; border:transparent=
+; border-bottom:1px solid #CCCCCC; mso-border-bottom-alt:1px solid #CCCCCC;=
+ border-bottom-width:1px">&nbsp;</td>
+   =20
+   =20
+  </tr>
+</tbody></table>
+<!--[if gte mso 9]></div></v:textbox></v:rect><![endif]--></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1603917893495" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#FFFFFF; padding-bottom:5px; p=
+adding-top:10px" bgcolor=3D"#FFFFFF">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#FFFFFF">
+      <tr style=3D"background-color:#FFFFFF;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:5px; padding-top:1=
+0px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1610667430800_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word;=
+ padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16107511952121" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_16107511952121_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs=
+_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; l=
+ine-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; text-align:center;=
+ font-size:20px; line-height:125%; font-weight:bold" align=3D"center"><span=
+ style=3D"color: #000000;">U.S. Industrial Sector:</span></p>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; font-size:20px=
+; line-height:125%; font-weight:bold" align=3D"center"><span style=3D"color=
+: #000000;">Quantifying the Ecommerce Slowdown</span></p></div></div></td><=
+/tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px"><div id=3D"hs_cos_wrapper_module_16106681068817" class=3D"hs_c=
+os_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color=
+: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-general-t=
+ype=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapper_module=
+_16106681068817_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrap=
+per_type_rich_text" style=3D"color: inherit; font-size: inherit; line-heigh=
+t: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_t=
+ext"><h2 style=3D"margin:0; mso-line-height-rule:exactly; text-align:center=
+; font-size:16px; line-height:125%; font-weight:bold" align=3D"center"><spa=
+n style=3D"color: #000000; font-family: Arial, sans-serif;">July 14, 2022</=
+span></h2>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; line-height:12=
+5%; font-size:16px" align=3D"center"><span style=3D"color: #000000; font-fa=
+mily: Arial, sans-serif; font-weight: bold;">10:00am PT | 1:00pm ET | 6:00p=
+m BST | 7:00pm CEST</span></p></div></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:5px 20px 10px"><div id=3D"hs_cos_wrapper_module_16106681654318" clas=
+s=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#559b23" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#559b23;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#559b23" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break=
+:break-word; border-radius:8px; cursor:auto; background-color:#559b23">
+   <!--<![endif]-->
+        <a href=3D"https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/MWvw=
+2lw6dz0N1CbxHM9JgRQW2qd3df4LVzB9M5Y3kw3q2TyV1-WJV7CgFL9W2H1n0Z1h-RBzW6h_2LL=
+4wZlVjW1QCjBY8SN2fhW30Th9c6MFXhXW1s-CgD5zQq3LW83TQhV3K99GYN3L4TJBR9g3RW7gLq=
+1C102yXQW47NWg41QB1g1W3h9fb67KNKP9W1NkmNB7ljwGSW2GZ9q_881gNDW7xZpCd4Rgx4QVf=
+qjhZ4M4_VmW2nTZg86mHh_FW2k_ThR6ShCXgW6WpZNq395QT_VVrdvr1M8m2zW29K-Zn5Dz9mcW=
+3hG-NZ3HQrX7N3HgP4c9VC2JW5XQs638_WF3SW6hlX2H7KpsQ9W2WmwNJ8BjX46VnKrVy6P7PYj=
+N6mRNHR8LZ973l_B1" target=3D"_blank" style=3D"color:#00a4bd; mso-line-heigh=
+t-rule:exactly; font-size:16px; font-family:Arial, sans-serif; Margin:0; te=
+xt-transform:none; text-decoration:none; padding:12px 18px; display:block" =
+data-hs-link-id=3D"1">
+          <strong style=3D"color:#ffffff;font-weight:bold;text-decoration:n=
+one;font-style:normal;">REGISTER NOW</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:5px 34px 0px 35px"><div id=3D"hs_cos_wrapper_module_16106678781355" =
+class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" s=
+tyle=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-=
+cos-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_w=
+rapper_module_16106678781355_" class=3D"hs_cos_wrapper hs_cos_wrapper_widge=
+t hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inheri=
+t; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-t=
+ype=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; font-size:15px;=
+ line-height:125%; text-align:justify" align=3D"justify"><span style=3D"fon=
+t-family: Arial, sans-serif; color: #000000;">Recent news from Amazon and o=
+ther major retailers suggests ecommerce-driven demand for industrial real e=
+state seems poised to decelerate compared to the record levels seen over th=
+e past several years. Join us for a 30-minute webinar to discuss:</span></p=
+>
+<ul style=3D"mso-line-height-rule:exactly; font-size:15px; line-height:175%=
+">
+<li style=3D"mso-line-height-rule:exactly; color:#3e464b; line-height:125%"=
+><span style=3D"font-family: Arial, sans-serif; color: #000000;">Green Stre=
+et=E2=80=99s revised ecommerce growth forecasts</span></li>
+<li style=3D"mso-line-height-rule:exactly; color:#3e464b; line-height:125%"=
+><span style=3D"font-family: Arial, sans-serif; color: #000000;">Implicatio=
+ns on future industrial tenant demand</span></li>
+<li style=3D"mso-line-height-rule:exactly; color:#3e464b; line-height:125%"=
+><span style=3D"font-family: Arial, sans-serif; color: #000000;">Latest vie=
+ws on rent growth in a dynamic macroeconomic environment</span></li>
+</ul></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1610751049056" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#559b23; padding-bottom:3px; p=
+adding-top:3px" bgcolor=3D"#559b23">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#559b23">
+      <tr style=3D"background-color:#559b23;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:300px;padding-bottom:3px; padding-top:3=
+px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"300" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:300px">
+<![endif]-->
+<div id=3D"column_1610751049056_2" class=3D"hse-column hse-size-6">
+  <div id=3D"hs_cos_wrapper_module-4-5-1" class=3D"hs_cos_wrapper hs_cos_wr=
+apper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; font-size=
+: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-=
+hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; color=
+:#1a1939; word-break:break-word; text-align:center; padding:20px 20px 10px;=
+ font-size:0px">
+               =20
+                <img alt=3D"Webinar Headshots - Vince Tibone" src=3D"https:=
+//info.greenstreet.com/hs-fs/hubfs/Webinar%20Headshots%20-%20Vince%20Tibone=
+.png?width=3D320&amp;upscale=3Dtrue&amp;name=3DWebinar%20Headshots%20-%20Vi=
+nce%20Tibone.png" style=3D"outline:none; text-decoration:none; -ms-interpol=
+ation-mode:bicubic; max-width:100%; font-size:16px" width=3D"160" align=3D"=
+middle" srcset=3D"https://info.greenstreet.com/hs-fs/hubfs/Webinar%20Headsh=
+ots%20-%20Vince%20Tibone.png?upscale=3Dtrue&amp;width=3D320&amp;upscale=3Dt=
+rue&amp;name=3DWebinar%20Headshots%20-%20Vince%20Tibone.png 160w, https://i=
+nfo.greenstreet.com/hs-fs/hubfs/Webinar%20Headshots%20-%20Vince%20Tibone.pn=
+g?upscale=3Dtrue&amp;width=3D640&amp;upscale=3Dtrue&amp;name=3DWebinar%20He=
+adshots%20-%20Vince%20Tibone.png 320w" sizes=3D"(max-width: 160px) 100vw, 1=
+60px">
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px 20px"><div id=3D"hs_cos_wrapper_module_161066952341019" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_161066952341019_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; text-align:center;=
+ line-height:125%; font-size:16px" align=3D"center"><span style=3D"font-fam=
+ily: Arial, sans-serif; color: #ffffff;"><strong>Vince Tibone</strong></spa=
+n></p>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; font-size:14px=
+; line-height:125%" align=3D"center"><em><span style=3D"color: #ffffff; fon=
+t-family: Arial, sans-serif;">Senior Analyst,</span></em></p>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; font-size:14px=
+; line-height:125%" align=3D"center"><em><span style=3D"color: #ffffff; fon=
+t-family: Arial, sans-serif;">Green Street&nbsp;</span></em></p></div></div=
+></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:300px;padding-bottom:3px; padding-top:3=
+px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"300" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:300px">
+<![endif]-->
+<div id=3D"column_1610751049056_3" class=3D"hse-column hse-size-6">
+  <div id=3D"hs_cos_wrapper_module_161066948029916" class=3D"hs_cos_wrapper=
+ hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit;=
+ font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"wid=
+get" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; color=
+:#1a1939; word-break:break-word; text-align:center; padding:20px 20px 10px;=
+ font-size:0px">
+               =20
+                <img alt=3D"Webinar Headshots - Seth Laughlin" src=3D"https=
+://info.greenstreet.com/hs-fs/hubfs/Webinar%20Headshots%20-%20Seth%20Laughl=
+in.png?width=3D320&amp;upscale=3Dtrue&amp;name=3DWebinar%20Headshots%20-%20=
+Seth%20Laughlin.png" style=3D"outline:none; text-decoration:none; -ms-inter=
+polation-mode:bicubic; max-width:100%; font-size:16px" width=3D"160" align=
+=3D"middle" srcset=3D"https://info.greenstreet.com/hs-fs/hubfs/Webinar%20He=
+adshots%20-%20Seth%20Laughlin.png?upscale=3Dtrue&amp;width=3D320&amp;upscal=
+e=3Dtrue&amp;name=3DWebinar%20Headshots%20-%20Seth%20Laughlin.png 160w, htt=
+ps://info.greenstreet.com/hs-fs/hubfs/Webinar%20Headshots%20-%20Seth%20Laug=
+hlin.png?upscale=3Dtrue&amp;width=3D640&amp;upscale=3Dtrue&amp;name=3DWebin=
+ar%20Headshots%20-%20Seth%20Laughlin.png 320w" sizes=3D"(max-width: 160px) =
+100vw, 160px">
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px 20px"><div id=3D"hs_cos_wrapper_module_161066951732818" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_161066951732818_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; text-align:center;=
+ line-height:125%; font-size:16px" align=3D"center"><span style=3D"font-fam=
+ily: Arial, sans-serif; color: #ffffff;"><strong>Seth Laughlin</strong></sp=
+an></p>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; font-size:14px=
+; line-height:125%" align=3D"center"><em><span style=3D"color: #ffffff; fon=
+t-family: Arial, sans-serif;">Head of </span></em><em><span style=3D"color:=
+ #ffffff; font-family: Arial, sans-serif;">Enterprise Account Mgmt.,</span>=
+</em></p>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; font-size:14px=
+; line-height:125%" align=3D"center"><em><span style=3D"color: #ffffff; fon=
+t-family: Arial, sans-serif;">Green Street</span></em></p></div></div></td>=
+</tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1603928748074" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#4f649a" bgcolor=3D"#4f649a">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#4f649a">
+      <tr style=3D"background-color:#4f649a;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1603928748074_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word;=
+ padding:10px 20px"><div id=3D"hs_cos_wrapper_module_160392874802613" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_160392874802613_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><h2 style=3D"margin:0; mso-line-height-rule:exactly; font-si=
+ze:14px; line-height:175%; text-align:center" align=3D"center"><span style=
+=3D"color: #ffffff;"><a href=3D"https://info.greenstreet.com/e3t/Ctc/T7+113=
+/csgpw04/MWvw2lw6dz0N1CbxHM9JgRQW2qd3df4LVzB9M5Y3jD3q2SGV1-WJV7CgKG2N7prd83=
+ySXRkW1BpDRS1xVFjKW5Lm3vm65W00tW1ZJLWn8lXymtW1YdScb76cfzjW9k-QWH484f6zW9hm-=
+tp5rJR4QW6YqB0-75k7ZGW6T8yrJ2jjJRVW6FqmWC5sP6KKW8_qTC34n4KrfVcYcVy475GF-W2p=
+z9kc606Lr4W2fc19c3y0LDwW4lQG757sgnYXW5wXQks5cyYYRN1y-1f-KtGsCMr9l9G-9F0cW5x=
+vrx_63g9xxW8hJs917ckxcR2vV1" style=3D"mso-line-height-rule:exactly; font-we=
+ight:bold; color:#ffffff" rel=3D"noopener" data-hs-link-id=3D"0" target=3D"=
+_blank">www.greenstreet.com</a></span></h2></div></div></td></tr></tbody></=
+table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section-6" class=3D"hse-section hse-section-last" style=3D"pad=
+ding-left:10px; padding-right:10px; padding-bottom:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#f5f1f1" bgcolor=3D"#f5f1f1">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#f5f1f1">
+      <tr style=3D"background-color:#f5f1f1;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column-6-1" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word;=
+ padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16107513904843" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_16107513904843_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs=
+_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; l=
+ine-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><div style=3D"mso-line-height-rule:exactly; text-align:cente=
+r; font-size:11px; line-height:125%" align=3D"center">
+<div style=3D"mso-line-height-rule:exactly; text-align:center; font-size:11=
+px; line-height:125%" align=3D"center"><span style=3D"color: #666666;">=C2=
+=A9 2022, Green Street</span></div>
+<div style=3D"mso-line-height-rule:exactly; text-align:center; font-size:11=
+px; line-height:125%" align=3D"center"><span style=3D"color: #666666;">&nbs=
+p;</span></div>
+<div style=3D"mso-line-height-rule:exactly; text-align:center; font-size:11=
+px; line-height:125%" align=3D"center"><span style=3D"color: #666666;"><str=
+ong>Disclosure:</strong>&nbsp;To see Green Street's disclosure in its entir=
+ety, please&nbsp;<a href=3D"https://info.greenstreet.com/e3t/Ctc/T7+113/csg=
+pw04/MWvw2lw6dz0N1CbxHM9JgRQW2qd3df4LVzB9M5Y3jX3q2SZV1-WJV7CgHLYW99l3xN6Hvb=
+KWW75_yPz1nhy89W6vsj1K5sWCk4W3093Lv1dyjy8VwHXH-7kRSsxW7nFgwf3XGBMLW3nXJ_-91=
+qjBVW49Bbwg7yZt4SN7Y10D4GprqkW1jFfRf5V5p7rW92v50f55bXgBW8PlhGH1HPH27W3J-bv6=
+6VLg41W2pGlj31BPwqKW3GMG4W1F7hXmW4NQSH97fNCSBW3WlnjZ1BqxTpW6c3BPf5Z2szDW8jx=
+68z16MsyBW7xLrY71Y_MjJW70GDw89h29YLW82MXrF5D_VKp3nP11" target=3D"_blank" st=
+yle=3D"mso-line-height-rule:exactly; text-decoration:none; color:#666666" r=
+el=3D"noopener" data-hs-link-id=3D"0">click here</a>.</span></div>
+<div style=3D"mso-line-height-rule:exactly; text-align:center; font-size:11=
+px; line-height:125%" align=3D"center"><span style=3D"color: #666666;">&nbs=
+p;</span></div>
+<div style=3D"mso-line-height-rule:exactly; font-size:11px; line-height:125=
+%; text-align:center" align=3D"center"><span style=3D"color: #666666;">Plea=
+se note that emails sent to and from Green Street are subject to regulatory=
+ review and archiving by Green Street. This communication should not be int=
+erpreted as a solicitation for the purchase or sale of any security. Other =
+important disclosure is on the Green Street website.</span></div>
+</div></div></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px 20px"><div id=3D"hs_cos_wrapper_module-6-1-1" class=3D"hs_cos_w=
+rapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: in=
+herit; font-size: inherit; line-height: inherit;" data-hs-cos-general-type=
+=3D"widget" data-hs-cos-type=3D"module">
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+<table role=3D"presentation" class=3D"hse-footer hse-secondary" width=3D"10=
+0%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !importan=
+t; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; fo=
+nt-family:Arial, sans-serif; font-size:12px; line-height:135%; color:#23496=
+d; margin-bottom:0; padding:0">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; font-=
+size:15px; color:#1a1939; word-break:break-word; text-align:center; margin-=
+bottom:0; line-height:135%; padding:10px 20px">
+               =20
+                <p style=3D"mso-line-height-rule:exactly; font-family:Arial=
+, sans-serif; font-size:12px; font-weight:normal; text-decoration:none; fon=
+t-style:normal; color:#666666; direction:lrt" dir=3D"lrt">
+                  Green Street, 100 Bayview Circle, Suite 400, Newport Beac=
+h, CA 92660, (949) 640-8780
+                </p>
+                <p style=3D"mso-line-height-rule:exactly">
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://info.greenst=
+reet.com/hs/manage-preferences/unsubscribe-all?languagePreference=3Den&amp;=
+d=3DVndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4rzKNX49Lbr7W7DzvzK17f7hvW76y-wj7=
+ys7nvW6pj3234_lnX_N74x8lL28Mt0N8BF-Y-GKd_PV20N7D4NMLPnW2cD8DC3KDjqRN7Xbr9r1=
+Hx4q1&amp;v=3D3&amp;utm_campaign=3D2022%20July%20US%20Industrial&amp;utm_so=
+urce=3Dhs_email&amp;utm_medium=3Demail&amp;utm_content=3D218001820" style=
+=3D"mso-line-height-rule:exactly; font-family:Arial, sans-serif; font-size:=
+12px; color:#559b43; font-weight:normal; text-decoration:underline; font-st=
+yle:normal" data-hs-link-id=3D"0" target=3D"_blank">Unsubscribe</a>
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://info.greenst=
+reet.com/hs/manage-preferences/unsubscribe?languagePreference=3Den&amp;d=3D=
+VndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4rzKNX49Lbr7W7DzvzK17f7hvW76y-wj7ys7n=
+vW6pj3234_lnX_N74x8lL28Mt0N8BF-Y-GKd_PV20N7D4NMLPnW2cD8DC3KDjqRN7Xbr9r1Hx4q=
+1&amp;v=3D3&amp;utm_campaign=3D2022%20July%20US%20Industrial&amp;utm_source=
+=3Dhs_email&amp;utm_medium=3Demail&amp;utm_content=3D218001820" style=3D"ms=
+o-line-height-rule:exactly; font-family:Arial, sans-serif; font-size:12px; =
+color:#559b43; font-weight:normal; text-decoration:underline; font-style:no=
+rmal" data-hs-link-id=3D"0" target=3D"_blank">Manage preferences</a>
+                 =20
+                </p>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+</div>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+ =20
+<img src=3D"https://info.greenstreet.com/e3t/Cto/T7+113/csgpw04/MWvw2lw6dz0=
+N1CbxHM9JgRQW2qd3df4LVzB9V5Y3413CT6Ky112" alt=3D"" width=3D"1" height=3D"1"=
+ border=3D"0" style=3D"display:none!important;min-height:1px!important;widt=
+h:1px!important;border-width:0!important;margin-top:0!important;margin-bott=
+om:0!important;margin-right:0!important;margin-left:0!important;padding-top=
+:0!important;padding-bottom:0!important;padding-right:0!important;padding-l=
+eft:0!important"></body></html>
+------=_Part_1187087_1493809920.1656508634673--
+

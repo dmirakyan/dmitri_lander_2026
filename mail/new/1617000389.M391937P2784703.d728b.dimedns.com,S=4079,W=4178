@@ -1,0 +1,99 @@
+Return-Path: <>
+Delivered-To: lifeincm@d728b.dimedns.com
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id SPiqFMV3YWC/fSoAM5vZiw
+	(envelope-from <>)
+	for <lifeincm@d728b.dimedns.com>; Mon, 29 Mar 2021 02:46:29 -0400
+Return-path: <>
+Envelope-to: lifeincm@d728b.dimedns.com
+Delivery-date: Mon, 29 Mar 2021 02:46:29 -0400
+Received: from mailnull by d728b.dimedns.com with local (Exim 4.94)
+	id 1lQlfR-00BiV1-83
+	for lifeincm@d728b.dimedns.com; Mon, 29 Mar 2021 02:46:29 -0400
+X-Failed-Recipients: damirakyan@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@d728b.dimedns.com>
+To: lifeincm@d728b.dimedns.com
+References: <E1lQlfQ-00BiUB-23@d728b.dimedns.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1617000389-eximdsn-1296920806
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1lQlfR-00BiV1-83@d728b.dimedns.com>
+Date: Mon, 29 Mar 2021 02:46:29 -0400
+
+--1617000389-eximdsn-1296920806
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  damirakyan@gmail.com
+    host gmail-smtp-in.l.google.com [74.125.137.27]
+    SMTP error from remote mail server after end of data:
+    550-5.7.26 Unauthenticated email from mail.ru is not accepted due to domain's
+    550-5.7.26 DMARC policy. Please contact the administrator of mail.ru domain if
+    550-5.7.26 this was a legitimate mail. Please visit
+    550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+    550 5.7.26 DMARC initiative. x16si20623497pgg.329 - gsmtp
+
+--1617000389-eximdsn-1296920806
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; d728b.dimedns.com
+
+Action: failed
+Final-Recipient: rfc822;damirakyan@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 Unauthenticated email from mail.ru is not accepted due to domain's
+ 550-5.7.26 DMARC policy. Please contact the administrator of mail.ru domain if
+ 550-5.7.26 this was a legitimate mail. Please visit
+ 550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+ 550 5.7.26 DMARC initiative. x16si20623497pgg.329 - gsmtp
+
+--1617000389-eximdsn-1296920806
+Content-type: message/rfc822
+
+Return-path: <lifeincm@d728b.dimedns.com>
+Received: from lifeincm by d728b.dimedns.com with local (Exim 4.94)
+	(envelope-from <lifeincm@d728b.dimedns.com>)
+	id 1lQlfQ-00BiUB-23
+	for damirakyan@gmail.com; Mon, 29 Mar 2021 02:46:28 -0400
+To: damirakyan@gmail.com
+Subject: form submission
+X-PHP-Script: lifeincmyk.org/html_form_send.php for 188.162.180.197
+X-PHP-Originating-Script: 1397:html_form_send.php
+From: anzhenlal8zya@mail.ru
+Reply-To: anzhenlal8zya@mail.ru
+X-Mailer: PHP/7.2.34
+Message-Id: <E1lQlfQ-00BiUB-23@d728b.dimedns.com>
+Date: Mon, 29 Mar 2021 02:46:28 -0400
+
+Form details below.
+
+Name:FixpriceNeurejewwed
+Email: anzhenlal8zya@mail.ru
+Comments: Добрый день! 
+ 
+Приглашаем Вас в магазин уникального контента https://fixpricecontent.ru 
+ 
+Для Вас хорошие статьи от 1500 до 14000 знаков, уникальность не ниже 80%. 
+Готовы к публикации с минимальной доработкой под Ваш сайт. 
+ 
+Цена на любую статью 19.90 руб не зависимо от количества знаков. 
+ 
+Новым покупателям - подарок! Скидка 10% на сумму заказа по купону 2BGZ6XBG 
+ 
+ 
+Ждем Вас на сайте магазина: https://fixpricecontent.ru/ 
+ 
+Поддержка 24\7. Удобный поиск по базе статей. 
+Постоянно работаем над расширением ассортимента! 
+ 
+При покупке - регистрация на сайте обязательна.
+
+
+--1617000389-eximdsn-1296920806--

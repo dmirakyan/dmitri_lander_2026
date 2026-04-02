@@ -1,0 +1,98 @@
+Return-Path: <>
+Delivered-To: lifeincm@d728b.dimedns.com
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id COjhACW1QWCEKh8AM5vZiw
+	(envelope-from <>)
+	for <lifeincm@d728b.dimedns.com>; Thu, 04 Mar 2021 23:35:49 -0500
+Return-path: <>
+Envelope-to: lifeincm@d728b.dimedns.com
+Delivery-date: Thu, 04 Mar 2021 23:35:49 -0500
+Received: from mailnull by d728b.dimedns.com with local (Exim 4.93)
+	id 1lI2Bo-008ZfI-U3
+	for lifeincm@d728b.dimedns.com; Thu, 04 Mar 2021 23:35:48 -0500
+X-Failed-Recipients: damirakyan@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@d728b.dimedns.com>
+To: lifeincm@d728b.dimedns.com
+References: <E1lI2Bo-008Zev-0x@d728b.dimedns.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1614918948-eximdsn-1045803231
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1lI2Bo-008ZfI-U3@d728b.dimedns.com>
+Date: Thu, 04 Mar 2021 23:35:48 -0500
+
+--1614918948-eximdsn-1045803231
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  damirakyan@gmail.com
+    host gmail-smtp-in.l.google.com [74.125.137.26]
+    SMTP error from remote mail server after end of data:
+    550-5.7.26 Unauthenticated email from google.com is not accepted due to domain's
+    550-5.7.26 DMARC policy. Please contact the administrator of google.com domain
+    550-5.7.26 if this was a legitimate mail. Please visit
+    550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+    550 5.7.26 DMARC initiative. u10si1055540pgl.232 - gsmtp
+
+--1614918948-eximdsn-1045803231
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; d728b.dimedns.com
+
+Action: failed
+Final-Recipient: rfc822;damirakyan@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 Unauthenticated email from google.com is not accepted due to domain's
+ 550-5.7.26 DMARC policy. Please contact the administrator of google.com domain
+ 550-5.7.26 if this was a legitimate mail. Please visit
+ 550-5.7.26  https://support.google.com/mail/answer/2451690 to learn about the
+ 550 5.7.26 DMARC initiative. u10si1055540pgl.232 - gsmtp
+
+--1614918948-eximdsn-1045803231
+Content-type: message/rfc822
+
+Return-path: <lifeincm@d728b.dimedns.com>
+Received: from lifeincm by d728b.dimedns.com with local (Exim 4.93)
+	(envelope-from <lifeincm@d728b.dimedns.com>)
+	id 1lI2Bo-008Zev-0x
+	for damirakyan@gmail.com; Thu, 04 Mar 2021 23:35:48 -0500
+To: damirakyan@gmail.com
+Subject: form submission
+X-PHP-Script: lifeincmyk.org/html_form_send.php for 91.90.122.138
+X-PHP-Originating-Script: 1397:html_form_send.php
+From: no-reply@google.com
+Reply-To: no-reply@google.com
+X-Mailer: PHP/7.2.34
+Message-Id: <E1lI2Bo-008Zev-0x@d728b.dimedns.com>
+Date: Thu, 04 Mar 2021 23:35:48 -0500
+
+Form details below.
+
+Name:Mike Bradshaw
+
+Email: no-reply@google.com
+Comments: Hi there 
+ 
+I have just took a look on your SEO for  lifeincmyk.org for the ranking keywords and saw that your website could use an upgrade. 
+ 
+We will improve your SEO metrics and ranks organically and safely, using only whitehat methods, while providing monthly reports and outstanding support. 
+ 
+Please check our services below, we offer SEO at cheap rates. 
+https://www.hilkom-digital.de/cheap-seo-packages/ 
+ 
+Start enhancing your sales and leads with us, today! 
+ 
+regards 
+Mike Bradshaw
+ 
+Hilkom Digital Team 
+support@hilkom-digital.de
+
+
+--1614918948-eximdsn-1045803231--

@@ -1,0 +1,965 @@
+Return-Path: <1axce3zop5ip4gxv906cejtnambmsg7eodho7t-dmitri=lifeincmyk.org@bf03.hubspotemail.net>
+Delivered-To: dmitri@lifeincmyk.org
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id KL8sHt96cmJKvzEAM5vZiw
+	(envelope-from <1axce3zop5ip4gxv906cejtnambmsg7eodho7t-dmitri=lifeincmyk.org@bf03.hubspotemail.net>)
+	for <dmitri@lifeincmyk.org>; Wed, 04 May 2022 09:08:47 -0400
+Return-path: <1axce3zop5ip4gxv906cejtnambmsg7eodho7t-dmitri=lifeincmyk.org@bf03.hubspotemail.net>
+Envelope-to: dmitri@lifeincmyk.org
+Delivery-date: Wed, 04 May 2022 09:08:47 -0400
+Received: from bid47vt.bf03.hubspotemail.net ([158.247.24.151]:43393)
+	by d728b.dimedns.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.94.2)
+	(envelope-from <1axce3zop5ip4gxv906cejtnambmsg7eodho7t-dmitri=lifeincmyk.org@bf03.hubspotemail.net>)
+	id 1nmEkF-00DnGh-EG
+	for dmitri@lifeincmyk.org; Wed, 04 May 2022 09:08:47 -0400
+Received: by 172.16.28.112 with SMTP id axhgpp6gfjb4az279xv06ihkihar78dh8zfgea;
+        Wed, 4 May 2022 13:08:00 GMT
+DKIM-Signature: v=1; s=hs1; d=bf03.hubspotemail.net; 
+        i=@bf03.hubspotemail.net; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=SNm3+edR5DpBjdXkwkdUUY/k+Y5NRlx/JGy+QBgdwSs=; 
+        b=FMzgK+jSCAMJnsQ88vsdV3sIepn4F0F3sbpniuPg1EmdAZ1grmDj/TcPc4vFXT
+         EUfK6a1VgxH7MvZfMPeLatiObPhNu/IxXGs6xvZsKNXUiykgV9U8z+83nSQyosn
+         P0zlJy1E+utPc2oBCd8360dris/OfWSy476i78BU6SCRR3i1v8oztZ9rXSPZlgj
+         JthkdRA73Mjk5jBe3xJijpto9BlBV1a5miYXpw33mtLJu/EaaIt6a0Ygd0xsaMj
+         OZmBU2uKs7HUYjOmI72DTutdU7UIn0DXtr7A62a8J2k+c3dg07IytSliq6Cc+KX
+         IVPKUMAbwqvj9Rn27N3IkpNyLAFQ==; q=dns/txt; t=1651669680; 
+        x=1651842480;
+DKIM-Signature: v=1; s=hs1-3821121; d=greenstreet.com; 
+        i=@greenstreet.com; 
+        h=sender:from:from:reply-to:to:to:cc:cc:subject:subject:list-unsubscribe:form-sub:feedback-id; 
+        a=rsa-sha256; c=relaxed/relaxed; 
+        bh=SNm3+edR5DpBjdXkwkdUUY/k+Y5NRlx/JGy+QBgdwSs=; 
+        b=QPYXFXiNlf1M9BmSvUiZT6PXo6qTIBB+lC0I+XwEFm2Tk1faOUKbV4H+xSOaEv
+         iCzmzaaaQIyo+5Yz8OXK0Zll2oxAmr6PyksZ7p0HvYSSmeJdpQpyvRDixc709kD
+         aW/lHlVc7cZjMGbeIq0bgxnF9pKlYFq+NPv0Qch1A3b9mgDZ1w7M7ATdsMVr7aZ
+         w91JGe8WaghdnH1G6GouX2hd9pG2lrWymo88FBhNEM32YgBHJVf3SdysVMfN5tu
+         hdBvUkPkMv+GA0+HBT2z5LtkMY5UcE14y51GmeCyybNUSDG17yz7fMW+4QGc/tM
+         Jj9QC+1z9TfUGUJVWQIpXC65KwAg==; q=dns/txt; t=1651669680; 
+        x=1651842480;
+X-HS-Cid: 1axfl572v7nxrsg5usorrlldqbpocgn1cd7b2x
+List-Unsubscribe: <mailto:1axdoilxekejytfm5vqvf8m74ps5kity7wrppl-dmitri=lifeincmyk.org@bf03.hubspotemail.net?subject=unsubscribe>
+Date: Wed, 4 May 2022 06:08:00 -0700
+From: Green Street <webinars@greenstreet.com>
+Reply-To: webinars@greenstreet.com
+To: dmitri@lifeincmyk.org
+Message-ID: <1651669551846.8d2a33e9-7ab6-49bb-a868-a5ebe41f5f04@bf03.hubspotemail.net>
+Subject: [Conference Call] Exclusive Eastdil Conversation with Mike Van
+ Konynenburg
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1079798_112697842.1651669680280"
+X-Report-Abuse-To: abuse@hubspot.com (see
+ https://policy.hubspot.com/abuse-complaints)
+X-Spam-Status: No, score=0.1
+X-Spam-Score: 1
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "d728b.dimedns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Join Green Street on Wednesday, May 18 for a 30-minute discussion
+    with Mike Van Konynenburg from Eastdil Secured. BM Webinar Banner Image_E-1
+    (https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/VWrTKh8xHnc7W6Tgg3w8DrlgQV7Wb0N4JGxhsN8pR4CS3pcXBV1-WJV7Cg-TYW12XT4G7J7LFwW7sGG2W6NR0VbW3KTKbt1vxRQmN34v8Y0H-0S1W1M2lkt
+    [...] 
+ Content analysis details:   (0.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+X-Spam-Flag: NO
+
+------=_Part_1079798_112697842.1651669680280
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Join Green Street on Wednesday, May 18 for a 30-minute discussion with Mike=
+ Van Konynenburg from Eastdil Secured.
+
+BM Webinar Banner Image_E-1 (https://info.greenstreet.com/e3t/Ctc/T7+113/cs=
+gpw04/VWrTKh8xHnc7W6Tgg3w8DrlgQV7Wb0N4JGxhsN8pR4CS3pcXBV1-WJV7Cg-TYW12XT4G7=
+J7LFwW7sGG2W6NR0VbW3KTKbt1vxRQmN34v8Y0H-0S1W1M2lkt69MRz5W3gpM_67Z4LpXW6z-mv=
+F55xBT9W8B_ZG069Mf-bW2N-YY119fy-vN3mG0tlnBmlXW2nMyLd9dHVzHD9vPF3G5H0W25XdSN=
+74Cd5hW35gYwK3yP6TcW8mLTCR58z2ysW6nT6q691VDD6W4kg76x552z4NW6scM-C5SKp00W6yr=
+Z8K7fc7n4Vpm0ks4Y08kPW7Mw1PB1bX61xVKdFj52PN-QdW8C4d2Z7srx3vN9hF74FDKDlJW6FB=
+7rH2XVjrrN5HyhmT3CtKGW45TgZN7-xsMQW7FJNts2DCG_s3myv1 )
+
+A Conversation with Mike Van Konynenburg:
+
+President of Eastdil Secured
+
+May 18, 2022
+
+10:00am PT | 1:00pm ET | 6:00pm BST | 7:00pm CEST
+
+REGISTER NOW
+(https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/VWrTKh8xHnc7W6Tgg3w8Dr=
+lgQV7Wb0N4JGxhsN8pR4CS3pcXBV1-WJV7Cg-TYW12XT4G7J7LFwW7sGG2W6NR0VbW3KTKbt1vx=
+RQmN34v8Y0H-0S1W1M2lkt69MRz5W3gpM_67Z4LpXW6z-mvF55xBT9W8B_ZG069Mf-bW2N-YY11=
+9fy-vN3mG0tlnBmlXW2nMyLd9dHVzHD9vPF3G5H0W25XdSN74Cd5hW35gYwK3yP6TcW8mLTCR58=
+z2ysW6nT6q691VDD6W4kg76x552z4NW6scM-C5SKp00W6yrZ8K7fc7n4Vpm0ks4Y08kPW7Mw1PB=
+1bX61xVKdFj52PN-QdW8C4d2Z7srx3vN9hF74FDKDlJW6FB7rH2XVjrrN5HyhmT3CtKGW45TgZN=
+7-xsMQW7FJNts2DCG_s3myv1 )
+
+After smooth sailing for much of last year, commercial real estate investme=
+nt market participants are now navigating choppy waters. Borrowing costs ha=
+ve surged post-Covid. But the wall of equity capital stands tall, providing=
+ some stability to commercial real estate as an asset class. To further und=
+erstand how inflation is impacting property values, Green Street turns to a=
+ highly respected industry leader: Mike Van Konynenburg, President of Eastd=
+il Secured. Please join us on Wednesday, May 18 for a candid conversation w=
+ith Mike, hosted by Green Street Managing Director, Dave Bragg. They will e=
+xplore:
+
+- Current property pricing across all asset types in the U.S. and Pan Europ=
+e
+- The ever-changing debt markets
+- The expected direction of global equity capital flows
+
+Dave Bragg
+
+Managing Director,
+
+Green Street
+
+Mike Van Konynenburg
+
+President,
+
+Eastdil Secured
+
+www.greenstreet.com (https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/VW=
+rTKh8xHnc7W6Tgg3w8DrlgQV7Wb0N4JGxhsN8pR4BZ3pcWJV1-WJV7CgLcgW1tdCHL2LvNRrW2J=
+hRXG5NLrmWV_c3cS6hf37hW3kPWNL6tWHkLW8qfGn46zK-JQW6RQ2mt2XQQxGW5W5QkW421jvdW=
+2Jzt_w4C4nh-W38blCm12V31vW3bcwsx1lfBwhW1gJ1jH20l2TpW3HRRyz3cgF1tW2WRLh57nHy=
+KzW2rz19G5pTVbPN6rsnLVfp0NLW5Mq8X04c6PT2W8Cf_pg1Wvs67W6lZJlg2CXCN_W593RcX7d=
+4Qb6VjsQYs1NXpTnW8lJ6yy5tdbnfW2MFC598SB-yY39s_1 )
+
+=C2=A9 2022, Green Street
+
+Disclosure: To see Green Street's disclosure in its entirety, please click =
+here (https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/VWrTKh8xHnc7W6Tgg=
+3w8DrlgQV7Wb0N4JGxhsN8pR4Cf3pcW_V1-WJV7CgZSFVbRtX76-XDgCW3YVdnp5hZ5FNW1wHGd=
+Q3yTjW6W30wQnS4nCGkCW19ncGk6n3vnCW5VTNGj2M1mlXV3y90M51Wp8VW6pCFlM8JN3yMW6g2=
+zc_62hDsYW6Nldg92_L7MSN167JrV3tVydW6yyQFR6dZwLrN6HfsHBKhDS4W7W05c52dZYgnW5m=
+FZy57pbzLwW3FShbB6WvFJxV6Lnrz2JgXZ-W7pc_pr2RK6cPW8Bjwb886mz-jN47ZzZgks7wpW6=
+1hpgw4vFLdvW41yfh95CjQ10Vwj_7C8Q80tcN6j9YW0gfcQs3bx71 ) .
+
+Please note that emails sent to and from Green Street are subject to regula=
+tory review and archiving by Green Street. This communication should not be=
+ interpreted as a solicitation for the purchase or sale of any security. Ot=
+her important disclosure is on the Green Street website.
+
+Green Street, 100 Bayview Circle, Suite 400, Newport Beach, CA 92660, (949)=
+ 640-8780
+
+Unsubscribe (https://info.greenstreet.com/hs/manage-preferences/unsubscribe=
+-all?languagePreference=3Den&d=3DVndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4rzK=
+NX49Lbr7W7DzvzK17f7hvW4SXCWs6-lMfKW67vdx35pK-MrN9ggLY_28X7rN6G2MfYGKd_PM20N=
+65rpNtDW6-j2zh2QMYJ_N3cDljJ169lJ1&v=3D3 )
+
+Manage preferences (https://info.greenstreet.com/hs/manage-preferences/unsu=
+bscribe?languagePreference=3Den&d=3DVndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4=
+rzKNX49Lbr7W7DzvzK17f7hvW4SXCWs6-lMfKW67vdx35pK-MrN9ggLY_28X7rN6G2MfYGKd_PM=
+20N65rpNtDW6-j2zh2QMYJ_N3cDljJ169lJ1&v=3D3 )
+------=_Part_1079798_112697842.1651669680280
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3=
+.org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:=
+v=3D"urn:schemas-microsoft-com:vml" lang=3D"en"><head>
+    <title>[Conference Call] Exclusive Eastdil Conversation with Mike Van K=
+onynenburg</title>
+    <meta property=3D"og:title" content=3D"[Conference Call] Exclusive East=
+dil Conversation with Mike Van Konynenburg">
+    <meta name=3D"twitter:title" content=3D"[Conference Call] Exclusive Eas=
+tdil Conversation with Mike Van Konynenburg">
+   =20
+   =20
+   =20
+<meta name=3D"x-apple-disable-message-reformatting">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+    <!--[if gte mso 9]>
+  <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+  </xml>
+ =20
+  <style>
+    ul > li {
+      text-indent: -1em;
+    }
+  </style>
+<![endif]-->
+<!--[if mso]>
+<style type=3D"text/css">
+ body, td {font-family: Arial, Helvetica, sans-serif;}
+</style>
+<![endif]-->
+   =20
+     =20
+   =20
+  <meta name=3D"generator" content=3D"HubSpot"><meta property=3D"og:url" co=
+ntent=3D"https://info.greenstreet.com/-temporary-slug-17c3b7db-ae1a-4e45-81=
+cc-27032b358b39"><meta name=3D"robots" content=3D"noindex,follow"><!--[if !=
+((mso)|(IE))]><!-- --><style type=3D"text/css">.moz-text-html .hse-column-c=
+ontainer{max-width:600px !important;width:600px !important}
+.moz-text-html .hse-column{display:table-cell;vertical-align:top}.moz-text-=
+html .hse-section .hse-size-6{max-width:300px !important;width:300px !impor=
+tant}
+.moz-text-html .hse-section .hse-size-12{max-width:600px !important;width:6=
+00px !important}
+[owa] .hse-column-container{max-width:600px !important;width:600px !importa=
+nt}[owa] .hse-column{display:table-cell;vertical-align:top}
+[owa] .hse-section .hse-size-6{max-width:300px !important;width:300px !impo=
+rtant}
+[owa] .hse-section .hse-size-12{max-width:600px !important;width:600px !imp=
+ortant}
+@media only screen and (min-width:640px){.hse-column-container{max-width:60=
+0px !important;width:600px !important}
+.hse-column{display:table-cell;vertical-align:top}.hse-section .hse-size-6{=
+max-width:300px !important;width:300px !important}
+.hse-section .hse-size-12{max-width:600px !important;width:600px !important=
+}}@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_em=
+ail_entries_table img,.hs-stretch-cta .hs-cta-img{height:auto !important;wi=
+dth:100% !important}
+.display_block_on_small_screens{display:block}.hs_padded{padding-left:20px =
+!important;padding-right:20px !important}
+ul,blockquote{margin:0;padding:1em 40px}}</style><!--<![endif]--><style typ=
+e=3D"text/css">body[data-outlook-cycle] img.stretch-on-mobile,body[data-out=
+look-cycle] .hs_rss_email_entries_table img{height:auto !important;width:10=
+0% !important}
+body[data-outlook-cycle] .hs_padded{padding-left:20px !important;padding-ri=
+ght:20px !important}
+a[x-apple-data-detectors]{color:inherit !important;text-decoration:none !im=
+portant;font-size:inherit !important;font-family:inherit !important;font-we=
+ight:inherit !important;line-height:inherit !important}
+#outlook a{padding:0}.yshortcuts a{border-bottom:none !important}a{text-dec=
+oration:underline}
+.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass td=
+,.ExternalClass div,.ExternalClass span,.ExternalClass font{line-height:100=
+%}
+p{margin:0}body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-we=
+bkit-font-smoothing:antialiased;moz-osx-font-smoothing:grayscale}
+@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_emai=
+l_entries_table img,.hs-stretch-cta .hs-cta-img{height:auto !important;widt=
+h:100% !important}
+}@media only screen and (max-width:639px){img.stretch-on-mobile,.hs_rss_ema=
+il_entries_table img,.hs-stretch-cta .hs-cta-img{height:auto !important;wid=
+th:100% !important}
+}</style></head>
+  <body bgcolor=3D"#f5f1f1" style=3D"margin:0 !important; padding:0 !import=
+ant; font-family:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-br=
+eak:break-word">
+   =20
+<div id=3D"preview_text" style=3D"display:none!important;font-size:1px;colo=
+r:#f5f1f1;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:h=
+idden;">Join Green Street on Wednesday, May 18 for a 30-minute discussion w=
+ith Mike Van Konynenburg from Eastdil Secured.</div>
+   =20
+<!--[if gte mso 9]>
+<v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+ =20
+    <v:fill type=3D"tile" size=3D"100%,100%" color=3D"#f5f1f1"/>
+ =20
+</v:background>
+<![endif]-->
+    <div class=3D"hse-body-background" style=3D"background-color:#f5f1f1" b=
+gcolor=3D"#f5f1f1">
+      <table role=3D"presentation" class=3D"hse-body-wrapper-table" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; border-c=
+ollapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; margin:0; pad=
+ding:0; width:100% !important; min-width:320px !important; height:100% !imp=
+ortant" width=3D"100%" height=3D"100%">
+        <tbody><tr>
+          <td class=3D"hse-body-wrapper-td" valign=3D"top" style=3D"border-=
+collapse:collapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-s=
+erif; font-size:15px; color:#1a1939; word-break:break-word">
+            <div id=3D"hs_cos_wrapper_main" class=3D"hs_cos_wrapper hs_cos_=
+wrapper_widget hs_cos_wrapper_type_dnd_area" style=3D"color: inherit; font-=
+size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" d=
+ata-hs-cos-type=3D"dnd_area">  <div id=3D"section_1603929959647" class=3D"h=
+se-section hse-section-first" style=3D"padding-left:10px; padding-right:10p=
+x; padding-top:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1603929959647_0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_160392995958414" class=3D"hs_cos_wrapper=
+ hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit;=
+ font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"wid=
+get" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; color=
+:#1a1939; word-break:break-word; text-align:center; padding:0px; font-size:=
+0px">
+               =20
+                    <a href=3D"https://info.greenstreet.com/e3t/Ctc/T7+113/=
+csgpw04/VWrTKh8xHnc7W6Tgg3w8DrlgQV7Wb0N4JGxhsN8pR4CS3q2TSV1-WJV7CgHgzW88rf7=
+-1Vl3x_W1F13p345vdrnW2KY1bR25HPwRMn89bHLKBRWW7wln9858NxqXW7qV8LL7-5jndW4SMW=
+853_kQ--W3nlVbg1v0DDKW3d45YQ7Yz96RW6w-yWs3-ryC8W6G85S43zr5zFVL2KR48VSXqLW96=
+gVr-5bSQH8W20R6rw5W8K2hVvHnlR5gXJJfW89Wlb_4KHXGpN2C-V0Z39g35W4zv3Sp7kbSB4W3=
+fhVGw2Swfb2W6s263k3qKd5hW6T4cH_8spkMkW1znb9s5c-WB0W4sLVF424f8JnW5VNKm_5KHwl=
+QN6fPxB93n2g5W5vttY-8wNMnNW6hBxKl6jBCPDW3ZBp_-4WDY_x3d801" target=3D"_blank=
+" style=3D"color:#00a4bd; mso-line-height-rule:exactly" data-hs-link-id=3D"=
+0">
+               =20
+                <img alt=3D"BM Webinar Banner Image_E-1" src=3D"https://inf=
+o.greenstreet.com/hs-fs/hubfs/BM%20Webinar%20Banner%20Image_E-1.png?width=
+=3D1200&amp;upscale=3Dtrue&amp;name=3DBM%20Webinar%20Banner%20Image_E-1.png=
+" style=3D"outline:none; text-decoration:none; -ms-interpolation-mode:bicub=
+ic; border:none; max-width:100%; font-size:16px" width=3D"600" align=3D"mid=
+dle" srcset=3D"https://info.greenstreet.com/hs-fs/hubfs/BM%20Webinar%20Bann=
+er%20Image_E-1.png?upscale=3Dtrue&amp;width=3D1200&amp;upscale=3Dtrue&amp;n=
+ame=3DBM%20Webinar%20Banner%20Image_E-1.png 600w, https://info.greenstreet.=
+com/hs-fs/hubfs/BM%20Webinar%20Banner%20Image_E-1.png?upscale=3Dtrue&amp;wi=
+dth=3D2400&amp;upscale=3Dtrue&amp;name=3DBM%20Webinar%20Banner%20Image_E-1.=
+png 1200w" sizes=3D"(max-width: 600px) 100vw, 600px">
+               =20
+                    </a>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1611864314693" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#ffffff" bgcolor=3D"#ffffff">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#ffffff">
+      <tr style=3D"background-color:#ffffff;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1611864314693_0" class=3D"hse-column hse-size-12">
+  <div id=3D"hs_cos_wrapper_module_16118643145551" class=3D"hs_cos_wrapper =
+hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; =
+font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widg=
+et" data-hs-cos-type=3D"module">
+<!--[if gte mso 9]>
+<v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"f=
+alse" style=3D"width:600px; height:2pt;" fillcolor=3D"none">
+<v:fill type=3D"tile"/>
+<v:textbox inset=3D"0,0,0,0">
+<div>
+<![endif]-->
+<table role=3D"presentation" width=3D"100%" align=3D"center" border=3D"0" s=
+tyle=3D"position:relative; top:-1px; min-width:20px; width:100%; max-width:=
+100%; border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; border-=
+collapse:collapse; font-size:1px">
+  <tbody><tr>
+   =20
+   =20
+   =20
+    <td width=3D"100%" valign=3D"middle" style=3D"border-collapse:collapse;=
+ mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; font-size:15=
+px; color:#1a1939; word-break:break-word; line-height:0; border:transparent=
+; border-bottom:1px solid #CCCCCC; mso-border-bottom-alt:1px solid #CCCCCC;=
+ border-bottom-width:1px">&nbsp;</td>
+   =20
+   =20
+  </tr>
+</tbody></table>
+<!--[if gte mso 9]></div></v:textbox></v:rect><![endif]--></div>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1603917893495" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#FFFFFF; padding-bottom:10px; =
+padding-top:10px" bgcolor=3D"#FFFFFF">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#FFFFFF">
+      <tr style=3D"background-color:#FFFFFF;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-bottom:10px; padding-top:=
+10px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1610667430800_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word;=
+ padding:25px 20px 10px"><div id=3D"hs_cos_wrapper_module_16107511952121" c=
+lass=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" st=
+yle=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-c=
+os-general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wr=
+apper_module_16107511952121_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget=
+ hs_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit=
+; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-ty=
+pe=3D"rich_text"><h2 style=3D"margin:0; mso-line-height-rule:exactly; text-=
+align:center; font-size:22px; line-height:115%; font-weight:bold" align=3D"=
+center"><span style=3D"color: #559b43;"><span style=3D"font-family: Arial, =
+sans-serif;">A Conversation with Mike Van Konynenburg:&nbsp;</span></span><=
+/h2>
+<h2 style=3D"margin:0; mso-line-height-rule:exactly; text-align:center; fon=
+t-size:22px; line-height:115%; font-weight:bold" align=3D"center"><span sty=
+le=3D"color: #559b43;"><span style=3D"font-family: Arial, sans-serif;"> Pre=
+sident of Eastdil Secured</span></span></h2></div></div></td></tr></tbody><=
+/table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px"><div id=3D"hs_cos_wrapper_module_16106681068817" class=3D"hs_c=
+os_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color=
+: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-general-t=
+ype=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapper_module=
+_16106681068817_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrap=
+per_type_rich_text" style=3D"color: inherit; font-size: inherit; line-heigh=
+t: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"rich_t=
+ext"><h2 style=3D"margin:0; mso-line-height-rule:exactly; text-align:center=
+; font-size:16px; line-height:125%; font-weight:bold" align=3D"center"><spa=
+n style=3D"color: #000000; font-family: Arial, sans-serif;">May 18, 2022</s=
+pan></h2>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; line-height:12=
+5%; font-size:16px" align=3D"center"><span style=3D"color: #000000; font-fa=
+mily: Arial, sans-serif; font-weight: bold;">10:00am PT | 1:00pm ET | 6:00p=
+m BST | 7:00pm CEST</span></p></div></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px 20px"><div id=3D"hs_cos_wrapper_module_16106681654318" class=3D=
+"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"=
+color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-gene=
+ral-type=3D"widget" data-hs-cos-type=3D"module">
+ =20
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"border-spacing:0 !important; mso-table-lspac=
+e:0pt; mso-table-rspace:0pt; border-collapse:separate!important">
+    <tbody><tr>
+        <!--[if mso]>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#559b23" role=3D"pr=
+esentation"  valign=3D"middle" style=3D"border-radius:8px;cursor:auto;backg=
+round-color:#559b23;padding:12px 18px;">
+    <![endif]-->
+    <!--[if !mso]><!-- -->
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#559b23" role=3D"pr=
+esentation" style=3D"border-collapse:collapse; mso-line-height-rule:exactly=
+; font-family:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break=
+:break-word; border-radius:8px; cursor:auto; background-color:#559b23">
+   <!--<![endif]-->
+        <a href=3D"https://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/VWrT=
+Kh8xHnc7W6Tgg3w8DrlgQV7Wb0N4JGxhsN8pR4CS3q2TSV1-WJV7CgPh4W7s_LSH7jfHfPW2fpD=
+J-2cdmJ8W12Xdn63nNXK9N381YjmcWxJgW6nccY254x8D4W2jzsMN1R1z07W2c-NLD10rgN9W92=
+TmT-3ZvZQ9W4fdM265CcKcLW53XWX88pPkXBW2XHxqH2CDl9sW4SmC_H1h87kRN907gBpFKWY2W=
+5VVC-t8Qw4BNW7nS78827Cr4JW3xczc_1B-dKMW7XffKQ7hLQZTW55tQvL4yT4s1W4x5Fl41YdL=
+2cW5gdd327dTJG-W9cy3M18yshS5W1CV5QM6Q5mGPW83Vq9Y2dVY98W37Hmlx7cpBCGW5gCBPh2=
+b2DkyVg9V_61qMps9Mqm03pq8F7jW5C-Kt51__lgH3p8d1" target=3D"_blank" style=3D"=
+color:#00a4bd; mso-line-height-rule:exactly; font-size:16px; font-family:Ar=
+ial, sans-serif; Margin:0; text-transform:none; text-decoration:none; paddi=
+ng:12px 18px; display:block" data-hs-link-id=3D"1">
+          <strong style=3D"color:#ffffff;font-weight:bold;text-decoration:n=
+one;font-style:normal;">REGISTER NOW</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table>
+</div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:15px 35px"><div id=3D"hs_cos_wrapper_module_16106678781355" class=3D=
+"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"=
+color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-gene=
+ral-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapper_m=
+odule_16106678781355_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos=
+_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; line-=
+height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=3D"r=
+ich_text"><p style=3D"mso-line-height-rule:exactly; font-size:14px; line-he=
+ight:125%; text-align:justify" align=3D"justify"><span style=3D"font-family=
+: Arial, sans-serif; color: #000000;"><span style=3D"background-color: whit=
+e;">After smooth sailing for much of last year, commercial real estate inve=
+stment market participants are now navigating choppy waters. Borrowing cost=
+s have surged post-Covid. But the wall of equity capital stands tall, provi=
+ding some stability to commercial real estate as an asset class. To further=
+ understand how inflation is impacting property values, Green Street turns =
+to a highly respected industry leader: Mike Van Konynenburg, President of E=
+astdil Secured. Please join us on Wednesday, May 18 for a candid conversati=
+on with Mike, hosted by Green Street Managing Director, Dave Bragg. They wi=
+ll explore:</span></span></p>
+<ul style=3D"mso-line-height-rule:exactly; font-size:14px; line-height:150%=
+">
+<li style=3D"mso-line-height-rule:exactly; color:#1a1939; line-height:125%"=
+><span style=3D"font-size: 14px; font-family: Arial, sans-serif; color: #00=
+0000;">Current property pricing across all asset types in the U.S. and Pan =
+Europe</span></li>
+<li style=3D"mso-line-height-rule:exactly; color:#3e464b; line-height:125%"=
+><span style=3D"font-size: 14px; color: #000000; font-family: Arial, sans-s=
+erif;">The ever-changing debt markets</span></li>
+<li style=3D"mso-line-height-rule:exactly; color:#1a1939; line-height:125%"=
+><span style=3D"font-size: 14px; font-family: Arial, sans-serif; color: #00=
+0000;">The expected direction of global equity capital flows</span></li>
+</ul></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1610751049056" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#559b23; padding-bottom:15px; =
+padding-top:15px" bgcolor=3D"#559b23">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#559b23">
+      <tr style=3D"background-color:#559b23;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:300px;padding-bottom:15px; padding-top:=
+15px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"300" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:300px">
+<![endif]-->
+<div id=3D"column_1610751049056_2" class=3D"hse-column hse-size-6">
+  <div id=3D"hs_cos_wrapper_module-4-5-1" class=3D"hs_cos_wrapper hs_cos_wr=
+apper_widget hs_cos_wrapper_type_module" style=3D"color: inherit; font-size=
+: inherit; line-height: inherit;" data-hs-cos-general-type=3D"widget" data-=
+hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; color=
+:#1a1939; word-break:break-word; text-align:center; padding:10px 20px 0px; =
+font-size:0px">
+               =20
+                <img alt=3D"Dave Bragg_Circle" src=3D"https://info.greenstr=
+eet.com/hs-fs/hubfs/Dave%20Bragg_Circle.png?width=3D340&amp;upscale=3Dtrue&=
+amp;name=3DDave%20Bragg_Circle.png" style=3D"outline:none; text-decoration:=
+none; -ms-interpolation-mode:bicubic; max-width:100%; font-size:16px" width=
+=3D"170" align=3D"middle" srcset=3D"https://info.greenstreet.com/hs-fs/hubf=
+s/Dave%20Bragg_Circle.png?upscale=3Dtrue&amp;width=3D340&amp;upscale=3Dtrue=
+&amp;name=3DDave%20Bragg_Circle.png 170w, https://info.greenstreet.com/hs-f=
+s/hubfs/Dave%20Bragg_Circle.png?upscale=3Dtrue&amp;width=3D680&amp;upscale=
+=3Dtrue&amp;name=3DDave%20Bragg_Circle.png 340w" sizes=3D"(max-width: 170px=
+) 100vw, 170px">
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px 20px"><div id=3D"hs_cos_wrapper_module_161066952341019" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_161066952341019_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; text-align:center;=
+ line-height:125%; font-size:14px; font-weight:bold" align=3D"center"><span=
+ style=3D"color: #ffffff; font-family: Arial, sans-serif;">Dave Bragg</span=
+></p>
+<p style=3D"mso-line-height-rule:exactly; text-align:center; font-size:14px=
+; line-height:125%" align=3D"center"><span style=3D"color: #ffffff; font-fa=
+mily: Arial, sans-serif;">Managing Director,<br>Green Street</span></p></di=
+v></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+<!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:300px;padding-bottom:15px; padding-top:=
+15px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"300" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:300px">
+<![endif]-->
+<div id=3D"column_1610751049056_3" class=3D"hse-column hse-size-6">
+  <div id=3D"hs_cos_wrapper_module_161066948029916" class=3D"hs_cos_wrapper=
+ hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: inherit;=
+ font-size: inherit; line-height: inherit;" data-hs-cos-general-type=3D"wid=
+get" data-hs-cos-type=3D"module">
+=09
+<table class=3D"hse-image-wrapper" role=3D"presentation" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !important; bord=
+er-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; color=
+:#1a1939; word-break:break-word; text-align:center; padding:10px 20px 0px; =
+font-size:0px">
+               =20
+                <img alt=3D"Webinar Headshots - MVK" src=3D"https://info.gr=
+eenstreet.com/hs-fs/hubfs/Webinar%20Headshots%20-%20MVK.png?width=3D342&amp=
+;upscale=3Dtrue&amp;name=3DWebinar%20Headshots%20-%20MVK.png" style=3D"outl=
+ine:none; text-decoration:none; -ms-interpolation-mode:bicubic; max-width:1=
+00%; font-size:16px" width=3D"171" align=3D"middle" srcset=3D"https://info.=
+greenstreet.com/hs-fs/hubfs/Webinar%20Headshots%20-%20MVK.png?upscale=3Dtru=
+e&amp;width=3D342&amp;upscale=3Dtrue&amp;name=3DWebinar%20Headshots%20-%20M=
+VK.png 171w, https://info.greenstreet.com/hs-fs/hubfs/Webinar%20Headshots%2=
+0-%20MVK.png?upscale=3Dtrue&amp;width=3D684&amp;upscale=3Dtrue&amp;name=3DW=
+ebinar%20Headshots%20-%20MVK.png 342w" sizes=3D"(max-width: 171px) 100vw, 1=
+71px">
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px 20px"><div id=3D"hs_cos_wrapper_module_161066951732818" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_161066951732818_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><p style=3D"mso-line-height-rule:exactly; text-align:center;=
+ line-height:125%; font-size:14px" align=3D"center"><span style=3D"font-fam=
+ily: Arial, sans-serif; color: #ffffff;"><strong>Mike Van Konynenburg<br></=
+strong></span></p>
+<p style=3D"mso-line-height-rule:exactly; font-size:14px; line-height:125%;=
+ text-align:center" align=3D"center"><span style=3D"color: #ffffff;">Presid=
+ent,</span><br><span style=3D"color: #ffffff;">Eastdil Secured</span></p></=
+div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section_1603928748074" class=3D"hse-section" style=3D"padding-=
+left:10px; padding-right:10px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#4f649a; padding-top:8px" bgco=
+lor=3D"#4f649a">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#4f649a">
+      <tr style=3D"background-color:#4f649a;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;padding-top:8px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column_1603928748074_0" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word;=
+ padding:10px 20px"><div id=3D"hs_cos_wrapper_module_160392874802613" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_160392874802613_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget h=
+s_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; =
+line-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><h2 style=3D"margin:0; mso-line-height-rule:exactly; font-si=
+ze:14px; line-height:175%; text-align:center" align=3D"center"><a href=3D"h=
+ttps://info.greenstreet.com/e3t/Ctc/T7+113/csgpw04/VWrTKh8xHnc7W6Tgg3w8Drlg=
+QV7Wb0N4JGxhsN8pR4BZ3q2SZV1-WJV7CgV93N7qcm3XHy7YLVjTc8f53cgwrVgYlyd4zFKkkW4=
+rPfvY7pbCK6V4NgFK753GghW7V2bSt8z3yH6W3BBFGZ4n8Q0wW2NdN9954tcBxW8Y-wxh4M-Bm7=
+W7rGZjP4w1d6xW6tn_8r8r1VFNW2xSN5z6jS31zW4DY_0p8G3vcRW7C_z402gMzpwN5Ls0006cy=
+sKN7cDbbDCMWLDW7hw8rc7VqVQHW167-kB21LxYdW6WKvc74gyGPfVWt55f61DZ1dW49qXC16wP=
+PwGW5hLH12176GTd3lDg1" style=3D"mso-line-height-rule:exactly; color:#00a4bd=
+; font-weight:bold" rel=3D"noopener" data-hs-link-id=3D"0" target=3D"_blank=
+"><span style=3D"font-family: Arial, sans-serif; color: #ffffff;">www.green=
+street.com</span></a></h2></div></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+  <div id=3D"section-6" class=3D"hse-section hse-section-last" style=3D"pad=
+ding-left:10px; padding-right:10px; padding-bottom:20px">
+   =20
+   =20
+    <!--[if !((mso)|(IE))]><!-- -->
+      <div class=3D"hse-column-container" style=3D"min-width:280px; max-wid=
+th:600px; width:100%; Margin-left:auto; Margin-right:auto; border-collapse:=
+collapse; border-spacing:0; background-color:#f5f1f1" bgcolor=3D"#f5f1f1">
+    <!--<![endif]-->
+   =20
+    <!--[if (mso)|(IE)]>
+      <div class=3D"hse-column-container" style=3D"min-width:280px;max-widt=
+h:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:colla=
+pse;border-spacing:0;">
+      <table align=3D"center" style=3D"border-collapse:collapse;mso-table-l=
+space:0pt;mso-table-rspace:0pt;width:600px;" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"600" bgcolor=3D"#f5f1f1">
+      <tr style=3D"background-color:#f5f1f1;">
+    <![endif]-->
+    <!--[if (mso)|(IE)]>
+  <td valign=3D"top" style=3D"width:600px;">
+<![endif]-->
+<!--[if gte mso 9]>
+  <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-collapse:collapse;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width:600px">
+<![endif]-->
+<div id=3D"column-6-1" class=3D"hse-column hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-=
+table-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" =
+style=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-famil=
+y:Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word;=
+ padding:10px 20px"><div id=3D"hs_cos_wrapper_module_16107513904843" class=
+=3D"hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=
+=3D"color: inherit; font-size: inherit; line-height: inherit;" data-hs-cos-=
+general-type=3D"widget" data-hs-cos-type=3D"module"><div id=3D"hs_cos_wrapp=
+er_module_16107513904843_" class=3D"hs_cos_wrapper hs_cos_wrapper_widget hs=
+_cos_wrapper_type_rich_text" style=3D"color: inherit; font-size: inherit; l=
+ine-height: inherit;" data-hs-cos-general-type=3D"widget" data-hs-cos-type=
+=3D"rich_text"><div style=3D"mso-line-height-rule:exactly; text-align:cente=
+r; font-size:11px; line-height:125%" align=3D"center"><span style=3D"color:=
+ #666666;">=C2=A9 2022, Green Street</span></div>
+<div style=3D"mso-line-height-rule:exactly; text-align:center; font-size:11=
+px; line-height:125%" align=3D"center"><span style=3D"color: #666666;">&nbs=
+p;</span></div>
+<div style=3D"mso-line-height-rule:exactly; font-size:11px; line-height:125=
+%; text-align:center" align=3D"center"><span style=3D"color: #666666;"><str=
+ong>Disclosure:</strong>&nbsp;To see Green Street's disclosure in its entir=
+ety, please&nbsp;<a href=3D"https://info.greenstreet.com/e3t/Ctc/T7+113/csg=
+pw04/VWrTKh8xHnc7W6Tgg3w8DrlgQV7Wb0N4JGxhsN8pR4Cf3q2TfV1-WJV7CgBGxW70Fr5W84=
+SnD5VTF_Wc1jK5_WW77Gbw73H2lq2MQKGFh36Zg7W1Q26Jc1n-sX0W5f5Z_47Wr7Q1N8PfGwK8Z=
+sGpW6Dk_X13k4zm4W8PCys62LyMc-W8Hysgf8n1GS_W7Jwtd18YFKBhW2dgmFT1ZF2dwVfNSBm8=
+r5p74MMZvpjx8DX5W50fz1Z2Ws1kQW78hJvg5ZQZwZN4PkMkKMYtH9W59V_7d6xjLHTW84qxqW2=
+zJ2RMW4yPdZQ1nSmg8N95r4_584XN2W1V7xmj7FJr1TVzPqwG7-BnYCW5d_VVc7d35sS36q01" =
+target=3D"_blank" style=3D"mso-line-height-rule:exactly; text-decoration:no=
+ne; color:#666666" rel=3D"noopener" data-hs-link-id=3D"0">click <span style=
+=3D"text-decoration: underline;">here</span></a>.<br></span></div>
+<div style=3D"mso-line-height-rule:exactly; text-align:center; font-size:11=
+px; line-height:125%" align=3D"center"><span style=3D"color: #666666;">&nbs=
+p;</span></div>
+<div style=3D"mso-line-height-rule:exactly; font-size:11px; line-height:125=
+%; text-align:center" align=3D"center"><span style=3D"color: #666666;">Plea=
+se note that emails sent to and from Green Street are subject to regulatory=
+ review and archiving by Green Street. This communication should not be int=
+erpreted as a solicitation for the purchase or sale of any security. Other =
+important disclosure is on the Green Street website.</span></div></div></di=
+v></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" style=3D"border-spacing:0 !important; border-collapse:collapse; mso-ta=
+ble-lspace:0pt; mso-table-rspace:0pt"><tbody><tr><td class=3D"hs_padded" st=
+yle=3D"border-collapse:collapse; mso-line-height-rule:exactly; font-family:=
+Tahoma, sans-serif; font-size:15px; color:#1a1939; word-break:break-word; p=
+adding:10px 20px"><div id=3D"hs_cos_wrapper_module-6-1-1" class=3D"hs_cos_w=
+rapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style=3D"color: in=
+herit; font-size: inherit; line-height: inherit;" data-hs-cos-general-type=
+=3D"widget" data-hs-cos-type=3D"module">
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+<table role=3D"presentation" class=3D"hse-footer hse-secondary" width=3D"10=
+0%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0 !importan=
+t; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; fo=
+nt-family:Arial, sans-serif; font-size:12px; line-height:135%; color:#23496=
+d; margin-bottom:0; padding:0">
+    <tbody>
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:co=
+llapse; mso-line-height-rule:exactly; font-family:Tahoma, sans-serif; font-=
+size:15px; color:#1a1939; word-break:break-word; text-align:center; margin-=
+bottom:0; line-height:135%; padding:10px 20px">
+               =20
+                <p style=3D"mso-line-height-rule:exactly; font-family:Arial=
+, sans-serif; font-size:12px; font-weight:normal; text-decoration:none; fon=
+t-style:normal; color:#666666; direction:lrt" dir=3D"lrt">
+                  Green Street, 100 Bayview Circle, Suite 400, Newport Beac=
+h, CA 92660, (949) 640-8780
+                </p>
+                <p style=3D"mso-line-height-rule:exactly">
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://info.greenst=
+reet.com/hs/manage-preferences/unsubscribe-all?languagePreference=3Den&amp;=
+d=3DVndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4rzKNX49Lbr7W7DzvzK17f7hvW4SXCWs6=
+-lMfKW67vdx35pK-MrN9ggLY_28X7rN6G2MfYGKd_PM20N65rpNtDW6-j2zh2QMYJ_N3cDljJ16=
+9lJ1&amp;v=3D3&amp;utm_campaign=3D2022%20U.S.%20Eastdil%20Secured%20Confere=
+nce%20Call%20May&amp;utm_source=3Dhs_email&amp;utm_medium=3Demail&amp;utm_c=
+ontent=3D211947131" style=3D"mso-line-height-rule:exactly; font-family:Aria=
+l, sans-serif; font-size:12px; color:#559b43; font-weight:normal; text-deco=
+ration:underline; font-style:normal" data-hs-link-id=3D"0" target=3D"_blank=
+">Unsubscribe</a>
+                 =20
+                  <a data-unsubscribe=3D"true" href=3D"https://info.greenst=
+reet.com/hs/manage-preferences/unsubscribe?languagePreference=3Den&amp;d=3D=
+VndZ6X5LCccHVPcgFy4fM_MdW3ZWVby3T1jQ3W4rzKNX49Lbr7W7DzvzK17f7hvW4SXCWs6-lMf=
+KW67vdx35pK-MrN9ggLY_28X7rN6G2MfYGKd_PM20N65rpNtDW6-j2zh2QMYJ_N3cDljJ169lJ1=
+&amp;v=3D3&amp;utm_campaign=3D2022%20U.S.%20Eastdil%20Secured%20Conference%=
+20Call%20May&amp;utm_source=3Dhs_email&amp;utm_medium=3Demail&amp;utm_conte=
+nt=3D211947131" style=3D"mso-line-height-rule:exactly; font-family:Arial, s=
+ans-serif; font-size:12px; color:#559b43; font-weight:normal; text-decorati=
+on:underline; font-style:normal" data-hs-link-id=3D"0" target=3D"_blank">Ma=
+nage preferences</a>
+                 =20
+                </p>
+               =20
+            </td>
+        </tr>
+    </tbody>
+</table></div></td></tr></tbody></table>
+</div>
+<!--[if gte mso 9]></table><![endif]-->
+<!--[if (mso)|(IE)]></td><![endif]-->
+    <!--[if (mso)|(IE)]></tr></table><![endif]-->
+    </div>
+  =20
+  </div>
+</div>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+ =20
+<img src=3D"https://info.greenstreet.com/e3t/Cto/T7+113/csgpw04/VWrTKh8xHnc=
+7W6Tgg3w8DrlgQV7Wb0N4JGxhsW8pR4m33CT6Ky112" alt=3D"" width=3D"1" height=3D"=
+1" border=3D"0" style=3D"display:none!important;min-height:1px!important;wi=
+dth:1px!important;border-width:0!important;margin-top:0!important;margin-bo=
+ttom:0!important;margin-right:0!important;margin-left:0!important;padding-t=
+op:0!important;padding-bottom:0!important;padding-right:0!important;padding=
+-left:0!important"></body></html>
+------=_Part_1079798_112697842.1651669680280--
+

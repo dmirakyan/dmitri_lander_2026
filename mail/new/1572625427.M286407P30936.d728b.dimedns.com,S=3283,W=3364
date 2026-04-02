@@ -1,0 +1,81 @@
+Return-Path: <>
+Delivered-To: lifeincm@d728b.dimedns.com
+Received: from d728b.dimedns.com
+	by d728b.dimedns.com with LMTP
+	id IPo8DRNcvF3YeAAAM5vZiw
+	(envelope-from <>)
+	for <lifeincm@d728b.dimedns.com>; Fri, 01 Nov 2019 12:23:47 -0400
+Return-path: <>
+Envelope-to: lifeincm@d728b.dimedns.com
+Delivery-date: Fri, 01 Nov 2019 12:23:47 -0400
+Received: from mailnull by d728b.dimedns.com with local (Exim 4.92)
+	id 1iQZiF-0007dZ-4w
+	for lifeincm@d728b.dimedns.com; Fri, 01 Nov 2019 12:23:47 -0400
+X-Failed-Recipients: damirakyan@gmail.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@d728b.dimedns.com>
+To: lifeincm@d728b.dimedns.com
+Content-Type: multipart/report; report-type=delivery-status; boundary=1572625427-eximdsn-825942966
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1iQZiF-0007dZ-4w@d728b.dimedns.com>
+Date: Fri, 01 Nov 2019 12:23:47 -0400
+
+--1572625427-eximdsn-825942966
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  damirakyan@gmail.com
+    host gmail-smtp-in.l.google.com [74.125.195.26]
+    SMTP error from remote mail server after end of data:
+    550-5.7.1 Unauthenticated email from yahoo.com is not accepted due to domain's
+    550-5.7.1 DMARC policy. Please contact the administrator of yahoo.com domain if
+    550-5.7.1 this was a legitimate mail. Please visit
+    550-5.7.1  https://support.google.com/mail/answer/2451690 to learn about the
+    550 5.7.1 DMARC initiative. b2si11027257pjw.82 - gsmtp
+
+--1572625427-eximdsn-825942966
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; d728b.dimedns.com
+
+Action: failed
+Final-Recipient: rfc822;damirakyan@gmail.com
+Status: 5.0.0
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.1 Unauthenticated email from yahoo.com is not accepted due to domain's
+ 550-5.7.1 DMARC policy. Please contact the administrator of yahoo.com domain if
+ 550-5.7.1 this was a legitimate mail. Please visit
+ 550-5.7.1  https://support.google.com/mail/answer/2451690 to learn about the
+ 550 5.7.1 DMARC initiative. b2si11027257pjw.82 - gsmtp
+
+--1572625427-eximdsn-825942966
+Content-type: message/rfc822
+
+Return-path: <lifeincm@d728b.dimedns.com>
+Received: from lifeincm by d728b.dimedns.com with local (Exim 4.92)
+	(envelope-from <lifeincm@d728b.dimedns.com>)
+	id 1iQZiE-0007dH-AE
+	for damirakyan@gmail.com; Fri, 01 Nov 2019 12:23:46 -0400
+To: damirakyan@gmail.com
+Subject: form submission
+X-PHP-Script: lifeincmyk.org/html_form_send.php for 104.254.92.20
+X-PHP-Originating-Script: 1397:html_form_send.php
+From: golder.blythe@yahoo.com
+Reply-To: golder.blythe@yahoo.com
+X-Mailer: PHP/7.2.23
+Message-Id: <E1iQZiE-0007dH-AE@d728b.dimedns.com>
+Date: Fri, 01 Nov 2019 12:23:46 -0400
+
+Form details below.
+
+Name:Blythe Golder
+Email: golder.blythe@yahoo.com
+Comments: Have you had enough of expensive PPC advertising? Now you can post your ad on 5000 ad sites and it'll only cost you one flat fee per month. Get unlimited traffic forever! Get more info by visiting: http://postmoreads.net.n3t.store
+
+
+--1572625427-eximdsn-825942966--
