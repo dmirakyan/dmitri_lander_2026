@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<title>Have you considered being more lucky? | Dmitri Mirakyan</title>
+	<meta name="description" content="Three tips on how to be more lucky." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/main.css" />
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9T8W1LRB9N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-9T8W1LRB9N');
+	</script>
+	<style>
+		.footnote-trigger {
+			border: 0;
+			padding: 0;
+			background: transparent;
+			color: #ec008c;
+			font: inherit;
+			line-height: inherit;
+			cursor: pointer;
+		}
+
+		.footnote-trigger:hover {
+			color: #231f20;
+		}
+
+		.lucky-footnote-popover {
+			position: fixed;
+			z-index: 200;
+			width: min(24rem, calc(100vw - 1.5rem));
+			max-height: min(22rem, calc(100vh - 1.5rem));
+			overflow: auto;
+			padding: 0.95rem 1rem 1rem;
+			border: 1px solid #f1f5f9;
+			background: rgba(255, 255, 255, 0.98);
+			box-shadow: 0 18px 50px rgba(35, 31, 32, 0.14);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+		}
+
+		.lucky-footnote-popover[hidden] {
+			display: none;
+		}
+
+		.lucky-footnote-popover-content {
+			padding-right: 1.25rem;
+			color: #111827;
+			font-size: 0.95rem;
+		}
+
+		.lucky-footnote-popover-content p {
+			margin-bottom: 0.75rem;
+		}
+
+		.lucky-footnote-popover-content p:last-child {
+			margin-bottom: 0;
+		}
+
+		.lucky-footnote-popover-content ul {
+			margin: 0 0 0 1.25rem;
+		}
+
+		.lucky-footnote-popover-close {
+			position: absolute;
+			top: 0.45rem;
+			right: 0.55rem;
+			border: 0;
+			background: transparent;
+			color: #6b7280;
+			font-size: 1.1rem;
+			line-height: 1;
+			cursor: pointer;
+		}
+
+		.lucky-footnote-popover-close:hover {
+			color: #231f20;
+		}
+	</style>
+</head>
+<body>
+	<div class="page-shell">
+		<aside class="sidebar">
+			<div class="sidebar-top">
+				<div class="identity">
+					<div class="avatar-wrap">
+						<img class="avatar" src="../../assets/images/profile-photo.png" alt="Dmitri Mirakyan" />
+					</div>
+					<div class="site-title">
+						<span class="site-title-mobile">Dmitri</span>
+						<span class="site-title-desktop">Dmitri needs a web presence</span>
+					</div>
+				</div>
+
+				<nav class="site-nav" aria-label="Primary">
+					<a class="nav-link nav-cyan" href="../../#about">About</a>
+					<a class="nav-link nav-magenta" href="../../#writing">Writing</a>
+					<a class="nav-link nav-yellow" href="../../#media">Media</a>
+					<a class="nav-link nav-black" href="../../#contact">Contact</a>
+				</nav>
+			</div>
+
+			<div class="social-links" aria-label="Social links">
+				<a href="https://twitter.com/damirakyan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19 9.458 12.504H16.59l-5.803-7.584-6.639 7.584H.466l8.6-9.83L0 1.154h7.597l5.242 6.932 6.062-6.932Zm-1.291 19.492h2.039L6.49 3.24H4.302L17.61 20.645Z"/></svg>
+				</a>
+				<a href="https://www.linkedin.com/in/dmirakyan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.983 3.5C4.983 4.881 3.87 6 2.5 6S.017 4.881.017 3.5 1.13 1 2.5 1s2.483 1.119 2.483 2.5ZM.5 8h4V23h-4V8Zm7 0h3.833v2.05h.055c.534-1.013 1.84-2.083 3.79-2.083 4.053 0 4.8 2.668 4.8 6.137V23h-4v-7.925c0-1.89-.034-4.32-2.633-4.32-2.636 0-3.039 2.06-3.039 4.185V23h-4V8Z"/></svg>
+				</a>
+				<a href="https://www.instagram.com/dmitri_am/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.506 5.506 0 0 1 22 7.5v9A5.506 5.506 0 0 1 16.5 22h-9A5.506 5.506 0 0 1 2 16.5v-9A5.506 5.506 0 0 1 7.5 2Zm0 2A3.504 3.504 0 0 0 4 7.5v9A3.504 3.504 0 0 0 7.5 20h9a3.504 3.504 0 0 0 3.5-3.5v-9A3.504 3.504 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+				</a>
+				<a href="mailto:damirakyan@gmail.com" aria-label="Email">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm18.565 2H3.435L12 12.714 20.565 7ZM3 17h18V8.236l-8.445 5.562a1 1 0 0 1-1.11 0L3 8.236V17Z"/></svg>
+				</a>
+			</div>
+
+			<div class="cmyk-bar cmyk-bar-mobile" aria-hidden="true">
+				<span class="cmyk-cyan"></span>
+				<span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span>
+				<span class="cmyk-black"></span>
+			</div>
+
+			<div class="cmyk-bar cmyk-bar-desktop" aria-hidden="true">
+				<span class="cmyk-cyan"></span>
+				<span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span>
+				<span class="cmyk-black"></span>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<a class="back-link" href="../">← Back to blog</a>
+
+			<header class="post-header">
+				<h1>Have you considered being more lucky?</h1>
+			</header>
+
+			<article class="post-body">
+				<p>It’s fall again on the East Coast which brings about the kind of wistfulness that makes tech-bros write blog posts or start podcasts. Because nothing gold can stay. Unless of course you preserve it in jars. Packaged up with neat labels like “meditations on turning 30” or “5 things I learned about product management from my ayahuasca retreat”.</p>
+				<p>Anyways. You’re here. Sit down and have a spoonful.</p>
+				<p>Here’s 3 tips on how to be more lucky<sup class="footnote-ref footnote-ref-target" id="fnref-1"><button class="footnote-trigger" type="button" data-footnote="fn-1" aria-label="See footnote 1">1</button></sup>.</p>
+				<figure class="post-figure">
+					<img src="../../assets/images/blog/have-you-considered-being-more-lucky/image-1.png" alt="Illustration from Have you considered being more lucky?" />
+				</figure>
+
+				<h2 id="extroverted">Be more extroverted</h2>
+				<p>The cliche story of how people start with being lucky is being in the right place at the right time. What people don’t tell you is that you can find the right place and just kind of hang out there all day.</p>
+				<p>Studies show that extraversion predicts well being more than any other trait. But extraversion is a muscle. Every time I’ve felt the need for more luck, my best trick was to force myself to be more extroverted than I’m comfortable with.</p>
+				<p>Go to the event when you want to stay in. Make the phone call. Organize the thing. Do it past the point where it feels energizing, because let’s be real, staying inside and vegetating is the easy way out.</p>
+				<p>So many of the greatest things that happened to me came on nights where I forced myself to venture out even though I wanted to stay in. My first company started from a drunk idea at a networking event. Four beers deep, I told a stranger, now an old friend, about my idea for using AI to automate dating apps. My second company started when I ran into an old friend at a consumer networking event and decided to work together. Both happened on nights when I really wanted to stay in.</p>
+				<p>When you put energy into the universe it has a way of giving back.</p>
+				<figure class="post-figure">
+					<img src="../../assets/images/blog/have-you-considered-being-more-lucky/image-2.jpg" alt="Photo from Have you considered being more lucky?" />
+				</figure>
+
+				<h2 id="place">Be in the right place</h2>
+				<p>If you’re young and ambitious you should probably be in SF or NYC. LA is allowed if you’re in film. Denver if you’re deeply outdoorsy. Miami if you’re a sex worker.</p>
+				<p>Nomading can add a lot to your life, but generally up to a point. A friend of mine found god in bachata and Latina Tinder so I’ll give him Mexico City.</p>
+				<p>Texas or SoCal are good places to go when you’re ready to settle down and die.</p>
+				<p>The point is you only get to live once, and your odds of doing something interesting go up dramatically. This is the usual argument for going to a good college or buying a one-way ticket to San Francisco.</p>
+				<p>Five years later the friends you were slumming it with start to see real success and you would feel like such an asshole if you didn’t try to keep up.</p>
+				<p>The people who repeat “it’s not what you know it’s who you know” are inevitably the most insufferable people in the room, but they kinda were onto something. Thankfully by 30 nobody invites them anymore.</p>
+				<p>If nothing else luck feels meteorological. Like snow landing on your shoulder or a butterfly on your hand. If you just go about your day it’s bound to happen eventually. But you can also make your way to someplace where the sky is filled with it and hold out both your arms.</p>
+
+				<h2 id="dice">Roll more dice</h2>
+				<p>The usual cope answer for not doing something hard is that the odds are terrible. Nine in ten startups fail and 88%<sup class="footnote-ref footnote-ref-target" id="fnref-2"><button class="footnote-trigger" type="button" data-footnote="fn-2" aria-label="See footnote 2">2</button></sup> of creative endeavors don’t make it past the Etsy store stage<sup class="footnote-ref footnote-ref-target" id="fnref-3"><button class="footnote-trigger" type="button" data-footnote="fn-3" aria-label="See footnote 3">3</button></sup>. But roll the dice a few more times and your odds start to approach 50/50.</p>
+				<p>I attempted my first startup at 25. Made my first $1 at 28. Enough to replace my job at 30. Along the way were about a dozen ideas that went nowhere.</p>
+				<p>Over the arc of your life the biggest factors here are speed and persistence.</p>
+				<p>Lack of persistence eats the most dreams. Too many people never quite bother to try or get in their own way long enough that their feet get tangled.</p>
+				<p>Speed matters almost as much. If you write 10 novels while someone else writes one, your odds of succeeding are a lot higher. People are famously bad at predicting what will resonate with an audience, be it a book or a product. Speed translates into feedback. You act and the world responds. Most of the time you’ll get cold indifference, but keep trying and eventually you feel a tug.</p>
+				<p>The last element is sustainability. How many swings can you take before it kills you? Bet the farm on a single project and you’re done in one go. Quit your job with 3 months of runway and you’ll have a short window before panic overpowers productivity. There are ways around this. Cut down your burn. Build within constraints. For all the problems of the internet the cost of capital for ambition is lower than ever.</p>
+
+				<h2 id="footnotes">Footnotes</h2>
+				<p class="footnote footnote-target" id="fn-1">1. Obligatory disclaimer to salt your blog posts before consuming. If you add up all the advice published on the internet it roughly averages out to zero. Slate Star Codex has a beautiful piece titled “<a href="https://slatestarcodex.com/2014/03/24/should-you-reverse-any-advice-you-hear/" target="_blank" rel="noopener noreferrer">Should you reverse any advice you hear</a>”. For every blog post like mine that broadly says “move to a big city and try a thousand different things” there will be one that says “maintain maniacal focus on a single grand goal.” So buyer beware. Unless you’re just reading this for the doodles and the footnotes, in which case carry on. <a class="footnote-back" href="#fnref-1" aria-label="Back to reference 1">↩</a></p>
+				<p class="footnote footnote-target" id="fn-2">2. Source: I made it up. There’s no great numbers for either of these stats, but you broadly get the idea. <a class="footnote-back" href="#fnref-2" aria-label="Back to reference 2">↩</a></p>
+				<p class="footnote footnote-target" id="fn-3">3. Some fields have better odds than others but I’m old enough that I’ve seen childhood friends make a comfortable living as: <a class="footnote-back" href="#fnref-3" aria-label="Back to reference 3">↩</a></p>
+				<ul>
+					<li>Startup founders</li>
+					<li>TikTok influencers</li>
+					<li>Photographers</li>
+					<li>Matchmakers</li>
+					<li>Bloggers</li>
+					<li>Career coaches</li>
+				</ul>
+			</article>
+
+			<footer class="site-footer">
+				<p>&copy; 2026 Dmitri Mirakyan.</p>
+				<div class="footer-dots" aria-hidden="true">
+					<span class="cmyk-cyan"></span>
+					<span class="cmyk-magenta"></span>
+					<span class="cmyk-yellow"></span>
+					<span class="cmyk-black"></span>
+				</div>
+			</footer>
+		</main>
+	</div>
+
+	<script src="../../assets/main.js?v=footnotes-1"></script>
+	<script>
+		(function() {
+			function createPopover() {
+				var popover = document.createElement('div');
+				popover.className = 'lucky-footnote-popover';
+				popover.setAttribute('hidden', '');
+				popover.innerHTML = '<button class="lucky-footnote-popover-close" type="button" aria-label="Close footnote">×</button><div class="lucky-footnote-popover-content"></div>';
+				document.body.appendChild(popover);
+				return popover;
+			}
+
+			function positionPopover(popover, trigger) {
+				var rect = trigger.getBoundingClientRect();
+				var popoverRect = popover.getBoundingClientRect();
+				var gap = 10;
+				var top = rect.bottom + gap;
+				var left = rect.left + (rect.width / 2) - (popoverRect.width / 2);
+
+				if (left < 12) {
+					left = 12;
+				}
+
+				if (left + popoverRect.width > window.innerWidth - 12) {
+					left = window.innerWidth - popoverRect.width - 12;
+				}
+
+				if (top + popoverRect.height > window.innerHeight - 12) {
+					top = rect.top - popoverRect.height - gap;
+				}
+
+				if (top < 12) {
+					top = 12;
+				}
+
+				popover.style.top = top + 'px';
+				popover.style.left = left + 'px';
+			}
+
+			function getFootnoteContent(target) {
+				var fragment = document.createDocumentFragment();
+				var node = target.cloneNode(true);
+				var backLink = node.querySelector('.footnote-back');
+				if (backLink) {
+					backLink.remove();
+				}
+				fragment.appendChild(node);
+
+				var sibling = target.nextElementSibling;
+				while (sibling && !sibling.classList.contains('footnote')) {
+					fragment.appendChild(sibling.cloneNode(true));
+					sibling = sibling.nextElementSibling;
+				}
+
+				return fragment;
+			}
+
+			function initFootnotes() {
+				var originalTriggers = Array.prototype.slice.call(document.querySelectorAll('.post-body .footnote-trigger[data-footnote]'));
+				if (!originalTriggers.length) {
+					return;
+				}
+
+				var triggers = originalTriggers.map(function(trigger) {
+					var replacement = trigger.cloneNode(true);
+					trigger.parentNode.replaceChild(replacement, trigger);
+					return replacement;
+				});
+
+				var popover = createPopover();
+				var closeButton = popover.querySelector('.lucky-footnote-popover-close');
+				var content = popover.querySelector('.lucky-footnote-popover-content');
+				var activeTrigger = null;
+
+				function closePopover() {
+					popover.setAttribute('hidden', '');
+					content.innerHTML = '';
+					if (activeTrigger) {
+						activeTrigger.setAttribute('aria-expanded', 'false');
+					}
+					activeTrigger = null;
+				}
+
+				function openPopover(trigger, target) {
+					content.innerHTML = '';
+					content.appendChild(getFootnoteContent(target));
+					popover.removeAttribute('hidden');
+					activeTrigger = trigger;
+					trigger.setAttribute('aria-expanded', 'true');
+					positionPopover(popover, trigger);
+				}
+
+				triggers.forEach(function(trigger) {
+					trigger.setAttribute('aria-haspopup', 'dialog');
+					trigger.setAttribute('aria-expanded', 'false');
+
+					trigger.addEventListener('click', function(event) {
+						var target = document.getElementById(trigger.getAttribute('data-footnote'));
+						if (!target) {
+							return;
+						}
+
+						event.preventDefault();
+						event.stopPropagation();
+
+						if (activeTrigger === trigger) {
+							closePopover();
+							return;
+						}
+
+						if (activeTrigger) {
+							activeTrigger.setAttribute('aria-expanded', 'false');
+						}
+
+						openPopover(trigger, target);
+					});
+				});
+
+				closeButton.addEventListener('click', function(event) {
+					event.preventDefault();
+					closePopover();
+				});
+
+				document.addEventListener('click', function(event) {
+					if (!activeTrigger) {
+						return;
+					}
+
+					if (popover.contains(event.target) || activeTrigger.contains(event.target)) {
+						return;
+					}
+
+					closePopover();
+				});
+
+				document.addEventListener('keydown', function(event) {
+					if (event.key === 'Escape' && activeTrigger) {
+						closePopover();
+					}
+				});
+
+				window.addEventListener('resize', function() {
+					if (activeTrigger) {
+						positionPopover(popover, activeTrigger);
+					}
+				});
+
+				window.addEventListener('scroll', function() {
+					if (activeTrigger) {
+						positionPopover(popover, activeTrigger);
+					}
+				}, { passive: true });
+			}
+
+			initFootnotes();
+		})();
+	</script>
+</body>
+</html>

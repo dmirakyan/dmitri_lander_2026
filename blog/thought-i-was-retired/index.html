@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<title>Thought I was retired | Dmitri Mirakyan</title>
+	<meta name="description" content="What happens when you have the freedom to do anything and realize all you want to do is build." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/main.css" />
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9T8W1LRB9N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-9T8W1LRB9N');
+	</script>
+	<style>
+		.footnote-trigger {
+			border: 0;
+			padding: 0;
+			background: transparent;
+			color: #ec008c;
+			font: inherit;
+			line-height: inherit;
+			cursor: pointer;
+		}
+
+		.footnote-trigger:hover {
+			color: #231f20;
+		}
+
+		.lucky-footnote-popover {
+			position: fixed;
+			z-index: 200;
+			width: min(24rem, calc(100vw - 1.5rem));
+			max-height: min(22rem, calc(100vh - 1.5rem));
+			overflow: auto;
+			padding: 0.95rem 1rem 1rem;
+			border: 1px solid #f1f5f9;
+			background: rgba(255, 255, 255, 0.98);
+			box-shadow: 0 18px 50px rgba(35, 31, 32, 0.14);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+		}
+
+		.lucky-footnote-popover[hidden] {
+			display: none;
+		}
+
+		.lucky-footnote-popover-content {
+			padding-right: 1.25rem;
+			color: #111827;
+			font-size: 0.95rem;
+		}
+
+		.lucky-footnote-popover-content p {
+			margin-bottom: 0.75rem;
+		}
+
+		.lucky-footnote-popover-content p:last-child {
+			margin-bottom: 0;
+		}
+
+		.lucky-footnote-popover-content ul {
+			margin: 0 0 0 1.25rem;
+		}
+
+		.lucky-footnote-popover-close {
+			position: absolute;
+			top: 0.45rem;
+			right: 0.55rem;
+			border: 0;
+			background: transparent;
+			color: #6b7280;
+			font-size: 1.1rem;
+			line-height: 1;
+			cursor: pointer;
+		}
+
+		.lucky-footnote-popover-close:hover {
+			color: #231f20;
+		}
+	</style>
+</head>
+<body>
+	<div class="page-shell">
+		<aside class="sidebar">
+			<div class="sidebar-top">
+				<div class="identity">
+					<div class="avatar-wrap">
+						<img class="avatar" src="../../assets/images/profile-photo.png" alt="Dmitri Mirakyan" />
+					</div>
+					<div class="site-title">
+						<span class="site-title-mobile">Dmitri</span>
+						<span class="site-title-desktop">Dmitri needs a web presence</span>
+					</div>
+				</div>
+
+				<nav class="site-nav" aria-label="Primary">
+					<a class="nav-link nav-cyan" href="../../#about">About</a>
+					<a class="nav-link nav-magenta" href="../../#writing">Writing</a>
+					<a class="nav-link nav-yellow" href="../../#media">Media</a>
+					<a class="nav-link nav-black" href="../../#contact">Contact</a>
+				</nav>
+			</div>
+
+			<div class="social-links" aria-label="Social links">
+				<a href="https://twitter.com/damirakyan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19 9.458 12.504H16.59l-5.803-7.584-6.639 7.584H.466l8.6-9.83L0 1.154h7.597l5.242 6.932 6.062-6.932Zm-1.291 19.492h2.039L6.49 3.24H4.302L17.61 20.645Z"/></svg>
+				</a>
+				<a href="https://www.linkedin.com/in/dmirakyan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.983 3.5C4.983 4.881 3.87 6 2.5 6S.017 4.881.017 3.5 1.13 1 2.5 1s2.483 1.119 2.483 2.5ZM.5 8h4V23h-4V8Zm7 0h3.833v2.05h.055c.534-1.013 1.84-2.083 3.79-2.083 4.053 0 4.8 2.668 4.8 6.137V23h-4v-7.925c0-1.89-.034-4.32-2.633-4.32-2.636 0-3.039 2.06-3.039 4.185V23h-4V8Z"/></svg>
+				</a>
+				<a href="https://www.instagram.com/dmitri_am/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.506 5.506 0 0 1 22 7.5v9A5.506 5.506 0 0 1 16.5 22h-9A5.506 5.506 0 0 1 2 16.5v-9A5.506 5.506 0 0 1 7.5 2Zm0 2A3.504 3.504 0 0 0 4 7.5v9A3.504 3.504 0 0 0 7.5 20h9a3.504 3.504 0 0 0 3.5-3.5v-9A3.504 3.504 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+				</a>
+				<a href="mailto:damirakyan@gmail.com" aria-label="Email">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm18.565 2H3.435L12 12.714 20.565 7ZM3 17h18V8.236l-8.445 5.562a1 1 0 0 1-1.11 0L3 8.236V17Z"/></svg>
+				</a>
+			</div>
+
+			<div class="cmyk-bar cmyk-bar-mobile" aria-hidden="true">
+				<span class="cmyk-cyan"></span>
+				<span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span>
+				<span class="cmyk-black"></span>
+			</div>
+
+			<div class="cmyk-bar cmyk-bar-desktop" aria-hidden="true">
+				<span class="cmyk-cyan"></span>
+				<span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span>
+				<span class="cmyk-black"></span>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<a class="back-link" href="../">← Back to blog</a>
+
+			<header class="post-header">
+				<h1>Thought I was retired</h1>
+			</header>
+
+			<article class="post-body">
+				<p>Turns out I was a few letters off.</p>
+				<p>About 6 months ago I left my full-time job and insisted that I was now retired. The app I built nights and weekends was now comfortably paying my bills and growing at a steady pace.</p>
+				<p>The goal was to pick up hobbies. Read more. Write better. Find god.</p>
+				<p>So I looked.</p>
+
+				<h2 id="experiment">The experiment</h2>
+				<p>I did all the things my college career center told me not to. Made games. Wrote non-erotic non-poetry for the erotic poetry club. Updated my Hinge job to "culture hire" and "mail thief" just to see how people would react. Bought tickets to Asia on a 2-day notice. Took cooking classes. I even hired a paid intern just to build the dumbest thing I could imagine.</p>
+				<figure class="post-figure"><img src="./images/image-1.png" alt="" /></figure>
+				<p>It took all of a month of goofing off to realize that given the opportunity to do anything at all, all I wanted to do was:</p>
+				<ul>
+					<li>build consumer software</li>
+					<li>day drink with the homies</li>
+				</ul>
+				<p>God wasn't at Machu Picchu or the writing club. But there were glimmers of him at early morning bottomless brunch, and late nights trying to breathe a new project into existence.</p>
+				<figure class="post-figure"><img src="./images/image-2.png" alt="" /></figure>
+
+				<h2 id="realization">The realization</h2>
+				<p>I spent another 2 months trying to prove this theory wrong. Mostly because it felt like such an <em>unsatisfying</em> conclusion. "Happiness was inside of you all along." Really? If this was somebody else's blog post I'd be rolling my eyes and clicking back to scroll onto the next thing.</p>
+				<p>But there's gotta be a reason so many people that get great at a profession keep doing it even after they no longer have to work.<sup class="footnote-ref footnote-ref-target" id="fnref-1"><button class="footnote-trigger" type="button" data-footnote="fn-1" aria-label="See footnote 1">1</button></sup> Why do founders that exit their first company immediately go back to chewing glass.</p>
+
+				<h2 id="rocks">Rock pushing</h2>
+				<p>The metaphor I've always had in my head about life was <strong>pushing a rock up a hill</strong>. Except you're not Sisyphus so the rock doesn't roll back down. Instead you pat yourself on the back, celebrate a bit. Then look around and start pushing a rock up the next hill.</p>
+				<figure class="post-figure"><img src="./images/image-3.png" alt="" /></figure>
+				<p>I used to view this pattern with disdain. No matter what you accomplish, you quickly get accustomed to that level of attainment. Then you start to invent new problems for yourself. And no matter how many hills you climb, there's always someone more accomplished than you.</p>
+				<p>There's a million better metaphors invented about the futility of chasing attainment. Hedonic treadmill. Keeping up with the Joneses. Basically any moderately edgy piece of media that touches on adult life in the US.</p>
+				<p>Except at some elevation the rock pushing starts to become <em>fun</em>. The challenge and the familiar weight in your arms starts to feel enjoyable.</p>
+				<p>You push a rock to the top and get rewarded with currency. At the next hill you're invited to a club for people that have climbed it. Someone asks you about your rock-pushing technique, and you get a warm glow from the admiration. You start attending poker games with fellow moderately accomplished rock pushers.</p>
+				<figure class="post-figure"><img src="./images/image-4.png" alt="Ignore the LinkedIn invites from anyone advertising elite rock-pusher communities" /><figcaption>Ignore the LinkedIn invites from anyone advertising elite rock-pusher communities</figcaption></figure>
+				<p>This feeling doesn't hold true for everyone. Most people either treat work as a necessary evil, finding fulfillment in their hobbies, or just living for the weekend. Others found their passion but had to change lanes — either due to financial constraints<sup class="footnote-ref footnote-ref-target" id="fnref-3"><button class="footnote-trigger" type="button" data-footnote="fn-3" aria-label="See footnote 3">3</button></sup> or burnout.</p>
+				<p>So what makes some careers fun while others exhausting?</p>
+				<p>In my opinion, good work feels like a video game.<sup class="footnote-ref footnote-ref-target" id="fnref-4"><button class="footnote-trigger" type="button" data-footnote="fn-4" aria-label="See footnote 4">4</button></sup> Too easy and you get complacent. Too hard and you eventually give up or start questioning your own competence. Not enough novelty or rewards and eventually you get bored regardless.</p>
+				<p>Running a business seems uniquely well suited for this sort of fun, assuming you're willing to wade through the waist-deep river of shit it takes to arrive there.</p>
+				<p>On a median day doing founder stuff feels like a videogame. On the worst days it's an all-consuming anxiety. But it's never boring. And on a clear-weather day you can take a moment to sit back and appreciate the view from the top of the hill.</p>
+				<figure class="post-figure"><img src="./images/image-5.png" alt="Really glad I didn't pursue an art career" /><figcaption>Really glad I didn't pursue an art career</figcaption></figure>
+				<p>…Which brings me back to today. Attaining extraordinary outcomes often comes down to configuring your life in a way that invites opportunities. So I'm taking a new leap. I can now proudly say "I've raised $X from a16z with no product, no customers, and no revenue, with a co-founder I met at Burning Man." I think I get a whole Bingo from this one alone.</p>
+				<figure class="post-figure"><img src="./images/image-6.png" alt="" /></figure>
+				<p>Given the option to do anything it turns out I just want to build consumer software. So that's what I'm gonna do. YourMove AI is still growing — although I am looking for someone to help me run it. If you know anyone that wants to intern as CEO of a tiny business, do let me know.</p>
+
+				<h2 id="footnotes">Footnotes</h2>
+				<p class="footnote footnote-target" id="fn-1">1. The obvious boring reasons to "why keep going after you've made money" are a) inertia, b) altruism, or c) greed. It couldn't be purely inertia. I certainly didn't feel eager to go back to any of the other things I did for money.<sup class="footnote-ref footnote-ref-target" id="fnref-2"><button class="footnote-trigger" type="button" data-footnote="fn-2" aria-label="See footnote 2">2</button></sup> Most 9-to-5 jobs don't have a shred of altruism unless you're one of the delusional people thinking your job at Deloitte is making the world a better place. Greed is probably valid but would make for a less satisfying post, so we're going with the rock thing. <a class="footnote-back" href="#fnref-1" aria-label="Back to reference 1">↩</a></p>
+				<p class="footnote footnote-target" id="fn-2">2. Data scientist, analyst, consultant, mechanical engineer, SAT tutor, and manager-flavored versions of most of the above. <a class="footnote-back" href="#fnref-2" aria-label="Back to reference 2">↩</a></p>
+				<p class="footnote footnote-target" id="fn-3">3. Finding your life's work but giving it up for financial reasons is extremely common among friends that went into creative fields straight out of college. Turns out unless you've got a trust fund, it's brutally hard to pay the bills with art. Finding well-paying careers that are creatively stimulating works better — but they don't teach you that line of thinking in high school. <a class="footnote-back" href="#fnref-3" aria-label="Back to reference 3">↩</a></p>
+				<figure class="post-figure"><img src="./images/image-7.png" alt="" /></figure>
+				<p class="footnote footnote-target" id="fn-4">4. Capitalism <em>is</em> a video game. But if you're on Reddit or a Buddhist monastery it's an evil one where rent is theft and everyone is crushed under the wheels. And if you're in certain SF circles it's the one true measure of your worth. The right answer might be somewhere in between. Live a good life. Be a good friend and neighbor. <a class="footnote-back" href="#fnref-4" aria-label="Back to reference 4">↩</a></p>
+				<figure class="post-figure"><img src="./images/image-8.png" alt="" /><figcaption>source: <a href="https://coreyspondence.substack.com/p/585-ai-social-contracts-post-woke" target="_blank" rel="noopener noreferrer">coreyspondence.substack.com/p/585-ai-social-contracts-post-woke</a></figcaption></figure>
+			</article>
+
+			<footer class="site-footer">
+				<p>&copy; 2026 Dmitri Mirakyan.</p>
+				<div class="footer-dots" aria-hidden="true">
+					<span class="cmyk-cyan"></span>
+					<span class="cmyk-magenta"></span>
+					<span class="cmyk-yellow"></span>
+					<span class="cmyk-black"></span>
+				</div>
+			</footer>
+		</main>
+	</div>
+
+	<script src="../../assets/main.js?v=footnotes-1"></script>
+	<script>
+		(function() {
+			function createPopover() {
+				var popover = document.createElement('div');
+				popover.className = 'lucky-footnote-popover';
+				popover.setAttribute('hidden', '');
+				popover.innerHTML = '<button class="lucky-footnote-popover-close" type="button" aria-label="Close footnote">×</button><div class="lucky-footnote-popover-content"></div>';
+				document.body.appendChild(popover);
+				return popover;
+			}
+
+			function positionPopover(popover, trigger) {
+				var rect = trigger.getBoundingClientRect();
+				var popoverRect = popover.getBoundingClientRect();
+				var gap = 10;
+				var top = rect.bottom + gap;
+				var left = rect.left + (rect.width / 2) - (popoverRect.width / 2);
+
+				if (left < 12) {
+					left = 12;
+				}
+
+				if (left + popoverRect.width > window.innerWidth - 12) {
+					left = window.innerWidth - popoverRect.width - 12;
+				}
+
+				if (top + popoverRect.height > window.innerHeight - 12) {
+					top = rect.top - popoverRect.height - gap;
+				}
+
+				if (top < 12) {
+					top = 12;
+				}
+
+				popover.style.top = top + 'px';
+				popover.style.left = left + 'px';
+			}
+
+			function getFootnoteContent(target) {
+				var fragment = document.createDocumentFragment();
+				var node = target.cloneNode(true);
+				var backLink = node.querySelector('.footnote-back');
+				if (backLink) {
+					backLink.remove();
+				}
+				fragment.appendChild(node);
+
+				var sibling = target.nextElementSibling;
+				while (sibling && !sibling.classList.contains('footnote')) {
+					fragment.appendChild(sibling.cloneNode(true));
+					sibling = sibling.nextElementSibling;
+				}
+
+				return fragment;
+			}
+
+			function initFootnotes() {
+				var originalTriggers = Array.prototype.slice.call(document.querySelectorAll('.post-body .footnote-trigger[data-footnote]'));
+				if (!originalTriggers.length) {
+					return;
+				}
+
+				var triggers = originalTriggers.map(function(trigger) {
+					var replacement = trigger.cloneNode(true);
+					trigger.parentNode.replaceChild(replacement, trigger);
+					return replacement;
+				});
+
+				var popover = createPopover();
+				var closeButton = popover.querySelector('.lucky-footnote-popover-close');
+				var content = popover.querySelector('.lucky-footnote-popover-content');
+				var activeTrigger = null;
+
+				function closePopover() {
+					popover.setAttribute('hidden', '');
+					content.innerHTML = '';
+					if (activeTrigger) {
+						activeTrigger.setAttribute('aria-expanded', 'false');
+					}
+					activeTrigger = null;
+				}
+
+				function openPopover(trigger, target) {
+					content.innerHTML = '';
+					content.appendChild(getFootnoteContent(target));
+					popover.removeAttribute('hidden');
+					activeTrigger = trigger;
+					trigger.setAttribute('aria-expanded', 'true');
+					positionPopover(popover, trigger);
+				}
+
+				triggers.forEach(function(trigger) {
+					trigger.setAttribute('aria-haspopup', 'dialog');
+					trigger.setAttribute('aria-expanded', 'false');
+
+					trigger.addEventListener('click', function(event) {
+						var target = document.getElementById(trigger.getAttribute('data-footnote'));
+						if (!target) {
+							return;
+						}
+
+						event.preventDefault();
+						event.stopPropagation();
+
+						if (activeTrigger === trigger) {
+							closePopover();
+							return;
+						}
+
+						if (activeTrigger) {
+							activeTrigger.setAttribute('aria-expanded', 'false');
+						}
+
+						openPopover(trigger, target);
+					});
+				});
+
+				closeButton.addEventListener('click', function(event) {
+					event.preventDefault();
+					closePopover();
+				});
+
+				document.addEventListener('click', function(event) {
+					if (!activeTrigger) {
+						return;
+					}
+
+					if (popover.contains(event.target) || activeTrigger.contains(event.target)) {
+						return;
+					}
+
+					closePopover();
+				});
+
+				document.addEventListener('keydown', function(event) {
+					if (event.key === 'Escape' && activeTrigger) {
+						closePopover();
+					}
+				});
+
+				window.addEventListener('resize', function() {
+					if (activeTrigger) {
+						positionPopover(popover, activeTrigger);
+					}
+				});
+
+				window.addEventListener('scroll', function() {
+					if (activeTrigger) {
+						positionPopover(popover, activeTrigger);
+					}
+				}, { passive: true });
+			}
+
+			initFootnotes();
+		})();
+	</script>
+</body>
+</html>
