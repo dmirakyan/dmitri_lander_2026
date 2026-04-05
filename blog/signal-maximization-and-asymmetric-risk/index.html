@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<title>Signal Maximization and Asymmetric Risk | Dmitri Mirakyan</title>
+	<meta name="description" content="A data-driven framework for running better interviews: maximize signal, then make a calibrated hire/no-hire call." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/main.css" />
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9T8W1LRB9N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-9T8W1LRB9N');
+	</script>
+</head>
+<body>
+	<div class="page-shell">
+		<aside class="sidebar">
+			<div class="sidebar-top">
+				<div class="identity">
+					<div class="avatar-wrap">
+						<img class="avatar" src="../../assets/images/profile-photo.png" alt="Dmitri Mirakyan" />
+					</div>
+					<div class="site-title">
+						<span class="site-title-mobile">Dmitri</span>
+						<span class="site-title-desktop">Dmitri needs a web presence</span>
+					</div>
+				</div>
+				<nav class="site-nav" aria-label="Primary">
+					<a class="nav-link nav-cyan" href="../../#about">About</a>
+					<a class="nav-link nav-magenta" href="../../#writing">Writing</a>
+					<a class="nav-link nav-yellow" href="../../#media">Media</a>
+					<a class="nav-link nav-black" href="../../#contact">Contact</a>
+				</nav>
+			</div>
+			<div class="social-links" aria-label="Social links">
+				<a href="https://twitter.com/damirakyan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19 9.458 12.504H16.59l-5.803-7.584-6.639 7.584H.466l8.6-9.83L0 1.154h7.597l5.242 6.932 6.062-6.932Zm-1.291 19.492h2.039L6.49 3.24H4.302L17.61 20.645Z"/></svg>
+				</a>
+				<a href="https://www.linkedin.com/in/dmirakyan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.983 3.5C4.983 4.881 3.87 6 2.5 6S.017 4.881.017 3.5 1.13 1 2.5 1s2.483 1.119 2.483 2.5ZM.5 8h4V23h-4V8Zm7 0h3.833v2.05h.055c.534-1.013 1.84-2.083 3.79-2.083 4.053 0 4.8 2.668 4.8 6.137V23h-4v-7.925c0-1.89-.034-4.32-2.633-4.32-2.636 0-3.039 2.06-3.039 4.185V23h-4V8Z"/></svg>
+				</a>
+				<a href="https://www.instagram.com/dmitri_am/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.506 5.506 0 0 1 22 7.5v9A5.506 5.506 0 0 1 16.5 22h-9A5.506 5.506 0 0 1 2 16.5v-9A5.506 5.506 0 0 1 7.5 2Zm0 2A3.504 3.504 0 0 0 4 7.5v9A3.504 3.504 0 0 0 7.5 20h9a3.504 3.504 0 0 0 3.5-3.5v-9A3.504 3.504 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+				</a>
+				<a href="mailto:damirakyan@gmail.com" aria-label="Email">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm18.565 2H3.435L12 12.714 20.565 7ZM3 17h18V8.236l-8.445 5.562a1 1 0 0 1-1.11 0L3 8.236V17Z"/></svg>
+				</a>
+			</div>
+			<div class="cmyk-bar cmyk-bar-mobile" aria-hidden="true">
+				<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+			</div>
+			<div class="cmyk-bar cmyk-bar-desktop" aria-hidden="true">
+				<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<a class="back-link" href="../">← Back to blog</a>
+
+			<header class="post-header">
+				<h1>Signal Maximization and Asymmetric Risk</h1>
+			</header>
+
+			<article class="post-body">
+				<h2 id="qualifications">My qualifications</h2>
+				<ul>
+					<li>Conducted 144 interviews in 2022</li>
+					<li>Assuming 0.75 hours per interview on average (accounting for feedback, etc), that makes me about 9,900 hours short of the 10k hour rule. If Malcolm Gladwell knew I existed he would tell me to sit down.</li>
+				</ul>
+
+				<h2 id="intro">Intro</h2>
+				<p>As decision scientists, a decent part of our job can be best described as &#8220;throw math at parts of the business and see if value comes out.&#8221; In general, recruiting is an under-mathed part of the company. Today, I want to talk about 2 of my favorite concepts at the intersection of stats and recruiting: <strong>maximizing signal</strong> and <strong>asymmetric hiring risk</strong>.</p>
+
+				<h3>What an interview isn&#8217;t.</h3>
+				<p>A vibe check. In the absence of good principles, any non-technical interview quickly devolves into a vibe check. An unprincipled technical interview takes only marginally longer.</p>
+				<p>Studies show we end up optimizing for candidates that are similar in style to us. &#8220;These traits and thinking styles made me successful. Naturally this would make others successful in this role as well.&#8221; Absent conscious effort to avoid this bias, Dmitri would hire people with technical backgrounds and a good taste for fonts.</p>
+				<p>This style of interview is also much more easily targeted via bullshitting, personality, and pure practice.</p>
+
+				<figure class="post-figure"><img src="./images/image-1.png" alt="" /><figcaption>source: <a href="https://xkcd.com/451/" target="_blank" rel="noopener noreferrer">xkcd.com</a></figcaption></figure>
+
+				<h3>What an interview should be (in 2 steps).</h3>
+				<p>It&#8217;s actually super simple. For each interview, you just need to do 2 things:</p>
+				<ol>
+					<li>Maximize the signal you get about the candidate.</li>
+					<li>Use that signal to make a calibrated choice about whether to move the candidate forward.</li>
+				</ol>
+				<p>Let&#8217;s unpack those one at a time.</p>
+
+				<h2 id="maximizing-signal">Maximizing Signal</h2>
+				<p>It&#8217;s good to walk into every meeting with a purpose. Bias aside, we tend to make a judgment on candidates in the first 5 minutes before proceeding to mechanically run through the rest of the interview. This habit makes sense for how we normally approach the universe  -  doing analysis takes work. Eventually we&#8217;re so tied to our heuristics that you have a hunch about the interview before it even starts. But what&#8217;s the point of a 30 minute interview if you only use the first 5 minutes?</p>
+				<p>I&#8217;ll posit that the way to overcome this bias is to set an intermediate goal in the interview. Before you make a 1/2/3/4 decision  -  take advantage of your time to maximize the signal on the likelihood of a candidate&#8217;s success.</p>
+
+				<h3>Probing to failure</h3>
+				<p>When you think about your typical interview, you imagine going through a uniform list of questions. This helps reduce bias between candidates  -  but limits the <em>range</em> of signal that you get for any one candidate. The solution is to ask the same set of &#8220;core interview segments&#8221;  -  but make the incremental questions within them incrementally easier or harder.</p>
+				<p>If anyone&#8217;s familiar with the GMAT, it makes for a great parallel for how you might run an interview. The GMAT is similar to a computerized version of the SAT. However, rather than giving everyone the same set of questions  -  it makes questions incrementally easier as the test goes on, resulting in a broader range of possible outcomes.</p>
+
+				<figure class="post-figure"><img src="https://lh4.googleusercontent.com/ZY1V-LGzcqKnVfrxTQKWBlG2_Zm2JmK13yu_oiJ3LXgNUX_KRV2PR6_Ffu-Lchtvnyj6fTKjWY91RdNwa0lCB5n14AMuAMoItxRWpMI3EfzW-K9n9p5iBqEPOkeqqYLSwON94wv5rhNjSUovbA" alt="" /></figure>
+
+				<p>The way this should play out in an interview:</p>
+				<ul>
+					<li>If a candidate answers poorly  -  <strong>give them progressively more hints</strong> to try and nudge them to the solution. This allows the candidate to recover from a single poor answer, and reduces the number of failures from simply misunderstanding the question.</li>
+					<li>If a candidate does well  -  <strong>probe to failure</strong>. Keep asking deeper questions to capture the depth of the candidate&#8217;s understanding.
+						<ul>
+							<li><strong>On technical questions</strong>  -  &#8220;How would you adjust your answer given X complicating factor?&#8221; &#8220;What&#8217;s the technical tradeoff between the 2 solutions you proposed?&#8221;</li>
+							<li><strong>On behavioral questions</strong>  -  instead of asking 6 different questions, ask 1-2 and probe into each. Why did they make a choice? What was the impact? This has the secondary effect of honing in on what the candidate actually contributed, over how polished their story is.</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h2 id="asymmetric-risk">Making a calibrated call: Asymmetric Risk</h2>
+				<p>Good job, you&#8217;ve successfully extracted a few gallons of signal from your half-hour interview. How do you make a hiring decision? The lazy way would be to trust your gut. A smarter approach is going with some sort of rubric. But in any case  -  how do you calibrate the line of hire vs no hire?</p>
+				<p>To do this effectively, let&#8217;s consider the cost of getting it wrong. To keep this on-brand, let&#8217;s borrow some concepts from hypothesis testing.</p>
+
+				<figure class="post-figure"><img src="./images/image-2.png" alt="" /></figure>
+
+				<p>Let&#8217;s start with the cost of rejecting a candidate that would have been successful if hired. The costs add up:</p>
+				<ul>
+					<li><strong>The role stays unfilled longer</strong>  -  leaving the role under-supported for longer. This could be weeks or months.</li>
+					<li><strong>The time cost of interviewing.</strong> A personal estimate put our team at ~100 candidates interviewed per hire. Factoring in time spent on interviews + feedback, that&#8217;s ~250 hours per hire. Needless to say, rejecting candidates is expensive.</li>
+				</ul>
+				<p>If we incorrectly hire a candidate that&#8217;s underqualified, the costs can add up to a lot more:</p>
+				<ul>
+					<li><strong>The role is performed poorly.</strong> Maybe the results are worse than if they hadn&#8217;t been done at all.</li>
+					<li><strong>Loss of stakeholder trust.</strong> Bad deliverables can do that to you.</li>
+					<li><strong>Team morale.</strong> Takes a hit twice  -  first for having to work with a bad hire, next from a teammate leaving.</li>
+					<li><strong>Time to coach or manage out.</strong></li>
+					<li><strong>Time to fill the role again from 0.</strong> Headcount is non-fungible.</li>
+				</ul>
+				<p>The end result is <strong>asymmetric risk</strong> between incorrectly hiring and incorrectly rejecting. Accidentally hiring a bad candidate will generally be far more painful than missing out on someone that could have been a fit.</p>
+
+				<h3>Upstream interviews</h3>
+				<p>Asymmetric risk is most relevant for a hire / no hire decision, but the above framework works really well for upstream interviews as well. As an example, here&#8217;s how the framework looks for deciding whether to bring a candidate onsite.</p>
+
+				<figure class="post-figure"><img src="./images/image-3.png" alt="" /></figure>
+			</article>
+
+			<footer class="site-footer">
+				<p>&copy; 2026 Dmitri Mirakyan.</p>
+				<div class="footer-dots" aria-hidden="true">
+					<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+					<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+				</div>
+			</footer>
+		</main>
+	</div>
+
+	<script src="../../assets/main.js"></script>
+</body>
+</html>

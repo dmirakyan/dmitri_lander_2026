@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<title>How to Ship an ML Model in 30 Minutes | Dmitri Mirakyan</title>
+	<meta name="description" content="A plain-English introduction to machine learning: what it is, how it works, and when to use it." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/main.css" />
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9T8W1LRB9N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-9T8W1LRB9N');
+	</script>
+</head>
+<body>
+	<div class="page-shell">
+		<aside class="sidebar">
+			<div class="sidebar-top">
+				<div class="identity">
+					<div class="avatar-wrap">
+						<img class="avatar" src="../../assets/images/profile-photo.png" alt="Dmitri Mirakyan" />
+					</div>
+					<div class="site-title">
+						<span class="site-title-mobile">Dmitri</span>
+						<span class="site-title-desktop">Dmitri needs a web presence</span>
+					</div>
+				</div>
+				<nav class="site-nav" aria-label="Primary">
+					<a class="nav-link nav-cyan" href="../../#about">About</a>
+					<a class="nav-link nav-magenta" href="../../#writing">Writing</a>
+					<a class="nav-link nav-yellow" href="../../#media">Media</a>
+					<a class="nav-link nav-black" href="../../#contact">Contact</a>
+				</nav>
+			</div>
+			<div class="social-links" aria-label="Social links">
+				<a href="https://twitter.com/damirakyan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19 9.458 12.504H16.59l-5.803-7.584-6.639 7.584H.466l8.6-9.83L0 1.154h7.597l5.242 6.932 6.062-6.932Zm-1.291 19.492h2.039L6.49 3.24H4.302L17.61 20.645Z"/></svg>
+				</a>
+				<a href="https://www.linkedin.com/in/dmirakyan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.983 3.5C4.983 4.881 3.87 6 2.5 6S.017 4.881.017 3.5 1.13 1 2.5 1s2.483 1.119 2.483 2.5ZM.5 8h4V23h-4V8Zm7 0h3.833v2.05h.055c.534-1.013 1.84-2.083 3.79-2.083 4.053 0 4.8 2.668 4.8 6.137V23h-4v-7.925c0-1.89-.034-4.32-2.633-4.32-2.636 0-3.039 2.06-3.039 4.185V23h-4V8Z"/></svg>
+				</a>
+				<a href="https://www.instagram.com/dmitri_am/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.506 5.506 0 0 1 22 7.5v9A5.506 5.506 0 0 1 16.5 22h-9A5.506 5.506 0 0 1 2 16.5v-9A5.506 5.506 0 0 1 7.5 2Zm0 2A3.504 3.504 0 0 0 4 7.5v9A3.504 3.504 0 0 0 7.5 20h9a3.504 3.504 0 0 0 3.5-3.5v-9A3.504 3.504 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+				</a>
+				<a href="mailto:damirakyan@gmail.com" aria-label="Email">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm18.565 2H3.435L12 12.714 20.565 7ZM3 17h18V8.236l-8.445 5.562a1 1 0 0 1-1.11 0L3 8.236V17Z"/></svg>
+				</a>
+			</div>
+			<div class="cmyk-bar cmyk-bar-mobile" aria-hidden="true">
+				<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+			</div>
+			<div class="cmyk-bar cmyk-bar-desktop" aria-hidden="true">
+				<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<a class="back-link" href="../">← Back to blog</a>
+
+			<header class="post-header">
+				<h1>How to Ship an ML Model in 30 Minutes</h1>
+			</header>
+
+			<article class="post-body">
+				<figure class="post-figure"><img src="https://lh7-us.googleusercontent.com/-l1FEXmi77NeDcZP0VGZ_8eChTrNvcaOgGHtoGimGRpr7gQoJ8NOrzbaxs0Z-UQoqWdMCmF7LjuVkknMXfWqZjiRAT_p7dcLTpFCfBysx7dRubzkyX0riN7eD5EC_ozKWRDl_QlQT_cdC_JaSk6Rh1M" alt="" /></figure>
+
+				<h2 id="objectives">Objectives</h2>
+				<p>If all goes well you&#8217;ll come out of this with:</p>
+				<ul>
+					<li>High level understanding of ML models; what type of problems they&#8217;re suited well for solving</li>
+					<li>Their strengths, weaknesses and limitations</li>
+					<li>The tools and confidence to explore ML on your own should you choose to</li>
+				</ul>
+				<p>You won&#8217;t be able to:</p>
+				<ul>
+					<li>Literally be able to ship an ML model from scratch in 30 minutes</li>
+					<li>Use words like heteroscedasticity</li>
+				</ul>
+				<p><em>Note: We&#8217;re gonna start with classical (&#8220;non-deep&#8221;), supervised machine learning for the sake of this demo. If none of those words make sense yet that&#8217;s okay.</em></p>
+
+				<h2 id="wtf">Wtf is ML</h2>
+				<p>A wonderful cliché is starting monologues with a definition. Let&#8217;s run it back.</p>
+				<p>&#8220;Machine learning is <strong>a subfield of artificial intelligence that gives computers the ability to learn without</strong> explicitly being programmed.&#8221;</p>
+
+				<h2 id="history">A history of rapid scale decision-making</h2>
+				<p>Let&#8217;s say I need to decide how much a house is worth. You&#8217;d go, gather a bunch of data. How much square footage the house has, how much homes nearby are worth. Maybe check whether the driveway sits at the crossroads of a railroad and an interstate.</p>
+				<p>At 1 house a day you do the math yourself. Maybe start with a spreadsheet, model it out, and apply some judgment on top.</p>
+				<p>At 10 homes a day maybe you hire a person.</p>
+				<p>At 1000/day you have a team, along with a bunch of systems in place to ensure accuracy and consistency.</p>
+				<p>At 1000/minute you probably want a computer.</p>
+
+				<h3>Heuristics to models</h3>
+				<p>The old school version of training a computer to make decisions is <strong>heuristic-based</strong>. Chain together a bunch of if-then statements. Maybe throw an equation into the mix. Think Zapier bots, most Excel functions. This is how most programming-based decisions used to work.</p>
+				<p>Algorithms are great for when the decision is relatively straightforward, and when there&#8217;s an absolute right answer.</p>
+
+				<figure class="post-figure"><img src="https://lh7-us.googleusercontent.com/y5ExjKFWhJWvQ7BSomCyWCkjewAM8MEbJfoQ3HU0dZJvyp7_TSYIP7aA3BkToBmJbme0rqbpQFy6KLwiASCTCy4oegpQQD1_RGt_0ppppk-yGwLZetJvYguzvuu18FrIcqECBawkhgGeEmbbF-bt8ek" alt="" /></figure>
+
+				<p>While this approach works well enough for telling apart a squirrel from a hippo, it gets messy for more complicated things. How much is a house worth exactly? How positive was this customer&#8217;s experience? What is the likelihood they&#8217;ll convert?</p>
+				<p>Algorithmic decision making has some challenges:</p>
+				<ul>
+					<li><strong>Limited inputs + complexity</strong>  -  even if the spreadsheet works, you end up applying &#8220;judgement&#8221; on top. As you add more inputs and rules, model complexity increases quadratically.</li>
+					<li><strong>Maintenance</strong>  -  how do you adjust to the environment as the rules of the game change?</li>
+				</ul>
+
+				<h3>ML to the rescue</h3>
+				<p>The solution? Shove all the data that you can into a box, and ask it to predict the outcome.</p>
+
+				<figure class="post-figure"><img src="https://lh7-us.googleusercontent.com/UQrmvhJYBGDCSG9q26NWHCc90t5arJtU24P9aco0L1ptsbSRMFoxhA7Vq6Gs740GZWOI0nNP9wtfhpeJNRGdlJfRuOE1BD2bvW1lkCRkEgGXmg8Dpc1iq6Yxi0sMl0YUyOwmRTLq-6q4O2Hx67A_kRY" alt="" /><figcaption>source: <a href="https://xkcd.com" target="_blank" rel="noopener noreferrer">xkcd.com</a></figcaption></figure>
+
+				<h2 id="how-it-works">How it works (kinda)</h2>
+				<p>Back to predicting a house.</p>
+				<p>Let&#8217;s say you asked me to estimate the price of a home based on its square footage. You&#8217;ve got 2 variables and a target. You also have a spreadsheet with the data for 1000 homes.</p>
+				<p>You plot them on a chart. Then run a regression. The math involved is constructing a line which minimizes the error for any of the input data. The result is an equation that is your best mathematical prediction of the price, given square footage.</p>
+				<p>Now let&#8217;s say you&#8217;ve got 2 input variables. Square feet and age. Put sq ft on the x axis, age on y axis, and price on the z axis. And run the math again. You get a 3-dimensional line of best fit.</p>
+				<p>Now let&#8217;s say you have 50 input variables. It no longer makes for a cute graphic. But the end result is a line of best fit in 51-dimensional space, and an associated equation.</p>
+
+				<figure class="post-figure"><img src="https://lh7-us.googleusercontent.com/ur_MbWeO0jDfJ_XkofM-GfVcw5up6mfpc0tfHgCJQa6Rg0TyDxNpf_kUTxXM94_hJvlpXlWb7l2GCWSJIbWcNQcxuSPGZbPbc3oHzRiTGgeNXuisWwwLZ5P0wYqnTQvgZmAELEvamBk0Wcndfw6L1p8" alt="" /></figure>
+
+				<p>That&#8217;s your linear regression. Machine learning model. Magical box, pile of linear algebra.</p>
+				<p>Now that our decisions are computerized, we get a few other goodies:</p>
+				<ul>
+					<li><strong>Ease of improvement</strong>  -  We can mess with the equation and backtest it against historical data.</li>
+					<li><strong>Accuracy tracking</strong>  -  We can measure the accuracy over time.</li>
+					<li><strong>Explainability</strong>  -  For regression models in particular, we can show the relationship between a particular variable and the output.</li>
+				</ul>
+
+				<h2 id="definition">Back to our definition</h2>
+				<p>Machine learning allows us to train computers to make decisions:</p>
+				<ul>
+					<li>Faster</li>
+					<li>At infinite scale</li>
+					<li>With more inputs</li>
+					<li>With measurable accuracy over time</li>
+				</ul>
+
+				<h2 id="where-useful">Where ML models are useful</h2>
+				<p>A good way of understanding where ML models can be applied is to look at all the places you&#8217;re already interacting with them daily as a consumer.</p>
+				<ul>
+					<li><strong>Feeds</strong>  -  Instagram, TikTok, Amazon all run ML to decide what to show you, prioritizing engagement.</li>
+					<li><strong>Binary decisions</strong>  -  Fraud alerts, credit card approvals, spam detection.</li>
+				</ul>
+
+				<table>
+					<thead><tr><th>Type of Prediction</th><th>Example</th></tr></thead>
+					<tbody>
+						<tr><td>Continuous value</td><td>Flight prices / hotel prices / likelihood that customer X purchases product Y</td></tr>
+						<tr><td>Binary outcome (true vs false)</td><td>Was a transaction fraudulent? / Is a given email spam?</td></tr>
+						<tr><td>Classification</td><td>What genre does a movie belong to?</td></tr>
+					</tbody>
+				</table>
+
+				<h2 id="why-not">Why you shouldn&#8217;t ship an ML model</h2>
+				<p>Like all things, the decision to ship a project can roughly be the expected impact vs effort.</p>
+				<p>Where ML models work well:</p>
+				<ul>
+					<li><strong>Lots of data</strong> that matches what you&#8217;re trying to predict</li>
+					<li><strong>That&#8217;s clean</strong>  -  garbage in, garbage out</li>
+					<li><strong>That&#8217;s reasonably homogenous</strong>  -  the less variation in the data, the clearer the relationships are</li>
+					<li><strong>With outcomes</strong>  -  you can&#8217;t fit a line if you don&#8217;t have the outcome data</li>
+				</ul>
+				<p>Consider the effort to get one up and running:</p>
+				<ul>
+					<li>Data cleaning/gathering (and labeling if needed)</li>
+					<li>Model training</li>
+					<li>Validation  -  backtest at minimum</li>
+					<li>Deployment  -  getting the model running continuously and integrating outputs</li>
+					<li>Monitoring  -  tracking that the model doesn&#8217;t deteriorate with time</li>
+				</ul>
+			</article>
+
+			<footer class="site-footer">
+				<p>&copy; 2026 Dmitri Mirakyan.</p>
+				<div class="footer-dots" aria-hidden="true">
+					<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+					<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+				</div>
+			</footer>
+		</main>
+	</div>
+
+	<script src="../../assets/main.js"></script>
+</body>
+</html>

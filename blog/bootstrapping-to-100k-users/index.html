@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<title>Bootstrapping to 100k Users | Dmitri Mirakyan</title>
+	<meta name="description" content="Lessons learned from bootstrapping a consumer app to 100k users." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/main.css" />
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9T8W1LRB9N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-9T8W1LRB9N');
+	</script>
+</head>
+<body>
+	<div class="page-shell">
+		<aside class="sidebar">
+			<div class="sidebar-top">
+				<div class="identity">
+					<div class="avatar-wrap">
+						<img class="avatar" src="../../assets/images/profile-photo.png" alt="Dmitri Mirakyan" />
+					</div>
+					<div class="site-title">
+						<span class="site-title-mobile">Dmitri</span>
+						<span class="site-title-desktop">Dmitri needs a web presence</span>
+					</div>
+				</div>
+				<nav class="site-nav" aria-label="Primary">
+					<a class="nav-link nav-cyan" href="../../#about">About</a>
+					<a class="nav-link nav-magenta" href="../../#writing">Writing</a>
+					<a class="nav-link nav-yellow" href="../../#media">Media</a>
+					<a class="nav-link nav-black" href="../../#contact">Contact</a>
+				</nav>
+			</div>
+			<div class="social-links" aria-label="Social links">
+				<a href="https://twitter.com/damirakyan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19 9.458 12.504H16.59l-5.803-7.584-6.639 7.584H.466l8.6-9.83L0 1.154h7.597l5.242 6.932 6.062-6.932Zm-1.291 19.492h2.039L6.49 3.24H4.302L17.61 20.645Z"/></svg>
+				</a>
+				<a href="https://www.linkedin.com/in/dmirakyan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.983 3.5C4.983 4.881 3.87 6 2.5 6S.017 4.881.017 3.5 1.13 1 2.5 1s2.483 1.119 2.483 2.5ZM.5 8h4V23h-4V8Zm7 0h3.833v2.05h.055c.534-1.013 1.84-2.083 3.79-2.083 4.053 0 4.8 2.668 4.8 6.137V23h-4v-7.925c0-1.89-.034-4.32-2.633-4.32-2.636 0-3.039 2.06-3.039 4.185V23h-4V8Z"/></svg>
+				</a>
+				<a href="https://www.instagram.com/dmitri_am/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.506 5.506 0 0 1 22 7.5v9A5.506 5.506 0 0 1 16.5 22h-9A5.506 5.506 0 0 1 2 16.5v-9A5.506 5.506 0 0 1 7.5 2Zm0 2A3.504 3.504 0 0 0 4 7.5v9A3.504 3.504 0 0 0 7.5 20h9a3.504 3.504 0 0 0 3.5-3.5v-9A3.504 3.504 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+				</a>
+				<a href="mailto:damirakyan@gmail.com" aria-label="Email">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm18.565 2H3.435L12 12.714 20.565 7ZM3 17h18V8.236l-8.445 5.562a1 1 0 0 1-1.11 0L3 8.236V17Z"/></svg>
+				</a>
+			</div>
+			<div class="cmyk-bar cmyk-bar-mobile" aria-hidden="true">
+				<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+			</div>
+			<div class="cmyk-bar cmyk-bar-desktop" aria-hidden="true">
+				<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<a class="back-link" href="../">← Back to blog</a>
+
+			<header class="post-header">
+				<h1>Bootstrapping to 100k Users</h1>
+			</header>
+
+			<article class="post-body">
+				<p>Non-exhaustive list of things I learned (mostly the hard way) from building <a href="https://yourmove.ai" target="_blank" rel="noopener noreferrer">yourmove.ai</a> and all the projects that failed along the way.</p>
+
+				<ul>
+					<li><strong>Good advice is domain-specific. Find mentors in your space.</strong> If you&#8217;re bootstrapping a consumer product, the advice that follows is probably useful. When I first started soliciting feedback on startups I was frustrated at the amount of conflicting and contradictory feedback. Once I honed in on bootstrapped, consumer startups  -  the dots started to become a line.</li>
+					<li><strong>You don&#8217;t have to be an engineer to bootstrap a software product.</strong> But be prepared to either learn how to dev, or pay 10x the price you expect to get anything off the ground. Early stage software is a process of constant rapid-fire iteration. Unless you&#8217;re extremely lucky (or have a lot of cash to spare), devs and designers you hire will work 50% your speed at best. They don&#8217;t work weekends, and they&#8217;re not as maniacally consumed by your work as you are.</li>
+					<li><strong>Just ship it.</strong> No amount of thinking has worked better for me than just launching a product and putting it into customer hands. If your product solves a real problem, customers will pay for a poorly-designed MVP. Sequoia talks about hair-on-fire problems: &#8220;If you handed them a brick they would still grab it and try to hit themselves on the head to put out the fire&#8221;.</li>
+					<li><strong>Most of your products will fail.</strong> The same power laws that make technology so valuable  -  being a single developer creating software used by millions  -  also mean that there&#8217;s only so many successful products that can exist.</li>
+					<li><strong>&#8230;but there&#8217;s plenty of real problems to go around. So don&#8217;t get discouraged.</strong> Patio11&#8217;s law: The software economy is bigger than you think, even after accounting for Patio11&#8217;s law.</li>
+					<li><strong>If you keep trying, one of them might succeed.</strong> Most indie founders I know built a dozen products before one took off. &#8220;All things equal, a team with more shots at bat will win against a team with an audacious vision.&#8221;</li>
+					<li><strong>&#8220;First-time founders are obsessed with product. Second-time founders are obsessed with distribution.&#8221;</strong> An okay product with great distribution will still make money. A good product with bad distribution is almost guaranteed to fail.</li>
+					<li><strong>Don&#8217;t paywall too late.</strong> The fastest way to validate &#8220;will someone pay for this&#8221; is to set up a pre-order, or a Stripe checkout page that redirects to a Google-form operated version of the product. Often times there&#8217;s no need to build out the software until you&#8217;ve validated that someone will actually pay for it.</li>
+					<li><strong>Don&#8217;t paywall too early.</strong> While pay-gating early is a great way to test &#8220;will people pay&#8221;, it will reduce the amount of data and feedback you get from users. It also slows down organic growth. Demonstrating value before asking for payment can massively improve LTV. In our case  -  opening a free set of features on our AI profile writer increased conversion by 2.5x while also resulting in more organic growth from users sharing the product.</li>
+					<li><strong>Stop reading articles about building startups and just go build one.</strong> My first project that earned anything took 6 months to make a single dollar from a cold start. My latest one took 3 days.</li>
+				</ul>
+
+				<table>
+					<thead><tr><th>Product</th><th>Distribution</th><th>Outcome</th></tr></thead>
+					<tbody>
+						<tr><td>Bad</td><td>Good</td><td>$</td></tr>
+						<tr><td>Good</td><td>Bad</td><td>Dead</td></tr>
+						<tr><td>Good</td><td>Good</td><td>$$$</td></tr>
+					</tbody>
+				</table>
+			</article>
+
+			<footer class="site-footer">
+				<p>&copy; 2026 Dmitri Mirakyan.</p>
+				<div class="footer-dots" aria-hidden="true">
+					<span class="cmyk-cyan"></span><span class="cmyk-magenta"></span>
+					<span class="cmyk-yellow"></span><span class="cmyk-black"></span>
+				</div>
+			</footer>
+		</main>
+	</div>
+
+	<script src="../../assets/main.js"></script>
+</body>
+</html>
