@@ -729,6 +729,10 @@ strong {
 		content: "\2014 ";
 	}
 
+	.list-writing .list-meta::before {
+		content: "- ";
+	}
+
 }
 
 @media (min-width: 768px) {
