@@ -19,14 +19,14 @@ state = {person:'dmitri',votes:{},outbox:[],history:[],...state};
 if (!['dmitri','tulin'].includes(state.person)) state.person='dmitri';
 if (['dmitri','tulin'].includes(fragment.get('person'))) state.person=fragment.get('person');
 if (fragment.has('board')) history.replaceState(null,'',location.pathname+location.search);
-let ideas=[],day='all',category='all',nearby=false,evening=false,view='deck',busy=false,animating=false,onlineSaved=false;
+let ideas=[],day='all',category='all',view='deck',busy=false,animating=false,onlineSaved=false;
 const personName = p => p==='tulin'?'Tulin':'Dmitri';
 function save() {write(storageKey,JSON.stringify(state));}
 function syncStatus(text,problem=false) {$('#sync').textContent=text;$('#sync').classList.toggle('problem',problem);}
 function notice(text) {$('#notice').textContent=text;}
 function vote(id,person=state.person) {return state.votes[`${person}:${id}`]?.choice || 'none';}
 function bothYes(id) {return vote(id,'dmitri')==='yes' && vote(id,'tulin')==='yes';}
-function filtered() {return ideas.filter(i=>(day==='all'||i.days.includes(day))&&(category==='all'||i.category===category)&&(!nearby||i.area.toLowerCase().includes('tribeca'))&&(!evening||(!i.daytime&&(!i.eveningDays||day==='all'||i.eveningDays.includes(day)))));}
+function filtered() {return ideas.filter(i=>(day==='all'||i.days.includes(day))&&(category==='all'||i.category===category));}
 function unchosen() {return filtered().filter(i=>vote(i.id)==='none');}
 function controls(i,small=false) {return `<div class="decision-bar" role="group" aria-label="Choose for ${esc(i.title)}">${['pass','maybe','yes'].map(c=>`<button class="decision ${c}" data-choice="${c}" data-id="${i.id}" aria-label="${labels[c]}: ${esc(i.title)}" ${small?`aria-pressed="${vote(i.id)===c}"`:''}><span class="icon" aria-hidden="true">${{pass:'×',maybe:'~',yes:'♥'}[c]}</span><small>${labels[c]}</small></button>`).join('')}${small?'':`<button class="decision undo" id="undo" aria-label="Undo last choice" ${state.history.some(h=>h.actor===state.person)?'':'disabled'}><span class="icon" aria-hidden="true">↶</span><small>Undo</small></button>`}</div>`;}
 function card(i,small=false) {
@@ -131,12 +131,10 @@ document.addEventListener('click',e=>{
  if(button.dataset.view){view=button.dataset.view;render();notice('');}
  if(button.dataset.day){day=button.dataset.day;render();}
  if(button.dataset.choice){if(view==='deck')animateChoice(button.dataset.id,button.dataset.choice);else choose(button.dataset.id,button.dataset.choice);}
- if(button.dataset.go){view=button.dataset.go;if(view==='all'){day='all';category='all';nearby=false;$('#nearby').checked=false;evening=false;$('#category').value='all';$('#evening').checked=false;}render();}
+ if(button.dataset.go){view=button.dataset.go;if(view==='all'){day='all';category='all';$('#category').value='all';}render();}
  if(button.id==='undo')undo();
 });
 $('#category').addEventListener('change',e=>{category=e.target.value;render();});
-$('#nearby').addEventListener('change',e=>{nearby=e.target.checked;render();});
-$('#evening').addEventListener('change',e=>{evening=e.target.checked;render();});
 document.addEventListener('keydown',e=>{if(view!=='deck'||$('#person-dialog').open||$('#share-dialog').open||e.target.closest('input,select,textarea,a,button,summary')||e.altKey||e.ctrlKey||e.metaKey)return;const c={ArrowLeft:'pass',ArrowRight:'yes',ArrowUp:'maybe'}[e.key];const i=unchosen()[0];if(c&&i){e.preventDefault();animateChoice(i.id,c);}});
 function showShare(){const other=state.person==='dmitri'?'tulin':'dmitri';$('#invite-name').textContent=personName(other);$('#invite-url').value=`${location.origin}${location.pathname}#board=${token}&person=${other}`;$('#copy-status').textContent='';$('#share-dialog').showModal();}
 $('#share').addEventListener('click',showShare);
@@ -147,4 +145,4 @@ window.addEventListener('online',sync);window.addEventListener('offline',()=>syn
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync();});
 window.addEventListener('storage',e=>{if(e.key!==storageKey||!e.newValue)return;try{const other=JSON.parse(e.newValue);state.outbox=[...new Map([...state.outbox,...other.outbox].map(a=>[a.event_id,a])).values()];state.votes=mergeVotes([...Object.values(state.votes),...Object.values(other.votes)],state.outbox);render();sync();}catch{}});
 setInterval(()=>{if(!document.hidden)sync();},20000);
-try {const res=await fetch('ideas.json',{cache:'no-cache'});if(!res.ok)throw new Error('Could not load ideas');const data=await res.json();ideas=data.ideas.filter(i=>['offered','open','weather','listed'].includes(i.status));render();save();sync();}catch{$('#content').innerHTML='<div class="empty"><h2>A small detour.</h2><p>The ideas could not load. Please refresh to try again.</p></div>';syncStatus('Ideas unavailable',true);}
+try {const res=await fetch('ideas.json',{cache:'no-cache'});if(!res.ok)throw new Error('Could not load ideas');const data=await res.json();ideas=data.ideas.filter(i=>['offered','open','weather','listed'].includes(i.status)&&!i.daytime&&/^(18|19|20|21|22|23):[0-5]\d$/.test(i.startTime||''));render();save();sync();}catch{$('#content').innerHTML='<div class="empty"><h2>A small detour.</h2><p>The ideas could not load. Please refresh to try again.</p></div>';syncStatus('Ideas unavailable',true);}

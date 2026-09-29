@@ -21,3 +21,5 @@ html{overflow-x:clip;scroll-padding-bottom:110px}.deck .card{touch-action:pan-y}
 @media(max-width:720px){.toolbar{flex-wrap:wrap;gap:10px}.people{width:100%;justify-content:center}.people>span{display:inline;font-size:12px}nav{width:100%;justify-content:center;flex-wrap:wrap;gap:2px}nav button{padding:9px 10px;min-height:44px}.filter-selects{flex-wrap:wrap;justify-content:center;gap:8px 16px}.board-help{font-size:12px;margin-top:-8px}.board-help .text-button{min-height:44px}#person-dialog h2{font-size:36px}.person-options{gap:10px}.person-options button{font-size:17px}}
 
 .location{margin:0 0 12px;font-size:11px;line-height:1.5;color:var(--olive)}.location a{display:inline-flex;align-items:center;min-height:32px;overflow-wrap:anywhere}.location a:hover{color:var(--ink)}@media(max-width:720px){.location{font-size:12px}.location a{min-height:44px}}
+
+.schedule-note{text-align:center;color:var(--olive);font-size:12px;font-weight:600;margin:0 0 12px;line-height:1.6}

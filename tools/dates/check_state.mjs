@@ -11,6 +11,6 @@ assert.equal(mergeVotes([old,tulin],[latest])['tulin:test'].choice,'yes');
 assert.deepEqual(remainingActions([old,latest],[old]),[latest]);
 assert.deepEqual(remainingActions([latest],[old]),[latest]);
 const data=JSON.parse(await readFile(new URL('../../dates/ideas.json',import.meta.url),'utf8'));
-assert.ok(data.ideas.length>=20 && data.ideas.length<=40);assert.equal(new Set(data.ideas.map(i=>i.id)).size,data.ideas.length);
-for(const i of data.ideas){assert.match(i.image.url,/^https:\/\//);assert.match(i.source,/^https:\/\//);assert.ok(i.days.length);assert.ok(i.when);assert.ok(i.availability);assert.notEqual(i.id,'morgan');}
+assert.ok(data.ideas.length>0 && data.ideas.length<=40);assert.equal(new Set(data.ideas.map(i=>i.id)).size,data.ideas.length);
+for(const i of data.ideas){assert.match(i.image.url,/^https:\/\//);assert.match(i.source,/^https:\/\//);assert.ok(i.days.length);assert.ok(i.when);assert.ok(i.availability);assert.equal(i.daytime,false,'Weekday date must work after work');assert.match(i.startTime,/^(18|19|20|21|22|23):[0-5]\d$/,'Weekday starts must be 6 pm or later');assert.notEqual(i.id,'morgan');}
 console.log('PASS: offline undo wins over older remote state, profiles stay separate, acknowledgments retain in-flight choices, and unique sourced cards.');

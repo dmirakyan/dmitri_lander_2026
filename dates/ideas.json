@@ -3,118 +3,6 @@
   "checked": "September 28–29, 2026 (New York time; see each card)",
   "ideas": [
     {
-      "id": "bortolami-noces",
-      "title": "A little color around the corner",
-      "venue": "Christine Safa · Bortolami",
-      "area": "Tribeca",
-      "category": "Art",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 10 am–6 pm; try 4:30–5:45 pm",
-      "price": "Free gallery visit",
-      "season": "Through Oct 24",
-      "description": "Wander through Noces at 39 Walker Street: paintings of shifting light, landscapes, and remembered places. Pick the one you’d take home, then compare your choices.",
-      "why": "A short local art date with room to talk, followed by dinner close to home.",
-      "status": "open",
-      "availability": "Current exhibition and published gallery hours checked September 29. Open during the suggested visit on all three days; regular gallery viewing, with no timed-ticket booking listed.",
-      "source": "https://www.bortolamigallery.com/exhibitions/noces",
-      "daytime": true,
-      "links": [],
-      "image": {
-        "url": "https://cdn.sanity.io/images/mnub8q5m/production/b5389dc7f5de449ffbc3f6b2e55d2b350f01107a-3750x2500.jpg?w=1400",
-        "alt": "Christine Safa’s Noces installation at Bortolami",
-        "credit": "Guang Xu · courtesy the artist and Bortolami",
-        "source": "https://www.bortolamigallery.com/exhibitions/noces"
-      },
-      "checkedAt": "2026-09-29T12:52:08.531314+00:00",
-      "checkedLabel": "Current show · closes at 6",
-      "location": {
-        "label": "39 Walker Street",
-        "query": "Bortolami, 39 Walker Street, New York, NY"
-      }
-    },
-    {
-      "id": "hew-locke-tribeca",
-      "title": "Tiny ships, enormous stories",
-      "venue": "Hew Locke · P·P·O·W",
-      "area": "Tribeca",
-      "category": "Art",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 11 am–6 pm; try 4:30–5:45 pm",
-      "price": "Free gallery visit",
-      "season": "Through Oct 24",
-      "description": "Explore The Wanderers at 390 Broadway, 2nd floor. Decorated model boats, watercolors, and altered share certificates tell stories about migration and trade. Give yourselves 45 minutes to look closely.",
-      "why": "Intricate objects to discover together, right in Tribeca. An easy pairing with the existing Asher Liftin stop across Broadway.",
-      "status": "open",
-      "availability": "Current exhibition and published gallery hours checked September 29. Open during the suggested visit on all three days; regular gallery viewing, with no timed-ticket booking listed.",
-      "source": "https://www.ppowgallery.com/exhibitions/hew-locke4",
-      "daytime": true,
-      "links": [
-        [
-          "Gallery hours",
-          "https://www.ppowgallery.com/contact"
-        ]
-      ],
-      "image": {
-        "url": "https://static-assets.artlogic.net/w_1800,h_1000,c_limit/exhibit-e/61945b4c94b78824b9217367/d1fc2cfc0d0325cdf7b03b6f374465dc.jpeg",
-        "alt": "Hew Locke’s The Wanderers installation at P·P·O·W",
-        "credit": "Hew Locke / P·P·O·W · exhibition installation",
-        "source": "https://www.ppowgallery.com/exhibitions/hew-locke4"
-      },
-      "checkedAt": "2026-09-29T12:52:08.531314+00:00",
-      "checkedLabel": "Current show · closes at 6",
-      "location": {
-        "label": "390 Broadway · 2nd floor",
-        "query": "PPOW Gallery, 390 Broadway, New York, NY"
-      }
-    },
-    {
-      "id": "anat-ebgi-tribeca",
-      "title": "Two ways of seeing, one stop",
-      "venue": "Soumya Netrabile + Alannah Farrell · Anat Ebgi",
-      "area": "Tribeca",
-      "category": "Art",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 11 am–6 pm; try 4:30–5:45 pm",
-      "price": "Free gallery visit",
-      "season": "Through Oct 17",
-      "description": "At 372 Broadway, start with Field Conditions: rich abstract paintings and glazed ceramics. Then see Solastalgia’s portraits and changing hometown landscapes. Choose a favorite from each show.",
-      "why": "Color, nature, and contrasting perspectives in one nearby gallery. Plenty to compare over an early dinner.",
-      "status": "open",
-      "availability": "Current exhibition and published gallery hours checked September 29. Open during the suggested visit on all three days; regular gallery viewing, with no timed-ticket booking listed.",
-      "source": "https://anatebgi.com/exhibitions/soumya-netrabile-field-conditions/",
-      "daytime": true,
-      "links": [
-        [
-          "Alannah Farrell: Solastalgia",
-          "https://anatebgi.com/exhibitions/alannah-farrell-solastalgia/"
-        ]
-      ],
-      "image": {
-        "url": "https://anatebgi.com/wp-content/uploads/2026/08/netrabile-field-conditions-2026-installation-view-14-2000x1500.jpg",
-        "alt": "Field Conditions by Soumya Netrabile at Anat Ebgi",
-        "credit": "Soumya Netrabile / Anat Ebgi · installation view",
-        "source": "https://anatebgi.com/exhibitions/soumya-netrabile-field-conditions/"
-      },
-      "checkedAt": "2026-09-29T12:52:08.531314+00:00",
-      "checkedLabel": "Current show · closes at 6",
-      "location": {
-        "label": "372 Broadway",
-        "query": "Anat Ebgi, 372 Broadway, New York, NY"
-      }
-    },
-    {
       "id": "tapas-class",
       "title": "Make a mess. Make dinner.",
       "venue": "Hudson Table",
@@ -144,7 +32,8 @@
       "location": {
         "label": "88 Withers Street",
         "query": "Hudson Table, 88 Withers Street, Brooklyn, NY"
-      }
+      },
+      "startTime": "18:30"
     },
     {
       "id": "birdland-jazz",
@@ -176,7 +65,8 @@
       "location": {
         "label": "Birdland Theater",
         "query": "Birdland Theater, Manhattan, New York, NY"
-      }
+      },
+      "startTime": "19:30"
     },
     {
       "id": "mcny-wednesday",
@@ -187,7 +77,7 @@
       "days": [
         "wed"
       ],
-      "when": "Wed Sep 30 · 5–9 pm",
+      "when": "Wed Sep 30 · arrive 6:30 pm; open until 9 pm",
       "price": "Free admission; drinks extra",
       "season": "A free September evening",
       "description": "Explore the galleries, compare your favorite pieces, and pause at the pop-up bar. 1220 Fifth Avenue.",
@@ -208,383 +98,8 @@
       "location": {
         "label": "1220 Fifth Avenue",
         "query": "Museum of the City of New York, 1220 Fifth Avenue, New York, NY"
-      }
-    },
-    {
-      "id": "nate-lowman",
-      "title": "Keys to a different New York",
-      "venue": "Nate Lowman: Hanging Out",
-      "area": "Chelsea",
-      "category": "Art",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 10 am–6 pm",
-      "price": "Free",
-      "season": "On view Sep 10–Oct 24",
-      "description": "A new show at David Zwirner, 519 West 19th Street. Start with the key-shaped canvases, then trade interpretations over coffee.",
-      "why": "A small, focused art date with space for your own conversation.",
-      "status": "open",
-      "availability": "The gallery lists this exhibition as now open through October 24 and its 19th Street galleries open Tuesday–Saturday, 10 am–6 pm. No timed-ticket requirement listed.",
-      "source": "https://www.davidzwirner.com/exhibitions/2026/nate-lowman",
-      "daytime": true,
-      "links": [
-        [
-          "Gallery hours",
-          "https://www.davidzwirner.com/galleries/new-york/19th-street"
-        ]
-      ],
-      "image": {
-        "url": "https://cdn.sanity.io/images/juzvn5an/release-adp/0a68f57903acbbd8e5d04166dac38800cb764235-2100x1182.jpg?bg=ffffff&w=1200&h=630&fit=fill&crop=entropy&auto=format",
-        "alt": "Keys to a different New York — venue or exhibition photograph",
-        "credit": "Nate Lowman: Hanging Out",
-        "source": "https://www.davidzwirner.com/exhibitions/2026/nate-lowman"
       },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Current show + gallery hours",
-      "location": {
-        "label": "519 West 19th Street",
-        "query": "David Zwirner, 519 West 19th Street, New York, NY"
-      }
-    },
-    {
-      "id": "zoya-cooking",
-      "title": "Dinner, painted in full color",
-      "venue": "Zoya Cherkassky: American Cooking",
-      "area": "Meatpacking",
-      "category": "Art",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 10 am–6 pm",
-      "price": "Free",
-      "season": "On view Sep 16–Nov 7",
-      "description": "Everyday kitchens, food, and American life at Fort Gansevoort, 5 Ninth Avenue. Take the food theme into a casual dinner after.",
-      "why": "Colorful art and the rituals of cooking are a lovely overlap.",
-      "status": "open",
-      "availability": "Gallery hours and exhibition dates listed by the gallery; no timed-ticket requirement listed.",
-      "source": "https://www.fortgansevoort.com/exhibitions/zoya-cherkassky4",
-      "daytime": true,
-      "links": [
-        [
-          "Gallery hours",
-          "https://www.fortgansevoort.com/contact"
-        ]
-      ],
-      "image": {
-        "url": "https://static-assets.artlogic.net/w_3600,h_2000,c_limit/exhibit-e/5f89f73113a837023a8b4567/40d2c8867122aeb69f6dc3be2586232c.jpeg",
-        "alt": "Dinner, painted in full color — venue or exhibition photograph",
-        "credit": "Zoya Cherkassky / Fort Gansevoort",
-        "source": "https://www.fortgansevoort.com/exhibitions/zoya-cherkassky4"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy",
-      "location": {
-        "label": "5 Ninth Avenue",
-        "query": "Fort Gansevoort, 5 Ninth Avenue, New York, NY"
-      }
-    },
-    {
-      "id": "anthony-mccall",
-      "title": "Walk inside a beam of light",
-      "venue": "Anthony McCall",
-      "area": "Hudson Yards",
-      "category": "Art",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 11 am–6 pm",
-      "price": "Free",
-      "season": "On view Sep 11–Oct 31",
-      "description": "Light becomes a sculpture you can move through at Sean Kelly, 475 Tenth Avenue. Leave time to slow down inside it.",
-      "why": "Immersive, strange, and something you experience together.",
-      "status": "open",
-      "availability": "Current exhibition and weekday gallery hours verified. No advance-ticket requirement listed.",
-      "source": "https://www.skny.com/exhibitions/anthony-mccall7",
-      "daytime": true,
-      "links": [
-        [
-          "Gallery hours",
-          "https://www.skny.com/gallery"
-        ]
-      ],
-      "image": {
-        "url": "https://static-assets.artlogic.net/w_3600,h_3600,c_limit/exhibit-e/62f52bf90af321abff00fe82/5c09ae7c373ac6043e085e8b49e78f62.jpeg",
-        "alt": "Walk inside a beam of light — venue or exhibition photograph",
-        "credit": "Anthony McCall / Sean Kelly",
-        "source": "https://www.skny.com/exhibitions/anthony-mccall7"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy",
-      "location": {
-        "label": "475 Tenth Avenue",
-        "query": "Sean Kelly Gallery, 475 Tenth Avenue, New York, NY"
-      }
-    },
-    {
-      "id": "asher-liftin",
-      "title": "The city, seen twice",
-      "venue": "Asher Liftin: Recent Work",
-      "area": "Tribeca",
-      "category": "Art",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 10 am–6 pm",
-      "price": "Free",
-      "season": "On view Sep 18–Oct 31",
-      "description": "Paintings of reflections, windows, and familiar city scenes at 125 Newbury, 395 Broadway. Walk a few blocks afterwards and look again.",
-      "why": "A playful prompt for noticing things together.",
-      "status": "open",
-      "availability": "Exhibition dates verified through Pace; 125 Newbury confirms Tuesday–Saturday, 10 am–6 pm at 395 Broadway. No timed-ticket requirement listed.",
-      "source": "https://www.pacegallery.com/exhibitions/asher-liftin-recent-work/",
-      "daytime": true,
-      "links": [
-        [
-          "Gallery hours",
-          "https://www.125newbury.com/contact"
-        ]
-      ],
-      "image": {
-        "url": "https://www.pacegallery.com/media/images/Unknown.2e16d0ba.fill-1200x630.webp",
-        "alt": "The city, seen twice — venue or exhibition photograph",
-        "credit": "Asher Liftin / Pace",
-        "source": "https://www.pacegallery.com/exhibitions/asher-liftin-recent-work/"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Current show + gallery hours",
-      "location": {
-        "label": "395 Broadway",
-        "query": "125 Newbury Gallery, 395 Broadway, New York, NY"
-      }
-    },
-    {
-      "id": "iris-van-herpen",
-      "title": "Clothes from another universe",
-      "venue": "Iris van Herpen: Sculpting the Senses",
-      "area": "Brooklyn Museum",
-      "category": "Art",
-      "days": [
-        "wed",
-        "thu"
-      ],
-      "when": "Wed / Thu · 11 am–6 pm",
-      "price": "$60 for two adults; checkout extras may apply",
-      "season": "On view May 16–Dec 6",
-      "description": "Sculptural couture, intricate materials, and shapes that barely seem possible. Pick the piece you would wear in another life.",
-      "why": "Imaginative craft with lots to look at and talk about.",
-      "status": "offered",
-      "availability": "The live museum page gives May 16–December 6 (the old archive was stale). Wednesday Sep 30 and Thursday Oct 1 showed timed entries from 11 am to 4:30 pm. Selected 2 adults at 4 pm on each day; Add to Cart enabled at $30 each. Includes general admission. Nothing held. Closed Tuesday.",
-      "source": "https://www.brooklynmuseum.org/exhibitions/iris-van-herpen",
-      "daytime": true,
-      "links": [
-        [
-          "Hours & tickets",
-          "https://www.brooklynmuseum.org/visit"
-        ],
-        [
-          "Timed tickets",
-          "https://secure.brooklynmuseum.org/19448"
-        ]
-      ],
-      "image": {
-        "url": "https://www.irisvanherpen.com/_uploaded/202605/Iris_van_Herpen_Sculpting_the_Senses_001_OWW_Paula_Abreu_Pita-General-Use-JPEG-LRG.jpg",
-        "alt": "Clothes from another universe — venue or exhibition photograph",
-        "credit": "Paula Abreu Pita / Brooklyn Museum",
-        "source": "https://www.irisvanherpen.com/news/sculpting-the-senses-opens-at-the-brooklyn-museum-in-new-york"
-      },
-      "checkedAt": "2026-09-29T02:53:00Z",
-      "checkedLabel": "Wed / Thu · 2 tickets at 4 pm",
-      "location": {
-        "label": "Brooklyn Museum",
-        "query": "Brooklyn Museum, Brooklyn, NY"
-      }
-    },
-    {
-      "id": "moma-disclosure",
-      "title": "A newly opened rabbit hole",
-      "venue": "Full Disclosure at MoMA",
-      "area": "Midtown",
-      "category": "Art",
-      "days": [
-        "tue"
-      ],
-      "when": "Tue Sep 29 · 10:30 am–5:30 pm",
-      "price": "$60 general admission for two",
-      "season": "Just opened Sep 27",
-      "description": "See how information becomes art in Full Disclosure: The Edge of Information Design. Add one favorite collection floor, then stop.",
-      "why": "Visual curiosity and enough weird ideas to fuel a long conversation.",
-      "status": "offered",
-      "availability": "Two adult admissions offered for Tuesday at $60 total, including special exhibitions. Galleries close at 5:15 pm. Book using the admission link below.",
-      "source": "https://www.moma.org/calendar/exhibitions/5926",
-      "daytime": true,
-      "links": [
-        [
-          "Admission",
-          "https://www.moma.org/visit/"
-        ],
-        [
-          "Admission tickets",
-          "https://visit.moma.org/select"
-        ]
-      ],
-      "image": {
-        "url": "https://www.moma.org/d/assets/W1siZiIsIjIwMjYvMDcvMjQvM3dpY2UyMG55N19DRV9Dcm9wX01PTUFfQklHLmpwZyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4NjY3XiAtZ3Jhdml0eSBOb3J0aCAtY3JvcCAyMDAweDY2NyswKzgwIl1d/CE-Crop-MOMA-BIG.jpg?sha=7c11cdd923e60414",
-        "alt": "A newly opened rabbit hole — venue or exhibition photograph",
-        "credit": "Kate Crawford & Vladan Joler, Calculating Empires © the artists / MoMA",
-        "source": "https://www.moma.org/calendar/exhibitions/5926"
-      },
-      "checkedAt": "2026-09-29T02:51:00Z",
-      "checkedLabel": "2 Tuesday admissions offered",
-      "location": {
-        "label": "Museum of Modern Art",
-        "query": "Museum of Modern Art, Manhattan, New York, NY"
-      }
-    },
-    {
-      "id": "morgan-tarot-day",
-      "title": "One last look at Tarot!",
-      "venue": "The Morgan · regular daytime visit",
-      "area": "Murray Hill",
-      "category": "Art",
-      "days": [
-        "tue"
-      ],
-      "when": "Tue Sep 29 · 3 pm entry; museum closes 5 pm",
-      "price": "$57 for two online; final fees may vary",
-      "season": "Closes Sunday Oct 4",
-      "description": "Renaissance cards, surrealist imagery, and the library. A daytime exhibition visit before the show closes.",
-      "why": "Art, books, and a little mystery in a beautiful setting.",
-      "status": "offered",
-      "availability": "Two adult tickets offered for Tuesday at 3 pm, $28.50 each including listed fees. Book daytime admission using the link below.",
-      "source": "https://www.themorgan.org/exhibitions/tarot",
-      "daytime": true,
-      "links": [
-        [
-          "Daytime admission",
-          "https://mpv.tickets.com/schedule/?agency=MGLV_ADM_MPV&orgid=51849"
-        ]
-      ],
-      "image": {
-        "url": "https://media.timeout.com/images/106419063/1920/1080/image.jpg",
-        "alt": "Tarot-inspired artwork from the Morgan exhibition, pictured in Time Out",
-        "credit": "Remedios Varo · exhibition artwork via Time Out",
-        "source": "https://www.timeout.com/newyork/things-to-do/tarot-renaissance-symbols-modern-visions"
-      },
-      "checkedAt": "2026-09-29T02:54:00Z",
-      "checkedLabel": "Tue · 2 daytime tickets at 3 pm",
-      "location": {
-        "label": "The Morgan Library & Museum",
-        "query": "The Morgan Library & Museum, New York, NY"
-      }
-    },
-    {
-      "id": "nyff-godzilla",
-      "title": "Play hooky for the film festival",
-      "venue": "Godzilla Minus Zero · NYFF64",
-      "area": "Lincoln Center",
-      "category": "Shows",
-      "days": [
-        "wed"
-      ],
-      "when": "Wed Sep 30 · 12:30 pm; 135 minutes",
-      "price": "$186 for two including ticket fees",
-      "season": "New York Film Festival season",
-      "description": "A proper festival screening, followed by a late lunch and your unofficial two-person film review. Japanese with English subtitles.",
-      "why": "An occasion around a movie, with time afterwards to decompress.",
-      "status": "offered",
-      "availability": "For Wednesday Sep 30 at 12:30 pm in Alice Tully Hall, selected 2 general-public tickets: $180 subtotal + $6 fees = $186. Add to Cart enabled. No tickets held or purchased.",
-      "source": "https://www.filmlinc.org/nyff2026/films/godzilla-minus-zero/",
-      "daytime": true,
-      "links": [],
-      "image": {
-        "url": "https://wp.filmlinc.org/wp-content/uploads/2026/08/Godzilla-Minus-Zero_NYFF64_01-scaled.jpg",
-        "alt": "Play hooky for the film festival — venue or exhibition photograph",
-        "credit": "Film at Lincoln Center · film still",
-        "source": "https://www.filmlinc.org/nyff2026/films/godzilla-minus-zero/"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "2 tickets offered · Wed 12:30 pm",
-      "location": {
-        "label": "Alice Tully Hall",
-        "query": "Alice Tully Hall, Lincoln Center, New York, NY"
-      }
-    },
-    {
-      "id": "brooklyn-garden",
-      "title": "Catch the last late garden hour",
-      "venue": "Brooklyn Botanic Garden",
-      "area": "Prospect Heights",
-      "category": "Outdoors",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue / Wed · 10 am–7 pm; Thu · 10 am–6 pm",
-      "price": "$47.34 for two online; $44 at box office",
-      "season": "September hours end Wednesday",
-      "description": "An unhurried garden circuit in softer autumn light. Tuesday or Wednesday gives you an extra hour before closing.",
-      "why": "Nature without a complicated escape from the city.",
-      "status": "open",
-      "availability": "Seasonal hours rechecked: Tue/Wed 10 am–7 pm, Thu 10 am–6 pm; last entry and specialty gardens close 30 minutes earlier. Same-day tickets may be obtained at admissions booths; online inventory not tested. Eastern Parkway entrance temporarily CLOSED: use 455 Flatbush Avenue or 990 Washington Avenue. Photo is archival; check weather before leaving.",
-      "source": "https://www.bbg.org/visit/hours",
-      "daytime": true,
-      "links": [],
-      "image": {
-        "url": "https://www.bbg.org/img/uploads/hero/_list_thumbnail_retina/japanese-garden_fall-foliage_bb.jpg",
-        "alt": "Catch the last late garden hour — venue or exhibition photograph",
-        "credit": "Brooklyn Botanic Garden · archival autumn photo",
-        "source": "https://www.bbg.org/visit/hours"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Hours checked · tickets not reserved",
-      "location": {
-        "label": "Brooklyn Botanic Garden",
-        "query": "Brooklyn Botanic Garden, Brooklyn, NY"
-      }
-    },
-    {
-      "id": "nybg",
-      "title": "Take the long way through the garden",
-      "venue": "New York Botanical Garden",
-      "area": "Bronx",
-      "category": "Outdoors",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 10 am–6 pm",
-      "price": "Wed grounds free for NYC residents; other passes vary",
-      "season": "Early autumn, before peak leaves",
-      "description": "Make this the whole afternoon: gardens, a slow walk, and a café break. Allow travel time in both directions.",
-      "why": "The feeling of getting away, without needing a full trip.",
-      "status": "open",
-      "availability": "Open Tue–Sun 10 am–6 pm. Wednesday grounds admission is free all day for NYC residents (bring residency proof); other visitors get free grounds entry 10–11 am. Grounds excludes the Conservatory, special exhibitions and tram. NYC-resident grounds tickets on other days are sold onsite; other ticket inventory not checked.",
-      "source": "https://www.nybg.org/visit/admission/",
-      "daytime": true,
-      "links": [],
-      "image": {
-        "url": "https://www.nybg.org/content/uploads/2026/09/MCO-DSC09106-4.3-scaled.jpg",
-        "alt": "Take the long way through the garden — venue or exhibition photograph",
-        "credit": "New York Botanical Garden · seasonal garden photo",
-        "source": "https://www.nybg.org/"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Hours + Wednesday free-entry policy",
-      "location": {
-        "label": "New York Botanical Garden",
-        "query": "New York Botanical Garden, Bronx, NY"
-      }
+      "startTime": "18:30"
     },
     {
       "id": "little-island",
@@ -597,10 +112,10 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · park 6 am–11 pm; aim for 5:45 pm",
+      "when": "Tue–Thu · suggested 6:30–8 pm; park closes 11 pm",
       "price": "Free park entry; food extra",
       "season": "Early-autumn sunset",
-      "description": "Climb the paths, find a place to sit, and stay for the changing light. Dinner nearby can be the only other stop.",
+      "description": "Climb the paths, take in the Hudson views, and find a place to sit together in the evening. Dinner nearby can be the only other stop.",
       "why": "A gentle adventure with a lot of room for conversation.",
       "status": "open",
       "availability": "Published Sep 8–Oct 31 hours are 6 am–11 pm; no park reservation required. Lawns close Mondays/Tuesdays for maintenance, so Tuesday is a path-and-viewpoint walk. Lawn access on other days is conditional. Performances require separate arrangements; severe weather can close the park.",
@@ -618,75 +133,8 @@
       "location": {
         "label": "Little Island",
         "query": "Little Island, Hudson River Park, New York, NY"
-      }
-    },
-    {
-      "id": "central-park",
-      "title": "A very good walk, with no agenda",
-      "venue": "The Ramble & Bow Bridge",
-      "area": "Central Park",
-      "category": "Outdoors",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · daylight; suggested 5:15–6:45 pm",
-      "price": "Free; snacks extra",
-      "season": "Early autumn, not peak foliage",
-      "description": "Wander the Ramble, cross Bow Bridge, and bring something warm to drink. Keep the route short enough to get pleasantly lost.",
-      "why": "Nature and intentional time together beat another elaborate itinerary.",
-      "status": "weather",
-      "availability": "Open-air walk; choose dry weather and daylight. The Conservancy tracker does not show peak color yet. Photo shows a past autumn.",
-      "source": "https://www.centralparknyc.org/activities/guides/fall-foliage-tracker",
-      "daytime": false,
-      "links": [],
-      "image": {
-        "url": "https://d2wsrtli9cxkek.cloudfront.net/media/images/Pool_RusticBridge_20201024_0548_RT.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=630&q=82&w=1200&s=beee6ac5eacca4fcce975e1560293034",
-        "alt": "A very good walk, with no agenda — venue or exhibition photograph",
-        "credit": "Central Park Conservancy · archival autumn photo",
-        "source": "https://www.centralparknyc.org/activities/guides/fall-foliage-tracker"
       },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Schedule checked · weather dependent",
-      "location": {
-        "label": "Bow Bridge · walk starting point",
-        "query": "Bow Bridge, Central Park, New York, NY"
-      }
-    },
-    {
-      "id": "governors-island",
-      "title": "A tiny island escape",
-      "venue": "Governors Island",
-      "area": "New York Harbor",
-      "category": "Outdoors",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · island 7 am–6 pm; aim for 2–5 pm",
-      "price": "Island free; ferry fare and food extra",
-      "season": "Before the days get shorter",
-      "description": "Take the ferry, wander the Hills, and eat something simple outside. Leave on a ferry before the island closes.",
-      "why": "A small version of a trip: water, open space, and a change of pace.",
-      "status": "open",
-      "availability": "Island hours verified. Check the day’s ferry timetable and tickets; this is a daytime plan, not an after-work sunset plan.",
-      "source": "https://www.govisland.com/visit-the-island/",
-      "daytime": true,
-      "links": [],
-      "image": {
-        "url": "https://gov-island-site.s3.amazonaws.com/hills/_pageFullWidthImage2x/Schenck-Governors-Island-2016_09_11-DSC_3268.jpeg",
-        "alt": "A tiny island escape — venue or exhibition photograph",
-        "credit": "Timothy Schenck / Governors Island",
-        "source": "https://www.govisland.com/the-park"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy",
-      "location": {
-        "label": "Governors Island",
-        "query": "Governors Island, New York, NY"
-      }
+      "startTime": "18:30"
     },
     {
       "id": "dumbo-waterfront",
@@ -699,7 +147,7 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · park 6 am–1 am; aim for 5:30 pm",
+      "when": "Tue–Thu · suggested 6:30–8 pm; park closes 1 am",
       "price": "Free; dinner or ice cream extra",
       "season": "Waterfront light before winter",
       "description": "Walk from Main Street Park toward Pier 1, stop whenever the view improves, and decide on food when you get hungry.",
@@ -720,39 +168,8 @@
       "location": {
         "label": "Main Street Park · walk starting point",
         "query": "Main Street Park, Brooklyn Bridge Park, Brooklyn, NY"
-      }
-    },
-    {
-      "id": "greenmarket",
-      "title": "Pick the ingredients for tonight",
-      "venue": "Union Square Greenmarket",
-      "area": "Union Square",
-      "category": "Food",
-      "days": [
-        "wed"
-      ],
-      "when": "Wed Sep 30 · 8 am–6 pm",
-      "price": "Free to browse; $30–60 grocery estimate",
-      "season": "Apple and squash season",
-      "description": "Choose something seasonal, sample what is offered, and let one great ingredient decide dinner. Go well before closing.",
-      "why": "Food as an activity you do together, with something to bring home.",
-      "status": "open",
-      "availability": "Wednesday market listed by GrowNYC. No Tuesday or Thursday market at this location. Individual vendors can sell out early.",
-      "source": "https://grownyc.org/locations/union-square-greenmarket/",
-      "daytime": true,
-      "links": [],
-      "image": {
-        "url": "https://d2ixq7o8tltffw.cloudfront.net/wp-content/uploads/2026/01/24154018/Union_Square_Greenmarket_AmandaGentilePhoto_24-54-1024x683.jpg",
-        "alt": "Pick the ingredients for tonight — venue or exhibition photograph",
-        "credit": "Amanda Gentile / GrowNYC",
-        "source": "https://grownyc.org/locations/union-square-greenmarket/"
       },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy",
-      "location": {
-        "label": "Union Square Greenmarket",
-        "query": "Union Square Greenmarket, New York, NY"
-      }
+      "startTime": "18:30"
     },
     {
       "id": "kazunori",
@@ -765,7 +182,7 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · 11:30 am–11 pm",
+      "when": "Tue–Thu · aim for 6:30 pm; open until 11 pm",
       "price": "$72 for two six-roll menus; tax/drinks extra",
       "season": "An easy sushi fix",
       "description": "Warm rice, crisp seaweed, and a counter meal. Keep the lingering part for a walk afterwards.",
@@ -791,7 +208,8 @@
       "location": {
         "label": "KazuNori · NoMad location",
         "query": "KazuNori NoMad, New York, NY"
-      }
+      },
+      "startTime": "18:30"
     },
     {
       "id": "shukette",
@@ -830,7 +248,8 @@
       "location": {
         "label": "230 Ninth Avenue",
         "query": "Shukette, 230 Ninth Avenue, New York, NY"
-      }
+      },
+      "startTime": "21:30"
     },
     {
       "id": "rule-of-thirds",
@@ -843,7 +262,7 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · dinner; 6, 7 & 8 pm tables offered",
+      "when": "Tue–Thu · 7 or 8 pm dinner tables offered",
       "price": "$100–160 for two, estimated",
       "season": "A cozy fall dinner",
       "description": "Share a few Japanese dishes in a room worth settling into. Leave enough time to enjoy dinner at 171 Banker Street.",
@@ -869,45 +288,8 @@
       "location": {
         "label": "171 Banker Street",
         "query": "Rule of Thirds, 171 Banker Street, Brooklyn, NY"
-      }
-    },
-    {
-      "id": "paint-pottery",
-      "title": "Make each other a ridiculous mug",
-      "venue": "Color Me Mine Tribeca",
-      "area": "123 Baxter Street",
-      "category": "Make something",
-      "days": [
-        "tue",
-        "wed"
-      ],
-      "when": "Tue · 11 am / 1:15 pm; Wed · also 3:30 pm",
-      "price": "$26 studio fees for two + pottery pieces",
-      "season": "Paint something together",
-      "description": "Choose a ceramic piece and paint it for the other person. Set aside two hours for an unhurried afternoon.",
-      "why": "Making things together, with a funny keepsake at the end.",
-      "status": "listed",
-      "availability": "Reservations for 1–2 guests offered Tuesday at 11 am and 1:15 pm, and Wednesday at 11 am, 1:15 pm and 3:30 pm. $13 adult studio fee plus pottery; $20 deposit credited to purchase. Two-hour session; pickup about a week later. No alcohol.",
-      "source": "https://tribeca.colormemine.com/frequently-asked-questions/",
-      "daytime": true,
-      "links": [
-        [
-          "Reserve for 1–2",
-          "https://placefull.com/1-5-rsvp-at-color-me-mine"
-        ]
-      ],
-      "image": {
-        "url": "https://www.tagvenue.com/resize/a9/ce/fit-900-600%3B59266-1735590134.jpg",
-        "alt": "Make each other a ridiculous mug — venue or exhibition photograph",
-        "credit": "Color Me Mine Tribeca / Tagvenue venue listing",
-        "source": "https://www.tagvenue.com/us/venues/new-york/29037/color-me-mine-tribeca"
       },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Reservations for 2 · Tue / Wed",
-      "location": {
-        "label": "123 Baxter Street",
-        "query": "Color Me Mine, 123 Baxter Street, New York, NY"
-      }
+      "startTime": "19:00"
     },
     {
       "id": "book-exchange",
@@ -920,7 +302,7 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · 10 am–9 pm",
+      "when": "Tue–Thu · suggested 6:30–8:30 pm; closes 9 pm",
       "price": "Free browsing; books and coffee extra",
       "season": "A bookish rainy-night fallback",
       "description": "Split up for fifteen minutes. Find a book the other person would love, and one whose title makes you laugh. Reunite and explain your choices.",
@@ -941,7 +323,8 @@
       "location": {
         "label": "4 Fulton Street",
         "query": "McNally Jackson Seaport, 4 Fulton Street, New York, NY"
-      }
+      },
+      "startTime": "18:30"
     },
     {
       "id": "autumn-at-home",
@@ -957,10 +340,10 @@
       "when": "Tue–Thu · any evening; suggested 6:30–9 pm",
       "price": "$30–60 groceries for two, estimated",
       "season": "Apple-crumble season",
-      "description": "Cook a warm lentil dinner or something inspired by the market, put an apple crumble in the oven, and sketch while it bakes.",
+      "description": "Cook a warm lentil dinner, put an apple crumble in the oven, and sketch while it bakes. Pick up ingredients after work or order them ahead.",
       "why": "The shared cooking and quiet time are the date itself.",
       "status": "open",
-      "availability": "No booking needed. Wednesday pairs with the Union Square market; buy groceries elsewhere on Tuesday or Thursday.",
+      "availability": "No booking needed. Pick up groceries after work or order them ahead.",
       "source": "https://grownyc.org/locations/union-square-greenmarket/",
       "daytime": false,
       "links": [],
@@ -971,7 +354,8 @@
         "source": "https://grownyc.org/locations/union-square-greenmarket/"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Self-planned · no reservation"
+      "checkedLabel": "Self-planned · no reservation",
+      "startTime": "18:30"
     }
   ]
 }
