@@ -30,7 +30,11 @@
         "source": "https://www.bortolamigallery.com/exhibitions/noces"
       },
       "checkedAt": "2026-09-29T12:52:08.531314+00:00",
-      "checkedLabel": "Current show · closes at 6"
+      "checkedLabel": "Current show · closes at 6",
+      "location": {
+        "label": "39 Walker Street",
+        "query": "Bortolami, 39 Walker Street, New York, NY"
+      }
     },
     {
       "id": "hew-locke-tribeca",
@@ -65,7 +69,11 @@
         "source": "https://www.ppowgallery.com/exhibitions/hew-locke4"
       },
       "checkedAt": "2026-09-29T12:52:08.531314+00:00",
-      "checkedLabel": "Current show · closes at 6"
+      "checkedLabel": "Current show · closes at 6",
+      "location": {
+        "label": "390 Broadway · 2nd floor",
+        "query": "PPOW Gallery, 390 Broadway, New York, NY"
+      }
     },
     {
       "id": "anat-ebgi-tribeca",
@@ -100,7 +108,11 @@
         "source": "https://anatebgi.com/exhibitions/soumya-netrabile-field-conditions/"
       },
       "checkedAt": "2026-09-29T12:52:08.531314+00:00",
-      "checkedLabel": "Current show · closes at 6"
+      "checkedLabel": "Current show · closes at 6",
+      "location": {
+        "label": "372 Broadway",
+        "query": "Anat Ebgi, 372 Broadway, New York, NY"
+      }
     },
     {
       "id": "tapas-class",
@@ -128,7 +140,11 @@
         "source": "https://hudsontable.com/brooklyn/product/tasty-tapas-night-hands-on-6/"
       },
       "checkedAt": "2026-09-29T02:48:00Z",
-      "checkedLabel": "Up to 5 places offered"
+      "checkedLabel": "Up to 5 places offered",
+      "location": {
+        "label": "88 Withers Street",
+        "query": "Hudson Table, 88 Withers Street, Brooklyn, NY"
+      }
     },
     {
       "id": "birdland-jazz",
@@ -156,7 +172,11 @@
         "source": "https://www.vincegiordano.com/upcoming-events/95r2nknrcedlczl"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "2 table tickets offered"
+      "checkedLabel": "2 table tickets offered",
+      "location": {
+        "label": "Birdland Theater",
+        "query": "Birdland Theater, Manhattan, New York, NY"
+      }
     },
     {
       "id": "mcny-wednesday",
@@ -184,7 +204,11 @@
         "source": "https://www.mcny.org/event/summer-wednesdays-sept30"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy"
+      "checkedLabel": "Published hours / entry policy",
+      "location": {
+        "label": "1220 Fifth Avenue",
+        "query": "Museum of the City of New York, 1220 Fifth Avenue, New York, NY"
+      }
     },
     {
       "id": "nate-lowman",
@@ -219,7 +243,11 @@
         "source": "https://www.davidzwirner.com/exhibitions/2026/nate-lowman"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Current show + gallery hours"
+      "checkedLabel": "Current show + gallery hours",
+      "location": {
+        "label": "519 West 19th Street",
+        "query": "David Zwirner, 519 West 19th Street, New York, NY"
+      }
     },
     {
       "id": "zoya-cooking",
@@ -254,7 +282,11 @@
         "source": "https://www.fortgansevoort.com/exhibitions/zoya-cherkassky4"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy"
+      "checkedLabel": "Published hours / entry policy",
+      "location": {
+        "label": "5 Ninth Avenue",
+        "query": "Fort Gansevoort, 5 Ninth Avenue, New York, NY"
+      }
     },
     {
       "id": "anthony-mccall",
@@ -289,7 +321,11 @@
         "source": "https://www.skny.com/exhibitions/anthony-mccall7"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy"
+      "checkedLabel": "Published hours / entry policy",
+      "location": {
+        "label": "475 Tenth Avenue",
+        "query": "Sean Kelly Gallery, 475 Tenth Avenue, New York, NY"
+      }
     },
     {
       "id": "asher-liftin",
@@ -324,7 +360,11 @@
         "source": "https://www.pacegallery.com/exhibitions/asher-liftin-recent-work/"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Current show + gallery hours"
+      "checkedLabel": "Current show + gallery hours",
+      "location": {
+        "label": "395 Broadway",
+        "query": "125 Newbury Gallery, 395 Broadway, New York, NY"
+      }
     },
     {
       "id": "iris-van-herpen",
@@ -362,7 +402,11 @@
         "source": "https://www.irisvanherpen.com/news/sculpting-the-senses-opens-at-the-brooklyn-museum-in-new-york"
       },
       "checkedAt": "2026-09-29T02:53:00Z",
-      "checkedLabel": "Wed / Thu · 2 tickets at 4 pm"
+      "checkedLabel": "Wed / Thu · 2 tickets at 4 pm",
+      "location": {
+        "label": "Brooklyn Museum",
+        "query": "Brooklyn Museum, Brooklyn, NY"
+      }
     },
     {
       "id": "moma-disclosure",
@@ -399,7 +443,11 @@
         "source": "https://www.moma.org/calendar/exhibitions/5926"
       },
       "checkedAt": "2026-09-29T02:51:00Z",
-      "checkedLabel": "2 Tuesday admissions offered"
+      "checkedLabel": "2 Tuesday admissions offered",
+      "location": {
+        "label": "Museum of Modern Art",
+        "query": "Museum of Modern Art, Manhattan, New York, NY"
+      }
     },
     {
       "id": "morgan-tarot-day",
@@ -432,7 +480,11 @@
         "source": "https://www.timeout.com/newyork/things-to-do/tarot-renaissance-symbols-modern-visions"
       },
       "checkedAt": "2026-09-29T02:54:00Z",
-      "checkedLabel": "Tue · 2 daytime tickets at 3 pm"
+      "checkedLabel": "Tue · 2 daytime tickets at 3 pm",
+      "location": {
+        "label": "The Morgan Library & Museum",
+        "query": "The Morgan Library & Museum, New York, NY"
+      }
     },
     {
       "id": "nyff-godzilla",
@@ -460,7 +512,11 @@
         "source": "https://www.filmlinc.org/nyff2026/films/godzilla-minus-zero/"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "2 tickets offered · Wed 12:30 pm"
+      "checkedLabel": "2 tickets offered · Wed 12:30 pm",
+      "location": {
+        "label": "Alice Tully Hall",
+        "query": "Alice Tully Hall, Lincoln Center, New York, NY"
+      }
     },
     {
       "id": "brooklyn-garden",
@@ -490,7 +546,11 @@
         "source": "https://www.bbg.org/visit/hours"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Hours checked · tickets not reserved"
+      "checkedLabel": "Hours checked · tickets not reserved",
+      "location": {
+        "label": "Brooklyn Botanic Garden",
+        "query": "Brooklyn Botanic Garden, Brooklyn, NY"
+      }
     },
     {
       "id": "nybg",
@@ -520,7 +580,11 @@
         "source": "https://www.nybg.org/"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Hours + Wednesday free-entry policy"
+      "checkedLabel": "Hours + Wednesday free-entry policy",
+      "location": {
+        "label": "New York Botanical Garden",
+        "query": "New York Botanical Garden, Bronx, NY"
+      }
     },
     {
       "id": "little-island",
@@ -550,7 +614,11 @@
         "source": "https://littleisland.org/"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Free park entry · Tuesday lawns closed"
+      "checkedLabel": "Free park entry · Tuesday lawns closed",
+      "location": {
+        "label": "Little Island",
+        "query": "Little Island, Hudson River Park, New York, NY"
+      }
     },
     {
       "id": "central-park",
@@ -580,7 +648,11 @@
         "source": "https://www.centralparknyc.org/activities/guides/fall-foliage-tracker"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Schedule checked · weather dependent"
+      "checkedLabel": "Schedule checked · weather dependent",
+      "location": {
+        "label": "Bow Bridge · walk starting point",
+        "query": "Bow Bridge, Central Park, New York, NY"
+      }
     },
     {
       "id": "governors-island",
@@ -610,7 +682,11 @@
         "source": "https://www.govisland.com/the-park"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy"
+      "checkedLabel": "Published hours / entry policy",
+      "location": {
+        "label": "Governors Island",
+        "query": "Governors Island, New York, NY"
+      }
     },
     {
       "id": "dumbo-waterfront",
@@ -640,7 +716,11 @@
         "source": "https://www.nycgovparks.org/parks/brooklyn-bridge-park"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy"
+      "checkedLabel": "Published hours / entry policy",
+      "location": {
+        "label": "Main Street Park · walk starting point",
+        "query": "Main Street Park, Brooklyn Bridge Park, Brooklyn, NY"
+      }
     },
     {
       "id": "greenmarket",
@@ -668,7 +748,11 @@
         "source": "https://grownyc.org/locations/union-square-greenmarket/"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy"
+      "checkedLabel": "Published hours / entry policy",
+      "location": {
+        "label": "Union Square Greenmarket",
+        "query": "Union Square Greenmarket, New York, NY"
+      }
     },
     {
       "id": "kazunori",
@@ -703,7 +787,11 @@
         "source": "https://www.theinfatuation.com/new-york/reviews/kazunori"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Published hours / entry policy"
+      "checkedLabel": "Published hours / entry policy",
+      "location": {
+        "label": "KazuNori · NoMad location",
+        "query": "KazuNori NoMad, New York, NY"
+      }
     },
     {
       "id": "shukette",
@@ -738,7 +826,11 @@
         "source": "https://www.lannaapisukh.com/nyt-x-shukette"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "2 guests · late tables only"
+      "checkedLabel": "2 guests · late tables only",
+      "location": {
+        "label": "230 Ninth Avenue",
+        "query": "Shukette, 230 Ninth Avenue, New York, NY"
+      }
     },
     {
       "id": "rule-of-thirds",
@@ -773,7 +865,11 @@
         "source": "https://www.thirdsbk.com/"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Tables for 2 · all three evenings"
+      "checkedLabel": "Tables for 2 · all three evenings",
+      "location": {
+        "label": "171 Banker Street",
+        "query": "Rule of Thirds, 171 Banker Street, Brooklyn, NY"
+      }
     },
     {
       "id": "paint-pottery",
@@ -807,7 +903,11 @@
         "source": "https://www.tagvenue.com/us/venues/new-york/29037/color-me-mine-tribeca"
       },
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Reservations for 2 · Tue / Wed"
+      "checkedLabel": "Reservations for 2 · Tue / Wed",
+      "location": {
+        "label": "123 Baxter Street",
+        "query": "Color Me Mine, 123 Baxter Street, New York, NY"
+      }
     },
     {
       "id": "book-exchange",
@@ -837,7 +937,11 @@
         "source": "https://www.business.nyctourism.com/places/mcnally-jackson-books"
       },
       "checkedLabel": "Daily 10 am–9 pm · no ticket",
-      "checkedAt": "2026-09-29T02:57:14.391045+00:00"
+      "checkedAt": "2026-09-29T02:57:14.391045+00:00",
+      "location": {
+        "label": "4 Fulton Street",
+        "query": "McNally Jackson Seaport, 4 Fulton Street, New York, NY"
+      }
     },
     {
       "id": "autumn-at-home",
