@@ -1,7 +1,107 @@
 {
   "week": "September 29–October 1, 2026",
-  "checked": "September 28, 2026, evening recheck (New York time; see each card)",
+  "checked": "September 28–29, 2026 (New York time; see each card)",
   "ideas": [
+    {
+      "id": "bortolami-noces",
+      "title": "A little color around the corner",
+      "venue": "Christine Safa · Bortolami",
+      "area": "Tribeca",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 10 am–6 pm; try 4:30–5:45 pm",
+      "price": "Free gallery visit",
+      "season": "Through Oct 24",
+      "description": "Wander through Noces at 39 Walker Street: paintings of shifting light, landscapes, and remembered places. Pick the one you’d take home, then compare your choices.",
+      "why": "A short local art date with room to talk, followed by dinner close to home.",
+      "status": "open",
+      "availability": "Current exhibition and published gallery hours checked September 29. Open during the suggested visit on all three days; regular gallery viewing, with no timed-ticket booking listed.",
+      "source": "https://www.bortolamigallery.com/exhibitions/noces",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://cdn.sanity.io/images/mnub8q5m/production/b5389dc7f5de449ffbc3f6b2e55d2b350f01107a-3750x2500.jpg?w=1400",
+        "alt": "Christine Safa’s Noces installation at Bortolami",
+        "credit": "Guang Xu · courtesy the artist and Bortolami",
+        "source": "https://www.bortolamigallery.com/exhibitions/noces"
+      },
+      "checkedAt": "2026-09-29T12:52:08.531314+00:00",
+      "checkedLabel": "Current show · closes at 6"
+    },
+    {
+      "id": "hew-locke-tribeca",
+      "title": "Tiny ships, enormous stories",
+      "venue": "Hew Locke · P·P·O·W",
+      "area": "Tribeca",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 11 am–6 pm; try 4:30–5:45 pm",
+      "price": "Free gallery visit",
+      "season": "Through Oct 24",
+      "description": "Explore The Wanderers at 390 Broadway, 2nd floor. Decorated model boats, watercolors, and altered share certificates tell stories about migration and trade. Give yourselves 45 minutes to look closely.",
+      "why": "Intricate objects to discover together, right in Tribeca. An easy pairing with the existing Asher Liftin stop across Broadway.",
+      "status": "open",
+      "availability": "Current exhibition and published gallery hours checked September 29. Open during the suggested visit on all three days; regular gallery viewing, with no timed-ticket booking listed.",
+      "source": "https://www.ppowgallery.com/exhibitions/hew-locke4",
+      "daytime": true,
+      "links": [
+        [
+          "Gallery hours",
+          "https://www.ppowgallery.com/contact"
+        ]
+      ],
+      "image": {
+        "url": "https://static-assets.artlogic.net/w_1800,h_1000,c_limit/exhibit-e/61945b4c94b78824b9217367/d1fc2cfc0d0325cdf7b03b6f374465dc.jpeg",
+        "alt": "Hew Locke’s The Wanderers installation at P·P·O·W",
+        "credit": "Hew Locke / P·P·O·W · exhibition installation",
+        "source": "https://www.ppowgallery.com/exhibitions/hew-locke4"
+      },
+      "checkedAt": "2026-09-29T12:52:08.531314+00:00",
+      "checkedLabel": "Current show · closes at 6"
+    },
+    {
+      "id": "anat-ebgi-tribeca",
+      "title": "Two ways of seeing, one stop",
+      "venue": "Soumya Netrabile + Alannah Farrell · Anat Ebgi",
+      "area": "Tribeca",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 11 am–6 pm; try 4:30–5:45 pm",
+      "price": "Free gallery visit",
+      "season": "Through Oct 17",
+      "description": "At 372 Broadway, start with Field Conditions: rich abstract paintings and glazed ceramics. Then see Solastalgia’s portraits and changing hometown landscapes. Choose a favorite from each show.",
+      "why": "Color, nature, and contrasting perspectives in one nearby gallery. Plenty to compare over an early dinner.",
+      "status": "open",
+      "availability": "Current exhibition and published gallery hours checked September 29. Open during the suggested visit on all three days; regular gallery viewing, with no timed-ticket booking listed.",
+      "source": "https://anatebgi.com/exhibitions/soumya-netrabile-field-conditions/",
+      "daytime": true,
+      "links": [
+        [
+          "Alannah Farrell: Solastalgia",
+          "https://anatebgi.com/exhibitions/alannah-farrell-solastalgia/"
+        ]
+      ],
+      "image": {
+        "url": "https://anatebgi.com/wp-content/uploads/2026/08/netrabile-field-conditions-2026-installation-view-14-2000x1500.jpg",
+        "alt": "Field Conditions by Soumya Netrabile at Anat Ebgi",
+        "credit": "Soumya Netrabile / Anat Ebgi · installation view",
+        "source": "https://anatebgi.com/exhibitions/soumya-netrabile-field-conditions/"
+      },
+      "checkedAt": "2026-09-29T12:52:08.531314+00:00",
+      "checkedLabel": "Current show · closes at 6"
+    },
     {
       "id": "tapas-class",
       "title": "Make a mess. Make dinner.",

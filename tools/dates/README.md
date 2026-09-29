@@ -34,3 +34,9 @@ Mobile QA used 320×667, 375×667, 390×844 and 430×932 browser viewports. Veri
 ## Catalog pruning
 
 The user requested viable choices without notices about rejected events. Removed the public Morgan After Hours notice, Oh, Mary!, Atithi, Comedy Cellar (party size unconfirmed), and the rejected High Line telescope idea. The catalog has 24 cards. Morgan daytime and MoMA now appear only on Tuesday, and pottery only on Tuesday/Wednesday, matching the strongest booking checks. Removed the Checked options filter; unverified/unavailable status records are excluded at catalog load. Existing votes are preserved. UI copy no longer hardcodes the catalog count.
+
+## September 29 profile selection and Tribeca galleries
+
+Added an explicit first-visit name picker (remembered per board/device), prominent profile switching on phones, and a Both like view for mutual Yes votes. The existing private share link joins the same board across devices; a visible reminder explains this. Existing votes and board tokens are retained. Added a Tribeca filter and three nearby cards: Christine Safa at Bortolami, Hew Locke at P·P·O·W, and Soumya Netrabile / Alannah Farrell at Anat Ebgi. The catalog now has 27 cards. Official exhibition dates, addresses, and weekday hours checked September 29; all three are daytime visits ending before 6 pm.
+
+Validated separate profile votes, mutual-match inclusion and removal by undo, remembered identity after reload, shared-board recovery on a separate localhost origin, Tribeca filtering, and all three gallery images loading. Phone layout checked at 390×844 with no horizontal overflow; desktop gallery grid also inspected. State/catalog checks, JavaScript syntax, and the public-site build passed. Test likes were undone on the isolated local QA board.
