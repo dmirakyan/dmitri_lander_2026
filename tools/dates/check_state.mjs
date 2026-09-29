@@ -11,6 +11,6 @@ assert.equal(mergeVotes([old,tulin],[latest])['tulin:test'].choice,'yes');
 assert.deepEqual(remainingActions([old,latest],[old]),[latest]);
 assert.deepEqual(remainingActions([latest],[old]),[latest]);
 const data=JSON.parse(await readFile(new URL('../../dates/ideas.json',import.meta.url),'utf8'));
-assert.equal(data.ideas.length,28);assert.equal(new Set(data.ideas.map(i=>i.id)).size,28);
+assert.ok(data.ideas.length>=20 && data.ideas.length<=40);assert.equal(new Set(data.ideas.map(i=>i.id)).size,data.ideas.length);
 for(const i of data.ideas){assert.match(i.image.url,/^https:\/\//);assert.match(i.source,/^https:\/\//);assert.ok(i.days.length);assert.ok(i.when);assert.ok(i.availability);assert.notEqual(i.id,'morgan');}
-console.log('PASS: offline undo wins over older remote state, profiles stay separate, acknowledgments retain in-flight choices, and 28 unique sourced cards.');
+console.log('PASS: offline undo wins over older remote state, profiles stay separate, acknowledgments retain in-flight choices, and unique sourced cards.');

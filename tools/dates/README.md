@@ -1,6 +1,6 @@
 # Date-night board
 
-The public static app lives in `dates/` and is linked from `/admin/`. The 28-card catalog targets September 29–October 1, 2026. Edit `dates/ideas.json` to update dates, actual booking checks, venue links, or image credits. Listed opening hours do not imply ticket or table availability. Morgan After Hours is sold out and excluded; regular daytime Tarot! is a separate candidate.
+The public static app lives in `dates/` and is linked from `/admin/`. The curated catalog targets September 29–October 1, 2026. Edit `dates/ideas.json` to update dates, actual booking checks, venue links, or image credits. Listed opening hours do not imply ticket or table availability. Morgan After Hours is sold out and excluded; regular daytime Tarot! is a separate candidate.
 
 ## Storage
 
@@ -29,3 +29,8 @@ Observed booking results: two Birdland table tickets ($91.52 plus $40 food/drink
 Resy offered Rule of Thirds tables for two at 6, 7 and 8 pm all three evenings, and Shukette only from 9:30 pm in the observed results. Comedy Cellar offered specific sets through the contact step; final party size was not confirmed. Pottery offered Tuesday/Wednesday slots for groups of 1–2; Thursday inventory remains unverified. Oh, Mary! showtimes were verified, but an adjacent seat pair was not; Atithi dinner tables were not confirmed. The checked filter excludes these unverified candidates and respects the pottery/Morgan day limits. Morgan After Hours stays excluded.
 
 Mobile QA used 320×667, 375×667, 390×844 and 430×932 browser viewports. Verified no horizontal overflow, fixed reachable decision buttons, readable expanded details, a contained share dialog, Yes/Undo and cloud sync on an isolated test board, and Thursday checked-option filtering. This is browser viewport testing, not a physical-device Safari test. JavaScript syntax, state/catalog checks, and the public-site build passed. The swipe handler preserves vertical scrolling and cancels interrupted gestures; no claim of a physical touch-device gesture test.
+
+
+## Catalog pruning
+
+The user requested viable choices without notices about rejected events. Removed the public Morgan After Hours notice, Oh, Mary!, Atithi, Comedy Cellar (party size unconfirmed), and the rejected High Line telescope idea. The catalog has 24 cards. Morgan daytime and MoMA now appear only on Tuesday, and pottery only on Tuesday/Wednesday, matching the strongest booking checks. Removed the Checked options filter; unverified/unavailable status records are excluded at catalog load. Existing votes are preserved. UI copy no longer hardcodes the catalog count.

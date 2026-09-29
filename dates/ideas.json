@@ -271,17 +271,15 @@
       "area": "Midtown",
       "category": "Art",
       "days": [
-        "tue",
-        "wed",
-        "thu"
+        "tue"
       ],
-      "when": "Tue–Thu · 10:30 am–5:30 pm",
+      "when": "Tue Sep 29 · 10:30 am–5:30 pm",
       "price": "$60 general admission for two",
       "season": "Just opened Sep 27",
       "description": "See how information becomes art in Full Disclosure: The Edge of Information Design. Add one favorite collection floor, then stop.",
       "why": "Visual curiosity and enough weird ideas to fuel a long conversation.",
       "status": "offered",
-      "availability": "MoMA offered admission dates Sep 29, Sep 30 and Oct 1. Selected 2 adults for Tuesday: $60 and Continue enabled. Wednesday/Thursday date selectors also loaded adult ticket options; their quantities were not separately tested. Tickets include special exhibitions. Galleries close 15 minutes before 5:30 pm. Nothing reserved.",
+      "availability": "Two adult admissions offered for Tuesday at $60 total, including special exhibitions. Galleries close at 5:15 pm. Book using the admission link below.",
       "source": "https://www.moma.org/calendar/exhibitions/5926",
       "daytime": true,
       "links": [
@@ -301,7 +299,7 @@
         "source": "https://www.moma.org/calendar/exhibitions/5926"
       },
       "checkedAt": "2026-09-29T02:51:00Z",
-      "checkedLabel": "Tue–Thu dates offered · 2 tested Tue"
+      "checkedLabel": "2 Tuesday admissions offered"
     },
     {
       "id": "morgan-tarot-day",
@@ -310,17 +308,15 @@
       "area": "Murray Hill",
       "category": "Art",
       "days": [
-        "tue",
-        "wed",
-        "thu"
+        "tue"
       ],
-      "when": "Tue–Thu · 10:30 am–5 pm",
+      "when": "Tue Sep 29 · 3 pm entry; museum closes 5 pm",
       "price": "$57 for two online; final fees may vary",
       "season": "Closes Sunday Oct 4",
       "description": "Renaissance cards, surrealist imagery, and the library. A daytime exhibition visit before the show closes.",
       "why": "Art, books, and a little mystery in a beautiful setting.",
       "status": "offered",
-      "availability": "Regular admission calendar lists Sep 29, Sep 30 and Oct 1. Tuesday showed entries 11 am–4 pm; selected 2 adult tickets at 3 pm ($28.50 each including listed fees), with Buy 2 Seats enabled. Wednesday/Thursday quantities not checked. This is daytime Tarot!, NOT the sold-out Thursday After Hours party. Nothing reserved.",
+      "availability": "Two adult tickets offered for Tuesday at 3 pm, $28.50 each including listed fees. Book daytime admission using the link below.",
       "source": "https://www.themorgan.org/exhibitions/tarot",
       "daytime": true,
       "links": [
@@ -336,10 +332,7 @@
         "source": "https://www.timeout.com/newyork/things-to-do/tarot-renaissance-symbols-modern-visions"
       },
       "checkedAt": "2026-09-29T02:54:00Z",
-      "checkedLabel": "Tue · 2 daytime tickets at 3 pm",
-      "verifiedDays": [
-        "tue"
-      ]
+      "checkedLabel": "Tue · 2 daytime tickets at 3 pm"
     },
     {
       "id": "nyff-godzilla",
@@ -368,75 +361,6 @@
       },
       "checkedAt": "2026-09-29T02:39:25Z",
       "checkedLabel": "2 tickets offered · Wed 12:30 pm"
-    },
-    {
-      "id": "oh-mary",
-      "title": "Eighty minutes of complete chaos",
-      "venue": "Oh, Mary!",
-      "area": "Lyceum Theatre",
-      "category": "Shows",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · 7:30 pm; 80 minutes",
-      "price": "Dynamic ticket pricing; two seats not checked",
-      "season": "Bowen Yang’s fall run",
-      "description": "A short, absurd Broadway comedy, with dinner before or dessert afterwards. 149 West 45th Street.",
-      "why": "Playful and memorable, without committing to a three-hour epic.",
-      "status": "check",
-      "availability": "Telecharge lists 7:30 pm performances on Sep 29, Sep 30 and Oct 1. The seat map opened, but a pair of adjacent seats and its final price could not be verified. Keep as a candidate until you choose two seats. Official site lists Bowen Yang September 15–December 6.",
-      "source": "https://www.ohmaryplay.com/",
-      "daytime": false,
-      "links": [
-        [
-          "Performance calendar / tickets",
-          "https://www.telecharge.com/Oh-Mary-Tickets"
-        ],
-        [
-          "Official tickets",
-          "https://www.telecharge.com/Oh-Mary-Tickets"
-        ]
-      ],
-      "image": {
-        "url": "https://cdn.prod.website-files.com/656f2980559d92d6109a5092/6792b008eabf6156eafa835c_og2.jpg",
-        "alt": "Eighty minutes of complete chaos — venue or exhibition photograph",
-        "credit": "Oh, Mary! · official production artwork",
-        "source": "https://www.ohmaryplay.com/"
-      },
-      "checkedAt": "2026-09-29T02:55:00Z",
-      "checkedLabel": "Showtimes verified · seat pair unconfirmed"
-    },
-    {
-      "id": "comedy-cellar",
-      "title": "Laugh until dinner feels distant",
-      "venue": "Comedy Cellar",
-      "area": "Greenwich Village",
-      "category": "Shows",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue / Wed · 7:30 pm; Thu · 6:45 pm",
-      "price": "$30 Tue/Wed or $36 Thu for two + 2 items each",
-      "season": "An easy rainy-night option",
-      "description": "Have dinner in the Village, then go downstairs for a stand-up set. Choose a time that does not turn into a very late night.",
-      "why": "Spontaneity and shared laughter, with very little logistical work.",
-      "status": "listed",
-      "availability": "The reservation form offered MacDougal Street sets Tuesday Sep 29 and Wednesday Sep 30 at 7:30 pm ($15 cover each), and Thursday Oct 1 at 6:45 pm ($18 each). Each advanced to the contact-information step. The form has not yet confirmed a party of 2. Two-item minimum per person; 21+. Nothing booked.",
-      "source": "https://www.comedycellar.com/reservations-newyork/",
-      "daytime": false,
-      "links": [],
-      "image": {
-        "url": "https://www.comedycellar.com/wp-content/uploads/2023/03/Joshadammeyers_RonnyChang_.jpg",
-        "alt": "Laugh until dinner feels distant — venue or exhibition photograph",
-        "credit": "Comedy Cellar · archival performers photo; not the promised lineup",
-        "source": "https://www.comedycellar.com/"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Sets offered · party size still to confirm"
     },
     {
       "id": "brooklyn-garden",
@@ -647,41 +571,6 @@
       "checkedLabel": "Published hours / entry policy"
     },
     {
-      "id": "atithi",
-      "title": "A warm, unfussy Indian dinner",
-      "venue": "Atithi",
-      "area": "Williamsburg",
-      "category": "Food",
-      "days": [
-        "tue",
-        "wed",
-        "thu"
-      ],
-      "when": "Tue–Thu · dinner 5–10 pm",
-      "price": "$59.98 for two prix fixe menus, before tax/tip",
-      "season": "Comfort-food evening",
-      "description": "Start with the daily prix fixe, share bites, and make it a slow dinner at 159 Grand Street.",
-      "why": "Flavorful, authentic-feeling food over ceremony.",
-      "status": "check",
-      "availability": "Official site still lists $29.99 prix fixe and dinner 5–10 pm. OpenTable showed Tuesday lunch times for 2, but evening tables could not be confirmed in this check. Confirm dinner availability and prix fixe terms before planning around it.",
-      "source": "https://www.atithirestaurantnyc.com/",
-      "daytime": false,
-      "links": [
-        [
-          "Reservation search",
-          "https://www.opentable.com/r/atithi-indian-cuisine-brooklyn"
-        ]
-      ],
-      "image": {
-        "url": "https://www.atithirestaurantnyc.com/img/3.png?q=80&w=1887&auto=format&fit=crop",
-        "alt": "A warm, unfussy Indian dinner — venue or exhibition photograph",
-        "credit": "Atithi · dish photograph",
-        "source": "https://www.atithirestaurantnyc.com/"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Dinner hours checked · tables unconfirmed"
-    },
-    {
       "id": "kazunori",
       "title": "A hand-roll interlude",
       "venue": "KazuNori NoMad",
@@ -794,18 +683,17 @@
       "category": "Make something",
       "days": [
         "tue",
-        "wed",
-        "thu"
+        "wed"
       ],
-      "when": "Tue / Wed · 11 am–6 pm; Thu · 11 am–8 pm",
+      "when": "Tue · 11 am / 1:15 pm; Wed · also 3:30 pm",
       "price": "$26 studio fees for two + pottery pieces",
-      "season": "Thursday has the late hours",
-      "description": "Choose a ceramic piece and paint it for the other person. Thursday is the easiest after-work version.",
+      "season": "Paint something together",
+      "description": "Choose a ceramic piece and paint it for the other person. Set aside two hours for an unhurried afternoon.",
       "why": "Making things together, with a funny keepsake at the end.",
       "status": "listed",
-      "availability": "The group-of-1–2 booking page offered Tuesday Sep 29 at 11 am and 1:15 pm; Wednesday Sep 30 at 11 am, 1:15 pm and 3:30 pm (the latter two showed 3 remaining). Thursday inventory could not be verified. $13 adult studio fee plus pottery; $20 reservation deposit credited to purchase; 2-hour limit. Pickup about a week later. No alcohol; RSVP required.",
+      "availability": "Reservations for 1–2 guests offered Tuesday at 11 am and 1:15 pm, and Wednesday at 11 am, 1:15 pm and 3:30 pm. $13 adult studio fee plus pottery; $20 deposit credited to purchase. Two-hour session; pickup about a week later. No alcohol.",
       "source": "https://tribeca.colormemine.com/frequently-asked-questions/",
-      "daytime": false,
+      "daytime": true,
       "links": [
         [
           "Reserve for 1–2",
@@ -818,15 +706,8 @@
         "credit": "Color Me Mine Tribeca / Tagvenue venue listing",
         "source": "https://www.tagvenue.com/us/venues/new-york/29037/color-me-mine-tribeca"
       },
-      "eveningDays": [
-        "thu"
-      ],
       "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Tue / Wed slots · Thu not confirmed",
-      "verifiedDays": [
-        "tue",
-        "wed"
-      ]
+      "checkedLabel": "Reservations for 2 · Tue / Wed"
     },
     {
       "id": "book-exchange",
@@ -887,39 +768,6 @@
       },
       "checkedAt": "2026-09-29T02:39:25Z",
       "checkedLabel": "Self-planned · no reservation"
-    },
-    {
-      "id": "high-line-stars",
-      "title": "An optional telescope stop",
-      "venue": "High Line · public telescopes",
-      "area": "Meatpacking",
-      "category": "Outdoors",
-      "days": [
-        "tue"
-      ],
-      "when": "Tue Sep 29 · 7–9:30 pm",
-      "price": "Free; dinner extra",
-      "season": "Urban astronomy pop-in",
-      "description": "If you are already nearby, stop at the volunteer telescopes near Little West 12th Street. Manhattan’s bright sky severely limits the view; this is a brief astronomy stop, not a sky-full-of-stars date.",
-      "why": "An optional curiosity stop on a walk. For the immersive stargazing experience, plan a separate outing under much darker skies.",
-      "status": "weather",
-      "availability": "The organizer lists Tuesday Sep 29, 7–9:30 pm, weather permitting. No ticket needed. Bright stars and planets can remain visible in city skies, but the objects in view depend on their position, clouds and the telescope setup. Specific targets for this session are unconfirmed. Check the organizer before leaving.",
-      "source": "https://nightsky.jpl.nasa.gov/events/123773/",
-      "daytime": false,
-      "links": [
-        [
-          "What city skies allow",
-          "https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
-        ]
-      ],
-      "image": {
-        "url": "https://fhl-website.s3.amazonaws.com/content/uploads/2019/06/17163135/HL_SummerGuide_Stargazing_Blumberg.jpg",
-        "alt": "Visitors looking through a telescope on the High Line at night",
-        "credit": "The High Line · archival program photo",
-        "source": "https://www.thehighline.org/blog/2019/06/20/summer-guide-to-the-high-line/"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Urban sky · limited views"
     }
   ]
 }
