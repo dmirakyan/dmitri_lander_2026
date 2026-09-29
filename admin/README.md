@@ -2,7 +2,7 @@
 
 Static frontend served by GitHub Pages at `/admin/`. The public files contain no profile, calendar data, account credentials, or run records. No analytics or third-party scripts load on this page.
 
-The date-night card links to the public static guide at `/dates/`, independently of the private runner connection. The guide contains outing recommendations and public venue links; message exports and detailed personal research stay outside this repository. The Pages workflow explicitly includes `dates/` in its public-file staging list.
+The date-night card links to the public static guide at `/dates/`, independently of the private runner connection. The guide contains 28 photo cards, swipe voting, per-person shortlists, and a private share-link board backed by dedicated Creed Supabase tables. See `tools/dates/README.md` for storage and validation. It contains outing recommendations and public venue links; message exports and detailed personal research stay outside this repository. The Pages workflow explicitly includes `dates/` in its public-file staging list.
 
 ## Private runner
 

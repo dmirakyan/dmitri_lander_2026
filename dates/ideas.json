@@ -1,0 +1,810 @@
+{
+  "week": "September 29–October 1, 2026",
+  "checked": "September 28, 2026 (New York time)",
+  "ideas": [
+    {
+      "id": "high-line-stars",
+      "title": "A little closer to the stars",
+      "venue": "High Line stargazing",
+      "area": "Meatpacking",
+      "category": "Outdoors",
+      "days": [
+        "tue"
+      ],
+      "when": "Tue Sep 29 · 7–9:30 pm",
+      "price": "Free; dinner extra",
+      "season": "Last month of the season",
+      "description": "Eat early, walk the southern High Line, then join the astronomers near Little West 12th Street.",
+      "why": "A small adventure, a long-running wish, and room to talk.",
+      "status": "weather",
+      "availability": "Scheduled by the organizer. Clouds can cancel observing; check on Tuesday afternoon. No ticket needed.",
+      "source": "https://nightsky.jpl.nasa.gov/events/123773/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://fhl-website.s3.amazonaws.com/content/uploads/2019/06/17163135/HL_SummerGuide_Stargazing_Blumberg.jpg",
+        "alt": "A little closer to the stars — venue or exhibition photograph",
+        "credit": "The High Line · archival program photo",
+        "source": "https://www.thehighline.org/blog/2019/06/20/summer-guide-to-the-high-line/"
+      }
+    },
+    {
+      "id": "tapas-class",
+      "title": "Make a mess. Make dinner.",
+      "venue": "Hudson Table",
+      "area": "Williamsburg",
+      "category": "Make something",
+      "days": [
+        "wed"
+      ],
+      "when": "Wed Sep 30 · 6:30–9:30 pm",
+      "price": "$240 for two; checkout extras may apply",
+      "season": "One-night class",
+      "description": "Cook tapas together at 88 Withers Street: patatas bravas, shrimp and chorizo, steak, and flan. Then eat your work.",
+      "why": "A shared creative project with an excellent payoff.",
+      "status": "offered",
+      "availability": "Booking selector offered up to 5 places on Sep 28 at 10:12 pm ET. Two places are not held.",
+      "source": "https://hudsontable.com/brooklyn/product/tasty-tapas-night-hands-on-6/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://hudsontable.com/brooklyn/wp-content/uploads/sites/3/2021/04/AdobeStock_176977918-scaled.jpeg",
+        "alt": "Make a mess. Make dinner. — venue or exhibition photograph",
+        "credit": "Hudson Table / Adobe Stock · class illustration",
+        "source": "https://hudsontable.com/brooklyn/product/tasty-tapas-night-hands-on-6/"
+      }
+    },
+    {
+      "id": "birdland-jazz",
+      "title": "A tiny time machine, with jazz",
+      "venue": "Vince Giordano & the Nighthawks",
+      "area": "Midtown West",
+      "category": "Shows",
+      "days": [
+        "tue"
+      ],
+      "when": "Tue Sep 29 · 8:30–9:45 pm; doors 7:30",
+      "price": "$131.52 for two table tickets + minimum; tax/tip extra",
+      "season": "Tuesday at Birdland Theater",
+      "description": "A big vintage-jazz band in an intimate room. Arrive at doors and have dinner there before the music.",
+      "why": "One destination, real atmosphere, and a whole evening together.",
+      "status": "offered",
+      "availability": "TicketWeb offered table, bar, and partial-view tickets on Sep 28. Table: $45.76 each including fees, plus $20 minimum each. No seats held.",
+      "source": "https://www.ticketweb.com/event/vince-giordano-and-the-nighthawks-birdland-theater-tickets/14881193?REFID=clientsitewp",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://images.squarespace-cdn.com/content/v1/66ac214dfd28181ca39665f2/2dad6f2b-fab9-498a-a3e6-42f569baef45/VG-Nighthawks-Aiden-Grant.jpg?format=1500w",
+        "alt": "A tiny time machine, with jazz — venue or exhibition photograph",
+        "credit": "Vince Giordano · official band photo",
+        "source": "https://www.vincegiordano.com/upcoming-events/95r2nknrcedlczl"
+      }
+    },
+    {
+      "id": "mcny-wednesday",
+      "title": "The city, after hours",
+      "venue": "Museum of the City of New York",
+      "area": "East Harlem",
+      "category": "Art",
+      "days": [
+        "wed"
+      ],
+      "when": "Wed Sep 30 · 5–9 pm",
+      "price": "Free admission; drinks extra",
+      "season": "A free September evening",
+      "description": "Explore the galleries, compare your favorite pieces, and pause at the pop-up bar. 1220 Fifth Avenue.",
+      "why": "Art plus conversation, without a formal or expensive dinner.",
+      "status": "open",
+      "availability": "The museum lists free Wednesday evening admission. Collect tickets at the admissions desk.",
+      "source": "https://www.mcny.org/event/summer-wednesdays-sept30",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://www.mcny.org/sites/default/files/styles/mcny_open_graph/public/MuseumMile_byFilipWolak_0076_6680.jpg?h=fca9bc60&itok=pbInK6Bw",
+        "alt": "The city, after hours — venue or exhibition photograph",
+        "credit": "Filip Wolak / MCNY",
+        "source": "https://www.mcny.org/event/summer-wednesdays-sept30"
+      }
+    },
+    {
+      "id": "nate-lowman",
+      "title": "Keys to a different New York",
+      "venue": "Nate Lowman: Hanging Out",
+      "area": "Chelsea",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · daytime, before 6 pm",
+      "price": "Free",
+      "season": "On view Sep 10–Oct 24",
+      "description": "A new show at David Zwirner, 519 West 19th Street. Start with the key-shaped canvases, then trade interpretations over coffee.",
+      "why": "A small, focused art date with space for your own conversation.",
+      "status": "open",
+      "availability": "Exhibition dates verified; gallery visit, with no event ticket inventory to reserve. Confirm same-day opening hours.",
+      "source": "https://www.davidzwirner.com/exhibitions/2026/nate-lowman",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://cdn.sanity.io/images/juzvn5an/release-adp/0a68f57903acbbd8e5d04166dac38800cb764235-2100x1182.jpg?bg=ffffff&w=1200&h=630&fit=fill&crop=entropy&auto=format",
+        "alt": "Keys to a different New York — venue or exhibition photograph",
+        "credit": "Nate Lowman: Hanging Out",
+        "source": "https://www.davidzwirner.com/exhibitions/2026/nate-lowman"
+      }
+    },
+    {
+      "id": "zoya-cooking",
+      "title": "Dinner, painted in full color",
+      "venue": "Zoya Cherkassky: American Cooking",
+      "area": "Meatpacking",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 10 am–6 pm",
+      "price": "Free",
+      "season": "On view Sep 16–Nov 7",
+      "description": "Everyday kitchens, food, and American life at Fort Gansevoort, 5 Ninth Avenue. Take the food theme into a casual dinner after.",
+      "why": "Colorful art and the rituals of cooking are a lovely overlap.",
+      "status": "open",
+      "availability": "Gallery hours and exhibition dates listed by the gallery; no timed-ticket requirement listed.",
+      "source": "https://www.fortgansevoort.com/exhibitions/zoya-cherkassky4",
+      "daytime": true,
+      "links": [
+        [
+          "Gallery hours",
+          "https://www.fortgansevoort.com/contact"
+        ]
+      ],
+      "image": {
+        "url": "https://static-assets.artlogic.net/w_3600,h_2000,c_limit/exhibit-e/5f89f73113a837023a8b4567/40d2c8867122aeb69f6dc3be2586232c.jpeg",
+        "alt": "Dinner, painted in full color — venue or exhibition photograph",
+        "credit": "Zoya Cherkassky / Fort Gansevoort",
+        "source": "https://www.fortgansevoort.com/exhibitions/zoya-cherkassky4"
+      }
+    },
+    {
+      "id": "anthony-mccall",
+      "title": "Walk inside a beam of light",
+      "venue": "Anthony McCall",
+      "area": "Hudson Yards",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 11 am–6 pm",
+      "price": "Free",
+      "season": "On view Sep 11–Oct 31",
+      "description": "Light becomes a sculpture you can move through at Sean Kelly, 475 Tenth Avenue. Leave time to slow down inside it.",
+      "why": "Immersive, strange, and something you experience together.",
+      "status": "open",
+      "availability": "Current exhibition and weekday gallery hours verified. No advance-ticket requirement listed.",
+      "source": "https://www.skny.com/exhibitions/anthony-mccall7",
+      "daytime": true,
+      "links": [
+        [
+          "Gallery hours",
+          "https://www.skny.com/gallery"
+        ]
+      ],
+      "image": {
+        "url": "https://static-assets.artlogic.net/w_3600,h_3600,c_limit/exhibit-e/62f52bf90af321abff00fe82/5c09ae7c373ac6043e085e8b49e78f62.jpeg",
+        "alt": "Walk inside a beam of light — venue or exhibition photograph",
+        "credit": "Anthony McCall / Sean Kelly",
+        "source": "https://www.skny.com/exhibitions/anthony-mccall7"
+      }
+    },
+    {
+      "id": "asher-liftin",
+      "title": "The city, seen twice",
+      "venue": "Asher Liftin: Recent Work",
+      "area": "Tribeca",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · daytime; confirm hours",
+      "price": "Free",
+      "season": "On view Sep 18–Oct 31",
+      "description": "Paintings of reflections, windows, and familiar city scenes at 125 Newbury, 395 Broadway. Walk a few blocks afterwards and look again.",
+      "why": "A playful prompt for noticing things together.",
+      "status": "check",
+      "availability": "Exhibition dates verified through Pace. Confirm current gallery opening hours before traveling.",
+      "source": "https://www.pacegallery.com/exhibitions/asher-liftin-recent-work/",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://www.pacegallery.com/media/images/Unknown.2e16d0ba.fill-1200x630.webp",
+        "alt": "The city, seen twice — venue or exhibition photograph",
+        "credit": "Asher Liftin / Pace",
+        "source": "https://www.pacegallery.com/exhibitions/asher-liftin-recent-work/"
+      }
+    },
+    {
+      "id": "iris-van-herpen",
+      "title": "Clothes from another universe",
+      "venue": "Iris van Herpen: Sculpting the Senses",
+      "area": "Brooklyn Museum",
+      "category": "Art",
+      "days": [
+        "wed",
+        "thu"
+      ],
+      "when": "Wed / Thu · 11 am–6 pm",
+      "price": "Special-exhibition ticket price at checkout",
+      "season": "On view this fall",
+      "description": "Sculptural couture, intricate materials, and shapes that barely seem possible. Pick the piece you would wear in another life.",
+      "why": "Imaginative craft with lots to look at and talk about.",
+      "status": "check",
+      "availability": "Museum open Wednesday and Thursday; closed Tuesday. Special-exhibition entry inventory not checked.",
+      "source": "https://opencollection.brooklynmuseum.org/exhibitions/3450",
+      "daytime": true,
+      "links": [
+        [
+          "Hours & tickets",
+          "https://www.brooklynmuseum.org/visit"
+        ]
+      ],
+      "image": {
+        "url": "https://www.irisvanherpen.com/_uploaded/202605/Iris_van_Herpen_Sculpting_the_Senses_001_OWW_Paula_Abreu_Pita-General-Use-JPEG-LRG.jpg",
+        "alt": "Clothes from another universe — venue or exhibition photograph",
+        "credit": "Paula Abreu Pita / Brooklyn Museum",
+        "source": "https://www.irisvanherpen.com/news/sculpting-the-senses-opens-at-the-brooklyn-museum-in-new-york"
+      }
+    },
+    {
+      "id": "moma-disclosure",
+      "title": "A newly opened rabbit hole",
+      "venue": "Full Disclosure at MoMA",
+      "area": "Midtown",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 10:30 am–5:30 pm",
+      "price": "$60 general admission for two",
+      "season": "Just opened Sep 27",
+      "description": "See how information becomes art in Full Disclosure: The Edge of Information Design. Add one favorite collection floor, then stop.",
+      "why": "Visual curiosity and enough weird ideas to fuel a long conversation.",
+      "status": "check",
+      "availability": "Exhibition and museum hours verified; timed-entry inventory not checked. Galleries close 15 minutes before the museum.",
+      "source": "https://www.moma.org/calendar/exhibitions/5926",
+      "daytime": true,
+      "links": [
+        [
+          "Admission",
+          "https://www.moma.org/visit/"
+        ]
+      ],
+      "image": {
+        "url": "https://www.moma.org/d/assets/W1siZiIsIjIwMjYvMDcvMjQvM3dpY2UyMG55N19DRV9Dcm9wX01PTUFfQklHLmpwZyJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4NjY3XiAtZ3Jhdml0eSBOb3J0aCAtY3JvcCAyMDAweDY2NyswKzgwIl1d/CE-Crop-MOMA-BIG.jpg?sha=7c11cdd923e60414",
+        "alt": "A newly opened rabbit hole — venue or exhibition photograph",
+        "credit": "Kate Crawford & Vladan Joler, Calculating Empires © the artists / MoMA",
+        "source": "https://www.moma.org/calendar/exhibitions/5926"
+      }
+    },
+    {
+      "id": "morgan-tarot-day",
+      "title": "One last look at Tarot!",
+      "venue": "The Morgan · regular daytime visit",
+      "area": "Murray Hill",
+      "category": "Art",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 10:30 am–5 pm",
+      "price": "General-admission price at checkout",
+      "season": "Closes Sunday Oct 4",
+      "description": "Renaissance cards, surrealist imagery, and the library. A daytime exhibition visit before the show closes.",
+      "why": "Art, books, and a little mystery in a beautiful setting.",
+      "status": "check",
+      "availability": "Regular daytime admission only; inventory not checked. The separate Thursday after-hours party is SOLD OUT and is excluded from the deck.",
+      "source": "https://www.themorgan.org/exhibitions/tarot",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://media.timeout.com/images/106419063/1920/1080/image.jpg",
+        "alt": "Tarot-inspired artwork from the Morgan exhibition, pictured in Time Out",
+        "credit": "Remedios Varo · exhibition artwork via Time Out",
+        "source": "https://www.timeout.com/newyork/things-to-do/tarot-renaissance-symbols-modern-visions"
+      }
+    },
+    {
+      "id": "nyff-godzilla",
+      "title": "Play hooky for the film festival",
+      "venue": "Godzilla Minus Zero · NYFF64",
+      "area": "Lincoln Center",
+      "category": "Shows",
+      "days": [
+        "wed"
+      ],
+      "when": "Wed Sep 30 · 12:30 pm; 135 minutes",
+      "price": "Ticket price at checkout",
+      "season": "New York Film Festival season",
+      "description": "A proper festival screening, followed by a late lunch and your unofficial two-person film review. Japanese with English subtitles.",
+      "why": "An occasion around a movie, with time afterwards to decompress.",
+      "status": "check",
+      "availability": "Wednesday 12:30 screening is listed. Ticket inventory has not been verified; confirm two seats before planning around it.",
+      "source": "https://www.filmlinc.org/nyff2026/films/godzilla-minus-zero/",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://wp.filmlinc.org/wp-content/uploads/2026/08/Godzilla-Minus-Zero_NYFF64_01-scaled.jpg",
+        "alt": "Play hooky for the film festival — venue or exhibition photograph",
+        "credit": "Film at Lincoln Center · film still",
+        "source": "https://www.filmlinc.org/nyff2026/films/godzilla-minus-zero/"
+      }
+    },
+    {
+      "id": "oh-mary",
+      "title": "Eighty minutes of complete chaos",
+      "venue": "Oh, Mary!",
+      "area": "Lyceum Theatre",
+      "category": "Shows",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · select exact performance at checkout",
+      "price": "Dynamic ticket pricing; two seats not checked",
+      "season": "Bowen Yang’s fall run",
+      "description": "A short, absurd Broadway comedy, with dinner before or dessert afterwards. 149 West 45th Street.",
+      "why": "Playful and memorable, without committing to a three-hour epic.",
+      "status": "check",
+      "availability": "Production currently running; exact Sep 29–Oct 1 showtimes and seat inventory require the official calendar. This is a candidate, not a confirmed booking option.",
+      "source": "https://www.ohmaryplay.com/",
+      "daytime": false,
+      "links": [
+        [
+          "Performance calendar / tickets",
+          "https://www.telecharge.com/Oh-Mary-Tickets"
+        ]
+      ],
+      "image": {
+        "url": "https://cdn.prod.website-files.com/656f2980559d92d6109a5092/6792b008eabf6156eafa835c_og2.jpg",
+        "alt": "Eighty minutes of complete chaos — venue or exhibition photograph",
+        "credit": "Oh, Mary! · official production artwork",
+        "source": "https://www.ohmaryplay.com/"
+      }
+    },
+    {
+      "id": "comedy-cellar",
+      "title": "Laugh until dinner feels distant",
+      "venue": "Comedy Cellar",
+      "area": "Greenwich Village",
+      "category": "Shows",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · choose an available evening set",
+      "price": "Cover varies + two items per person",
+      "season": "An easy rainy-night option",
+      "description": "Have dinner in the Village, then go downstairs for a stand-up set. Choose a time that does not turn into a very late night.",
+      "why": "Spontaneity and shared laughter, with very little logistical work.",
+      "status": "check",
+      "availability": "Exact dates, sets, and reservation inventory not verified. Reserve only once the venue confirms a set for two; 21+.",
+      "source": "https://www.comedycellar.com/reservations-newyork/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://www.comedycellar.com/wp-content/uploads/2023/03/Joshadammeyers_RonnyChang_.jpg",
+        "alt": "Laugh until dinner feels distant — venue or exhibition photograph",
+        "credit": "Comedy Cellar · archival performers photo; not the promised lineup",
+        "source": "https://www.comedycellar.com/"
+      }
+    },
+    {
+      "id": "brooklyn-garden",
+      "title": "Catch the last late garden hour",
+      "venue": "Brooklyn Botanic Garden",
+      "area": "Prospect Heights",
+      "category": "Outdoors",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue / Wed · 10 am–7 pm; Thu · 10 am–6 pm",
+      "price": "$47.34 for two online; $44 at box office",
+      "season": "September hours end Wednesday",
+      "description": "An unhurried garden circuit in softer autumn light. Tuesday or Wednesday gives you an extra hour before closing.",
+      "why": "Nature without a complicated escape from the city.",
+      "status": "open",
+      "availability": "Published seasonal hours verified; last entry 30 minutes before closing. Check weather/alerts before leaving. Autumn photo is archival, not current foliage.",
+      "source": "https://www.bbg.org/visit/hours",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://www.bbg.org/img/uploads/hero/_list_thumbnail_retina/japanese-garden_fall-foliage_bb.jpg",
+        "alt": "Catch the last late garden hour — venue or exhibition photograph",
+        "credit": "Brooklyn Botanic Garden · archival autumn photo",
+        "source": "https://www.bbg.org/visit/hours"
+      }
+    },
+    {
+      "id": "nybg",
+      "title": "Take the long way through the garden",
+      "venue": "New York Botanical Garden",
+      "area": "Bronx",
+      "category": "Outdoors",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 10 am–6 pm",
+      "price": "Admission varies by pass and residency",
+      "season": "Early autumn, before peak leaves",
+      "description": "Make this the whole afternoon: gardens, a slow walk, and a café break. Allow travel time in both directions.",
+      "why": "The feeling of getting away, without needing a full trip.",
+      "status": "open",
+      "availability": "Regular hours verified. Ticket/pass eligibility and inventory need checking; special October events are not included here.",
+      "source": "https://www.nybg.org/visit/admission/",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://www.nybg.org/content/uploads/2026/09/MCO-DSC09106-4.3-scaled.jpg",
+        "alt": "Take the long way through the garden — venue or exhibition photograph",
+        "credit": "New York Botanical Garden · seasonal garden photo",
+        "source": "https://www.nybg.org/"
+      }
+    },
+    {
+      "id": "little-island",
+      "title": "Let the evening happen slowly",
+      "venue": "Little Island",
+      "area": "Hudson River",
+      "category": "Outdoors",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · park 6 am–11 pm; aim for 5:45 pm",
+      "price": "Free park entry; food extra",
+      "season": "Early-autumn sunset",
+      "description": "Climb the paths, find a place to sit, and stay for the changing light. Dinner nearby can be the only other stop.",
+      "why": "A gentle adventure with a lot of room for conversation.",
+      "status": "open",
+      "availability": "Published Sep 8–Oct 31 park hours; no reservation needed for the park. Performances are separate. Weather dependent.",
+      "source": "https://littleisland.org/rules-faq/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://littleisland.org/wp-content/uploads/2025/05/li-fbshare-1200x600-1.jpg",
+        "alt": "Let the evening happen slowly — venue or exhibition photograph",
+        "credit": "Little Island · venue photograph",
+        "source": "https://littleisland.org/"
+      }
+    },
+    {
+      "id": "central-park",
+      "title": "A very good walk, with no agenda",
+      "venue": "The Ramble & Bow Bridge",
+      "area": "Central Park",
+      "category": "Outdoors",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · daylight; suggested 5:15–6:45 pm",
+      "price": "Free; snacks extra",
+      "season": "Early autumn, not peak foliage",
+      "description": "Wander the Ramble, cross Bow Bridge, and bring something warm to drink. Keep the route short enough to get pleasantly lost.",
+      "why": "Nature and intentional time together beat another elaborate itinerary.",
+      "status": "weather",
+      "availability": "Open-air walk; choose dry weather and daylight. The Conservancy tracker does not show peak color yet. Photo shows a past autumn.",
+      "source": "https://www.centralparknyc.org/activities/guides/fall-foliage-tracker",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://d2wsrtli9cxkek.cloudfront.net/media/images/Pool_RusticBridge_20201024_0548_RT.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=630&q=82&w=1200&s=beee6ac5eacca4fcce975e1560293034",
+        "alt": "A very good walk, with no agenda — venue or exhibition photograph",
+        "credit": "Central Park Conservancy · archival autumn photo",
+        "source": "https://www.centralparknyc.org/activities/guides/fall-foliage-tracker"
+      }
+    },
+    {
+      "id": "governors-island",
+      "title": "A tiny island escape",
+      "venue": "Governors Island",
+      "area": "New York Harbor",
+      "category": "Outdoors",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · island 7 am–6 pm; aim for 2–5 pm",
+      "price": "Island free; ferry fare and food extra",
+      "season": "Before the days get shorter",
+      "description": "Take the ferry, wander the Hills, and eat something simple outside. Leave on a ferry before the island closes.",
+      "why": "A small version of a trip: water, open space, and a change of pace.",
+      "status": "open",
+      "availability": "Island hours verified. Check the day’s ferry timetable and tickets; this is a daytime plan, not an after-work sunset plan.",
+      "source": "https://www.govisland.com/visit-the-island/",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://gov-island-site.s3.amazonaws.com/hills/_pageFullWidthImage2x/Schenck-Governors-Island-2016_09_11-DSC_3268.jpeg",
+        "alt": "A tiny island escape — venue or exhibition photograph",
+        "credit": "Timothy Schenck / Governors Island",
+        "source": "https://www.govisland.com/the-park"
+      }
+    },
+    {
+      "id": "dumbo-waterfront",
+      "title": "Your city, from the other side",
+      "venue": "DUMBO & Brooklyn Bridge Park",
+      "area": "Brooklyn waterfront",
+      "category": "Outdoors",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · park 6 am–1 am; aim for 5:30 pm",
+      "price": "Free; dinner or ice cream extra",
+      "season": "Waterfront light before winter",
+      "description": "Walk from Main Street Park toward Pier 1, stop whenever the view improves, and decide on food when you get hungry.",
+      "why": "A relaxed, scenic evening that leaves the conversation in charge.",
+      "status": "open",
+      "availability": "Park hours verified. No ticket required for the walk; outdoor plan depends on weather.",
+      "source": "https://brooklynbridgepark.org/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://www.nycgovparks.org/photo_gallery/full_size/23115.jpg",
+        "alt": "Your city, from the other side — venue or exhibition photograph",
+        "credit": "NYC Parks · venue photograph",
+        "source": "https://www.nycgovparks.org/parks/brooklyn-bridge-park"
+      }
+    },
+    {
+      "id": "greenmarket",
+      "title": "Pick the ingredients for tonight",
+      "venue": "Union Square Greenmarket",
+      "area": "Union Square",
+      "category": "Food",
+      "days": [
+        "wed"
+      ],
+      "when": "Wed Sep 30 · 8 am–6 pm",
+      "price": "Free to browse; $30–60 grocery estimate",
+      "season": "Apple and squash season",
+      "description": "Choose something seasonal, sample what is offered, and let one great ingredient decide dinner. Go well before closing.",
+      "why": "Food as an activity you do together, with something to bring home.",
+      "status": "open",
+      "availability": "Wednesday market listed by GrowNYC. No Tuesday or Thursday market at this location. Individual vendors can sell out early.",
+      "source": "https://grownyc.org/locations/union-square-greenmarket/",
+      "daytime": true,
+      "links": [],
+      "image": {
+        "url": "https://d2ixq7o8tltffw.cloudfront.net/wp-content/uploads/2026/01/24154018/Union_Square_Greenmarket_AmandaGentilePhoto_24-54-1024x683.jpg",
+        "alt": "Pick the ingredients for tonight — venue or exhibition photograph",
+        "credit": "Amanda Gentile / GrowNYC",
+        "source": "https://grownyc.org/locations/union-square-greenmarket/"
+      }
+    },
+    {
+      "id": "atithi",
+      "title": "A warm, unfussy Indian dinner",
+      "venue": "Atithi",
+      "area": "Williamsburg",
+      "category": "Food",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · dinner 5–10 pm",
+      "price": "$59.98 for two prix fixe menus, before tax/tip",
+      "season": "Comfort-food evening",
+      "description": "Start with the daily prix fixe, share bites, and make it a slow dinner at 159 Grand Street.",
+      "why": "Flavorful, authentic-feeling food over ceremony.",
+      "status": "check",
+      "availability": "Restaurant lists $29.99 prix fixe and dinner hours. Table availability not checked. Confirm the current prix fixe terms when booking.",
+      "source": "https://www.atithirestaurantnyc.com/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://www.atithirestaurantnyc.com/img/3.png?q=80&w=1887&auto=format&fit=crop",
+        "alt": "A warm, unfussy Indian dinner — venue or exhibition photograph",
+        "credit": "Atithi · dish photograph",
+        "source": "https://www.atithirestaurantnyc.com/"
+      }
+    },
+    {
+      "id": "kazunori",
+      "title": "A hand-roll interlude",
+      "venue": "KazuNori NoMad",
+      "area": "NoMad",
+      "category": "Food",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 11:30 am–11 pm",
+      "price": "$72 for two six-roll menus; tax/drinks extra",
+      "season": "An easy sushi fix",
+      "description": "Warm rice, crisp seaweed, and a counter meal. Keep the lingering part for a walk afterwards.",
+      "why": "Good sushi and an easy pace, with no elaborate tasting-menu production.",
+      "status": "open",
+      "availability": "Opening hours and six-roll menu verified. Queue possible; this is not a held reservation. Hospitality included in menu pricing.",
+      "source": "https://www.handrollbar.com/locations/nomad/",
+      "daytime": false,
+      "links": [
+        [
+          "Current menu",
+          "https://www.handrollbar.com/new-york-menu-nomad-nyb/"
+        ]
+      ],
+      "image": {
+        "url": "https://res.cloudinary.com/the-infatuation/image/upload/c_fill%2Cw_3840%2Car_4%3A3%2Cg_center%2Cf_auto/cms/reviews/kazunori-the-original-hand-roll-bar/banners/1491221264.83",
+        "alt": "A hand-roll interlude — venue or exhibition photograph",
+        "credit": "The Infatuation · venue review photograph",
+        "source": "https://www.theinfatuation.com/new-york/reviews/kazunori"
+      }
+    },
+    {
+      "id": "shukette",
+      "title": "Bread, dips, and just one more plate",
+      "venue": "Shukette",
+      "area": "Chelsea",
+      "category": "Food",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · dinner; select time on Resy",
+      "price": "$120–180 for two, estimated",
+      "season": "Let the current vegetables lead",
+      "description": "Share breads, dips, and the vegetable plates that sound best that night. A lively room at 230 Ninth Avenue.",
+      "why": "Big flavors, shared plates, and a dinner that feels playful.",
+      "status": "check",
+      "availability": "Reservation inventory not checked. This is a harder table: secure a time first, then build the evening around it.",
+      "source": "https://www.shukettenyc.com/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://format.creatorcdn.com/ea9d14e1-f2cc-4646-9219-423fd60e7dd5/0/0/0/0%2C0%2C3643%2C2429%2C1600%2C1200/0-0-0/26f5a946-9caf-4ef5-a351-82bd47448bad/1/2/Apisukh_Shukette-1640.jpg?fjkss=exp%3D2005498253~hmac%3Da25f065773dc49617cc82b2207f0f5b4b228478b70eb47df5ffdb91828b0da07",
+        "alt": "Bread, dips, and just one more plate — venue or exhibition photograph",
+        "credit": "Lanna Apisukh · restaurant photograph",
+        "source": "https://www.lannaapisukh.com/nyt-x-shukette"
+      }
+    },
+    {
+      "id": "rule-of-thirds",
+      "title": "A long Japanese dinner",
+      "venue": "Rule of Thirds",
+      "area": "Greenpoint",
+      "category": "Food",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · dinner 5–10 pm",
+      "price": "$100–160 for two, estimated",
+      "season": "A cozy fall dinner",
+      "description": "Share a few Japanese dishes in a room worth settling into. Leave enough time to enjoy dinner at 171 Banker Street.",
+      "why": "Good food and atmosphere, with an intentionally unhurried pace.",
+      "status": "check",
+      "availability": "Sunday–Thursday dinner hours verified. Table availability not checked; use the restaurant’s booking link.",
+      "source": "https://www.thirdsbk.com/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://images.getbento.com/accounts/5be7bbac9776ecdf3893d09b1701a482/media/images/12223RuleOfThirds_NewMenu_2025_Medsker_121.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5",
+        "alt": "A long Japanese dinner — venue or exhibition photograph",
+        "credit": "Rule of Thirds / Medsker · menu photograph",
+        "source": "https://www.thirdsbk.com/"
+      }
+    },
+    {
+      "id": "paint-pottery",
+      "title": "Make each other a ridiculous mug",
+      "venue": "Color Me Mine Tribeca",
+      "area": "123 Baxter Street",
+      "category": "Make something",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue / Wed · 11 am–6 pm; Thu · 11 am–8 pm",
+      "price": "$26 studio fees for two + pottery pieces",
+      "season": "Thursday has the late hours",
+      "description": "Choose a ceramic piece and paint it for the other person. Thursday is the easiest after-work version.",
+      "why": "Making things together, with a funny keepsake at the end.",
+      "status": "check",
+      "availability": "Hours and $13 adult studio fee verified. Booking inventory not checked. $20 reservation deposit credited to purchase; pickup usually about a week later. No alcohol.",
+      "source": "https://tribeca.colormemine.com/frequently-asked-questions/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://www.tagvenue.com/resize/a9/ce/fit-900-600%3B59266-1735590134.jpg",
+        "alt": "Make each other a ridiculous mug — venue or exhibition photograph",
+        "credit": "Color Me Mine Tribeca / Tagvenue venue listing",
+        "source": "https://www.tagvenue.com/us/venues/new-york/29037/color-me-mine-tribeca"
+      },
+      "eveningDays": [
+        "thu"
+      ]
+    },
+    {
+      "id": "book-exchange",
+      "title": "Choose a book for each other",
+      "venue": "McNally Jackson Seaport",
+      "area": "Seaport",
+      "category": "Make something",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · 10 am–9 pm",
+      "price": "Free browsing; books and coffee extra",
+      "season": "A bookish rainy-night fallback",
+      "description": "Split up for fifteen minutes. Find a book the other person would love, and one whose title makes you laugh. Reunite and explain your choices.",
+      "why": "Books, play, and a little thoughtfulness without a high-pressure plan.",
+      "status": "open",
+      "availability": "Seaport store lists daily 10 am–9 pm hours. 4 Fulton Street; no ticket needed to browse.",
+      "source": "https://mcnallyjackson.com/store/3",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://images.ctfassets.net/1aemqu6a6t65/3g6qW6mNbOnixv5NhGFP1p/a202afbccc8fb79d9fa45426dd775144/Mc-Nally-Jackson-Seaport-Manhattan-NYC-Photo-Mike-Szpot-on-behalf-of-the-Seaport-3.jpg",
+        "alt": "Choose a book for each other — venue or exhibition photograph",
+        "credit": "Mike Szpot / The Seaport",
+        "source": "https://www.business.nyctourism.com/places/mcnally-jackson-books"
+      }
+    },
+    {
+      "id": "autumn-at-home",
+      "title": "Apples, dinner, and nowhere to be",
+      "venue": "An autumn night in",
+      "area": "At home",
+      "category": "Make something",
+      "days": [
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "when": "Tue–Thu · any evening; suggested 6:30–9 pm",
+      "price": "$30–60 groceries for two, estimated",
+      "season": "Apple-crumble season",
+      "description": "Cook a warm lentil dinner or something inspired by the market, put an apple crumble in the oven, and sketch while it bakes.",
+      "why": "The shared cooking and quiet time are the date itself.",
+      "status": "open",
+      "availability": "No booking needed. Wednesday pairs with the Union Square market; buy groceries elsewhere on Tuesday or Thursday.",
+      "source": "https://grownyc.org/locations/union-square-greenmarket/",
+      "daytime": false,
+      "links": [],
+      "image": {
+        "url": "https://d2ixq7o8tltffw.cloudfront.net/wp-content/uploads/2026/01/24154018/Union_Square_Greenmarket_AmandaGentilePhoto_24-54-1024x683.jpg",
+        "alt": "Apples, dinner, and nowhere to be — venue or exhibition photograph",
+        "credit": "Amanda Gentile / GrowNYC · ingredient inspiration",
+        "source": "https://grownyc.org/locations/union-square-greenmarket/"
+      }
+    }
+  ]
+}
