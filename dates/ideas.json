@@ -3,34 +3,6 @@
   "checked": "September 28, 2026, evening recheck (New York time; see each card)",
   "ideas": [
     {
-      "id": "high-line-stars",
-      "title": "A little closer to the stars",
-      "venue": "High Line stargazing",
-      "area": "Meatpacking",
-      "category": "Outdoors",
-      "days": [
-        "tue"
-      ],
-      "when": "Tue Sep 29 · 7–9:30 pm",
-      "price": "Free; dinner extra",
-      "season": "Autumn stargazing",
-      "description": "Eat early, walk the southern High Line, then join the astronomers near Little West 12th Street.",
-      "why": "A small adventure, a long-running wish, and room to talk.",
-      "status": "weather",
-      "availability": "Scheduled by the organizer. Clouds can cancel observing; check on Tuesday afternoon. No ticket needed.",
-      "source": "https://nightsky.jpl.nasa.gov/events/123773/",
-      "daytime": false,
-      "links": [],
-      "image": {
-        "url": "https://fhl-website.s3.amazonaws.com/content/uploads/2019/06/17163135/HL_SummerGuide_Stargazing_Blumberg.jpg",
-        "alt": "A little closer to the stars — venue or exhibition photograph",
-        "credit": "The High Line · archival program photo",
-        "source": "https://www.thehighline.org/blog/2019/06/20/summer-guide-to-the-high-line/"
-      },
-      "checkedAt": "2026-09-29T02:39:25Z",
-      "checkedLabel": "Schedule checked · weather dependent"
-    },
-    {
       "id": "tapas-class",
       "title": "Make a mess. Make dinner.",
       "venue": "Hudson Table",
@@ -915,6 +887,39 @@
       },
       "checkedAt": "2026-09-29T02:39:25Z",
       "checkedLabel": "Self-planned · no reservation"
+    },
+    {
+      "id": "high-line-stars",
+      "title": "An optional telescope stop",
+      "venue": "High Line · public telescopes",
+      "area": "Meatpacking",
+      "category": "Outdoors",
+      "days": [
+        "tue"
+      ],
+      "when": "Tue Sep 29 · 7–9:30 pm",
+      "price": "Free; dinner extra",
+      "season": "Urban astronomy pop-in",
+      "description": "If you are already nearby, stop at the volunteer telescopes near Little West 12th Street. Manhattan’s bright sky severely limits the view; this is a brief astronomy stop, not a sky-full-of-stars date.",
+      "why": "An optional curiosity stop on a walk. For the immersive stargazing experience, plan a separate outing under much darker skies.",
+      "status": "weather",
+      "availability": "The organizer lists Tuesday Sep 29, 7–9:30 pm, weather permitting. No ticket needed. Bright stars and planets can remain visible in city skies, but the objects in view depend on their position, clouds and the telescope setup. Specific targets for this session are unconfirmed. Check the organizer before leaving.",
+      "source": "https://nightsky.jpl.nasa.gov/events/123773/",
+      "daytime": false,
+      "links": [
+        [
+          "What city skies allow",
+          "https://science.nasa.gov/solar-system/how-to-find-good-places-to-stargaze/"
+        ]
+      ],
+      "image": {
+        "url": "https://fhl-website.s3.amazonaws.com/content/uploads/2019/06/17163135/HL_SummerGuide_Stargazing_Blumberg.jpg",
+        "alt": "Visitors looking through a telescope on the High Line at night",
+        "credit": "The High Line · archival program photo",
+        "source": "https://www.thehighline.org/blog/2019/06/20/summer-guide-to-the-high-line/"
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Urban sky · limited views"
     }
   ]
 }
