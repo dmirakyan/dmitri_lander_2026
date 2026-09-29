@@ -19,3 +19,13 @@ The browser uses a durable local outbox, batched RPC writes, visible failure/off
 - Browser checks: yes/pass/maybe, undo, separate profiles, mutual shortlist, share-link restore from a second origin, day/category filters, phone and desktop layouts.
 
 The `tools/` directory is not staged into the public site. Research and conversation exports are stored outside this repository.
+
+## September 28 evening availability and mobile recheck
+
+The catalog now distinguishes ticket selectors, reservation slots, published hours/entry policy, weather-dependent plans, and unverified inventory. `checkedLabel` summarizes the evidence and `availability` records its limits. `verifiedDays` prevents a check made only for Tuesday from qualifying as a checked Thursday option. No purchase or reservation was submitted.
+
+Observed booking results: two Birdland table tickets ($91.52 plus $40 food/drink minimum), Hudson Table quantity up to five, two NYFF tickets ($186), two Iris van Herpen tickets at 4 pm on Wednesday and Thursday ($60 before any checkout extras), two Tuesday MoMA admissions ($60), and two Tuesday Morgan daytime admissions at 3 pm ($57 listed). MoMA and Morgan also list the other requested dates, with quantity-check limits stated on their cards. Iris uses the current museum page and its December 6 closing date, replacing the stale archive link.
+
+Resy offered Rule of Thirds tables for two at 6, 7 and 8 pm all three evenings, and Shukette only from 9:30 pm in the observed results. Comedy Cellar offered specific sets through the contact step; final party size was not confirmed. Pottery offered Tuesday/Wednesday slots for groups of 1–2; Thursday inventory remains unverified. Oh, Mary! showtimes were verified, but an adjacent seat pair was not; Atithi dinner tables were not confirmed. The checked filter excludes these unverified candidates and respects the pottery/Morgan day limits. Morgan After Hours stays excluded.
+
+Mobile QA used 320×667, 375×667, 390×844 and 430×932 browser viewports. Verified no horizontal overflow, fixed reachable decision buttons, readable expanded details, a contained share dialog, Yes/Undo and cloud sync on an isolated test board, and Thursday checked-option filtering. This is browser viewport testing, not a physical-device Safari test. JavaScript syntax, state/catalog checks, and the public-site build passed. The swipe handler preserves vertical scrolling and cancels interrupted gestures; no claim of a physical touch-device gesture test.

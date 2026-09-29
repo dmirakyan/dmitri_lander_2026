@@ -1,6 +1,6 @@
 {
   "week": "September 29–October 1, 2026",
-  "checked": "September 28, 2026 (New York time)",
+  "checked": "September 28, 2026, evening recheck (New York time; see each card)",
   "ideas": [
     {
       "id": "high-line-stars",
@@ -26,7 +26,9 @@
         "alt": "A little closer to the stars — venue or exhibition photograph",
         "credit": "The High Line · archival program photo",
         "source": "https://www.thehighline.org/blog/2019/06/20/summer-guide-to-the-high-line/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Schedule checked · weather dependent"
     },
     {
       "id": "tapas-class",
@@ -43,7 +45,7 @@
       "description": "Cook tapas together at 88 Withers Street: patatas bravas, shrimp and chorizo, steak, and flan. Then eat your work.",
       "why": "A shared creative project with an excellent payoff.",
       "status": "offered",
-      "availability": "Booking selector offered up to 5 places on Sep 28 at 10:12 pm ET. Two places are not held.",
+      "availability": "Rechecked the live quantity selector: up to 5 places offered for Wednesday at 6:30 pm. Two places are not held; final availability and any extras are confirmed at checkout.",
       "source": "https://hudsontable.com/brooklyn/product/tasty-tapas-night-hands-on-6/",
       "daytime": false,
       "links": [],
@@ -52,7 +54,9 @@
         "alt": "Make a mess. Make dinner. — venue or exhibition photograph",
         "credit": "Hudson Table / Adobe Stock · class illustration",
         "source": "https://hudsontable.com/brooklyn/product/tasty-tapas-night-hands-on-6/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:48:00Z",
+      "checkedLabel": "Up to 5 places offered"
     },
     {
       "id": "birdland-jazz",
@@ -69,7 +73,7 @@
       "description": "A big vintage-jazz band in an intimate room. Arrive at doors and have dinner there before the music.",
       "why": "One destination, real atmosphere, and a whole evening together.",
       "status": "offered",
-      "availability": "TicketWeb offered table, bar, and partial-view tickets on Sep 28. Table: $45.76 each including fees, plus $20 minimum each. No seats held.",
+      "availability": "Selected 2 table tickets in TicketWeb: $91.52 including fees. Add the required $20 minimum per person ($131.52 total before minimum-related tax/tip). Buy 2 tickets was enabled. No seats held or purchased.",
       "source": "https://www.ticketweb.com/event/vince-giordano-and-the-nighthawks-birdland-theater-tickets/14881193?REFID=clientsitewp",
       "daytime": false,
       "links": [],
@@ -78,7 +82,9 @@
         "alt": "A tiny time machine, with jazz — venue or exhibition photograph",
         "credit": "Vince Giordano · official band photo",
         "source": "https://www.vincegiordano.com/upcoming-events/95r2nknrcedlczl"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "2 table tickets offered"
     },
     {
       "id": "mcny-wednesday",
@@ -104,7 +110,9 @@
         "alt": "The city, after hours — venue or exhibition photograph",
         "credit": "Filip Wolak / MCNY",
         "source": "https://www.mcny.org/event/summer-wednesdays-sept30"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Published hours / entry policy"
     },
     {
       "id": "nate-lowman",
@@ -117,22 +125,29 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · daytime, before 6 pm",
+      "when": "Tue–Thu · 10 am–6 pm",
       "price": "Free",
       "season": "On view Sep 10–Oct 24",
       "description": "A new show at David Zwirner, 519 West 19th Street. Start with the key-shaped canvases, then trade interpretations over coffee.",
       "why": "A small, focused art date with space for your own conversation.",
-      "status": "check",
-      "availability": "Exhibition dates verified; gallery visit, with no event ticket inventory to reserve. Confirm same-day opening hours.",
+      "status": "open",
+      "availability": "The gallery lists this exhibition as now open through October 24 and its 19th Street galleries open Tuesday–Saturday, 10 am–6 pm. No timed-ticket requirement listed.",
       "source": "https://www.davidzwirner.com/exhibitions/2026/nate-lowman",
       "daytime": true,
-      "links": [],
+      "links": [
+        [
+          "Gallery hours",
+          "https://www.davidzwirner.com/galleries/new-york/19th-street"
+        ]
+      ],
       "image": {
         "url": "https://cdn.sanity.io/images/juzvn5an/release-adp/0a68f57903acbbd8e5d04166dac38800cb764235-2100x1182.jpg?bg=ffffff&w=1200&h=630&fit=fill&crop=entropy&auto=format",
         "alt": "Keys to a different New York — venue or exhibition photograph",
         "credit": "Nate Lowman: Hanging Out",
         "source": "https://www.davidzwirner.com/exhibitions/2026/nate-lowman"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Current show + gallery hours"
     },
     {
       "id": "zoya-cooking",
@@ -165,7 +180,9 @@
         "alt": "Dinner, painted in full color — venue or exhibition photograph",
         "credit": "Zoya Cherkassky / Fort Gansevoort",
         "source": "https://www.fortgansevoort.com/exhibitions/zoya-cherkassky4"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Published hours / entry policy"
     },
     {
       "id": "anthony-mccall",
@@ -198,7 +215,9 @@
         "alt": "Walk inside a beam of light — venue or exhibition photograph",
         "credit": "Anthony McCall / Sean Kelly",
         "source": "https://www.skny.com/exhibitions/anthony-mccall7"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Published hours / entry policy"
     },
     {
       "id": "asher-liftin",
@@ -211,22 +230,29 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · daytime; confirm hours",
+      "when": "Tue–Thu · 10 am–6 pm",
       "price": "Free",
       "season": "On view Sep 18–Oct 31",
       "description": "Paintings of reflections, windows, and familiar city scenes at 125 Newbury, 395 Broadway. Walk a few blocks afterwards and look again.",
       "why": "A playful prompt for noticing things together.",
-      "status": "check",
-      "availability": "Exhibition dates verified through Pace. Confirm current gallery opening hours before traveling.",
+      "status": "open",
+      "availability": "Exhibition dates verified through Pace; 125 Newbury confirms Tuesday–Saturday, 10 am–6 pm at 395 Broadway. No timed-ticket requirement listed.",
       "source": "https://www.pacegallery.com/exhibitions/asher-liftin-recent-work/",
       "daytime": true,
-      "links": [],
+      "links": [
+        [
+          "Gallery hours",
+          "https://www.125newbury.com/contact"
+        ]
+      ],
       "image": {
         "url": "https://www.pacegallery.com/media/images/Unknown.2e16d0ba.fill-1200x630.webp",
         "alt": "The city, seen twice — venue or exhibition photograph",
         "credit": "Asher Liftin / Pace",
         "source": "https://www.pacegallery.com/exhibitions/asher-liftin-recent-work/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Current show + gallery hours"
     },
     {
       "id": "iris-van-herpen",
@@ -239,18 +265,22 @@
         "thu"
       ],
       "when": "Wed / Thu · 11 am–6 pm",
-      "price": "Special-exhibition ticket price at checkout",
-      "season": "On view this fall",
+      "price": "$60 for two adults; checkout extras may apply",
+      "season": "On view May 16–Dec 6",
       "description": "Sculptural couture, intricate materials, and shapes that barely seem possible. Pick the piece you would wear in another life.",
       "why": "Imaginative craft with lots to look at and talk about.",
-      "status": "check",
-      "availability": "Museum open Wednesday and Thursday; closed Tuesday. Special-exhibition entry inventory not checked.",
-      "source": "https://opencollection.brooklynmuseum.org/exhibitions/3450",
+      "status": "offered",
+      "availability": "The live museum page gives May 16–December 6 (the old archive was stale). Wednesday Sep 30 and Thursday Oct 1 showed timed entries from 11 am to 4:30 pm. Selected 2 adults at 4 pm on each day; Add to Cart enabled at $30 each. Includes general admission. Nothing held. Closed Tuesday.",
+      "source": "https://www.brooklynmuseum.org/exhibitions/iris-van-herpen",
       "daytime": true,
       "links": [
         [
           "Hours & tickets",
           "https://www.brooklynmuseum.org/visit"
+        ],
+        [
+          "Timed tickets",
+          "https://secure.brooklynmuseum.org/19448"
         ]
       ],
       "image": {
@@ -258,7 +288,9 @@
         "alt": "Clothes from another universe — venue or exhibition photograph",
         "credit": "Paula Abreu Pita / Brooklyn Museum",
         "source": "https://www.irisvanherpen.com/news/sculpting-the-senses-opens-at-the-brooklyn-museum-in-new-york"
-      }
+      },
+      "checkedAt": "2026-09-29T02:53:00Z",
+      "checkedLabel": "Wed / Thu · 2 tickets at 4 pm"
     },
     {
       "id": "moma-disclosure",
@@ -276,14 +308,18 @@
       "season": "Just opened Sep 27",
       "description": "See how information becomes art in Full Disclosure: The Edge of Information Design. Add one favorite collection floor, then stop.",
       "why": "Visual curiosity and enough weird ideas to fuel a long conversation.",
-      "status": "check",
-      "availability": "Exhibition and museum hours verified; timed-entry inventory not checked. Galleries close 15 minutes before the museum.",
+      "status": "offered",
+      "availability": "MoMA offered admission dates Sep 29, Sep 30 and Oct 1. Selected 2 adults for Tuesday: $60 and Continue enabled. Wednesday/Thursday date selectors also loaded adult ticket options; their quantities were not separately tested. Tickets include special exhibitions. Galleries close 15 minutes before 5:30 pm. Nothing reserved.",
       "source": "https://www.moma.org/calendar/exhibitions/5926",
       "daytime": true,
       "links": [
         [
           "Admission",
           "https://www.moma.org/visit/"
+        ],
+        [
+          "Admission tickets",
+          "https://visit.moma.org/select"
         ]
       ],
       "image": {
@@ -291,7 +327,9 @@
         "alt": "A newly opened rabbit hole — venue or exhibition photograph",
         "credit": "Kate Crawford & Vladan Joler, Calculating Empires © the artists / MoMA",
         "source": "https://www.moma.org/calendar/exhibitions/5926"
-      }
+      },
+      "checkedAt": "2026-09-29T02:51:00Z",
+      "checkedLabel": "Tue–Thu dates offered · 2 tested Tue"
     },
     {
       "id": "morgan-tarot-day",
@@ -305,21 +343,31 @@
         "thu"
       ],
       "when": "Tue–Thu · 10:30 am–5 pm",
-      "price": "General-admission price at checkout",
+      "price": "$57 for two online; final fees may vary",
       "season": "Closes Sunday Oct 4",
       "description": "Renaissance cards, surrealist imagery, and the library. A daytime exhibition visit before the show closes.",
       "why": "Art, books, and a little mystery in a beautiful setting.",
-      "status": "check",
-      "availability": "Regular daytime admission only; inventory not checked. The separate Thursday after-hours party is SOLD OUT and is excluded from the deck.",
+      "status": "offered",
+      "availability": "Regular admission calendar lists Sep 29, Sep 30 and Oct 1. Tuesday showed entries 11 am–4 pm; selected 2 adult tickets at 3 pm ($28.50 each including listed fees), with Buy 2 Seats enabled. Wednesday/Thursday quantities not checked. This is daytime Tarot!, NOT the sold-out Thursday After Hours party. Nothing reserved.",
       "source": "https://www.themorgan.org/exhibitions/tarot",
       "daytime": true,
-      "links": [],
+      "links": [
+        [
+          "Daytime admission",
+          "https://mpv.tickets.com/schedule/?agency=MGLV_ADM_MPV&orgid=51849"
+        ]
+      ],
       "image": {
         "url": "https://media.timeout.com/images/106419063/1920/1080/image.jpg",
         "alt": "Tarot-inspired artwork from the Morgan exhibition, pictured in Time Out",
         "credit": "Remedios Varo · exhibition artwork via Time Out",
         "source": "https://www.timeout.com/newyork/things-to-do/tarot-renaissance-symbols-modern-visions"
-      }
+      },
+      "checkedAt": "2026-09-29T02:54:00Z",
+      "checkedLabel": "Tue · 2 daytime tickets at 3 pm",
+      "verifiedDays": [
+        "tue"
+      ]
     },
     {
       "id": "nyff-godzilla",
@@ -331,12 +379,12 @@
         "wed"
       ],
       "when": "Wed Sep 30 · 12:30 pm; 135 minutes",
-      "price": "Ticket price at checkout",
+      "price": "$186 for two including ticket fees",
       "season": "New York Film Festival season",
       "description": "A proper festival screening, followed by a late lunch and your unofficial two-person film review. Japanese with English subtitles.",
       "why": "An occasion around a movie, with time afterwards to decompress.",
-      "status": "check",
-      "availability": "Wednesday 12:30 screening is listed. Ticket inventory has not been verified; confirm two seats before planning around it.",
+      "status": "offered",
+      "availability": "For Wednesday Sep 30 at 12:30 pm in Alice Tully Hall, selected 2 general-public tickets: $180 subtotal + $6 fees = $186. Add to Cart enabled. No tickets held or purchased.",
       "source": "https://www.filmlinc.org/nyff2026/films/godzilla-minus-zero/",
       "daytime": true,
       "links": [],
@@ -345,7 +393,9 @@
         "alt": "Play hooky for the film festival — venue or exhibition photograph",
         "credit": "Film at Lincoln Center · film still",
         "source": "https://www.filmlinc.org/nyff2026/films/godzilla-minus-zero/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "2 tickets offered · Wed 12:30 pm"
     },
     {
       "id": "oh-mary",
@@ -358,18 +408,22 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · select exact performance at checkout",
+      "when": "Tue–Thu · 7:30 pm; 80 minutes",
       "price": "Dynamic ticket pricing; two seats not checked",
       "season": "Bowen Yang’s fall run",
       "description": "A short, absurd Broadway comedy, with dinner before or dessert afterwards. 149 West 45th Street.",
       "why": "Playful and memorable, without committing to a three-hour epic.",
       "status": "check",
-      "availability": "Production currently running; exact Sep 29–Oct 1 showtimes and seat inventory require the official calendar. This is a candidate, not a confirmed booking option.",
+      "availability": "Telecharge lists 7:30 pm performances on Sep 29, Sep 30 and Oct 1. The seat map opened, but a pair of adjacent seats and its final price could not be verified. Keep as a candidate until you choose two seats. Official site lists Bowen Yang September 15–December 6.",
       "source": "https://www.ohmaryplay.com/",
       "daytime": false,
       "links": [
         [
           "Performance calendar / tickets",
+          "https://www.telecharge.com/Oh-Mary-Tickets"
+        ],
+        [
+          "Official tickets",
           "https://www.telecharge.com/Oh-Mary-Tickets"
         ]
       ],
@@ -378,7 +432,9 @@
         "alt": "Eighty minutes of complete chaos — venue or exhibition photograph",
         "credit": "Oh, Mary! · official production artwork",
         "source": "https://www.ohmaryplay.com/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:55:00Z",
+      "checkedLabel": "Showtimes verified · seat pair unconfirmed"
     },
     {
       "id": "comedy-cellar",
@@ -391,13 +447,13 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · choose an available evening set",
-      "price": "Cover varies + two items per person",
+      "when": "Tue / Wed · 7:30 pm; Thu · 6:45 pm",
+      "price": "$30 Tue/Wed or $36 Thu for two + 2 items each",
       "season": "An easy rainy-night option",
       "description": "Have dinner in the Village, then go downstairs for a stand-up set. Choose a time that does not turn into a very late night.",
       "why": "Spontaneity and shared laughter, with very little logistical work.",
-      "status": "check",
-      "availability": "Exact dates, sets, and reservation inventory not verified. Reserve only once the venue confirms a set for two; 21+.",
+      "status": "listed",
+      "availability": "The reservation form offered MacDougal Street sets Tuesday Sep 29 and Wednesday Sep 30 at 7:30 pm ($15 cover each), and Thursday Oct 1 at 6:45 pm ($18 each). Each advanced to the contact-information step. The form has not yet confirmed a party of 2. Two-item minimum per person; 21+. Nothing booked.",
       "source": "https://www.comedycellar.com/reservations-newyork/",
       "daytime": false,
       "links": [],
@@ -406,7 +462,9 @@
         "alt": "Laugh until dinner feels distant — venue or exhibition photograph",
         "credit": "Comedy Cellar · archival performers photo; not the promised lineup",
         "source": "https://www.comedycellar.com/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Sets offered · party size still to confirm"
     },
     {
       "id": "brooklyn-garden",
@@ -425,7 +483,7 @@
       "description": "An unhurried garden circuit in softer autumn light. Tuesday or Wednesday gives you an extra hour before closing.",
       "why": "Nature without a complicated escape from the city.",
       "status": "open",
-      "availability": "Published seasonal hours verified; last entry 30 minutes before closing. Check weather/alerts before leaving. Autumn photo is archival, not current foliage.",
+      "availability": "Seasonal hours rechecked: Tue/Wed 10 am–7 pm, Thu 10 am–6 pm; last entry and specialty gardens close 30 minutes earlier. Same-day tickets may be obtained at admissions booths; online inventory not tested. Eastern Parkway entrance temporarily CLOSED: use 455 Flatbush Avenue or 990 Washington Avenue. Photo is archival; check weather before leaving.",
       "source": "https://www.bbg.org/visit/hours",
       "daytime": true,
       "links": [],
@@ -434,7 +492,9 @@
         "alt": "Catch the last late garden hour — venue or exhibition photograph",
         "credit": "Brooklyn Botanic Garden · archival autumn photo",
         "source": "https://www.bbg.org/visit/hours"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Hours checked · tickets not reserved"
     },
     {
       "id": "nybg",
@@ -448,12 +508,12 @@
         "thu"
       ],
       "when": "Tue–Thu · 10 am–6 pm",
-      "price": "Admission varies by pass and residency",
+      "price": "Wed grounds free for NYC residents; other passes vary",
       "season": "Early autumn, before peak leaves",
       "description": "Make this the whole afternoon: gardens, a slow walk, and a café break. Allow travel time in both directions.",
       "why": "The feeling of getting away, without needing a full trip.",
       "status": "open",
-      "availability": "Regular hours verified. Ticket/pass eligibility and inventory need checking; special October events are not included here.",
+      "availability": "Open Tue–Sun 10 am–6 pm. Wednesday grounds admission is free all day for NYC residents (bring residency proof); other visitors get free grounds entry 10–11 am. Grounds excludes the Conservatory, special exhibitions and tram. NYC-resident grounds tickets on other days are sold onsite; other ticket inventory not checked.",
       "source": "https://www.nybg.org/visit/admission/",
       "daytime": true,
       "links": [],
@@ -462,7 +522,9 @@
         "alt": "Take the long way through the garden — venue or exhibition photograph",
         "credit": "New York Botanical Garden · seasonal garden photo",
         "source": "https://www.nybg.org/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Hours + Wednesday free-entry policy"
     },
     {
       "id": "little-island",
@@ -481,7 +543,7 @@
       "description": "Climb the paths, find a place to sit, and stay for the changing light. Dinner nearby can be the only other stop.",
       "why": "A gentle adventure with a lot of room for conversation.",
       "status": "open",
-      "availability": "Published Sep 8–Oct 31 park hours; no reservation needed for the park. Performances are separate. Weather dependent.",
+      "availability": "Published Sep 8–Oct 31 hours are 6 am–11 pm; no park reservation required. Lawns close Mondays/Tuesdays for maintenance, so Tuesday is a path-and-viewpoint walk. Lawn access on other days is conditional. Performances require separate arrangements; severe weather can close the park.",
       "source": "https://littleisland.org/rules-faq/",
       "daytime": false,
       "links": [],
@@ -490,7 +552,9 @@
         "alt": "Let the evening happen slowly — venue or exhibition photograph",
         "credit": "Little Island · venue photograph",
         "source": "https://littleisland.org/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Free park entry · Tuesday lawns closed"
     },
     {
       "id": "central-park",
@@ -518,7 +582,9 @@
         "alt": "A very good walk, with no agenda — venue or exhibition photograph",
         "credit": "Central Park Conservancy · archival autumn photo",
         "source": "https://www.centralparknyc.org/activities/guides/fall-foliage-tracker"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Schedule checked · weather dependent"
     },
     {
       "id": "governors-island",
@@ -546,7 +612,9 @@
         "alt": "A tiny island escape — venue or exhibition photograph",
         "credit": "Timothy Schenck / Governors Island",
         "source": "https://www.govisland.com/the-park"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Published hours / entry policy"
     },
     {
       "id": "dumbo-waterfront",
@@ -574,7 +642,9 @@
         "alt": "Your city, from the other side — venue or exhibition photograph",
         "credit": "NYC Parks · venue photograph",
         "source": "https://www.nycgovparks.org/parks/brooklyn-bridge-park"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Published hours / entry policy"
     },
     {
       "id": "greenmarket",
@@ -600,7 +670,9 @@
         "alt": "Pick the ingredients for tonight — venue or exhibition photograph",
         "credit": "Amanda Gentile / GrowNYC",
         "source": "https://grownyc.org/locations/union-square-greenmarket/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Published hours / entry policy"
     },
     {
       "id": "atithi",
@@ -619,16 +691,23 @@
       "description": "Start with the daily prix fixe, share bites, and make it a slow dinner at 159 Grand Street.",
       "why": "Flavorful, authentic-feeling food over ceremony.",
       "status": "check",
-      "availability": "Restaurant lists $29.99 prix fixe and dinner hours. Table availability not checked. Confirm the current prix fixe terms when booking.",
+      "availability": "Official site still lists $29.99 prix fixe and dinner 5–10 pm. OpenTable showed Tuesday lunch times for 2, but evening tables could not be confirmed in this check. Confirm dinner availability and prix fixe terms before planning around it.",
       "source": "https://www.atithirestaurantnyc.com/",
       "daytime": false,
-      "links": [],
+      "links": [
+        [
+          "Reservation search",
+          "https://www.opentable.com/r/atithi-indian-cuisine-brooklyn"
+        ]
+      ],
       "image": {
         "url": "https://www.atithirestaurantnyc.com/img/3.png?q=80&w=1887&auto=format&fit=crop",
         "alt": "A warm, unfussy Indian dinner — venue or exhibition photograph",
         "credit": "Atithi · dish photograph",
         "source": "https://www.atithirestaurantnyc.com/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Dinner hours checked · tables unconfirmed"
     },
     {
       "id": "kazunori",
@@ -661,7 +740,9 @@
         "alt": "A hand-roll interlude — venue or exhibition photograph",
         "credit": "The Infatuation · venue review photograph",
         "source": "https://www.theinfatuation.com/new-york/reviews/kazunori"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Published hours / entry policy"
     },
     {
       "id": "shukette",
@@ -674,22 +755,29 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · dinner; select time on Resy",
+      "when": "Tue–Thu · earliest observed table 9:30 pm",
       "price": "$120–180 for two, estimated",
       "season": "Let the current vegetables lead",
       "description": "Share breads, dips, and the vegetable plates that sound best that night. A lively room at 230 Ninth Avenue.",
       "why": "Big flavors, shared plates, and a dinner that feels playful.",
-      "status": "check",
-      "availability": "Reservation inventory not checked. This is a harder table: secure a time first, then build the evening around it.",
+      "status": "listed",
+      "availability": "Resy search for 2 guests showed Tuesday Sep 29 at 9:30 pm in the dining room/enclosed patio; Wednesday Sep 30 and Thursday Oct 1 at 9:30 pm at the counter. Later slots also offered. No earlier tables observed. This is a late dinner; nothing held or reserved.",
       "source": "https://www.shukettenyc.com/",
       "daytime": false,
-      "links": [],
+      "links": [
+        [
+          "Resy · 2 guests",
+          "https://resy.com/cities/ny/shukette?date=2026-09-29&seats=2"
+        ]
+      ],
       "image": {
         "url": "https://format.creatorcdn.com/ea9d14e1-f2cc-4646-9219-423fd60e7dd5/0/0/0/0%2C0%2C3643%2C2429%2C1600%2C1200/0-0-0/26f5a946-9caf-4ef5-a351-82bd47448bad/1/2/Apisukh_Shukette-1640.jpg?fjkss=exp%3D2005498253~hmac%3Da25f065773dc49617cc82b2207f0f5b4b228478b70eb47df5ffdb91828b0da07",
         "alt": "Bread, dips, and just one more plate — venue or exhibition photograph",
         "credit": "Lanna Apisukh · restaurant photograph",
         "source": "https://www.lannaapisukh.com/nyt-x-shukette"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "2 guests · late tables only"
     },
     {
       "id": "rule-of-thirds",
@@ -702,22 +790,29 @@
         "wed",
         "thu"
       ],
-      "when": "Tue–Thu · dinner 5–10 pm",
+      "when": "Tue–Thu · dinner; 6, 7 & 8 pm tables offered",
       "price": "$100–160 for two, estimated",
       "season": "A cozy fall dinner",
       "description": "Share a few Japanese dishes in a room worth settling into. Leave enough time to enjoy dinner at 171 Banker Street.",
       "why": "Good food and atmosphere, with an intentionally unhurried pace.",
-      "status": "check",
-      "availability": "Sunday–Thursday dinner hours verified. Table availability not checked; use the restaurant’s booking link.",
+      "status": "listed",
+      "availability": "Resy search for 2 guests offered indoor tables at 6, 7 and 8 pm on each of Sep 29, Sep 30 and Oct 1. Other times were also listed. Nothing held; finish the reservation before committing to the plan.",
       "source": "https://www.thirdsbk.com/",
       "daytime": false,
-      "links": [],
+      "links": [
+        [
+          "Resy · 2 guests",
+          "https://resy.com/cities/new-york-ny/venues/rule-of-thirds?date=2026-09-29&seats=2"
+        ]
+      ],
       "image": {
         "url": "https://images.getbento.com/accounts/5be7bbac9776ecdf3893d09b1701a482/media/images/12223RuleOfThirds_NewMenu_2025_Medsker_121.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&crop=focalpoint&fp-x=0.5&fp-y=0.5",
         "alt": "A long Japanese dinner — venue or exhibition photograph",
         "credit": "Rule of Thirds / Medsker · menu photograph",
         "source": "https://www.thirdsbk.com/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Tables for 2 · all three evenings"
     },
     {
       "id": "paint-pottery",
@@ -735,11 +830,16 @@
       "season": "Thursday has the late hours",
       "description": "Choose a ceramic piece and paint it for the other person. Thursday is the easiest after-work version.",
       "why": "Making things together, with a funny keepsake at the end.",
-      "status": "check",
-      "availability": "Hours and $13 adult studio fee verified. Booking inventory not checked. $20 reservation deposit credited to purchase; pickup usually about a week later. No alcohol.",
+      "status": "listed",
+      "availability": "The group-of-1–2 booking page offered Tuesday Sep 29 at 11 am and 1:15 pm; Wednesday Sep 30 at 11 am, 1:15 pm and 3:30 pm (the latter two showed 3 remaining). Thursday inventory could not be verified. $13 adult studio fee plus pottery; $20 reservation deposit credited to purchase; 2-hour limit. Pickup about a week later. No alcohol; RSVP required.",
       "source": "https://tribeca.colormemine.com/frequently-asked-questions/",
       "daytime": false,
-      "links": [],
+      "links": [
+        [
+          "Reserve for 1–2",
+          "https://placefull.com/1-5-rsvp-at-color-me-mine"
+        ]
+      ],
       "image": {
         "url": "https://www.tagvenue.com/resize/a9/ce/fit-900-600%3B59266-1735590134.jpg",
         "alt": "Make each other a ridiculous mug — venue or exhibition photograph",
@@ -748,6 +848,12 @@
       },
       "eveningDays": [
         "thu"
+      ],
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Tue / Wed slots · Thu not confirmed",
+      "verifiedDays": [
+        "tue",
+        "wed"
       ]
     },
     {
@@ -776,7 +882,9 @@
         "alt": "Choose a book for each other — venue or exhibition photograph",
         "credit": "Mike Szpot / The Seaport",
         "source": "https://www.business.nyctourism.com/places/mcnally-jackson-books"
-      }
+      },
+      "checkedLabel": "Daily 10 am–9 pm · no ticket",
+      "checkedAt": "2026-09-29T02:57:14.391045+00:00"
     },
     {
       "id": "autumn-at-home",
@@ -804,7 +912,9 @@
         "alt": "Apples, dinner, and nowhere to be — venue or exhibition photograph",
         "credit": "Amanda Gentile / GrowNYC · ingredient inspiration",
         "source": "https://grownyc.org/locations/union-square-greenmarket/"
-      }
+      },
+      "checkedAt": "2026-09-29T02:39:25Z",
+      "checkedLabel": "Self-planned · no reservation"
     }
   ]
 }
