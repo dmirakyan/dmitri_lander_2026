@@ -7,7 +7,7 @@
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === day)));
     let visible = 0;
     cards.forEach(card => {
-      card.hidden = day !== 'all' && card.dataset.day !== day && card.dataset.day !== 'any';
+      card.hidden = card.dataset.unavailable === 'true' || (day !== 'all' && card.dataset.day !== day && card.dataset.day !== 'any');
       if (!card.hidden) visible++;
     });
     count.textContent = `${visible} ideas, including a night in`;
