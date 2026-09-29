@@ -8,18 +8,16 @@ const validToken = t => /^[a-f0-9]{64}$/.test(t || '');
 let storageOK = true;
 function read(k) { try {return localStorage.getItem(k);} catch {storageOK=false;return null;} }
 function write(k,v) { try {localStorage.setItem(k,v);return true;} catch {storageOK=false;return false;} }
-let token = fragment.get('board');
-if (!validToken(token)) token = read('date-night-board-v1');
-if (!validToken(token)) token = Array.from(crypto.getRandomValues(new Uint8Array(32)), b=>b.toString(16).padStart(2,'0')).join('');
-write('date-night-board-v1',token);
-const storageKey = `date-night-v1:${token}`;
+// Keep the previous device cache as a migration source; all devices now use one database board.
+const legacyToken = validToken(fragment.get('board')) ? fragment.get('board') : read('date-night-board-v1');
+const storageKey = 'date-night-shared-v2';
 let state;
-try {state=JSON.parse(read(storageKey)) || {};} catch {state={};}
+try {state=JSON.parse(read(storageKey) || (validToken(legacyToken) ? read(`date-night-v1:${legacyToken}`) : null)) || {};} catch {state={};}
 state = {person:'dmitri',votes:{},outbox:[],history:[],...state};
 if (!['dmitri','tulin'].includes(state.person)) state.person='dmitri';
 if (['dmitri','tulin'].includes(fragment.get('person'))) state.person=fragment.get('person');
 if (fragment.has('board')) history.replaceState(null,'',location.pathname+location.search);
-let ideas=[],day='all',category='all',view='deck',busy=false,animating=false,onlineSaved=false;
+let ideas=[],day='all',category='all',view='feedback',busy=false,animating=false,onlineSaved=false,hasFetched=false;
 const personName = p => p==='tulin'?'Tulin':'Dmitri';
 function save() {write(storageKey,JSON.stringify(state));}
 function syncStatus(text,problem=false) {$('#sync').textContent=text;$('#sync').classList.toggle('problem',problem);}
@@ -30,7 +28,7 @@ function filtered() {return ideas.filter(i=>(day==='all'||i.days.includes(day))&
 function unchosen() {return filtered().filter(i=>vote(i.id)==='none');}
 function controls(i,small=false) {return `<div class="decision-bar" role="group" aria-label="Choose for ${esc(i.title)}">${['pass','maybe','yes'].map(c=>`<button class="decision ${c}" data-choice="${c}" data-id="${i.id}" aria-label="${labels[c]}: ${esc(i.title)}" ${small?`aria-pressed="${vote(i.id)===c}"`:''}><span class="icon" aria-hidden="true">${{pass:'×',maybe:'~',yes:'♥'}[c]}</span><small>${labels[c]}</small></button>`).join('')}${small?'':`<button class="decision undo" id="undo" aria-label="Undo last choice" ${state.history.some(h=>h.actor===state.person)?'':'disabled'}><span class="icon" aria-hidden="true">↶</span><small>Undo</small></button>`}</div>`;}
 function card(i,small=false) {
- const votes = ['dmitri','tulin'].filter(p=>vote(i.id,p)!=='none').map(p=>`<span class="vote-label">${personName(p)} · ${labels[vote(i.id,p)]}</span>`).join('');
+ const votes = ['dmitri','tulin'].map(p=>`<span class="vote-label">${personName(p)} · ${vote(i.id,p)==='none'?'Not yet':labels[vote(i.id,p)]}</span>`).join('');
  return `<article class="card" data-card="${i.id}" aria-label="${esc(i.title)}"><div class="picture ${small?'':'draggable'}"><img src="${esc(i.image.url)}" alt="${esc(i.image.alt)}" loading="${small?'lazy':'eager'}" referrerpolicy="no-referrer" draggable="false"><div class="image-fallback">${esc(i.venue)}</div><span class="category-tag">${esc(i.category)} · ${esc(i.season)}</span><a class="photo-credit" href="${esc(i.image.source)}" target="_blank" rel="noopener noreferrer">Photo: ${esc(i.image.credit)} ↗</a><span class="stamp yes" aria-hidden="true">YES</span><span class="stamp pass" aria-hidden="true">PASS</span></div><div class="card-body"><p class="venue">${esc(i.venue)} · ${esc(i.area)}</p>${i.location?`<p class="location"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(i.location.query)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(i.location.label)} in Google Maps">${esc(i.location.label)} · Google Maps ↗</a></p>`:''}<h2>${esc(i.title)}</h2><p class="timing">${esc(i.when)} ${i.daytime?'<span class="daytime">Daytime</span>':''}</p><p class="price">${esc(i.price)}</p><p class="description">${esc(i.description)}</p><div class="availability"><span class="status ${i.status}">${statuses[i.status]}</span><span>${esc(i.checkedLabel || (i.status==='check'?'Inventory unconfirmed':'Checked Sep 28'))}</span></div><details class="card-details"><summary>Why us, booking details & sources <span>+</span></summary><p><b>Why us.</b> ${esc(i.why)}</p><p><b>Availability check.</b> ${esc(i.availability)}</p>${i.checkedAt?`<p class="checked-at">Checked ${esc(new Date(i.checkedAt).toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}))} ET. Availability can change.</p>`:''}<div class="source-links"><a href="${esc(i.source)}" target="_blank" rel="noopener noreferrer">${i.status==='check'||i.status==='offered'?'Check venue / booking':'Venue & details'} ↗</a>${i.links.map(([label,url])=>`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`).join('')}</div></details>${votes?`<div class="votes">${bothYes(i.id)?'<span class="vote-label match">♥ Both of you</span>':''}${votes}</div>`:''}${small?controls(i,true):''}</div></article>`;
 }
 function render() {
@@ -42,13 +40,18 @@ function render() {
  $('#match-count').textContent=ideas.filter(i=>bothYes(i.id)).length;
  $('#saved-count').textContent=ideas.filter(i=>['yes','maybe'].includes(vote(i.id))).length;
  const list=filtered(),left=unchosen();
- if (view==='deck') {
+ if (view==='feedback') {
+ const reviewed=p=>ideas.filter(i=>vote(i.id,p)!=='none').length;
+ const response=(i,p)=>vote(i.id,p)==='none'?(hasFetched?'Not yet':'Loading…'):labels[vote(i.id,p)];
+ const rows=[...list].sort((a,b)=>Number(bothYes(b.id))-Number(bothYes(a.id)));
+ $('#content').innerHTML=`<section class="feedback"><div class="view-heading"><h2>Our picks, together.</h2><p>${hasFetched?'Saved feedback from both phones':'Fetching saved feedback…'}</p></div><div class="feedback-counts"><span>Dmitri · ${reviewed('dmitri')} / ${ideas.length} reviewed</span><span>Tulin · ${reviewed('tulin')} / ${ideas.length} reviewed</span></div>${hasFetched&&!reviewed('tulin')?'<p class="feedback-note">No feedback saved for Tulin on these ideas yet. Choose Tulin at the top to add her responses.</p>':''}${rows.length?`<table class="feedback-table"><caption class="sr-only">Dmitri and Tulin’s responses to the current after-work date ideas</caption><thead><tr><th scope="col">Date idea</th><th scope="col">Dmitri</th><th scope="col">Tulin</th></tr></thead><tbody>${rows.map(i=>`<tr class="${bothYes(i.id)?'mutual':''}"><th scope="row"><button class="idea-jump" data-idea="${i.id}">${esc(i.title)}</button><span class="feedback-venue">${esc(i.venue)}</span><span class="feedback-time">${esc(i.when)}</span></th>${['dmitri','tulin'].map(p=>`<td><span class="response ${vote(i.id,p)}">${response(i,p)}</span></td>`).join('')}</tr>`).join('')}</tbody></table>`:'<div class="empty"><h2>No ideas in this filter.</h2><button class="primary" data-go="all">See all ideas</button></div>'}</section>`;
+ } else if (view==='deck') {
  const count=list.length-left.length;
  const active=left[0];
- $('#content').innerHTML=`<div class="deck-layout"><aside class="side-note"><div class="flower" aria-hidden="true">✳</div><p class="eyebrow">YOUR KIND OF EVENING</p><h2>A little curious.<br>A little playful.</h2><p>Swipe right for yes, left for pass. Keep the interesting maybes. The best plan is one you both want.</p></aside><div class="deck">${active?card(active)+controls(active):`<div class="empty"><span class="flower">✳</span><h2>${list.length?'A lovely set of possibilities.':'Nothing in this corner.'}</h2><p>${list.length?'You’ve seen every idea in this filter. Open your shortlist, or revisit any choice in All ideas.':'Try another day or kind of date.'}</p><button class="primary" data-go="${list.length?'saved':'all'}">${list.length?'See the shortlist':'See all ideas'}</button></div>`}<div class="deck-bottom">${active?'':`<button class="undo" id="undo" ${state.history.some(h=>h.actor===state.person)?'':'disabled'}>↶ Undo last choice</button>`}<p class="hint">${count} of ${list.length} reviewed · ← pass · ↑ maybe · → yes</p></div></div><aside class="side-note right"><p class="eyebrow">${personName(state.person).toUpperCase()}’S PICKS</p><h2>${count}<span style="color:var(--muted)"> / ${list.length}</span></h2><div class="progress"><span style="width:${list.length?count/list.length*100:0}%"></span></div><p>${ideas.filter(i=>bothYes(i.id)).length} mutual yeses so far.<br>Share this board so you can choose together.</p><p>September 29–October 1<br>All times New York.</p></aside></div>`;
+ $('#content').innerHTML=`<div class="deck-layout"><aside class="side-note"><div class="flower" aria-hidden="true">✳</div><p class="eyebrow">YOUR KIND OF EVENING</p><h2>A little curious.<br>A little playful.</h2><p>Swipe right for yes, left for pass. Keep the interesting maybes. The best plan is one you both want.</p></aside><div class="deck">${active?card(active)+controls(active):`<div class="empty"><span class="flower">✳</span><h2>${list.length?'A lovely set of possibilities.':'Nothing in this corner.'}</h2><p>${list.length?'You’ve seen every idea in this filter. Open your shortlist, or revisit any choice in All ideas.':'Try another day or kind of date.'}</p><button class="primary" data-go="${list.length?'saved':'all'}">${list.length?'See the shortlist':'See all ideas'}</button></div>`}<div class="deck-bottom">${active?'':`<button class="undo" id="undo" ${state.history.some(h=>h.actor===state.person)?'':'disabled'}>↶ Undo last choice</button>`}<p class="hint">${count} of ${list.length} reviewed · ← pass · ↑ maybe · → yes</p></div></div><aside class="side-note right"><p class="eyebrow">${personName(state.person).toUpperCase()}’S PICKS</p><h2>${count}<span style="color:var(--muted)"> / ${list.length}</span></h2><div class="progress"><span style="width:${list.length?count/list.length*100:0}%"></span></div><p>${ideas.filter(i=>bothYes(i.id)).length} mutual yeses so far.<br>Both phones save here automatically.</p><p>September 29–October 1<br>All times New York.</p></aside></div>`;
  } else {
  const cards=view==='matches'?list.filter(i=>bothYes(i.id)):view==='saved'?list.filter(i=>['yes','maybe'].includes(vote(i.id))).sort((a,b)=>Number(bothYes(b.id))-Number(bothYes(a.id))):list;
- $('#content').innerHTML=`<div class="view-heading"><h2>${view==='saved'?`${personName(state.person)}’s shortlist`:view==='matches'?'You both like these':'Every little possibility'}</h2><p>${cards.length} ${cards.length===1?'idea':'ideas'} · ${ideas.filter(i=>bothYes(i.id)).length} mutual yeses${view==='saved'?' · your yeses + maybes':''}</p></div>${cards.length?`<div class="grid">${cards.map(i=>card(i,true)).join('')}</div>`:`<div class="empty"><h2>${view==='matches'?'Your next date is a shared yes.':'Leave room for a yes.'}</h2><p>${view==='matches'?'Ideas appear here when Dmitri and Tulin both choose Yes. Check your filters, and make sure you’re using the same shared board.':view==='saved'?'Your yeses and maybes will appear here. Mutual yeses float to the top.':'Try changing the filters.'}</p>${view==='matches'?'<button class="primary" data-share>Share this board</button>':''}<button class="text-button" data-go="deck">Back to swiping</button></div>`}`;
+ $('#content').innerHTML=`<div class="view-heading"><h2>${view==='saved'?`${personName(state.person)}’s shortlist`:view==='matches'?'You both like these':'Every little possibility'}</h2><p>${cards.length} ${cards.length===1?'idea':'ideas'} · ${ideas.filter(i=>bothYes(i.id)).length} mutual yeses${view==='saved'?' · your yeses + maybes':''}</p></div>${cards.length?`<div class="grid">${cards.map(i=>card(i,true)).join('')}</div>`:`<div class="empty"><h2>${view==='matches'?'Your next date is a shared yes.':'Leave room for a yes.'}</h2><p>${view==='matches'?'Ideas appear here when Dmitri and Tulin both choose Yes. Both phones save to this page automatically.':view==='saved'?'Your yeses and maybes will appear here. Mutual yeses float to the top.':'Try changing the filters.'}</p><button class="text-button" data-go="deck">Back to swiping</button></div>`}`;
  }
  document.querySelectorAll('.picture img').forEach(img=>{img.addEventListener('error',()=>img.parentElement.classList.add('failed'));if(img.complete&&!img.naturalWidth)img.parentElement.classList.add('failed');});
  if(view==='deck') setupDrag();
@@ -112,14 +115,15 @@ async function sync() {
  const sent=state.outbox.slice(0,64);
  try {
  const cfg=window.DATE_CONFIG;
- const res=await fetch(`${cfg.url}/rest/v1/rpc/date_night_sync`,{method:'POST',headers:{'Content-Type':'application/json',apikey:cfg.key,Authorization:`Bearer ${cfg.key}`},body:JSON.stringify({p_token:token,p_actions:sent}),signal:AbortSignal.timeout(12000)});
+ const res=await fetch(`${cfg.url}/rest/v1/rpc/date_night_shared_sync`,{method:'POST',headers:{'Content-Type':'application/json',apikey:cfg.key,Authorization:`Bearer ${cfg.key}`},body:JSON.stringify({p_actions:sent}),signal:AbortSignal.timeout(12000)});
  if(!res.ok)throw new Error(`Sync ${res.status}`);
  const data=await res.json();if(!Array.isArray(data.votes))throw new Error('Invalid sync response');
+ const firstFetch=!hasFetched;hasFetched=true;
  const before=JSON.stringify(Object.fromEntries(Object.entries(state.votes).map(([k,v])=>[k,v.choice])));
  state.outbox=remainingActions(state.outbox,sent);state.votes=mergeVotes(data.votes,state.outbox);save();onlineSaved=true;
- syncStatus(state.outbox.length?'More choices syncing…':storageOK?'✓ Synced':'✓ Synced · save your share link');
+ syncStatus(state.outbox.length?'More choices syncing…':'✓ Synced');
  const after=JSON.stringify(Object.fromEntries(Object.entries(state.votes).map(([k,v])=>[k,v.choice])));
- if(before!==after&&!animating&&!$('.dragging'))render();
+ if((firstFetch||before!==after)&&!animating&&!$('.dragging'))render();
  }catch{syncStatus(storageOK?(state.outbox.length?'Saved here · cloud retry pending':'Cloud unavailable · local board'):'Not saved · cloud unavailable',true);}
  finally{busy=false;}
  if(onlineSaved&&state.outbox.length){onlineSaved=false;setTimeout(sync,1000);}
@@ -127,7 +131,8 @@ async function sync() {
 document.addEventListener('click',e=>{
  const button=e.target.closest('button');if(!button||animating)return;
  if(button.dataset.person){state.person=button.dataset.person;state.profileChosen=true;save();$('#person-dialog').close();render();notice(`Choosing as ${personName(state.person)}.`);}
- if(button.hasAttribute('data-share'))showShare();
+ if(button.id==='refresh'){syncStatus('Refreshing…');sync();}
+ if(button.dataset.idea){view='all';render();document.querySelector(`[data-card="${button.dataset.idea}"]`)?.scrollIntoView({block:'start',behavior:'smooth'});}
  if(button.dataset.view){view=button.dataset.view;render();notice('');}
  if(button.dataset.day){day=button.dataset.day;render();}
  if(button.dataset.choice){if(view==='deck')animateChoice(button.dataset.id,button.dataset.choice);else choose(button.dataset.id,button.dataset.choice);}
@@ -135,14 +140,11 @@ document.addEventListener('click',e=>{
  if(button.id==='undo')undo();
 });
 $('#category').addEventListener('change',e=>{category=e.target.value;render();});
-document.addEventListener('keydown',e=>{if(view!=='deck'||$('#person-dialog').open||$('#share-dialog').open||e.target.closest('input,select,textarea,a,button,summary')||e.altKey||e.ctrlKey||e.metaKey)return;const c={ArrowLeft:'pass',ArrowRight:'yes',ArrowUp:'maybe'}[e.key];const i=unchosen()[0];if(c&&i){e.preventDefault();animateChoice(i.id,c);}});
-function showShare(){const other=state.person==='dmitri'?'tulin':'dmitri';$('#invite-name').textContent=personName(other);$('#invite-url').value=`${location.origin}${location.pathname}#board=${token}&person=${other}`;$('#copy-status').textContent='';$('#share-dialog').showModal();}
-$('#share').addEventListener('click',showShare);
+document.addEventListener('keydown',e=>{if(view!=='deck'||$('#person-dialog').open||e.target.closest('input,select,textarea,a,button,summary')||e.altKey||e.ctrlKey||e.metaKey)return;const c={ArrowLeft:'pass',ArrowRight:'yes',ArrowUp:'maybe'}[e.key];const i=unchosen()[0];if(c&&i){e.preventDefault();animateChoice(i.id,c);}});
 $('#person-dialog').addEventListener('cancel',e=>{if(!state.profileChosen)e.preventDefault();});
 if(!state.profileChosen)$('#person-dialog').showModal();
-$('#copy-link').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('#invite-url').value);$('#copy-status').textContent='Link copied. Ready to send.';}catch{$('#invite-url').focus();$('#invite-url').select();$('#copy-status').textContent='Select and copy the link above.';}});
 window.addEventListener('online',sync);window.addEventListener('offline',()=>syncStatus(storageOK?'Offline · saved on this device':'Offline · not saved',true));
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync();});
 window.addEventListener('storage',e=>{if(e.key!==storageKey||!e.newValue)return;try{const other=JSON.parse(e.newValue);state.outbox=[...new Map([...state.outbox,...other.outbox].map(a=>[a.event_id,a])).values()];state.votes=mergeVotes([...Object.values(state.votes),...Object.values(other.votes)],state.outbox);render();sync();}catch{}});
-setInterval(()=>{if(!document.hidden)sync();},20000);
+setInterval(()=>{if(!document.hidden)sync();},5000);
 try {const res=await fetch('ideas.json',{cache:'no-cache'});if(!res.ok)throw new Error('Could not load ideas');const data=await res.json();ideas=data.ideas.filter(i=>['offered','open','weather','listed'].includes(i.status)&&!i.daytime&&/^(18|19|20|21|22|23):[0-5]\d$/.test(i.startTime||''));render();save();sync();}catch{$('#content').innerHTML='<div class="empty"><h2>A small detour.</h2><p>The ideas could not load. Please refresh to try again.</p></div>';syncStatus('Ideas unavailable',true);}
