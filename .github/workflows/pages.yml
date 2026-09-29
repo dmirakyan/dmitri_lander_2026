@@ -18,7 +18,7 @@ jobs:
         run: |
           mkdir -p _site/admin
           cp index.html CNAME robots.txt sitemap.xml .nojekyll _site/
-          cp -R assets blog _site/
+          cp -R assets blog dates _site/
           cp admin/index.html admin/admin.css admin/admin.js _site/admin/
           test -z "$(find _site -type l -print -quit)"
       - uses: actions/upload-pages-artifact@v4

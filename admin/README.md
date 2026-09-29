@@ -2,6 +2,8 @@
 
 Static frontend served by GitHub Pages at `/admin/`. The public files contain no profile, calendar data, account credentials, or run records. No analytics or third-party scripts load on this page.
 
+The date-night card links to the public static guide at `/dates/`, independently of the private runner connection. The guide contains outing recommendations and public venue links; message exports and detailed personal research stay outside this repository. The Pages workflow explicitly includes `dates/` in its public-file staging list.
+
 ## Private runner
 
 Requires Python 3.11+ on the Mac that holds the lottery workspace:
