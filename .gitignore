@@ -2,3 +2,9 @@ __pycache__/
 *.pyc
 _site/
 .local-secrets/
+node_modules/
+.wrangler/
+.env
+.env.*
+.dev.vars
+.dev.vars.*
