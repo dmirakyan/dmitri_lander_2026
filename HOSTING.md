@@ -43,6 +43,10 @@ production branch `main`, build command `npm run build`, and deploy command
 
 Before changing dmitri.im's nameservers, copy and verify its existing DNS records,
 including email records. Test the Worker deployment before switching production.
+The current MX records use Namecheap's free email forwarding. That service
+requires Namecheap DNS; copying the MX records alone does not establish that
+forwarding will keep working. Confirm whether any aliases are used and migrate
+their forwarding before a nameserver change if necessary.
 Once the domain is active in Cloudflare, attach it as the Worker's custom domain.
 Disable the old GitHub Pages workflow after cutover; the repository can then be
 private without affecting Cloudflare hosting.
