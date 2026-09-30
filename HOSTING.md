@@ -4,6 +4,10 @@ This site uses Cloudflare Workers Static Assets. The browser connects directly
 to any separately hosted services; static hosting does not move those services
 or require their server credentials.
 
+The deployed site is https://dmitri-lander.dmitri-d68.workers.dev. Cloudflare
+lists this Worker as **Assets only / Free**. Wrangler is authenticated on this
+Mac, and `wrangler.jsonc` selects the correct Cloudflare account.
+
 ## Build and deploy
 
 ```sh
@@ -23,7 +27,11 @@ For a manual deployment after authenticating with `npx wrangler login`:
 npm run deploy
 ```
 
-For Cloudflare's Git integration, select `dmirakyan/dmitri_lander_2026`, use
+Deployments currently run manually with the command above. Cloudflare's GitHub
+connection loops back to the already-installed GitHub App, so automatic builds
+are not connected yet. A private repository does not affect Wrangler uploads.
+
+Once Cloudflare's Git integration is connected, select `dmirakyan/dmitri_lander_2026`, use
 production branch `main`, build command `npm run build`, and deploy command
 `npx wrangler deploy`. The Worker name is `dmitri-lander`.
 
@@ -32,14 +40,29 @@ production branch `main`, build command `npm run build`, and deploy command
 - `/admin/` connects to the existing local Python service on the visitor's Mac.
   Keep `https://dmitri.im` as the production origin. A Cloudflare preview hostname
   is not in that service's allowed-origin list.
-- `/dates/` may use a public Supabase browser configuration. Its database remains
-  on Supabase. Never publish a service-role key, database password, or private
+- `/dates/` uses a public Supabase browser configuration. Its database remains
+  on Supabase; cloud sync was verified on the deployed Worker. Never publish a service-role key, database password, or private
   board token in the build.
 - Store any future backend credentials as Cloudflare Worker secrets, not in
   `_site/` or browser JavaScript. This deployment currently has no Worker script
   and therefore needs no backend secrets.
 
-## Domain migration
+## Domain migration (pending)
+
+As of September 30, 2026, Namecheap still serves DNS and GitHub Pages remains
+the production host for `dmitri.im`. The Cloudflare zone is on the Free plan.
+Namecheap has no configured email-forwarding aliases. The user has accepted
+that unused Namecheap forwarding may stop working after the nameserver change.
+
+The assigned Cloudflare nameservers are `cleo.ns.cloudflare.com` and
+`ximena.ns.cloudflare.com`.
+
+Before attaching the Worker's custom domains, Cloudflare requires removing
+its imported hosting records: four root A records (`185.199.108.153` through
+`185.199.111.153`) and the `www` CNAME to `dmirakyan.github.io`.
+These records remain intact pending confirmation. Keep MX/TXT records.
+Attach both `dmitri.im` and `www.dmitri.im`, then add their `custom_domain`
+routes to `wrangler.jsonc` so subsequent deploys preserve them.
 
 Before changing dmitri.im's nameservers, copy and verify its existing DNS records,
 including email records. Test the Worker deployment before switching production.

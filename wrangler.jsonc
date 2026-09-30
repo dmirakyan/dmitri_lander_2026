@@ -1,7 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "dmitri-lander",
+  "account_id": "d68925a3a5c8f5a72bd103cc8d4c1135",
   "compatibility_date": "2026-09-28",
+  "workers_dev": true,
   "assets": {
     "directory": "./_site",
     "html_handling": "auto-trailing-slash",
