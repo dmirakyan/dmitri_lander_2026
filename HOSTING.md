@@ -27,13 +27,19 @@ For a manual deployment after authenticating with `npx wrangler login`:
 npm run deploy
 ```
 
-Deployments currently run manually with the command above. Cloudflare's GitHub
-connection loops back to the already-installed GitHub App, so automatic builds
-are not connected yet. A private repository does not affect Wrangler uploads.
+Website changes pushed to `main` automatically deploy through
+`.github/workflows/cloudflare.yml`. The workflow installs the pinned dependencies,
+builds the public-only `_site/` directory, and deploys with Wrangler. Changes to
+unrelated files do not trigger a deployment. You can also run it manually from
+GitHub Actions or use `npm run deploy` locally.
 
-Once Cloudflare's Git integration is connected, select `dmirakyan/dmitri_lander_2026`, use
-production branch `main`, build command `npm run build`, and deploy command
-`npx wrangler deploy`. The Worker name is `dmitri-lander`.
+The deployment credential is stored in the repository's encrypted
+`CLOUDFLARE_API_TOKEN` Actions secret. It has Workers Scripts:Edit permission
+only for this Cloudflare account. Never put its value in source files.
+
+This uses GitHub Actions rather than Cloudflare's built-in GitHub App connection,
+which loops back to the existing installation. Both the Actions workflow and
+manual Wrangler deployments work with a private repository.
 
 ## Services
 
@@ -47,29 +53,23 @@ production branch `main`, build command `npm run build`, and deploy command
   `_site/` or browser JavaScript. This deployment currently has no Worker script
   and therefore needs no backend secrets.
 
-## Domain migration (pending)
+## Domain migration (DNS propagation pending)
 
-As of September 30, 2026, Namecheap still serves DNS and GitHub Pages remains
-the production host for `dmitri.im`. The Cloudflare zone is on the Free plan.
-Namecheap has no configured email-forwarding aliases. The user has accepted
-that unused Namecheap forwarding may stop working after the nameserver change.
+On September 30, 2026, Namecheap was changed to Custom DNS with
+`cleo.ns.cloudflare.com` and `ximena.ns.cloudflare.com`. Cloudflare's Free
+zone is waiting for the registry to publish the new delegation.
 
-The assigned Cloudflare nameservers are `cleo.ns.cloudflare.com` and
-`ximena.ns.cloudflare.com`.
+Both `dmitri.im` and `www.dmitri.im` are attached to the `dmitri-lander` Worker,
+and their custom-domain routes are in `wrangler.jsonc`. The five imported
+GitHub hosting records were replaced; MX/TXT records were retained.
+Namecheap has no configured forwarding aliases, and the user accepted the
+loss of its unused free email-forwarding service.
 
-Before attaching the Worker's custom domains, Cloudflare requires removing
-its imported hosting records: four root A records (`185.199.108.153` through
-`185.199.111.153`) and the `www` CNAME to `dmirakyan.github.io`.
-These records remain intact pending confirmation. Keep MX/TXT records.
-Attach both `dmitri.im` and `www.dmitri.im`, then add their `custom_domain`
-routes to `wrangler.jsonc` so subsequent deploys preserve them.
+GitHub Pages remains available during DNS propagation. Once public DNS points
+to Cloudflare and HTTPS is verified, disable the old Pages workflow. The
+repository can then be made private without affecting the Cloudflare site.
 
-Before changing dmitri.im's nameservers, copy and verify its existing DNS records,
-including email records. Test the Worker deployment before switching production.
-The current MX records use Namecheap's free email forwarding. That service
-requires Namecheap DNS; copying the MX records alone does not establish that
-forwarding will keep working. Confirm whether any aliases are used and migrate
-their forwarding before a nameserver change if necessary.
-Once the domain is active in Cloudflare, attach it as the Worker's custom domain.
-Disable the old GitHub Pages workflow after cutover; the repository can then be
-private without affecting Cloudflare hosting.
+The former hosting records, for rollback reference, were four root A records
+(`185.199.108.153` through `185.199.111.153`) and a `www` CNAME to
+`dmirakyan.github.io`; the old nameservers were `dns1.registrar-servers.com`
+and `dns2.registrar-servers.com`.

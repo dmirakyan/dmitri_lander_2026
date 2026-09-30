@@ -1,0 +1,41 @@
+name: Deploy to Cloudflare
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'assets/**'
+      - 'blog/**'
+      - 'dates/**'
+      - 'admin/index.html'
+      - 'admin/admin.css'
+      - 'admin/admin.js'
+      - 'tools/build-site.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'wrangler.jsonc'
+      - '.github/workflows/cloudflare.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Build and deploy public website
+        run: npm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: d68925a3a5c8f5a72bd103cc8d4c1135
