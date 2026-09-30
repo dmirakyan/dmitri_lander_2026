@@ -65,9 +65,10 @@ GitHub hosting records were replaced; MX/TXT records were retained.
 Namecheap has no configured forwarding aliases, and the user accepted the
 loss of its unused free email-forwarding service.
 
-GitHub Pages remains available during DNS propagation. Once public DNS points
-to Cloudflare and HTTPS is verified, disable the old Pages workflow. The
-repository can then be made private without affecting the Cloudflare site.
+The legacy GitHub Pages workflow is manual-only for rollback. Its last deployed
+site remains available during DNS propagation. Once public DNS points to
+Cloudflare and HTTPS is verified, the repository can be made private without
+affecting the Cloudflare site.
 
 The former hosting records, for rollback reference, were four root A records
 (`185.199.108.153` through `185.199.111.153`) and a `www` CNAME to
