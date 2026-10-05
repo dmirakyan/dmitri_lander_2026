@@ -21,6 +21,12 @@ robots/sitemap files, assets, blog, dates, and the three admin frontend files ar
 published. Hidden files and symlinks are excluded or rejected. Never point
 Cloudflare's asset directory at the repository root.
 
+The `/clara/` case-review workspace and `_headers` are also published. This page
+is unlisted and sends `X-Robots-Tag: noindex, nofollow, noarchive`; it is still
+public, with no access control. Do not add claimant contact details or original
+evidence attachments to that directory. Review edits use browser-local storage
+and downloadable text, not a shared approval backend.
+
 For a manual deployment after authenticating with `npx wrangler login`:
 
 ```sh

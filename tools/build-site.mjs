@@ -8,7 +8,7 @@ const output = path.join(root, '_site');
 // must never be included in the upload, even if new folders are added later.
 const publicPaths = [
   'index.html', 'robots.txt', 'sitemap.xml',
-  'assets', 'blog', 'dates',
+  'assets', 'blog', 'dates', 'clara', '_headers',
   'admin/index.html', 'admin/admin.css', 'admin/admin.js',
 ];
 

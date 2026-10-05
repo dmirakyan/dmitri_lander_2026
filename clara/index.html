@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Clara / Case workspace</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<header><a class="wordmark" href="#overview">DM <span>/ CLARA</span></a><span class="tag">DRAFT · NOT FILED</span><a href="#review">Alex’s review ↗</a></header>
+<div class="layout">
+<nav aria-label="Case sections"><span class="eyebrow">CASE WORKSPACE</span><a href="#overview">01 &nbsp; Overview</a><a href="#timeline">02 &nbsp; Timeline</a><a href="#numbers">03 &nbsp; Claim worksheet</a><a href="#drafts">04 &nbsp; Drafts</a><a href="#filing">05 &nbsp; Filing routes</a><a href="#evidence">06 &nbsp; Evidence</a><a href="#review">07 &nbsp; Alex’s review</a><p>Handoff: Oct 4, 2026<br>Research: Oct 4, 2026 EDT</p><button id="print" class="secondary">Print / save PDF</button></nav>
+<main>
+<section id="overview">
+<div class="eyebrow">188 S 8TH ST · APT PH · BROOKLYN</div>
+<h1>The deposit dispute.<br><em>Everything in one place.</em></h1>
+<p class="lede">Dmitri Mirakyan + Alexander Nie<br>Clara Lorenz Chan / Chan Clan Holdings</p>
+<div class="stats"><div><span>Original proposed claim</span><strong>$4,984.59</strong><small>Handoff figure. Does not reconcile.</small></div><div><span>Current worksheet</span><strong id="hero-total">Calculating…</strong><small>Illustrative only. Review assumptions below.</small></div><div><span>Next step</span><strong class="text-stat">Alex’s review</strong><small>Then verify, sign, and authorize filing.</small></div></div>
+<div class="notice"><strong>Ready to review, not ready to file.</strong> The legal defendant, allocation, payment dates, July abatement, and source evidence still need confirmation. Nothing on this page sends email, submits a complaint, or records a legal signature.</div>
+<p class="small">This is an unlisted public page, not a private portal. Search engines are asked not to index it. Claimant home addresses, personal emails, and source attachments are omitted. Edits stay in this browser; export them to share with Dmitri. There is no shared approval database.</p>
+<div class="two-col"><article><h3>The tenancy</h3><p>September 1, 2025 to August 31, 2026. Monthly rent and security deposit were each $11,000. Nick Metzler and Joseph were co-tenants; this workspace prepares only Dmitri’s and Alex’s claims.</p></article><article><h3>The dispute</h3><p>The handoff reports $4,165 across 11 deduction items, an additional unexplained $25, and acceptance of only items 6 and 8, lightbulbs totaling $175. It also proposes two construction-related rent abatements.</p></article></div>
+<details><summary>Source status and work inherited</summary><p>The prior agent reports reviewing the full email thread, a $3,000 Jose Carpentry invoice, payment summaries, and construction-photo links; saving an unsent reply-all demand with an October 11 deadline; and attempting an unsuccessful NY DOS entity search. These are inherited reports, not independent verification here.</p><p>The supplied HTML filing pack was reviewed. Connected Gmail searches for the business email and thread title returned no messages. The signed lease, original allocation table, original release, and payment-clearing evidence are not in this workspace. “No reply since September 21” is a handoff snapshot as of October 4, not a live inbox monitor.</p></details>
+</section>
+<section id="timeline"><div class="eyebrow">02 / THE RECORD SO FAR</div><h2>A short chronology.</h2>
+<ol class="timeline">
+<li><time>Aug 28</time><div>Nick reportedly wrote that prior tenants received only one or two keys, relevant to disputed items 4–5.</div></li>
+<li><time>Aug 29–31</time><div>Claimants report construction prevented use of the apartment during the final three lease days. Actual vacancy / key-return date needs evidence.</div></li>
+<li><time>Sept 9</time><div>Clara sent the deposit statement. The $4,165 item total and alleged additional $25 require reconciliation against the actual document.</div></li>
+<li><time>Sept 15–16</time><div>Dmitri disputed all but $175, requested substantiation, and raised both abatements. Nick said he signed a release on everyone’s behalf. Dmitri and Alex rejected his authority, including a joint September 16 response.</div></li>
+<li><time>Sept 17</time><div>Reported sent reply corrected Dmitri’s ZIP, reserved rights regarding addresses and partial payments, and set a September 22 deadline.</div></li>
+<li><time>Sept 21</time><div>At 8:49 PM EDT, Clara reportedly sent Jose Carpentry Invoice #5, dated September 1, for $3,000 covering items 1–3, plus refund summaries of $1,655.06 and $1,709.91. She said remaining material would follow.</div></li>
+<li><time>Oct 4</time><div>Handoff reports no further reply in 13 days. A final demand with a proposed October 11 repayment-plan deadline is reportedly saved in Gmail and unsent. That deadline has not been communicated by this draft.</div></li>
+</ol>
+<details><summary>What is disputed about the deductions?</summary><p>The invoice reportedly attributes cabinetry damage to planter or beverage-cup negligence. Claimants say the item 1 damage was beneath a temporary AC provided by Clara and that the contractor said sanding would suffice. This is a contested causation and repair-cost issue, not something the invoice alone resolves. According to the handoff, invoices for items 4, 5, 7, 9–11 and an explanation of the $25 remain missing.</p></details>
+</section>
+<section id="numbers"><div class="eyebrow">03 / CLAIM WORKSHEET</div><h2>Show the math.</h2>
+<div class="notice"><strong>Two inconsistencies in the inherited pack.</strong> $11,000 × 49.23% is $5,415.30, not $5,427.77. The more precise ratio $3,364.97 ÷ $6,835 produces a $5,415.46 deposit share. Also, $11,000 − $4,190 is $6,810, while the handoff uses a $6,835 refund pool. Do not add the $25 again without locating it in the ledger.</div>
+<p>This model provisionally uses the refund allocation as a proxy for ownership. That assumption needs the original contribution records and Alex’s confirmation. Each displayed monetary line is rounded to cents before totals; Alex receives any one-cent split remainder.</p>
+<div class="form-grid">
+<label>Total refund pool used for allocation ($)<input id="pool" type="number" min="3364.97" max="11000" step="0.01" value="6835"><small>$6,835 is inherited, not verified. $6,810 is the alternative implied by $4,190 withheld.</small></label>
+<label>July 1–7 valuation<select id="july-mode"><option value="pending">Unconfirmed: show full-apartment proposal</option><option value="full">Full-apartment proposal ($2,483.87)</option><option value="quarter">Illustrative 25% room share ($620.97)</option><option value="custom">Custom amount with evidence</option><option value="none">Omit July abatement</option></select><small>Neither 100% nor 25% is an automatic legal entitlement. Use actual rent share and loss of use.</small></label>
+<label id="custom-wrap" hidden>Custom July amount ($)<input id="july-custom" type="number" min="0" max="10000" step="0.01" value="620.97"></label>
+<label>July basis / actual bedroom rent share<input id="july-basis" type="text" placeholder="Needs confirmation: rent paid, affected space, other bathroom access"></label>
+</div>
+<p id="math-error" class="error" role="alert"></p>
+<div class="table-wrap"><table><thead><tr><th>Component</th><th>Combined</th><th>Dmitri</th><th>Alex</th></tr></thead><tbody id="math-body"></tbody></table></div>
+<p id="ratio-note" class="small"></p>
+<p class="small">Credits assume both reported checks were actually received and retained. Confirm receipt, clearance, any endorsement language, and later payments. The original proposed split ($3,713.85 Dmitri / $1,270.74 Alex) is not used because the source total fails reconciliation. No punitive damages or deposit interest are included.</p>
+</section>
+<section id="drafts"><div class="eyebrow">04 / REVIEWABLE DRAFTS</div><h2>Prepared for the next move.</h2>
+<p>Drafts regenerate from the worksheet. Bracketed fields and provisional figures must be resolved before use. These are review text and supporting statements, not completed official filings.</p>
+<div class="form-grid">
+<label>Verified legal defendant<input id="defendant" placeholder="[Exact landlord name from signed lease / records]"></label>
+<label>Verified defendant street address<input id="service" placeholder="[Verified address and ZIP, not a PO box]"></label>
+<label>Proposed demand deadline<input id="deadline" type="date" value="2026-10-11"><small>This is a proposed negotiation deadline, not a court deadline.</small></label>
+</div>
+<details open><summary>A. Final demand / proposed revision</summary><p class="small">Reply-all to the existing “Re: Move out inspection” thread after verifying its actual recipients. This is a new suggested revision, not a retrieved copy of the saved Gmail draft.</p><pre id="demand"></pre><button data-copy="demand">Copy demand draft</button></details>
+<details><summary>B. NYS Attorney General / deposit complaint</summary><p class="small">Requests deposit mediation. Abatements remain a separate court demand. The live form starts with a single complainant’s contact details, including a required phone number; confirm Alex’s participation and describe the second claimant accurately.</p><pre id="ag-draft"></pre><button data-copy="ag-draft">Copy AG narrative</button></details>
+<details><summary>C. Small Claims / Dmitri’s statement</summary><pre id="dmitri-draft"></pre><button data-copy="dmitri-draft">Copy Dmitri’s statement</button></details>
+<details><summary>D. Small Claims / Alex’s statement</summary><pre id="alex-draft"></pre><button data-copy="alex-draft">Copy Alex’s statement</button></details>
+<div class="actions"><button id="download">Download all draft text</button><a class="button secondary" href="https://www.nycourts.gov/forms/statement-claim-small-claims" target="_blank" rel="noopener noreferrer">Official claim form ↗</a></div>
+<p id="action-status" class="small" role="status" aria-live="polite"></p>
+</section>
+<section id="filing"><div class="eyebrow">05 / NYC FILING ROUTES</div><h2>What filing actually takes.</h2>
+<div class="two-col"><article class="card"><span class="tag">PRIMARY ROUTE</span><h3>NYC Small Claims</h3><p>The <a href="https://www.nycourts.gov/new-york-city-small-claims-court/starting-case-nyc-small-claims-court" target="_blank" rel="noopener noreferrer">court’s current instructions</a> say there is no court-provided electronic filing. Prepare signed forms and payment for the clerk. Older text on the same page mentions outside services, but no working vendor is verified here.</p><p>Limit: $10,000. Fee: $20 per claim over $1,000; $15 at or below $1,000. Court staff initially mail notice to the defendant. Correct legal name and street address matter.</p><p><a href="https://webfiles.nycourts.gov/public/2026-04/instructionsforfiling.pdf" target="_blank" rel="noopener noreferrer">Form instructions</a> allow one claimant and one defendant per form. Prepare separate forms, then ask the clerk how to handle related claims without overlapping recovery. The total is already below $10,000; splitting is not needed to evade the limit.</p></article>
+<article class="card"><span class="tag">SECONDARY ROUTE</span><h3>NYS Attorney General</h3><p>The <a href="https://formsnym.ag.ny.gov/OAGOnlineSubmissionForm/faces/OAGRSHome" target="_blank" rel="noopener noreferrer">live rent-security form</a> has contact information, subject information, complaint details, documents, and review / affirmation stages.</p><p>Its introduction warns that disputed damage deductions generally need Small Claims. Mediation is not a judgment or a promise to recover money. Keep the complaint factual and deposit-focused; disclose any court case if asked.</p><p>Prepare lease, deposit proof, accounting, refunds, correspondence, and photos. Required claimant phone and current mailing details need private completion. Nothing has been entered on your behalf.</p><a class="button secondary" href="https://formsnym.ag.ny.gov/OAGOnlineSubmissionForm/faces/OAGRSHome" target="_blank" rel="noopener noreferrer">Open official AG form ↗</a></article></div>
+<h3>Brooklyn filing desk</h3><p><a href="https://www.nycourts.gov/courts/2nd-judicial-district/new-york-city-civil-and-housing-court-kings-county-branch/kings-county-civil-court-directory" target="_blank" rel="noopener noreferrer">Kings County Small Claims Clerk</a>: 141 Livingston Street, Room 303, Brooklyn, NY 11201. Phone <a href="tel:+13474049021">347-404-9021</a>. Small Claims office: Monday, Tuesday, Wednesday and Friday 9 AM–5 PM; Thursday 9 AM–8 PM. Cashier closes 4:30 PM, Thursday 7:30 PM. Verify before travel.</p>
+<p class="small">Venue generally follows a county where either party resides, with an NYC residence / employment / business connection required for the defendant. Alex’s Brooklyn residence makes Kings a candidate; confirm the proper venue for each form after verifying the defendant. The general web page reserves mail filing for claimants outside NYC, while CIV-SC-66 contains broader mail instructions. Ask the clerk whether NYC residents can mail these forms before relying on mail filing.</p>
+<details><summary>Clerk call script and final assembly</summary><pre>We are two former co-tenants preparing related security-deposit and rent-abatement claims. Each seeks only their own share. One lives in Brooklyn and one in Manhattan. The rental property is in Brooklyn.
+
+1. After we confirm the defendant’s legal name and address, can both related claims be filed in Kings County, and should they be linked or heard together?
+2. Do you accept signed CIV-SC-50 forms by mail from NYC residents? If so, what attachments, fee payment, and return envelope are required?
+3. May we attach a typed statement and damages schedule to each form?
+4. Which filing-counter hours and payment methods should we use?
+
+Bring: completed forms, claimant contact details, verified defendant name/address, separate claim calculations, signed statements, correct fees, and evidence copies. Obtain the case number, receipt, and hearing date. Track court service and any later payments.</pre></details>
+<h3>Legal points to preserve, without overstating them</h3>
+<ul class="plain-list"><li><a href="https://www.nysenate.gov/legislation/laws/GOB/7-108" target="_blank" rel="noopener noreferrer">GOL § 7-108</a> addresses reasonable deductions, a 14-day statement and refund requirement, landlord proof, and potential willful-violation damages. Confirm applicability and actual vacancy / refund dates. September 9 was within 14 days of August 31; a September 21 attachment alone does not establish when money was returned. Missing invoices alone do not automatically establish forfeiture.</li><li>Section 7-108(3) is an anti-waiver provision. It does not, by itself, decide Nick’s authority or the effect of an unseen settlement release. The safer factual statement is that Dmitri and Alex did not authorize it and disputed it promptly.</li><li><a href="https://www.nysenate.gov/legislation/laws/RPP/235-B" target="_blank" rel="noopener noreferrer">RPL § 235-b</a> covers habitability. A full-apartment, seven-day rent figure assigned solely to Dmitri needs a documented basis; loss of one shower does not automatically justify that valuation. Record other bathroom access, actual room rent, construction conditions, notice, and inability to use the space.</li><li>The <a href="https://www.chanclanholdings.com/williamsburg" target="_blank" rel="noopener noreferrer">business’s own website</a> lists this property and 41 E 20th St, New York, NY 10003. This is a business-address lead, not verification of the landlord entity or service address. Compare the signed lease with <a href="https://apps.dos.ny.gov/publicInquiry/" target="_blank" rel="noopener noreferrer">NY DOS records</a>, and County Clerk assumed-name records if needed. Do not assume Clara has personal liability merely because she managed the tenancy.</li></ul>
+</section>
+<section id="evidence"><div class="eyebrow">06 / EVIDENCE INDEX</div><h2>The packet behind the claim.</h2><p>“Reported” means mentioned in the handoff. Original evidence has not been collected or independently reviewed in this workspace.</p>
+<div class="table-wrap"><table><thead><tr><th>Exhibit</th><th>Document / purpose</th><th>Status</th></tr></thead><tbody>
+<tr><td>A</td><td>Signed lease and riders. Landlord identity, rent, tenants, regulatory status.</td><td>Missing</td></tr>
+<tr><td>B</td><td>Deposit contributions, rent ledger, original allocation table. Prove each claimant’s ownership; reconcile $25.</td><td>Missing</td></tr>
+<tr><td>C</td><td>September 9 accounting and September 15 item-by-item response.</td><td>Reported in Gmail</td></tr>
+<tr><td>D</td><td>September 15–17 release objections, reservation of rights, demand.</td><td>Reported in Gmail</td></tr>
+<tr><td>E</td><td>September 21 email, Jose Carpentry Invoice #5, refund summaries.</td><td>Reported attachments</td></tr>
+<tr><td>F</td><td>Actual checks / transfers, receipt and clearing dates, endorsement terms.</td><td>Need bank evidence</td></tr>
+<tr><td>G</td><td>July and August dated photos, access restrictions, repair notices, room rent.</td><td>Photo links reported; retrieve originals</td></tr>
+<tr><td>H</td><td>Move-in / move-out condition, key return, inspection notices, AC messages.</td><td>Incomplete</td></tr>
+<tr><td>I</td><td>Nick’s August 28 key email and actual signed release.</td><td>Email reported; release missing</td></tr>
+<tr><td>J</td><td>Legal defendant / service-address verification; final demand if sent; later replies.</td><td>Pending</td></tr>
+</tbody></table></div>
+</section>
+<section id="review"><div class="eyebrow">07 / ALEX’S REVIEW</div><h2>Confirm the facts. Then file.</h2><p>Use this as a review checklist, not a legal signature or an instruction to send. Changes save only on this device. Download the review notes and send them back to Dmitri so he can reconcile one final version.</p>
+<div class="checklist">
+<label><input type="checkbox" id="check-entity">I checked the signed lease, exact defendant, and usable street address.</label>
+<label><input type="checkbox" id="check-math">I checked original contributions / allocation and reconciled the $25 discrepancy.</label>
+<label><input type="checkbox" id="check-payment">I confirmed check receipt / clearance dates, later payments, and any release language.</label>
+<label><input type="checkbox" id="check-july">The July amount and actual loss of use are supported, or July has been omitted.</label>
+<label><input type="checkbox" id="check-split">Each claimant’s amount is correct, with no overlapping recovery or claim for other tenants.</label>
+<label><input type="checkbox" id="check-evidence">I reviewed the originals, vacancy date, construction dates, and release objections.</label>
+<label><input type="checkbox" id="check-route">We confirmed filing venue / method, claimant contact details, and the demand deadline.</label>
+</div>
+<label>Reviewer name<input id="reviewer" placeholder="Alex / Dmitri"></label><label>Corrections, evidence locations, and decisions<textarea id="notes" rows="5" placeholder="Add exact corrections and which documents support them. Avoid putting sensitive material into a public link."></textarea></label>
+<p id="review-status" class="notice" aria-live="polite"></p><button id="export-review">Download review notes</button><p id="save-status" class="small" role="status"></p>
+</section>
+<footer>Drafting and filing strategy workspace. Facts attributed to the October 4 handoff unless separately sourced. This page is not a legal opinion, and no claim has been filed. Source links were checked October 4, 2026 EDT.</footer>
+</main></div>
+<noscript><p class="notice">Enable JavaScript for calculations and draft generation. The static chronology, filing guidance, evidence index, and official links remain available.</p></noscript>
+</body></html>
