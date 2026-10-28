@@ -43,6 +43,8 @@ Provision the owner-link hash in encrypted state and keep the private management
 
 ## Verification status
 
+Current production status on October 28: Browserbase Developer is active and a paid proxy/solver session connected successfully. A fresh Broadway Direct discovery using that session and the updated Agents SDK settings completed without blockers: two open SIX performances, one eligible evening performance already recorded, zero new eligible entries. Lucky Seat discovery and all 27 eligible existing-entry matches were previously verified through the basic hosted browser. Telecharge is still awaiting owner sign-in. Report DNS approval, actual email delivery, fresh lottery submission acceptance, and scheduler handover remain incomplete. The hosted scheduler stays off and the existing Codex heartbeat stays active.
+
 Local tests cover encrypted storage, exclusive leases, duplicate schedule slots, restart deduplication, response-loss uncertainty, stopping before final submit, read-only inspection, private endpoint authorization, CSRF, and secret redaction. These are infrastructure tests, not proof of live lottery acceptance.
 
 The first standalone Chromium probe on October 28 encountered Cloudflare verification on Broadway Direct and HTTP 403 on Lucky Seat. Telecharge loaded its embedded application. Browserbase, account login persistence, exact selectors, real CAPTCHA acceptance, calendar fetch, and report delivery must be validated live before calling this unattended system complete. Lucky Seat was subsequently validated through Browserbase's basic browser as described below. New-entry acceptance remains unproven.
@@ -77,12 +79,12 @@ The adapter now uses the current city/category filters and show cards, observed 
 
 Explicitly rendered CAPTCHA widgets expose their key through the Google iframe even when `data-sitekey` is absent. The solver now detects this layout and attempts the normal checkbox before the paid fallback. The site's actual acceptance of a new lottery submission remains the completion criterion. [2Captcha's documentation](https://2captcha.com/2captcha-api#solving_recaptchav2_new) describes response-field and explicit-render handling. Tests cover observed DOM extraction, result mismatches and year boundaries; 19 tests pass locally.
 
-Browserbase's paid proxy/CAPTCHA session request still returns HTTP 402. Basic-session diagnostics do not establish paid-plan readiness. The hosted scheduler remains off while the Browserbase subscription, Telecharge hosted login, report sender, and fresh provider submission checks are unresolved.
+During initial setup, Browserbase's paid proxy/CAPTCHA session request returned HTTP 402. The subscription was subsequently activated and paid session creation verified; the current status above supersedes that setup blocker. The hosted scheduler remains off while Telecharge hosted login, report sender, and fresh provider submission checks are unresolved.
 
 
 ### Browser fallback and Broadway Direct status validation
 
-Paid Browserbase session options still return HTTP 402, but basic sessions successfully load both Lucky Seat and Broadway Direct. Session creation now retries a 402 once without proxy and automatic-solver options, preserving the saved browser context and disabled recordings/logging. The ordinary widget and existing paid 2Captcha integration remain available. This removes a setup-only blocker without claiming the free plan can sustain the full monthly workload; vendor session and usage limits still apply.
+Basic sessions successfully loaded both Lucky Seat and Broadway Direct before the paid subscription was active. Session creation retries a 402 once without proxy and automatic-solver options, preserving the saved browser context and disabled recordings/logging. The ordinary widget and existing paid 2Captcha integration remain available. This fallback does not establish that a free plan can sustain the full monthly workload; vendor session and usage limits still apply.
 
 The production Broadway Direct status lookup now uses the observed text inputs and submit control, dismisses the nonessential-cookie overlay, and matches the displayed two-digit year. A saved entry was independently reconciled from the Droplet. Show keys normalize the provider's `(NY)` suffix to avoid duplicate attempts against imported history. The adapter maps model-extracted offers to actual observed Enter Now links and verifies the exact show/time on the final form before filling its current inputs. No new Broadway Direct entry has been submitted by the hosted runner yet.
 
