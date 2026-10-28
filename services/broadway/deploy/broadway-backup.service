@@ -1,0 +1,9 @@
+[Unit]
+Description=Consistent Broadway database snapshot
+
+[Service]
+Type=oneshot
+User=broadway
+Group=broadway
+UMask=0077
+ExecStart=/opt/broadway/.venv/bin/python /opt/broadway/deploy/backup.py

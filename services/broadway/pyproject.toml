@@ -1,0 +1,12 @@
+[project]
+name = "broadway-runner"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlalchemy>=2.0,<3", "psycopg[binary]>=3.2,<4", "cryptography>=44", "openai-agents>=0.4,<1", "playwright>=1.55,<2", "httpx>=0.28,<1", "icalendar>=6,<7", "recurring-ical-events>=3,<4", "argon2-cffi>=25,<26"]
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2"]
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+
+asyncio_default_fixture_loop_scope = "function"

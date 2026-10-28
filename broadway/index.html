@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Broadway · Dmitri</title><link rel="stylesheet" href="/broadway/style.css"><script src="/broadway/app.js" defer></script></head>
+<body><div class="shell"><header><a href="/">dmitri.im</a><span id="access-label">BROADWAY</span></header><main>
+<section class="intro"><div><p class="eyebrow">A LITTLE MORE THEATER</p><h1>Broadway, on autopilot.</h1><p class="lede">Your lotteries, entries, and evenings. All in one place.</p></div><div class="marquee" aria-hidden="true">B<span>★</span></div></section>
+<div id="notice" role="status" hidden></div>
+<div id="workspace" hidden>
+<section class="control panel"><div><p class="eyebrow">AUTOMATION</p><h2 id="runner-state">Checking…</h2><p id="runner-detail">Loading your runner.</p></div><button id="toggle" data-owner class="switch" role="switch" aria-checked="false" aria-label="Automatic lottery entries"><span></span></button></section>
+<div class="actions"><button data-owner id="inspect" class="secondary">Check all connections</button><button data-owner id="run">Run entries now</button><button data-owner id="logout" class="text-button">Public view</button><span id="schedule"></span></div>
+<p id="budget" class="muted"></p>
+<section id="blockers" class="panel warning" hidden><h2>Before the next batch</h2><ul></ul></section>
+<section><div class="section-title"><h2>Every part of the flow</h2><span id="heartbeat"></span></div><div id="flows" class="flow-grid"></div></section>
+<section class="panel consent"><div class="checkmark">✓</div><div><h2>Your standing permission is saved.</h2><p>Complete free entries, accept required lottery terms, and handle CAPTCHA challenges. No ticket purchases. Each entry must match your availability and price limit.</p><p class="muted">A solved challenge is only a step. An entry counts after the lottery provider confirms it.</p></div></section>
+<details class="panel"><summary id="upcoming-title">Your saved entries</summary><div id="upcoming"></div></details>
+<section><div class="section-title"><h2>Recent batches</h2><span>New entries are counted separately from existing ones.</span></div><div id="runs" class="panel"><p class="muted">No batches yet.</p></div></section>
+<details data-owner class="panel"><summary>Connections &amp; setup</summary><p>Keys are encrypted on the server and never sent back to this page. Empty key fields keep the current value.</p><form id="config-form" class="settings-grid">
+<label>OpenAI API key<input name="openai_api_key" type="password" autocomplete="new-password" placeholder="Not connected"></label>
+<label>Browserbase API key<input name="browserbase_api_key" type="password" autocomplete="new-password" placeholder="Not connected"></label>
+<label>Browserbase project ID<input name="browserbase_project_id" autocomplete="off"></label>
+<label>Browser mode<select name="browser_mode"><option value="browserbase">Managed browser (Browserbase)</option value="local">DigitalOcean Chromium</option></select></label>
+<label>2Captcha API key<input name="captcha_api_key" type="password" autocomplete="new-password"></label>
+<label>Lucky Seat email<input name="luckyseat_email" type="email" autocomplete="off"></label>
+<label>Lucky Seat password<input name="luckyseat_password" type="password" autocomplete="new-password"></label>
+<label>Resend API key<input name="resend_api_key" type="password" autocomplete="new-password"></label>
+<label>Verified sender email<input name="report_from" type="email"></label>
+<label>Report recipient<input name="report_to" type="email"></label>
+<label class="wide">Private calendar feed URLs (one per line)<textarea name="calendar_urls" rows="3" spellcheck="false"></textarea><small>Use your personal and Partiful feeds. Explicit [away] or [travel] events block dates; ordinary plans do not.</small></label>
+<label class="checkbox wide"><input name="manual_availability_only" type="checkbox">Use only my saved unavailable dates until calendars are connected.</label>
+<div class="wide"><button type="submit">Save connections</button><span class="muted">Login sessions, model access, and actual provider acceptance are verified separately.</span></div></form></details>
+<section data-owner class="panel"><h2>Provider sign-ins</h2><p class="muted">Sign in once in the hosted browser. Finish the session here to save it for future batches.</p><div class="actions"><button class="secondary provider-login" data-provider="telecharge">Connect Telecharge</button><button class="secondary provider-login" data-provider="lucky_seat">Connect Lucky Seat</button></div><div id="browser-login" hidden><a id="browser-login-link" target="_blank" rel="noopener noreferrer">Open private browser session</a><button id="finish-login">Finish &amp; save session</button></div></section>
+<details data-owner class="panel"><summary>Availability &amp; preferences</summary><form id="preferences-form"><div class="settings-grid"><label>Tickets<select name="ticket_count"><option value="2">2 tickets</option><option value="1">1 ticket</option></select></label><label>Maximum price per ticket, including fees<input name="max_price_per_ticket_usd" type="number" min="1" max="1000" value="100"></label><label class="wide">Unavailable dates (one inclusive range per line: YYYY-MM-DD / YYYY-MM-DD)<textarea name="blackouts" rows="4"></textarea></label><label class="wide">Excluded shows (one per line)<textarea name="excluded" rows="4"></textarea></label></div><button type="submit">Save preferences</button></form></details>
+</div></main><footer>Built for your evenings in New York. <span>No purchases. No duplicate entries. Clear outcomes.</span></footer></div></body></html>

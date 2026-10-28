@@ -1,0 +1,23 @@
+[Unit]
+Description=Broadway lottery API and durable scheduler
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=broadway
+Group=broadway
+WorkingDirectory=/opt/broadway
+EnvironmentFile=/etc/broadway.env
+ExecStart=/opt/broadway/.venv/bin/uvicorn app.api:application --factory --host 127.0.0.1 --port 8080 --no-access-log
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/broadway
+UMask=0077
+MemoryMax=600M
+
+[Install]
+WantedBy=multi-user.target

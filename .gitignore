@@ -8,3 +8,9 @@ node_modules/
 .env.*
 .dev.vars
 .dev.vars.*
+
+# Hosted Broadway runner private/runtime state
+services/broadway/.venv/
+services/broadway/.pytest_cache/
+services/broadway/*.db
+services/broadway/.local-secrets/

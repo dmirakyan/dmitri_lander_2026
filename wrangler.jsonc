@@ -4,12 +4,15 @@
   "account_id": "d68925a3a5c8f5a72bd103cc8d4c1135",
   "compatibility_date": "2026-09-28",
   "workers_dev": true,
+  "main": "tools/broadway-worker.js",
   "routes": [
     { "pattern": "dmitri.im", "custom_domain": true },
     { "pattern": "www.dmitri.im", "custom_domain": true }
   ],
   "assets": {
     "directory": "./_site",
+    "binding": "ASSETS",
+    "run_worker_first": ["/broadway/api/*"],
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none"
   }
