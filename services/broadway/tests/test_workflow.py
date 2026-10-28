@@ -62,6 +62,18 @@ async def test_off_switch(runner,store):
 async def test_inspect(runner,store):
     await runner.execute(runner.enqueue(mode='inspect'))
     assert FakeProvider.submissions==0 and not store.list('entry:')
+
+async def test_login_blocker_is_not_reported_as_a_healthy_connection(runner,store):
+    class NeedsLogin(FakeProvider):
+        provider='telecharge'
+        async def discover(self):return Inventory(offers=[],closed=[],blockers=['Hosted sign-in required'])
+    runner.adapters['telecharge']=NeedsLogin
+    run_id=runner.enqueue(mode='inspect')
+    await runner.execute(run_id)
+    assert store.get('run:'+run_id)['status']=='partial'
+    assert store.get('integration:telecharge')['status']=='blocked'
+    assert store.get('integration:telecharge')['blockers']==['Hosted sign-in required']
+
 def test_auth_csrf_and_privacy(store,monkeypatch):
     monkeypatch.setenv('ORIGIN_SECRET','origin-test');monkeypatch.setenv('BOOTSTRAP_TOKEN_HASH',key('setup-test'))
     with TestClient(create_app(store,start_scheduler=False,adapters={}),base_url='https://dmitri.im') as c:

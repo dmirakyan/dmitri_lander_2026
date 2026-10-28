@@ -111,7 +111,7 @@ class Runner:
                                 record.update(status='uncertain',reason=f'{type(exc).__name__}: submission outcome needs reconciliation')
                             self.store.put('entry:'+offer.identity,record)
                             outcome(provider=provider,show=offer.show,performance=record['performance'],status=record['status'],reason=record.get('reason',''))
-                        self.store.put('integration:'+provider,{'status':'checked','checked_at':time.time(),'run_id':run_id,'blockers':discovery.blockers})
+                        self.store.put('integration:'+provider,{'status':'blocked' if discovery.blockers else 'checked','checked_at':time.time(),'run_id':run_id,'blockers':discovery.blockers})
                 except Stopped:raise
                 except Exception as exc:
                     # Never write exceptions that may contain cookies/keys into reports.
