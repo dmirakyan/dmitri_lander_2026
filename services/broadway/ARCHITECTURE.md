@@ -33,7 +33,7 @@ The public site contains only the dashboard shell. Every private API requires a 
 
 ## Deployment
 
-Build `services/broadway/Dockerfile` as a DigitalOcean App Platform web service with one instance. Required runtime secrets: `DATABASE_URL` (PostgreSQL, TLS), `DATA_ENCRYPTION_KEY`, `ORIGIN_SECRET`, `BOOTSTRAP_TOKEN_HASH`. `PUBLIC_ORIGIN=https://dmitri.im`. Health endpoint `/healthz`. Application access logs are disabled to keep session/setup metadata out of logs.
+Build `services/broadway/Dockerfile` as a DigitalOcean App Platform web service with one 512 MB instance. Browser execution belongs in Browserbase; the local Chromium mode is for diagnostics, not the production default. Required runtime secrets: `DATABASE_URL` (PostgreSQL, TLS), `DATA_ENCRYPTION_KEY`, `ORIGIN_SECRET`, `BOOTSTRAP_TOKEN_HASH`. `PUBLIC_ORIGIN=https://dmitri.im`. Health endpoint `/healthz`. Application access logs are disabled to keep session/setup metadata out of logs.
 
 Cloudflare secrets: `BROADWAY_ORIGIN` (the App Platform HTTPS origin) and `BROADWAY_ORIGIN_SECRET` (same as `ORIGIN_SECRET`). The existing static site allowlist includes only `broadway/`; backend code and secrets are excluded.
 
@@ -47,4 +47,18 @@ The first standalone Chromium probe on October 28 encountered Cloudflare verific
 
 ## Operating costs
 
-Target infrastructure: one 1 GB App Platform instance plus the smallest managed PostgreSQL cluster. Browserbase Developer is currently $20/month plus proxy overage. OpenAI and 2Captcha are usage-based. Verify the selected DigitalOcean cluster/instance price before provisioning. Browserbase's more capable Verified browser is a Scale-plan feature, not included in the Developer plan; successful access to these particular lottery providers must be measured rather than assumed.
+Target infrastructure: one 512 MB App Platform instance plus the smallest managed PostgreSQL cluster. Browserbase Developer is currently $20/month plus proxy overage. OpenAI and 2Captcha are usage-based. Verify the selected DigitalOcean cluster/instance price before provisioning. Browserbase's more capable Verified browser is a Scale-plan feature, not included in the Developer plan; successful access to these particular lottery providers must be measured rather than assumed.
+
+### Paid CAPTCHA test, October 28
+
+The actual `Captcha.solve` implementation was tested against 2Captcha's official reCAPTCHA v2 demo. One paid task returned a token; the runner applied it to the observed response field, clicked Check, and the site's verification response returned `success: true` with hostname `2captcha.com`. This proves the standalone browser's paid-token application path. It does not prove Broadway Direct Cloudflare clearance, Lucky Seat access, or an unattended production lottery entry.
+
+
+### Provisioned infrastructure
+
+- App: `dmitri-broadway-runner`, ID `1dd82303-4b80-4747-8bf1-7dfaf4fc4c11`, region NYC. 512 MB API/scheduler service ($5/month). The account-level 256 GiB App Platform quota rejected the original 1 GB service; no unrelated resources were changed.
+- PostgreSQL: `broadway-runner-db`, ID `26848013-5ddf-4c0e-bfc8-87fa573fdf0a`, 1 GB single node ($15/month). This is persistent and backed up but not a high-availability database tier. Firewall allows only this app and the setup Mac; remove the Mac rule when setup ends.
+- The hosted scheduler remains off. The existing Codex heartbeat remains active until a verified handover.
+- Migration archived 39 daily ledgers and imported 289 historical confirmed entries, plus the profile and existing lottery/CAPTCHA credentials, into encrypted database records.
+
+The deployment uses the `codex/broadway-runner` branch during validation. Secrets and recovery material live outside git. The authoritative encryption-key backup is in the original checkout's `.local-secrets/broadway-hosting.json`; loss of this key makes encrypted database backups unreadable. Never paste that file into chat, commit it, or publish it through the static build.

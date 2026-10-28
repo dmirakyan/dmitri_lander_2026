@@ -1,5 +1,5 @@
 const $ = s => document.querySelector(s);
-const names = {broadway_direct:'Broadway Direct',telecharge:'Telecharge',lucky_seat:'Lucky Seat',calendar:'Availability',email:'Batch reports',openai:'OpenAI agent'};
+const names = {broadway_direct:'Broadway Direct',telecharge:'Telecharge',lucky_seat:'Lucky Seat',calendar:'Availability',email:'Batch reports',openai:'OpenAI agent',captcha:'CAPTCHA solving',browser:'Hosted browser',scheduler:'Schedule'};
 let current, initialized=false, prefs={};
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function notice(message){$('#notice').textContent=message;$('#notice').hidden=!message;}
@@ -19,6 +19,10 @@ function render(data){
  const integrations=Object.fromEntries(data.integrations.map(x=>[x.id.split(':')[1],x]));
  const reports=data.reports;integrations.email=reports.length?{status:reports[0].status,reason:reports[0].reason}:{status:data.configured.resend_api_key?'configured':'not connected'};
  integrations.openai={status:data.configured.openai_api_key?'configured':'not connected',reason:'Extracts provider details; entry rules are enforced by code.'};
+ integrations.browser=integrations.browser||{status:data.configured.browserbase_api_key?'configured':'not connected',reason:'Persistent browser sessions, separate from your Mac.'};
+ integrations.scheduler={status:Date.now()/1000-data.scheduler.heartbeat<120?'verified':'not checked',reason:data.schedule};
+ $('#upcoming-title').textContent=`${(data.upcoming||[]).length} saved upcoming entries`;
+ $('#upcoming').innerHTML=(data.upcoming||[]).map(e=>`<div class="run"><strong>${escape(e.show)}</strong><p>${escape(e.performance)} · ${escape(e.tickets)} tickets · ${escape(e.status)}${e.legacy_source?' · imported history':''}</p></div>`).join('')||'<p class="muted">No upcoming entries saved.</p>';
  $('#flows').innerHTML=Object.entries(names).map(([id,name])=>{const i=integrations[id]||{status:'not checked'};const good=['verified','sent'].includes(i.status);const bad=['blocked','failed','uncertain'].includes(i.status);return `<article class="flow"><span class="badge ${good?'good':bad?'bad':''}">${escape(i.status)}</span><h3>${name}</h3><p>${escape(i.reason||i.blockers?.join('; ')||date(i.checked_at))}</p></article>`}).join('');
  $('#runs').innerHTML=data.runs.length?data.runs.map(r=>{const confirmed=r.outcomes.filter(o=>o.status==='confirmed').length;const blocked=r.outcomes.filter(o=>['blocked','uncertain','pending_verification'].includes(o.status)).length;return `<article class="run"><div class="run-top"><strong>${escape(date(r.created_at))}</strong><span class="badge ${r.status==='completed'?'good':''}">${escape(r.status)} · ${escape(r.mode)}</span></div><p>${confirmed} new confirmed entries · ${blocked} unresolved outcomes · ${escape(r.run_id)}</p><details><summary>View outcomes</summary><table><tbody>${r.outcomes.map(o=>`<tr><td>${escape(names[o.provider]||o.provider)}</td><td>${escape(o.show)}</td><td>${escape(o.performance)}</td><td>${escape(o.status)}</td><td>${escape(o.reason)}</td></tr>`).join('')}</tbody></table></details></article>`}).join(''):'<p class="muted">No hosted batches yet. Use “Check all connections” for a read-only run.</p>';
  for(const [key,value] of Object.entries(data.config_public||{})){const field=$(`#config-form [name="${key}"]`);if(field&&document.activeElement!==field&&value!==null){if(field.type==='checkbox')field.checked=value;else if(!field.value)field.value=value;}}

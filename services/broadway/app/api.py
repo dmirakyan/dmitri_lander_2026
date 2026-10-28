@@ -131,7 +131,11 @@ def create_app(store=None,start_scheduler=True,adapters=None):
     @app.get('/status')
     def status():
         config=store.get('config',{})
-        return {'settings':store.get('settings',{'enabled':False}), 'blockers':readiness(), 'integrations':store.list('integration:'), 'runs':store.list('run:',30), 'reports':[{k:v for k,v in r.items() if k!='text'} for r in store.list('report:',30)], 'scheduler':store.get('health:scheduler',{}),'configured':{k:bool(config.get(k)) for k in CONFIG_FIELDS},'config_public':{k:config.get(k) for k in ('browserbase_project_id','luckyseat_email','report_from','report_to','browser_mode','manual_availability_only')},'authorization':{'free_entries':True,'required_terms':True,'captcha':True,'purchases':False},'schedule':'09:05 and 10:05 America/New_York'}
+        from datetime import datetime
+        from .policy import NY
+        today=datetime.now(NY).date().isoformat()
+        upcoming=[{k:e.get(k) for k in ('provider','show','performance','tickets','status','legacy_source')} for e in store.list('entry:',2000) if e.get('performance','')[:10]>=today]
+        return {'upcoming':sorted(upcoming,key=lambda e:e['performance']),'settings':store.get('settings',{'enabled':False}), 'blockers':readiness(), 'integrations':store.list('integration:'), 'runs':store.list('run:',30), 'reports':[{k:v for k,v in r.items() if k!='text'} for r in store.list('report:',30)], 'scheduler':store.get('health:scheduler',{}),'configured':{k:bool(config.get(k)) for k in CONFIG_FIELDS},'config_public':{k:config.get(k) for k in ('browserbase_project_id','luckyseat_email','report_from','report_to','browser_mode','manual_availability_only')},'authorization':{'free_entries':True,'required_terms':True,'captcha':True,'purchases':False},'schedule':'09:05 and 10:05 America/New_York'}
 
     class Toggle(BaseModel):enabled:bool
     @app.post('/toggle')
