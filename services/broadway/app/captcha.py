@@ -19,13 +19,36 @@ class Captcha:
             raise FlowBlocked('CAPTCHA service: '+result.get('errorCode','unknown error'))
         return result
 
+    async def widgets(self, page):
+        # Explicit render widgets can expose the key only in their iframe.
+        return await page.evaluate('''() => {
+          const widgets=[...document.querySelectorAll('[data-sitekey]')].map(e=>({sitekey:e.dataset.sitekey,kind:e.className.includes('turnstile')?'turnstile':'recaptcha',action:e.dataset.action,cdata:e.dataset.cdata}));
+          for(const frame of document.querySelectorAll('iframe[src]')) {
+            const url=new URL(frame.src,location.href);
+            if(['www.google.com','www.recaptcha.net'].includes(url.hostname) && url.pathname==='/recaptcha/api2/anchor' && url.searchParams.get('k'))
+              widgets.push({sitekey:url.searchParams.get('k'),kind:'recaptcha',invisible:url.searchParams.get('size')==='invisible'});
+          }
+          return [...new Map(widgets.map(w=>[w.kind+':'+w.sitekey,w])).values()];
+        }''')
+
     async def solve(self, page, run_id, challenge_id):
-        widgets = await page.evaluate('''() => [...document.querySelectorAll('[data-sitekey]')].map(e=>({sitekey:e.dataset.sitekey,kind:e.className.includes('turnstile')?'turnstile':'recaptcha',action:e.dataset.action,cdata:e.dataset.cdata}))''')
+        widgets = await self.widgets(page)
         if not widgets:
             return {'status':'not_detected'}
         for widget in widgets:
             if await page.locator('textarea[name="g-recaptcha-response"],input[name="cf-turnstile-response"]').evaluate_all('(els)=>els.some(e=>e.value.length>20)'):
                 return {'status':'normal_widget_ready'}
+            if widget['kind']=='recaptcha' and not widget.get('invisible'):
+                # Try the normal checkbox before paying for a solver task.
+                for frame in page.frames:
+                    from urllib.parse import urlparse,parse_qs
+                    url=urlparse(frame.url)
+                    if url.hostname in ('www.google.com','www.recaptcha.net') and url.path=='/recaptcha/api2/anchor' and parse_qs(url.query).get('k')==[widget['sitekey']]:
+                        try:
+                            await frame.get_by_role('checkbox').check(timeout=3000)
+                            await page.wait_for_function('''() => [...document.querySelectorAll('textarea[name="g-recaptcha-response"]')].some(e=>e.value.length>20)''',timeout=10000)
+                            return {'status':'normal_widget_ready'}
+                        except Exception:pass
             if not self.api_key:
                 return {'status':'blocked','reason':'CAPTCHA key missing'}
             task_key = f'captcha:{run_id}:{challenge_id}:{widget["sitekey"]}'
@@ -35,6 +58,7 @@ class Captcha:
             if not saved:
                 kind = 'TurnstileTaskProxyless' if widget['kind']=='turnstile' else 'RecaptchaV2TaskProxyless'
                 task = {'type':kind,'websiteURL':page.url,'websiteKey':widget['sitekey']}
+                if widget.get('invisible'): task['isInvisible']=True
                 if widget.get('action'): task['action']=widget['action']
                 if widget.get('cdata'): task['data']=widget['cdata']
                 reservation=reserve(self.store,'captcha',0.02)

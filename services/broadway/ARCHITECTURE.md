@@ -45,7 +45,7 @@ Provision the owner-link hash in encrypted state and keep the private management
 
 Local tests cover encrypted storage, exclusive leases, duplicate schedule slots, restart deduplication, response-loss uncertainty, stopping before final submit, read-only inspection, private endpoint authorization, CSRF, and secret redaction. These are infrastructure tests, not proof of live lottery acceptance.
 
-The first standalone Chromium probe on October 28 encountered Cloudflare verification on Broadway Direct and HTTP 403 on Lucky Seat. Telecharge loaded its embedded application. Browserbase, account login persistence, exact selectors, real CAPTCHA acceptance, calendar fetch, and report delivery must be validated live before calling this unattended system complete. Lucky Seat's exact performance selector and persisted-results reconciliation are still pending that access. Current code fails closed at these unresolved steps.
+The first standalone Chromium probe on October 28 encountered Cloudflare verification on Broadway Direct and HTTP 403 on Lucky Seat. Telecharge loaded its embedded application. Browserbase, account login persistence, exact selectors, real CAPTCHA acceptance, calendar fetch, and report delivery must be validated live before calling this unattended system complete. Lucky Seat was subsequently validated through Browserbase's basic browser as described below. New-entry acceptance remains unproven.
 
 ## Operating costs
 
@@ -67,3 +67,14 @@ The actual `Captcha.solve` implementation was tested against 2Captcha's official
 - The hosted scheduler remains off. The existing Codex heartbeat remains active until provider acceptance, calendar/reporting, and a verified handover are complete.
 
 The deployment uses the `codex/broadway-runner` branch during validation. Secrets and recovery material live outside git. The authoritative encryption-key backup is in the original checkout's `.local-secrets/broadway-hosting.json`; loss of this key makes encrypted database backups unreadable. Never paste that file into chat, commit it, or publish it through the static build.
+
+
+### Lucky Seat hosted read-only validation, October 28
+
+A production-Droplet check using a basic Browserbase session logged in with the saved account, enumerated all four NYC Broadway category cards and 50 performance checkboxes, and found 27 eligible performances after exclusions and availability. All 27 matched both the encrypted ledger and exact show/date/time/quantity rows in Entries & Results. No entries were submitted. The encrypted `probe:luckyseat-readonly` record links the saved evidence. Login persistence survived separate hosted sessions.
+
+The adapter now uses the current city/category filters and show cards, observed performance IDs, the shared plus/minus ticket counter, required review terms, and exact persisted-result reconciliation. Future result years are anchored to the provider's explicit drawing date, including year boundaries. Review and final-confirm controls were checked against the provider's current delivered application source; they still need a fresh eligible live entry to prove acceptance.
+
+Explicitly rendered CAPTCHA widgets expose their key through the Google iframe even when `data-sitekey` is absent. The solver now detects this layout and attempts the normal checkbox before the paid fallback. The site's actual acceptance of a new lottery submission remains the completion criterion. [2Captcha's documentation](https://2captcha.com/2captcha-api#solving_recaptchav2_new) describes response-field and explicit-render handling. Tests cover observed DOM extraction, result mismatches and year boundaries; 13 tests pass locally.
+
+Browserbase's paid proxy/CAPTCHA session request still returns HTTP 402. Basic-session diagnostics do not establish paid-plan readiness. The hosted scheduler remains off while the Browserbase subscription, Telecharge hosted login, report sender, and fresh provider submission checks are unresolved.
