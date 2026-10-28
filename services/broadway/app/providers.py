@@ -1,3 +1,4 @@
+from .errors import FlowBlocked
 """Provider UI adapters. No purchases or arbitrary model-directed browser clicks."""
 import asyncio
 import re
@@ -22,7 +23,7 @@ class Provider:
         self.session=self.browser.session();self.page=await self.session.__aenter__();self.page.set_default_timeout(12000);return self
     async def __aexit__(self,*args):return await self.session.__aexit__(*args)
     async def goto(self,url):
-        if not allowed_url(self.provider,url):raise RuntimeError('Provider URL is outside the allowed domain')
+        if not allowed_url(self.provider,url):raise FlowBlocked('Provider URL is outside the allowed domain')
         await self.page.goto(url,wait_until='domcontentloaded',timeout=45000)
         await self.page.wait_for_timeout(1500)
     async def accessible(self):
@@ -44,7 +45,7 @@ class Provider:
     async def reconcile(self,existing):return None
     async def prepared_proof(self,offer,root=None):
         text=await (root or self.page).locator('body').inner_text()
-        if offer.show.casefold() not in text.casefold():raise RuntimeError('Show does not match the selected page')
+        if offer.show.casefold() not in text.casefold():raise FlowBlocked('Show does not match the selected page')
         await self.browser.evidence(self.page,self.run_id,'prepared-'+offer.identity)
 
 class BroadwayDirect(Provider):
@@ -67,11 +68,11 @@ class BroadwayDirect(Provider):
         for label,value in [('First Name',names[0]),('Last Name',names[-1]),('Email',profile['email']),('Zip',profile['zip_code'])]:
             field=self.page.get_by_label(re.compile(label,re.I))
             if await field.count()==1:await field.fill(value)
-            else:raise RuntimeError('Required profile field is not uniquely identifiable')
+            else:raise FlowBlocked('Required profile field is not uniquely identifiable')
         dob=datetime.fromisoformat(profile['date_of_birth'])
         for label,value in [('Month of Birth',str(dob.month)),('Day of Birth',str(dob.day)),('Year of Birth',str(dob.year)),('Country of Residence','USA'),('Quantity of Tickets Requested',str(profile['ticket_count']))]:
             field=self.page.get_by_label(label,exact=False)
-            if await field.count()!=1:raise RuntimeError('Required selection field is not uniquely identifiable')
+            if await field.count()!=1:raise FlowBlocked('Required selection field is not uniquely identifiable')
             try:await field.select_option(value=value)
             except Exception:await field.select_option(label=value)
     async def prepare(self,offer):
@@ -82,20 +83,20 @@ class BroadwayDirect(Provider):
             await self.page.get_by_role('button',name=re.compile('Enter.*Lottery',re.I)).click()
         await self.fill_profile()
         terms=self.page.get_by_role('checkbox',name=re.compile('terms|official rules|agree',re.I))
-        if await terms.count()!=1:raise RuntimeError('Required terms checkbox is not uniquely identifiable')
+        if await terms.count()!=1:raise FlowBlocked('Required terms checkbox is not uniquely identifiable')
         await terms.check()
         # A form for the wrong performance must never pass just because the show matches.
         form=self.page.locator('form').filter(has=self.page.get_by_role('button',name='Enter',exact=True))
-        if await form.count()!=1:raise RuntimeError('Selected lottery form is ambiguous')
+        if await form.count()!=1:raise FlowBlocked('Selected lottery form is ambiguous')
         form_text=await form.inner_text()
-        if offer.evidence not in form_text:raise RuntimeError('Exact performance evidence is not present in the final lottery form')
+        if offer.evidence not in form_text:raise FlowBlocked('Exact performance evidence is not present in the final lottery form')
         await self.prepared_proof(offer)
         result=await self.captcha.solve(self.page,self.run_id,offer.identity)
-        if result['status']=='blocked':raise RuntimeError(result['reason'])
+        if result['status']=='blocked':raise FlowBlocked(result['reason'])
     async def submit_and_verify(self,offer,active):
         active()
         submit=self.page.get_by_role('button',name='Enter',exact=True)
-        if await submit.count()!=1:raise RuntimeError('Final free-entry control is not uniquely identifiable')
+        if await submit.count()!=1:raise FlowBlocked('Final free-entry control is not uniquely identifiable')
         await submit.click()
         await self.page.wait_for_timeout(2500)
         text=await self.page.locator('body').inner_text()
@@ -149,22 +150,22 @@ class Telecharge(Provider):
     async def card(self,offer):
         root=await self.frame()
         card=root.locator('.lottery_show').filter(has_text=offer.show)
-        if await card.count()!=1:raise RuntimeError('Performance card is ambiguous')
+        if await card.count()!=1:raise FlowBlocked('Performance card is ambiguous')
         # Matching the exact source quotation guards model extraction against stale/mismatched cards.
         text=await card.inner_text()
-        if offer.evidence not in text:raise RuntimeError('Provider card no longer matches the discovered offer')
+        if offer.evidence not in text:raise FlowBlocked('Provider card no longer matches the discovered offer')
         return card
     async def prepare(self,offer):
         card=await self.card(offer)
-        if 'Lottery Entered' in await card.inner_text():raise RuntimeError('Already entered at provider')
+        if 'Lottery Entered' in await card.inner_text():raise FlowBlocked('Already entered at provider')
         quantity=card.locator('select')
         if await quantity.count()==1:await quantity.select_option(str(offer.tickets))
-        elif not re.search(r'\b2\b',await card.inner_text()):raise RuntimeError('Two-ticket selection could not be established')
+        elif not re.search(r'\b2\b',await card.inner_text()):raise FlowBlocked('Two-ticket selection could not be established')
         await self.prepared_proof(offer,await self.frame())
     async def submit_and_verify(self,offer,active):
         card=await self.card(offer);active()
         button=card.get_by_text('Enter',exact=True)
-        if await button.count()!=1:raise RuntimeError('Free entry control is ambiguous')
+        if await button.count()!=1:raise FlowBlocked('Free entry control is ambiguous')
         await button.click()
         await card.get_by_text('Lottery Entered!',exact=False).wait_for(timeout=20000)
         immediate=await self.browser.evidence(self.page,self.run_id,'outcome-'+offer.identity)
@@ -208,27 +209,27 @@ class LuckySeat(Provider):
     async def prepare(self,offer):
         await self.goto(offer.url)
         # Require an observed per-performance locator, never a guessed generic plus button.
-        if not offer.locator:raise RuntimeError('Lucky Seat performance selector needs live validation')
+        if not offer.locator:raise FlowBlocked('Lucky Seat performance selector needs live validation')
         row=self.page.locator(offer.locator)
-        if await row.count()!=1 or offer.evidence not in await row.inner_text():raise RuntimeError('Lucky Seat performance row is ambiguous')
+        if await row.count()!=1 or offer.evidence not in await row.inner_text():raise FlowBlocked('Lucky Seat performance row is ambiguous')
         self.row=row
         plus=row.get_by_role('button',name=re.compile(r'^\+$|increase|add',re.I))
-        if await plus.count()!=1:raise RuntimeError('Lucky Seat plus control is ambiguous')
+        if await plus.count()!=1:raise FlowBlocked('Lucky Seat plus control is ambiguous')
         for _ in range(offer.tickets):await plus.click()
         review=self.page.get_by_role('button',name=re.compile('Review',re.I))
-        if await review.count()!=1:raise RuntimeError('Review control missing')
+        if await review.count()!=1:raise FlowBlocked('Review control missing')
         await review.click()
         dialog=self.page.get_by_role('dialog')
         text=await dialog.inner_text()
-        if offer.show.casefold() not in text.casefold() or offer.evidence not in text or not re.search(rf'{offer.tickets}\s*tickets',text,re.I):raise RuntimeError('Review does not confirm two tickets for this show')
+        if offer.show.casefold() not in text.casefold() or offer.evidence not in text or not re.search(rf'{offer.tickets}\s*tickets',text,re.I):raise FlowBlocked('Review does not confirm two tickets for this show')
         terms=dialog.get_by_role('checkbox',name=re.compile('terms|agree|rules',re.I))
         if await terms.count()==1:await terms.check()
         result=await self.captcha.solve(self.page,self.run_id,offer.identity)
-        if result['status']=='blocked':raise RuntimeError(result['reason'])
+        if result['status']=='blocked':raise FlowBlocked(result['reason'])
         self.dialog=dialog
     async def submit_and_verify(self,offer,active):
         active();button=self.dialog.get_by_role('button',name=re.compile('^Confirm$|^Enter Lottery$|^Submit$',re.I))
-        if await button.count()!=1:raise RuntimeError('Final free entry control is ambiguous')
+        if await button.count()!=1:raise FlowBlocked('Final free entry control is ambiguous')
         await button.click();await self.page.get_by_text(re.compile('received your entry',re.I)).wait_for(timeout=20000)
         # Keep pending until the account results can be matched to exact date and time.
         return {'status':'pending_verification','evidence':await self.browser.evidence(self.page,self.run_id,'outcome-'+offer.identity)}

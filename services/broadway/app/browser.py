@@ -1,3 +1,4 @@
+from .errors import FlowBlocked
 import asyncio
 import base64
 import httpx
@@ -28,16 +29,20 @@ class Browser:
             remote=self.config.get('browser_mode')=='browserbase'
             if remote:
                 if not self.config.get('browserbase_api_key') or not self.config.get('browserbase_project_id'):
-                    raise RuntimeError('Browserbase credentials are not configured')
+                    raise FlowBlocked('Browserbase credentials are not configured')
                 async with httpx.AsyncClient(timeout=40) as client:
                     headers={'X-BB-API-Key':self.config['browserbase_api_key']}
                     context_id=self.store.get('bb-context:'+self.provider,{}).get('context_id')
                     if not context_id:
                         result=await client.post('https://api.browserbase.com/v1/contexts',headers=headers,json={'projectId':self.config['browserbase_project_id']})
-                        result.raise_for_status();context_id=result.json()['id']
+                        
+                        if result.status_code>=400:raise FlowBlocked(f'Browserbase context API returned HTTP {result.status_code}; check key, project, and plan')
+                        context_id=result.json()['id']
                         self.store.put('bb-context:'+self.provider,{'context_id':context_id})
                     result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json={'projectId':self.config['browserbase_project_id'],'proxies':True,'timeout':1800,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
-                    result.raise_for_status();session=result.json();remote_id=session['id']
+                    
+                    if result.status_code>=400:raise FlowBlocked(f'Browserbase session API returned HTTP {result.status_code}; check key, project, and plan')
+                    session=result.json();remote_id=session['id']
                 browser=await p.chromium.connect_over_cdp(session['connectUrl'])
             else:
                 browser=await p.chromium.launch(headless=True,args=['--disable-dev-shm-usage'])

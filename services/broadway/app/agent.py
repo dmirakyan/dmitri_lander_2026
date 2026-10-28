@@ -1,3 +1,4 @@
+from .errors import FlowBlocked
 """The model extracts and explains. Only deterministic provider adapters can submit."""
 import json
 from agents import Agent, Runner, RunConfig, set_tracing_disabled
@@ -14,7 +15,7 @@ class Inventory(BaseModel):
     blockers:list[str]
 
 async def inventory(provider,text,config):
-    if not config.get('openai_api_key'):raise RuntimeError('OpenAI API key is not connected')
+    if not config.get('openai_api_key'):raise FlowBlocked('OpenAI API key is not connected')
     client=AsyncOpenAI(api_key=config['openai_api_key'],timeout=45,max_retries=2)
     agent=Agent(name='Broadway inventory reader',
         model=OpenAIResponsesModel(model=config.get('model','gpt-5-mini'),openai_client=client),

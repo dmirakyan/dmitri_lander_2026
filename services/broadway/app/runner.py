@@ -2,6 +2,7 @@ import asyncio
 import time
 import uuid
 from datetime import datetime
+from .errors import FlowBlocked
 from .policy import NY,PROVIDERS,eligibility
 from .integrations import calendar_blackouts,send_report
 
@@ -85,7 +86,7 @@ class Runner:
                             try:
                                 await adapter.prepare(offer)
                             except Exception as exc:
-                                outcome(provider=provider,show=offer.show,performance=record['performance'],status='blocked',reason=f'{type(exc).__name__}: form preparation failed before submission')
+                                outcome(provider=provider,show=offer.show,performance=record['performance'],status='blocked',reason=str(exc) if isinstance(exc,FlowBlocked) else f'{type(exc).__name__}: form preparation failed before submission')
                                 continue
                             self.active(run_id)
                             if heartbeat.done():heartbeat.result()
@@ -102,7 +103,7 @@ class Runner:
                 except Stopped:raise
                 except Exception as exc:
                     # Never write exceptions that may contain cookies/keys into reports.
-                    reason=f'{type(exc).__name__}: provider flow did not complete; inspect private evidence'
+                    reason=str(exc) if isinstance(exc,FlowBlocked) else f'{type(exc).__name__}: provider flow did not complete; inspect private evidence'
                     outcome(provider=provider,status='blocked',reason=reason)
                     self.store.put('integration:'+provider,{'status':'blocked','reason':reason,'checked_at':time.time()})
             run['status']='partial' if any(x['status'] in ('blocked','uncertain','pending_verification') for x in run['outcomes']) else 'completed'

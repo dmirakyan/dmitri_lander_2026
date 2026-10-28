@@ -1,3 +1,4 @@
+from .errors import FlowBlocked
 """Normal widget first, then the user's existing paid 2Captcha integration.
 A delivered token is never counted as a confirmed entry or site-accepted solve.
 """
@@ -14,7 +15,7 @@ class Captcha:
         async with httpx.AsyncClient(timeout=35) as client:
             result = (await client.post('https://api.2captcha.com/'+endpoint, json={'clientKey':self.api_key, **body})).json()
         if result.get('errorId'):
-            raise RuntimeError('CAPTCHA service: '+result.get('errorCode','unknown error'))
+            raise FlowBlocked('CAPTCHA service: '+result.get('errorCode','unknown error'))
         return result
 
     async def solve(self, page, run_id, challenge_id):
@@ -45,7 +46,7 @@ class Captcha:
                 if result['status']=='ready':
                     solution = result['solution']
                     token = solution.get('token') or solution.get('gRecaptchaResponse')
-                    if not token: raise RuntimeError('CAPTCHA solver returned no token')
+                    if not token: raise FlowBlocked('CAPTCHA solver returned no token')
                     await page.evaluate('''({token,kind}) => {
                       const selector=kind==='turnstile'?'input[name="cf-turnstile-response"]':'textarea[name="g-recaptcha-response"]';
                       document.querySelectorAll(selector).forEach(e=>{e.value=token;e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}));});
