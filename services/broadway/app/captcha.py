@@ -5,6 +5,7 @@ A delivered token is never counted as a confirmed entry or site-accepted solve.
 import asyncio
 import time
 import httpx
+from .budget import reserve, settle
 
 
 class Captcha:
@@ -36,14 +37,19 @@ class Captcha:
                 task = {'type':kind,'websiteURL':page.url,'websiteKey':widget['sitekey']}
                 if widget.get('action'): task['action']=widget['action']
                 if widget.get('cdata'): task['data']=widget['cdata']
-                self.store.put(task_key, {'status':'creating'})
+                reservation=reserve(self.store,'captcha',0.02)
+                self.store.put(task_key, {'status':'creating','reservation':reservation})
                 created = await self.request('createTask',task=task)
-                saved = {'status':'polling','taskId':created['taskId']}
+                saved = {'status':'polling','taskId':created['taskId'],'reservation':reservation}
                 self.store.put(task_key,saved)
             for _ in range(24):
                 await asyncio.sleep(5)
                 result = await self.request('getTaskResult',taskId=saved['taskId'])
                 if result['status']=='ready':
+                    if saved.get('reservation'):
+                        settle(self.store,saved['reservation'],float(result.get('cost',0.02)))
+                        saved.pop('reservation',None)
+                        self.store.put(task_key,saved)
                     solution = result['solution']
                     token = solution.get('token') or solution.get('gRecaptchaResponse')
                     if not token: raise FlowBlocked('CAPTCHA solver returned no token')

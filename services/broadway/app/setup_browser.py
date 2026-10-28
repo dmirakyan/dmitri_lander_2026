@@ -2,11 +2,13 @@ import secrets
 import httpx
 from playwright.async_api import async_playwright
 from .providers import START
+from .budget import browser_allowance
 
 async def open_login(store,provider):
     if provider not in START:raise ValueError('Unknown provider')
     config=store.get('config',{})
     if not all(config.get(k) for k in ('browserbase_api_key','browserbase_project_id')):raise ValueError('Connect Browserbase first')
+    await browser_allowance(store,config)
     owner='login-'+secrets.token_hex(10)
     if not store.lease('runner',owner,1200):raise ValueError('A batch or login session is already running')
     try:

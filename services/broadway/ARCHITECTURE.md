@@ -6,7 +6,7 @@ The landing page remains on Cloudflare. An authenticated API on DigitalOcean own
 flowchart LR
   U[Private dmitri.im/broadway dashboard] --> C[Cloudflare Worker]
   C -->|HTTPS + origin secret| A[DigitalOcean FastAPI service]
-  A <--> D[(Managed PostgreSQL\nencrypted state)]
+  A <--> D[(SQLite on persistent disk\nencrypted state)]
   A --> Q[Durable schedule + execution lease]
   Q --> G[OpenAI Agents SDK\nstructured inventory]
   Q --> P[Deterministic provider adapters]
@@ -29,13 +29,15 @@ flowchart LR
 
 ## Privacy and access
 
-The public site contains only the dashboard shell. Every private API requires a secure HttpOnly SameSite cookie, an origin check for mutations, and a Worker-to-origin secret. The database encrypts profile, keys, sessions, private screenshots, and reports with Fernet; its encryption key is a DigitalOcean runtime secret. Browserbase session recording/logging is disabled. Provider screenshots remain private. The database is a dedicated managed cluster with backups; retain the encryption key separately to make backups recoverable. No key or DOB is returned by the status endpoint.
+The public site contains only the dashboard shell. Every private API requires a secure HttpOnly SameSite cookie, an origin check for mutations, and a Worker-to-origin secret. The database encrypts profile, keys, sessions, private screenshots, and reports with Fernet; its encryption key is in a root-only systemd environment file. Browserbase session recording/logging is disabled. Provider screenshots remain private. The database lives on the dedicated Droplet disk. Consistent SQLite snapshots run daily; weekly DigitalOcean backups retain four weeks. Retain the encryption key separately to make backups recoverable. No key or DOB is returned by the status endpoint.
 
 ## Deployment
 
-Build `services/broadway/Dockerfile` as a DigitalOcean App Platform web service with one 512 MB instance. Browser execution belongs in Browserbase; the local Chromium mode is for diagnostics, not the production default. Required runtime secrets: `DATABASE_URL` (PostgreSQL, TLS), `DATA_ENCRYPTION_KEY`, `ORIGIN_SECRET`, `BOOTSTRAP_TOKEN_HASH`. `PUBLIC_ORIGIN=https://dmitri.im`. Health endpoint `/healthz`. Application access logs are disabled to keep session/setup metadata out of logs.
+The production backend runs on a dedicated $6/month 1 GB DigitalOcean Droplet (Ubuntu 24.04), with SQLite on `/var/lib/broadway`. `deploy/broadway.service` runs the API under an unprivileged account, binds only localhost, restarts after failures, and restricts writable paths. Caddy provides a verified public HTTPS origin; Cloudflare continues to serve `dmitri.im/broadway`. `deploy/broadway-backup.timer` creates consistent daily encrypted SQLite snapshots. Weekly whole-server backups are enabled ($1.20/month).
 
-Cloudflare secrets: `BROADWAY_ORIGIN` (the App Platform HTTPS origin) and `BROADWAY_ORIGIN_SECRET` (same as `ORIGIN_SECRET`). The existing static site allowlist includes only `broadway/`; backend code and secrets are excluded.
+Runtime secrets live in root-only `/etc/broadway.env`: `DATABASE_URL`, `DATA_ENCRYPTION_KEY`, `ORIGIN_SECRET`, `BOOTSTRAP_TOKEN_HASH`. The cloud firewall permits public HTTPS/HTTP and SSH only from the setup Mac. Only SSH keys are used. Browser execution is remote in Browserbase; no local Chromium is installed on production.
+
+Cloudflare secrets: `BROADWAY_ORIGIN` (the verified Caddy HTTPS origin) and `BROADWAY_ORIGIN_SECRET` (same as `ORIGIN_SECRET`). The existing static site allowlist includes only `broadway/`; backend code and secrets are excluded.
 
 Create the first password through the one-time bootstrap endpoint. Connect OpenAI, Browserbase, calendar feeds, and a verified Resend sender in the private dashboard. Import the existing profile and ledger before handing over the scheduler. Telecharge Facebook authentication may require a one-time interactive login in the hosted browser, followed by persisted context reuse.
 
@@ -47,7 +49,9 @@ The first standalone Chromium probe on October 28 encountered Cloudflare verific
 
 ## Operating costs
 
-Target infrastructure: one 512 MB App Platform instance plus the smallest managed PostgreSQL cluster. Browserbase Developer is currently $20/month plus proxy overage. OpenAI and 2Captcha are usage-based. Verify the selected DigitalOcean cluster/instance price before provisioning. Browserbase's more capable Verified browser is a Scale-plan feature, not included in the Developer plan; successful access to these particular lottery providers must be measured rather than assumed.
+The user approved a $30/month total target. Fixed monthly costs are $6 for the Droplet, $1.20 for weekly backups, and $20 for Browserbase Developer: $27.20 before taxes. Application limits reserve at most $1.50/month for model calls and $0.50/month for paid CAPTCHA requests, leaving $0.80 headroom. Model calls have bounded input/output, no SDK retries, and durable conservative reservations: uncertain charges retain their reservation.
+
+Browserbase has automatic overage billing, not a vendor hard cap. Before each browser session the runner checks project usage; it stops at 90 browser hours or 850 MB of proxy traffic, below the plan's 100 hours/1 GB. Running sessions are monitored; unnecessary images, fonts, and video are blocked while challenge images remain allowed. A single session is stopped around 8 MB. Metering delay, in-flight traffic, user-operated login sessions, other project usage, taxes, and vendor price changes mean these controls cannot promise an exact invoice ceiling. Browserbase Verified is Scale-only; access to these lottery sites must be validated on Developer rather than inferred from vendor claims.
 
 ### Paid CAPTCHA test, October 28
 
@@ -56,9 +60,10 @@ The actual `Captcha.solve` implementation was tested against 2Captcha's official
 
 ### Provisioned infrastructure
 
-- App: `dmitri-broadway-runner`, ID `1dd82303-4b80-4747-8bf1-7dfaf4fc4c11`, region NYC. 512 MB API/scheduler service ($5/month). The account-level 256 GiB App Platform quota rejected the original 1 GB service; no unrelated resources were changed.
-- PostgreSQL: `broadway-runner-db`, ID `26848013-5ddf-4c0e-bfc8-87fa573fdf0a`, 1 GB single node ($15/month). This is persistent and backed up but not a high-availability database tier. Firewall allows only this app and the setup Mac; remove the Mac rule when setup ends.
-- The hosted scheduler remains off. The existing Codex heartbeat remains active until a verified handover.
-- Migration archived 39 daily ledgers and imported 289 historical confirmed entries, plus the profile and existing lottery/CAPTCHA credentials, into encrypted database records.
+- Dedicated Droplet `dmitri-broadway-runner`, ID `613617146`, NYC1, 1 GB. HTTPS origin `https://159-223-140-215.sslip.io`.
+- Cloud firewall `8e0dcd74-d1fa-4a33-927d-95c8f73a7fed`; weekly Sunday backups, 28-day retention, plus daily SQLite snapshots.
+- Earlier $5 App Platform service and $15 managed PostgreSQL cluster were removed after verified migration and encrypted local backup, to avoid duplicate recurring charges.
+- Migration preserved 39 archived ledgers and 289 confirmed entries. The live API showed 46 upcoming entries after migration. Both recovered OpenAI and personal Browserbase credentials are connected; an actual Agents SDK structured response was verified.
+- The hosted scheduler remains off. The existing Codex heartbeat remains active until provider acceptance, calendar/reporting, and a verified handover are complete.
 
 The deployment uses the `codex/broadway-runner` branch during validation. Secrets and recovery material live outside git. The authoritative encryption-key backup is in the original checkout's `.local-secrets/broadway-hosting.json`; loss of this key makes encrypted database backups unreadable. Never paste that file into chat, commit it, or publish it through the static build.

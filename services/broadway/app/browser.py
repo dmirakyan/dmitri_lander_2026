@@ -2,9 +2,10 @@ from .errors import FlowBlocked
 import asyncio
 import base64
 import httpx
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, suppress
 from urllib.parse import urlparse
 from playwright.async_api import async_playwright
+from .budget import browser_allowance
 
 HOSTS = {
  'broadway_direct':{'lottery.broadwaydirect.com'},
@@ -30,6 +31,7 @@ class Browser:
             if remote:
                 if not self.config.get('browserbase_api_key') or not self.config.get('browserbase_project_id'):
                     raise FlowBlocked('Browserbase credentials are not configured')
+                await browser_allowance(self.store,self.config)
                 async with httpx.AsyncClient(timeout=40) as client:
                     headers={'X-BB-API-Key':self.config['browserbase_api_key']}
                     context_id=self.store.get('bb-context:'+self.provider,{}).get('context_id')
@@ -39,7 +41,7 @@ class Browser:
                         if result.status_code>=400:raise FlowBlocked(f'Browserbase context API returned HTTP {result.status_code}; check key, project, and plan')
                         context_id=result.json()['id']
                         self.store.put('bb-context:'+self.provider,{'context_id':context_id})
-                    result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json={'projectId':self.config['browserbase_project_id'],'proxies':True,'timeout':1800,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
+                    result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json={'projectId':self.config['browserbase_project_id'],'proxies':True,'timeout':900,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
 
                     if result.status_code>=400:raise FlowBlocked(f'Browserbase session API returned HTTP {result.status_code}; check key, project, and plan')
                     session=result.json();remote_id=session['id']
@@ -50,9 +52,36 @@ class Browser:
             context=browser.contexts[0] if remote else await browser.new_context(storage_state=state.get('storage') if state else None, viewport={'width':1440,'height':1000},locale='en-US',timezone_id='America/New_York')
             if state and state.get('session'):
                 await context.add_init_script(script='for(const [k,v] of Object.entries('+__import__('json').dumps(state['session'])+')){if(location.origin===k){for(const [sk,sv] of Object.entries(v))sessionStorage.setItem(sk,sv)}}')
+            async def trim_assets(route):
+                request=route.request
+                host=urlparse(request.url).hostname or ''
+                challenge=any(domain in host for domain in ('recaptcha','hcaptcha','google.com','gstatic.com','cloudflare.com'))
+                if request.resource_type in ('media','font') or (request.resource_type=='image' and not challenge):
+                    await route.abort()
+                else:
+                    await route.continue_()
+            if remote:
+                await context.route('**/*',trim_assets)
+            async def monitor():
+                while True:
+                    await asyncio.sleep(5)
+                    try:
+                        await browser_allowance(self.store,self.config)
+                        async with httpx.AsyncClient(timeout=10) as client:
+                            usage=await client.get('https://api.browserbase.com/v1/sessions/'+remote_id,headers={'X-BB-API-Key':self.config['browserbase_api_key']})
+                            usage.raise_for_status()
+                            if usage.json().get('proxyBytes',0)>=8_000_000:
+                                raise FlowBlocked('Session proxy limit reached; stopped to protect monthly budget')
+                    except Exception:
+                        await browser.close()
+                        return
+            guard=asyncio.create_task(monitor()) if remote else None
             page=await context.new_page()
             try:yield page
             finally:
+                if guard:
+                    guard.cancel()
+                    with suppress(asyncio.CancelledError): await guard
                 try:
                     session={}
                     for pg in context.pages:

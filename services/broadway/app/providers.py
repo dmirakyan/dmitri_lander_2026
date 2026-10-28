@@ -62,7 +62,7 @@ class BroadwayDirect(Provider):
             snapshots.append(await self.snapshot())
         await self.browser.evidence(self.page,self.run_id,'inventory')
         if not snapshots:return Inventory(offers=[],closed=[],blockers=['No official show cards found; provider layout needs review'])
-        return await inventory(self.provider,snapshots,self.config)
+        return await inventory(self.provider,snapshots,self.config,self.store)
     async def fill_profile(self):
         profile=self.profile;names=profile['full_name'].split(' ',1)
         for label,value in [('First Name',names[0]),('Last Name',names[-1]),('Email',profile['email']),('Zip',profile['zip_code'])]:
@@ -146,7 +146,7 @@ class Telecharge(Provider):
         await root.locator('.lottery_show').first.wait_for()
         cards=await root.locator('.lottery_show').all_inner_texts()
         self.cards=cards
-        return await inventory(self.provider,{'url':self.page.url,'cards':cards},self.config)
+        return await inventory(self.provider,{'url':self.page.url,'cards':cards},self.config,self.store)
     async def card(self,offer):
         root=await self.frame()
         card=root.locator('.lottery_show').filter(has_text=offer.show)
@@ -205,7 +205,7 @@ class LuckySeat(Provider):
                 if '/login' in self.page.url:return Inventory(offers=[],closed=[],blockers=['Lucky Seat sign-in requires attention'])
             snapshots.append(await self.snapshot())
         if not snapshots:return Inventory(offers=[],closed=[],blockers=['No NYC show links found; city/category selection needs validation'])
-        return await inventory(self.provider,snapshots,self.config)
+        return await inventory(self.provider,snapshots,self.config,self.store)
     async def prepare(self,offer):
         await self.goto(offer.url)
         # Require an observed per-performance locator, never a guessed generic plus button.

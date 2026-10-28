@@ -17,8 +17,9 @@ function render(data){
  $('#blockers').hidden=!data.blockers.length;$('#blockers ul').innerHTML=data.blockers.map(x=>'<li>'+escape(x)+'</li>').join('');
  $('#run').disabled=!on||data.runs.some(r=>['queued','running'].includes(r.status));
  const integrations=Object.fromEntries(data.integrations.map(x=>[x.id.split(':')[1],x]));
+ const budget=data.budget;$('#budget').textContent=budget?'Monthly target: $30 · hosting, backups and Browserbase: $27.20 · model limit: $1.50 · CAPTCHA limit: $0.50. Browser usage is monitored to stop before expected overage.':'Monthly budget information is loading.';
  const reports=data.reports;integrations.email=reports.length?{status:reports[0].status,reason:reports[0].reason}:{status:data.configured.resend_api_key?'configured':'not connected'};
- integrations.openai={status:data.configured.openai_api_key?'configured':'not connected',reason:'Extracts provider details; entry rules are enforced by code.'};
+ integrations.openai=integrations.openai||{status:data.configured.openai_api_key?'configured':'not connected',reason:'Extracts provider details; entry rules are enforced by code.'};
  integrations.browser=integrations.browser||{status:data.configured.browserbase_api_key?'configured':'not connected',reason:'Persistent browser sessions, separate from your Mac.'};
  integrations.scheduler={status:Date.now()/1000-data.scheduler.heartbeat<120?'verified':'not checked',reason:data.schedule};
  $('#upcoming-title').textContent=`${(data.upcoming||[]).length} saved upcoming entries`;
