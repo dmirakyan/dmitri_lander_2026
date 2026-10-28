@@ -139,8 +139,8 @@ class Telecharge(Provider):
         root=await self.frame()
         await root.locator('body').wait_for()
         text=await root.locator('body').inner_text()
-        if 'Login with Facebook' in text or ('Log In' in text and self.profile['full_name'].split()[0] not in text):
-            return Inventory(offers=[],closed=[],blockers=['Telecharge requires a saved Facebook sign-in in the hosted browser'])
+        if 'CLICK A SOCIAL NETWORK TO GET STARTED' in text.upper() or 'Login with Facebook' in text or ('Log In' in text and self.profile['full_name'].split()[0] not in text):
+            return Inventory(offers=[],closed=[],blockers=['Telecharge requires a one-time sign-in in the hosted browser'])
         lottery=root.get_by_text('Lottery',exact=True)
         if await lottery.count()==1:await lottery.click()
         await root.locator('.lottery_show').first.wait_for()
