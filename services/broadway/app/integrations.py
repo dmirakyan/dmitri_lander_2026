@@ -1,6 +1,7 @@
 import asyncio
 import ipaddress
 import socket
+import time
 from datetime import datetime, timedelta
 from urllib.parse import urlparse
 import httpx
@@ -52,18 +53,22 @@ async def send_report(store,run,config):
     report_id='report:'+run['run_id']
     saved=store.get(report_id,{})
     if saved.get('status')=='sent':return
+    first_attempt=saved.get('first_attempt_at')
+    if saved.get('status') in ('uncertain','sending') and first_attempt and time.time()-first_attempt>23*3600:
+        store.put(report_id,{**saved,'status':'needs_reconciliation','reason':'Email response uncertain beyond idempotency window; check delivery before resend'});return
     lines=[f'Broadway batch {run["run_id"]}',f'Status: {run["status"]}', '']
     for item in run.get('outcomes',[]):
         lines.append(f'{item.get("provider","")} | {item.get("show","")} | {item.get("performance","")} | {item["status"]} | {item.get("reason","")}')
     report='\n'.join(lines)
-    store.put(report_id,{'status':'pending','text':report,'run_id':run['run_id']})
+    store.put(report_id,{'status':'pending','text':report,'run_id':run['run_id'],'first_attempt_at':first_attempt})
     if not config.get('resend_api_key') or not config.get('report_from'):
-        store.put(report_id,{'status':'blocked','reason':'Email sender is not connected','text':report,'run_id':run['run_id']});return
-    store.put(report_id,{'status':'sending','text':report,'run_id':run['run_id']})
+        store.put(report_id,{'status':'blocked','reason':'Email sender is not connected','text':report,'run_id':run['run_id'],'first_attempt_at':first_attempt});return
+    first_attempt=first_attempt or time.time()
+    store.put(report_id,{'status':'sending','text':report,'run_id':run['run_id'],'first_attempt_at':first_attempt})
     try:
         async with httpx.AsyncClient(timeout=30) as client:
             r=await client.post('https://api.resend.com/emails',headers={'Authorization':'Bearer '+config['resend_api_key'],'Idempotency-Key':run['run_id']},json={'from':config['report_from'],'to':[config['report_to']], 'subject':f'Broadway lottery batch — {run["run_id"]}','text':report})
             r.raise_for_status();message_id=r.json()['id']
         store.put(report_id,{'status':'sent','text':report,'run_id':run['run_id'],'message_id':message_id})
     except Exception:
-        store.put(report_id,{'status':'uncertain','reason':'Email delivery response failed; retry uses the same idempotency key','text':report,'run_id':run['run_id']})
+        store.put(report_id,{'status':'uncertain','reason':'Email delivery response failed; retry uses the same idempotency key','text':report,'run_id':run['run_id'],'first_attempt_at':first_attempt})

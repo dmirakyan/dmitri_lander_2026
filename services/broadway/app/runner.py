@@ -130,6 +130,12 @@ class Runner:
                 slot=now.replace(hour=hour,minute=5,second=0,microsecond=0)
                 if 0 <= (now-slot).total_seconds() < 1800:
                     self.enqueue('schedule',slot=slot.strftime('scheduled-%Y%m%d-%H%M'))
+        config=self.store.get('config',{})
+        if config.get('resend_api_key') and config.get('report_from'):
+            for report in self.store.list('report:',100):
+                if report['status'] in ('pending','blocked','sending','uncertain'):
+                    run=self.store.get('run:'+report['run_id'])
+                    if run and run['status'] not in ('queued','running'):await send_report(self.store,run,config)
         pending=[r for r in self.store.list('run:',100) if r['status'] in ('queued','running')]
         for run in reversed(pending):await self.execute(run['run_id'])
 
