@@ -1,10 +1,10 @@
 # Broadway runner
 
-The landing page remains on Cloudflare. An authenticated API on DigitalOcean owns the schedule, preferences, browser sessions, and entry journal. OpenAI Agents SDK extracts structured lottery inventory from observed provider pages; deterministic adapters enforce authorization and execute the free-entry flow. Browserbase supplies persistent remote browser contexts, proxies, and supported CAPTCHA handling. The existing 2Captcha account is available for supported form challenges. Resend delivers a persisted report after every batch.
+The landing page remains on Cloudflare. An API on DigitalOcean owns the schedule, preferences, browser sessions, and entry journal. OpenAI Agents SDK extracts structured lottery inventory from observed provider pages; deterministic adapters enforce authorization and execute the free-entry flow. Browserbase supplies persistent remote browser contexts, proxies, and supported CAPTCHA handling. The existing 2Captcha account is available for supported form challenges. Resend delivers a persisted report after every batch.
 
 ```mermaid
 flowchart LR
-  U[Private dmitri.im/broadway dashboard] --> C[Cloudflare Worker]
+  U[Open dmitri.im/broadway dashboard] --> C[Cloudflare Worker]
   C -->|HTTPS + origin secret| A[DigitalOcean FastAPI service]
   A <--> D[(SQLite on persistent disk\nencrypted state)]
   A --> Q[Durable schedule + execution lease]
@@ -29,7 +29,7 @@ flowchart LR
 
 ## Privacy and access
 
-The public site contains only the dashboard shell. Every private API requires a secure HttpOnly SameSite cookie, an origin check for mutations, and a Worker-to-origin secret. The database encrypts profile, keys, sessions, private screenshots, and reports with Fernet; its encryption key is in a root-only systemd environment file. Browserbase session recording/logging is disabled. Provider screenshots remain private. The database lives on the dedicated Droplet disk. Consistent SQLite snapshots run daily; weekly DigitalOcean backups retain four weeks. Retain the encryption key separately to make backups recoverable. No key or DOB is returned by the status endpoint.
+The website opens without a password. `/public/status` exposes an explicit allowlist of flow status, performance entries, and batch outcomes; it excludes email addresses, private calendar dates/feeds, configuration values, evidence, report bodies, and exception text. Management APIs still require a secure HttpOnly SameSite cookie, an origin check for mutations, and a Worker-to-origin secret. The owner can use a private management link whose fragment is removed before its token is exchanged for a one-year cookie. Only the token hash is stored on the server. The public site never contains this token. Existing server password authentication remains available for deployment tooling, but there is no password form or gate on the website. The database encrypts profile, keys, sessions, private screenshots, and reports with Fernet; its encryption key is in a root-only systemd environment file. Browserbase session recording/logging is disabled. Provider screenshots remain private. The database lives on the dedicated Droplet disk. Consistent SQLite snapshots run daily; weekly DigitalOcean backups retain four weeks. Retain the encryption key separately to make backups recoverable. No key or DOB is returned by the status endpoint.
 
 ## Deployment
 
@@ -39,7 +39,7 @@ Runtime secrets live in root-only `/etc/broadway.env`: `DATABASE_URL`, `DATA_ENC
 
 Cloudflare secrets: `BROADWAY_ORIGIN` (the verified Caddy HTTPS origin) and `BROADWAY_ORIGIN_SECRET` (same as `ORIGIN_SECRET`). The existing static site allowlist includes only `broadway/`; backend code and secrets are excluded.
 
-Create the first password through the one-time bootstrap endpoint. Connect OpenAI, Browserbase, calendar feeds, and a verified Resend sender in the private dashboard. Import the existing profile and ledger before handing over the scheduler. Telecharge Facebook authentication may require a one-time interactive login in the hosted browser, followed by persisted context reuse.
+Provision the owner-link hash in encrypted state and keep the private management shortcut outside git. Connect OpenAI, Browserbase, calendar feeds, and a verified Resend sender through the owner controls. Import the existing profile and ledger before handing over the scheduler. Telecharge Facebook authentication may require a one-time interactive login in the hosted browser, followed by persisted context reuse.
 
 ## Verification status
 

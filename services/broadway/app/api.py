@@ -49,7 +49,7 @@ def create_app(store=None,start_scheduler=True,adapters=None):
                 return JSONResponse({'error':'Expected JSON'},status_code=415)
             if len(await request.body())>1_000_000:
                 return JSONResponse({'error':'Request too large'},status_code=413)
-        if request.url.path not in ('/auth/login','/auth/bootstrap','/auth/status'):
+        if request.url.path not in ('/auth/login','/auth/bootstrap','/auth/status','/auth/owner','/public/status'):
             token=request.cookies.get(COOKIE,'')
             session=store.get('session:'+key(token)) if token else None
             if not session or session['expires']<time.time():
@@ -60,11 +60,11 @@ def create_app(store=None,start_scheduler=True,adapters=None):
         response.headers['X-Robots-Tag']='noindex, nofollow, noarchive'
         return response
 
-    def issue_session():
+    def issue_session(days=30):
         token=secrets.token_urlsafe(40)
-        store.put('session:'+key(token),{'expires':time.time()+30*86400})
+        store.put('session:'+key(token),{'expires':time.time()+days*86400})
         response=JSONResponse({'ok':True})
-        response.set_cookie(COOKIE,token,httponly=True,secure=True,samesite='strict',path='/broadway/api/',max_age=30*86400)
+        response.set_cookie(COOKIE,token,httponly=True,secure=True,samesite='strict',path='/broadway/api/',max_age=days*86400)
         return response
 
     def throttle(request):
@@ -112,6 +112,17 @@ def create_app(store=None,start_scheduler=True,adapters=None):
         except Exception:raise HTTPException(401,'Incorrect password')
         return issue_session()
 
+    class OwnerLink(BaseModel):
+        token:str=Field(min_length=1,max_length=256)
+
+    @app.post('/auth/owner')
+    def owner_login(body:OwnerLink,request:Request):
+        throttle(request)
+        expected=store.get('auth:owner',{}).get('hash','')
+        if not expected or not hmac.compare_digest(key(body.token),expected):
+            raise HTTPException(401,'This management link is not valid')
+        return issue_session(days=365)
+
     @app.post('/auth/logout')
     def logout(request:Request):
         store.put('session:'+key(request.cookies.get(COOKIE,'')),{'expires':0})
@@ -137,6 +148,31 @@ def create_app(store=None,start_scheduler=True,adapters=None):
         today=datetime.now(NY).date().isoformat()
         upcoming=[{k:e.get(k) for k in ('provider','show','performance','tickets','status','legacy_source')} for e in store.list('entry:',2000) if e.get('performance','')[:10]>=today]
         return {'budget':{'monthly_target_usd':30,'fixed_usd':27.2,'model_limit_usd':1.5,'captcha_limit_usd':0.5,'usage':store.list('budget:',12),'browser':store.get('usage:browserbase',{})},'upcoming':sorted(upcoming,key=lambda e:e['performance']),'settings':store.get('settings',{'enabled':False}), 'blockers':readiness(), 'integrations':store.list('integration:'), 'runs':store.list('run:',30), 'reports':[{k:v for k,v in r.items() if k!='text'} for r in store.list('report:',30)], 'scheduler':store.get('health:scheduler',{}),'configured':{k:bool(config.get(k)) for k in CONFIG_FIELDS},'config_public':{k:config.get(k) for k in ('browserbase_project_id','luckyseat_email','report_from','report_to','browser_mode','manual_availability_only')},'authorization':{'free_entries':True,'required_terms':True,'captcha':True,'purchases':False},'schedule':'09:05 and 10:05 America/New_York'}
+
+    @app.get('/public/status')
+    def public_status():
+        # Public projection is an allowlist. Never expose raw config, calendars,
+        # reports, provider evidence, or exception text from the private journal.
+        private=status()
+        fields=lambda record,names:{k:record[k] for k in names if k in record}
+        integrations=[fields(i,('id','status','checked_at')) for i in private['integrations']]
+        runs=[]
+        for run in private['runs']:
+            item=fields(run,('run_id','status','mode','created_at'))
+            item['outcomes']=[fields(o,('provider','show','performance','status')) for o in run.get('outcomes',[])]
+            runs.append(item)
+        return {
+            'access':'public',
+            'budget':fields(private['budget'],('monthly_target_usd','fixed_usd','model_limit_usd','captcha_limit_usd')),
+            'upcoming':[fields(e,('provider','show','performance','tickets','status')) for e in private['upcoming']],
+            'settings':{'enabled':bool(private['settings'].get('enabled'))},
+            'blockers':['Hosted automation setup is still in progress.'] if private['blockers'] else [],
+            'integrations':integrations,'runs':runs,
+            'reports':[fields(r,('status',)) for r in private['reports']],
+            'scheduler':fields(private['scheduler'],('heartbeat',)),
+            'configured':private['configured'],'config_public':{},
+            'authorization':private['authorization'],'schedule':private['schedule'],
+        }
 
     class Toggle(BaseModel):enabled:bool
     @app.post('/toggle')

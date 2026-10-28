@@ -1,18 +1,20 @@
 const $ = s => document.querySelector(s);
 const names = {broadway_direct:'Broadway Direct',telecharge:'Telecharge',lucky_seat:'Lucky Seat',calendar:'Availability',email:'Batch reports',openai:'OpenAI agent',captcha:'CAPTCHA solving',browser:'Hosted browser',scheduler:'Schedule'};
-let current, initialized=false, prefs={};
+let current, canManage=false, prefs={};
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function notice(message){$('#notice').textContent=message;$('#notice').hidden=!message;}
 async function api(path,body){
  const response=await fetch('/broadway/api/'+path,{method:body===undefined?'GET':'POST',headers:body===undefined?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});
- const data=await response.json();if(!response.ok){if(response.status===401){$('#workspace').hidden=true;$('#login').hidden=false;}throw new Error(typeof data.detail==='object'?data.detail.blockers?.join('\n')||JSON.stringify(data.detail):data.detail||data.error||'Request failed');}return data;
+ const data=await response.json();if(!response.ok){if(response.status===401)canManage=false;throw new Error(typeof data.detail==='object'?data.detail.blockers?.join('\n')||JSON.stringify(data.detail):data.detail||data.error||'Request failed');}return data;
 }
 async function action(fn){try{notice('');await fn();}catch(error){notice(error.message);}}
 function date(t){return t?new Date(t*1000).toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'Not yet checked';}
 function render(data){
- current=data;$('#login').hidden=true;$('#workspace').hidden=false;
+ current=data;$('#workspace').hidden=false;
+ document.querySelectorAll('[data-owner]').forEach(el=>el.hidden=!canManage);
+ $('#access-label').textContent=canManage?'YOUR CONTROLS':'BROADWAY ACTIVITY';
  const on=data.settings.enabled;$('#toggle').setAttribute('aria-checked',String(on));$('#runner-state').textContent=on?'On. Watching your lotteries.':'Off. Ready when you are.';
- $('#runner-detail').textContent=on?'New submissions stop when you turn this off. An entry already sent will still be reconciled.':data.blockers.length?'Finish the connections below before enabling automatic entries.':'Your history and settings are saved. Switch on to resume scheduled entries.';
+ $('#runner-detail').textContent=!canManage?(on?'Scheduled lottery entries are enabled.':'Automatic entries are currently off.'):on?'New submissions stop when you turn this off. An entry already sent will still be reconciled.':data.blockers.length?'Finish the connections below before enabling automatic entries.':'Your history and settings are saved. Switch on to resume scheduled entries.';
  $('#schedule').textContent=data.schedule;$('#heartbeat').textContent='Runner heartbeat: '+date(data.scheduler.heartbeat);
  $('#blockers').hidden=!data.blockers.length;$('#blockers ul').innerHTML=data.blockers.map(x=>'<li>'+escape(x)+'</li>').join('');
  $('#run').disabled=!on||data.runs.some(r=>['queued','running'].includes(r.status));
@@ -29,9 +31,16 @@ function render(data){
  for(const [key,value] of Object.entries(data.config_public||{})){const field=$(`#config-form [name="${key}"]`);if(field&&document.activeElement!==field&&value!==null){if(field.type==='checkbox')field.checked=value;else if(!field.value)field.value=value;}}
  for(const [key,configured] of Object.entries(data.configured)){const field=$(`#config-form [name="${key}"]`);if(field?.type==='password')field.placeholder=configured?'Saved securely — leave blank to keep':'Not connected';}
 }
-async function refresh(){render(await api('status'));}
-async function start(){await action(async()=>{const auth=await api('auth/status');initialized=auth.initialized;$('#setup-label').hidden=initialized;$('#login').hidden=auth.authenticated;if(auth.authenticated){await refresh();prefs=await api('preferences');const f=$('#preferences-form');f.ticket_count.value=prefs.ticket_count||2;f.max_price_per_ticket_usd.value=prefs.max_price_per_ticket_usd||100;f.blackouts.value=(prefs.attendance_preferences?.unavailable_date_ranges||[]).map(x=>x.start+' / '+x.end).join('\n');f.excluded.value=(prefs.show_preferences?.excluded||[]).join('\n');}});}
-$('#login-form').onsubmit=e=>{e.preventDefault();action(async()=>{const values=Object.fromEntries(new FormData(e.target));await api(initialized?'auth/login':'auth/bootstrap',values);e.target.reset();await start();});};
+async function refresh(){
+ try{render(await api(canManage?'status':'public/status'));}
+ catch(error){if(!canManage)render(await api('public/status'));else throw error;}
+}
+async function start(){await action(async()=>{
+ const fragment=new URLSearchParams(location.hash.slice(1));const ownerToken=fragment.get('owner');
+ if(ownerToken){history.replaceState(null,'',location.pathname+location.search);try{await api('auth/owner',{token:ownerToken});}catch(error){notice(error.message);}}
+ const auth=await api('auth/status');canManage=auth.authenticated;await refresh();
+ if(canManage){prefs=await api('preferences');const f=$('#preferences-form');f.ticket_count.value=prefs.ticket_count||2;f.max_price_per_ticket_usd.value=prefs.max_price_per_ticket_usd||100;f.blackouts.value=(prefs.attendance_preferences?.unavailable_date_ranges||[]).map(x=>x.start+' / '+x.end).join('\n');f.excluded.value=(prefs.show_preferences?.excluded||[]).join('\n');}
+});}
 $('#toggle').onclick=()=>action(async()=>{await api('toggle',{enabled:!current.settings.enabled});await refresh();});
 $('#inspect').onclick=()=>action(async()=>{await api('runs',{mode:'inspect'});await refresh();});
 $('#run').onclick=()=>action(async()=>{await api('runs',{mode:'live'});await refresh();});
