@@ -79,3 +79,16 @@ def test_auth_csrf_and_privacy(store,monkeypatch):
         c.post('/config',json={'openai_api_key':'test-secret'})
         assert 'test-secret' not in c.get('/status').text
         c.headers['origin']='https://evil.example';assert c.post('/toggle',json={'enabled':False}).status_code==403
+
+async def test_imported_nyc_suffix_key_is_not_resubmitted(runner,store):
+    imported=offer(show='Example Broadway Show (NY)').model_dump(mode='json')
+    imported.update(status='confirmed')
+    legacy_key='entry:'+key('broadway_direct|example broadway show (ny)|'+imported['performance'])
+    assert legacy_key!='entry:'+offer().identity
+    store.put(legacy_key,imported)
+    run=runner.enqueue(mode='live')
+    await runner.execute(run)
+    assert FakeProvider.submissions==2
+    assert store.get('run:'+run)['outcomes'][0]['status']=='already_recorded'
+    assert store.get(legacy_key)['status']=='confirmed'
+    assert store.get('entry:'+offer().identity) is None

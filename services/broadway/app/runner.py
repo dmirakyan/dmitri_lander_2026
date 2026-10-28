@@ -3,7 +3,7 @@ import time
 import uuid
 from datetime import datetime
 from .errors import FlowBlocked
-from .policy import NY,PROVIDERS,eligibility
+from .policy import NY,PROVIDERS,eligibility,entry_identity
 from .integrations import calendar_blackouts,send_report
 
 class Stopped(Exception):pass
@@ -68,8 +68,14 @@ class Runner:
                 adapter=self.adapters[provider](self.store,config,profile,run_id)
                 try:
                     async with adapter:
+                        entries=[e for e in self.store.list('entry:',limit=10000) if e.get('provider')==provider]
+                        # Imported records retain their old storage keys. Compare their
+                        # canonical identities too, rather than reindexing or duplicating history.
+                        try:
+                            recorded={entry_identity(provider,e['show'],datetime.fromisoformat(e['performance'])) for e in entries}
+                        except (KeyError,ValueError,TypeError):raise FlowBlocked('Saved entry identity needs repair before new submissions')
                         # Reconcile uncertain attempts BEFORE discovering new entries.
-                        for existing in self.store.list('entry:',limit=10000):
+                        for existing in entries:
                             if existing.get('provider')==provider and existing.get('status') in ('uncertain','pending_verification'):
                                 verified=await adapter.reconcile(existing)
                                 if verified:
@@ -83,7 +89,7 @@ class Runner:
                             record=offer.model_dump(mode='json')
                             reason='Provider identity mismatch' if offer.provider!=provider else eligibility(profile,offer)
                             if reason:outcome(**{k:record[k] for k in ('provider','show','performance')},status='skipped',reason=reason);continue
-                            if self.store.get('entry:'+offer.identity):
+                            if offer.identity in recorded or self.store.get('entry:'+offer.identity):
                                 outcome(provider=provider,show=offer.show,performance=record['performance'],status='already_recorded');continue
                             if run['mode']!='live':
                                 outcome(provider=provider,show=offer.show,performance=record['performance'],status='eligible_read_only');continue
@@ -97,6 +103,7 @@ class Runner:
                             if heartbeat.done():heartbeat.result()
                             record.update(status='uncertain',run_id=run_id,attempted_at=time.time())
                             if not self.store.once('entry:'+offer.identity,record):continue
+                            recorded.add(offer.identity)
                             try:
                                 evidence=await adapter.submit_and_verify(offer,lambda:self.active(run_id,offer,ranges))
                                 record.update(status=evidence['status'],verification=evidence)

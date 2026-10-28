@@ -12,6 +12,11 @@ def canonical_show(show):
     return re.sub(r'\s*\(NY\)\s*$','', ' '.join(show.split()),flags=re.I).casefold()
 
 
+def entry_identity(provider,show,performance):
+    if performance.tzinfo is None:raise ValueError('Performance timezone is missing')
+    return key(f'{provider}|{canonical_show(show)}|{performance.astimezone(NY).isoformat()}')
+
+
 class Offer(BaseModel):
     provider: str
     show: str
@@ -28,7 +33,7 @@ class Offer(BaseModel):
     @property
     def identity(self):
         # Performance identity survives provider drawing-label changes.
-        return key(f'{self.provider}|{canonical_show(self.show)}|{self.performance.astimezone(NY).isoformat()}')
+        return entry_identity(self.provider,self.show,self.performance)
 
 
 def eligibility(profile, offer, now=None):

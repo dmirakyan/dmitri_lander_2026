@@ -288,9 +288,15 @@ class LuckySeat(Provider):
             await self.page.wait_for_url('**/shows/**',timeout=15000)
             url=self.page.url
             if not allowed_url(self.provider,url):raise FlowBlocked('Lucky Seat show opened outside its official domain')
+            # Angular changes the URL before its show/account requests render.
+            await self.page.get_by_text('Ticket price',exact=True).wait_for(timeout=15000)
             await self.ensure_login()
             if self.page.url!=url:await self.goto(url)
-            await self.page.get_by_text('Ticket price',exact=True).wait_for(timeout=15000)
+            try:await self.page.locator('.form-checkbox-btn input[type=checkbox]').first.wait_for(state='attached',timeout=15000)
+            except Exception:
+                await self.browser.evidence(self.page,self.run_id,'inventory-unavailable-'+url.rsplit('/',1)[-1])
+                result.blockers.append(f'{title}: performance controls did not load; inspect provider page')
+                continue
             rows=await self.performances()
             if not rows:
                 result.blockers.append(f'{title}: no selectable performance inventory; inspect provider page')
