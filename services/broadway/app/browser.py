@@ -21,6 +21,18 @@ def allowed_url(provider,url):
     return p.scheme=='https' and p.hostname in HOSTS[provider] and not p.username and not p.password and p.port in (None,443)
 
 
+async def capture_browser_state(context,provider):
+    session={}
+    for page in context.pages:
+        for frame in page.frames:
+            if not allowed_url(provider,frame.url):continue
+            parsed=urlparse(frame.url)
+            origin=parsed.scheme+'://'+parsed.netloc
+            values=await frame.evaluate('Object.fromEntries(Object.entries(sessionStorage))')
+            if values:session.setdefault(origin,{}).update(values)
+    return {'storage':await context.storage_state(indexed_db=True),'session':session}
+
+
 async def create_hosted_session(client,config,payload):
     """Use available basic browsing when paid proxy/solver features are unavailable."""
     headers={'X-BB-API-Key':config['browserbase_api_key']}
@@ -111,12 +123,7 @@ class Browser:
                     guard.cancel()
                     with suppress(asyncio.CancelledError): await guard
                 try:
-                    session={}
-                    for pg in context.pages:
-                        if allowed_url(self.provider,pg.url):
-                            origin=urlparse(pg.url).scheme+'://'+urlparse(pg.url).netloc
-                            session[origin]=await pg.evaluate('Object.fromEntries(Object.entries(sessionStorage))')
-                    self.store.put('browser:'+self.provider,{'storage':await context.storage_state(indexed_db=True),'session':session})
+                    self.store.put('browser:'+self.provider,await capture_browser_state(context,self.provider))
                 finally:
                     await browser.close()
                     if remote_id:

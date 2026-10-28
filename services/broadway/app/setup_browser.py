@@ -3,7 +3,7 @@ import httpx
 from playwright.async_api import async_playwright
 from .providers import START
 from .budget import browser_allowance
-from .browser import create_hosted_session
+from .browser import create_hosted_session,capture_browser_state
 
 async def open_login(store,provider):
     if provider not in START:raise ValueError('Unknown provider')
@@ -36,7 +36,17 @@ async def close_login(store,provider):
     if not record:return
     config=store.get('config',{})
     async with httpx.AsyncClient(timeout=30) as client:
-        r=await client.post('https://api.browserbase.com/v1/sessions/'+record['session_id'],headers={'X-BB-API-Key':config['browserbase_api_key']},json={'projectId':config['browserbase_project_id'],'status':'REQUEST_RELEASE'})
+        headers={'X-BB-API-Key':config['browserbase_api_key']}
+        url='https://api.browserbase.com/v1/sessions/'+record['session_id']
+        current=await client.get(url,headers=headers);current.raise_for_status()
+        session=current.json()
+        if session['status']=='RUNNING':
+            async with async_playwright() as p:
+                browser=await p.chromium.connect_over_cdp(session['connectUrl'])
+                try:
+                    store.put('browser:'+provider,await capture_browser_state(browser.contexts[0],provider))
+                finally:await browser.close()
+        r=await client.post(url,headers=headers,json={'projectId':config['browserbase_project_id'],'status':'REQUEST_RELEASE'})
         r.raise_for_status()
     store.release('runner',record['owner'])
     store.put('login:'+provider,{'owner':record['owner'],'session_id':record['session_id'],'closed':True})
