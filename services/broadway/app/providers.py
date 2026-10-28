@@ -84,6 +84,11 @@ class BroadwayDirect(Provider):
         terms=self.page.get_by_role('checkbox',name=re.compile('terms|official rules|agree',re.I))
         if await terms.count()!=1:raise RuntimeError('Required terms checkbox is not uniquely identifiable')
         await terms.check()
+        # A form for the wrong performance must never pass just because the show matches.
+        form=self.page.locator('form').filter(has=self.page.get_by_role('button',name='Enter',exact=True))
+        if await form.count()!=1:raise RuntimeError('Selected lottery form is ambiguous')
+        form_text=await form.inner_text()
+        if offer.evidence not in form_text:raise RuntimeError('Exact performance evidence is not present in the final lottery form')
         await self.prepared_proof(offer)
         result=await self.captcha.solve(self.page,self.run_id,offer.identity)
         if result['status']=='blocked':raise RuntimeError(result['reason'])
@@ -119,7 +124,7 @@ class BroadwayDirect(Provider):
         rows=await self.page.locator('tr').all_inner_texts()
         performance=datetime.fromisoformat(existing['performance'])
         for row in rows:
-            if existing['show'].casefold() in row.casefold() and performance.strftime('%m/%d/%Y') in row:
+            if existing['show'].casefold() in row.casefold() and performance.strftime('%m/%d/%Y') in row and performance.strftime('%I:%M %p').lstrip('0').lower() in row.lower():
                 return await self.browser.evidence(self.page,self.run_id,'reconciled-'+existing.get('id','entry').replace(':','-'))
         return None
 
@@ -215,7 +220,7 @@ class LuckySeat(Provider):
         await review.click()
         dialog=self.page.get_by_role('dialog')
         text=await dialog.inner_text()
-        if offer.show.casefold() not in text.casefold() or not re.search(r'2\s*tickets',text,re.I):raise RuntimeError('Review does not confirm two tickets for this show')
+        if offer.show.casefold() not in text.casefold() or offer.evidence not in text or not re.search(rf'{offer.tickets}\s*tickets',text,re.I):raise RuntimeError('Review does not confirm two tickets for this show')
         terms=dialog.get_by_role('checkbox',name=re.compile('terms|agree|rules',re.I))
         if await terms.count()==1:await terms.check()
         result=await self.captcha.solve(self.page,self.run_id,offer.identity)

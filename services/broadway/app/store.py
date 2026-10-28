@@ -19,7 +19,7 @@ class Store:
             url = url.replace('postgres://', 'postgresql+psycopg://', 1)
         elif url.startswith('postgresql://'):
             url = url.replace('postgresql://', 'postgresql+psycopg://', 1)
-        self.engine = create_engine(url, pool_pre_ping=True)
+        self.engine = create_engine(url, pool_pre_ping=True, **({'pool_size':3,'max_overflow':2,'pool_timeout':10,'connect_args':{'connect_timeout':10}} if url.startswith('postgresql') else {}))
         self.cipher = Fernet(encryption_key or os.environ['DATA_ENCRYPTION_KEY'])
         with self.engine.begin() as c:
             c.execute(text('CREATE TABLE IF NOT EXISTS state (id VARCHAR(255) PRIMARY KEY, value TEXT NOT NULL, updated DOUBLE PRECISION NOT NULL)'))

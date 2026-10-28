@@ -12,7 +12,7 @@ from .store import Store,key
 from .runner import Runner
 
 COOKIE='__Secure-broadway'
-ph=PasswordHasher()
+ph=PasswordHasher(memory_cost=16384,time_cost=3,parallelism=2)
 SECRET_FIELDS={'openai_api_key','captcha_api_key','browserbase_api_key','luckyseat_password','resend_api_key'}
 CONFIG_FIELDS=SECRET_FIELDS|{'browserbase_project_id','calendar_urls','calendar_email','manual_availability_only','report_from','report_to','model','luckyseat_email','browser_mode'}
 
