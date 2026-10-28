@@ -27,11 +27,12 @@ def test_encryption_and_lease(store):
     store.release('job','one');assert store.lease('job','two')
     assert store.once('unique',{'a':1});assert not store.once('unique',{'a':2})
 class FakeProvider:
+    provider='broadway_direct'
     submissions=0;stop_during_prepare=False;fail_after_submit=False
     def __init__(self,store,*args):self.store=store
     async def __aenter__(self):return self
     async def __aexit__(self,*args):pass
-    async def discover(self):return Inventory(offers=[offer()],closed=[],blockers=[])
+    async def discover(self):return Inventory(offers=[offer(provider=self.provider)],closed=[],blockers=[])
     async def prepare(self,offer):
         if self.stop_during_prepare:self.store.put('settings',{'enabled':False})
     async def reconcile(self,entry):return None
@@ -43,17 +44,17 @@ class FakeProvider:
 def runner(store,profile):
     FakeProvider.submissions=0;FakeProvider.stop_during_prepare=False;FakeProvider.fail_after_submit=False
     store.put('settings',{'enabled':True});store.put('profile',profile);store.put('config',{'manual_availability_only':True})
-    return Runner(store,{p:FakeProvider for p in ('broadway_direct','telecharge','lucky_seat')})
+    return Runner(store,{p:type(p,(FakeProvider,),{'provider':p}) for p in ('broadway_direct','telecharge','lucky_seat')})
 async def test_duplicate_run_and_restart(runner,store):
     run=runner.enqueue(slot='same-slot');assert runner.enqueue(slot='same-slot')==run
-    await runner.execute(run);assert FakeProvider.submissions==1
+    await runner.execute(run);assert FakeProvider.submissions==3
     second=Runner(store,runner.adapters);await second.execute(second.enqueue(slot='next-slot'))
-    assert FakeProvider.submissions==1
+    assert FakeProvider.submissions==3
 async def test_uncertain_is_not_retried(runner,store):
     FakeProvider.fail_after_submit=True
     await runner.execute(runner.enqueue(slot='first'))
-    assert FakeProvider.submissions==1 and store.get('entry:'+offer().identity)['status']=='uncertain'
-    await runner.execute(runner.enqueue(slot='second'));assert FakeProvider.submissions==1
+    assert FakeProvider.submissions==3 and store.get('entry:'+offer().identity)['status']=='uncertain'
+    await runner.execute(runner.enqueue(slot='second'));assert FakeProvider.submissions==3
 async def test_off_switch(runner,store):
     FakeProvider.stop_during_prepare=True
     run=runner.enqueue();await runner.execute(run)

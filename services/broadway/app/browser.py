@@ -35,12 +35,12 @@ class Browser:
                     context_id=self.store.get('bb-context:'+self.provider,{}).get('context_id')
                     if not context_id:
                         result=await client.post('https://api.browserbase.com/v1/contexts',headers=headers,json={'projectId':self.config['browserbase_project_id']})
-                        
+
                         if result.status_code>=400:raise FlowBlocked(f'Browserbase context API returned HTTP {result.status_code}; check key, project, and plan')
                         context_id=result.json()['id']
                         self.store.put('bb-context:'+self.provider,{'context_id':context_id})
                     result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json={'projectId':self.config['browserbase_project_id'],'proxies':True,'timeout':1800,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
-                    
+
                     if result.status_code>=400:raise FlowBlocked(f'Browserbase session API returned HTTP {result.status_code}; check key, project, and plan')
                     session=result.json();remote_id=session['id']
                 browser=await p.chromium.connect_over_cdp(session['connectUrl'])

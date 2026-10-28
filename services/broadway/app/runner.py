@@ -13,13 +13,17 @@ class Runner:
         self.store,self.adapters=store,adapters
         self.owner=uuid.uuid4().hex
 
-    def active(self,run_id):
+    def active(self,run_id,offer=None,calendar_ranges=()):
         settings=self.store.get('settings',{})
         run=self.store.get('run:'+run_id,{})
         if not self.store.lease('runner',self.owner):
             raise Stopped('Execution lease lost')
         if not settings.get('enabled') or run.get('cancel_requested'):
             raise Stopped('Automation is off; no further submissions')
+        if offer is not None:
+            profile=self.store.get('profile',{})
+            profile.setdefault('attendance_preferences',{}).setdefault('unavailable_date_ranges',[]).extend(calendar_ranges)
+            if eligibility(profile,offer):raise Stopped('Preferences changed; stop before submission')
 
     def enqueue(self,source='manual',slot=None,mode='live'):
         run_id=slot or datetime.now(NY).strftime('%Y%m%d-%H%M%S-')+uuid.uuid4().hex[:6]
@@ -48,6 +52,7 @@ class Runner:
             self.store.put('run:'+run_id,run)
         try:
             if run['mode']=='live':self.active(run_id)
+            ranges=[]
             try:
                 ranges=await calendar_blackouts(config)
                 profile.setdefault('attendance_preferences',{}).setdefault('unavailable_date_ranges',[]).extend(ranges)
@@ -76,7 +81,7 @@ class Runner:
                         for title in discovery.closed:outcome(provider=provider,show=title,status='closed')
                         for offer in discovery.offers:
                             record=offer.model_dump(mode='json')
-                            reason=eligibility(profile,offer)
+                            reason='Provider identity mismatch' if offer.provider!=provider else eligibility(profile,offer)
                             if reason:outcome(**{k:record[k] for k in ('provider','show','performance')},status='skipped',reason=reason);continue
                             if self.store.get('entry:'+offer.identity):
                                 outcome(provider=provider,show=offer.show,performance=record['performance'],status='already_recorded');continue
@@ -88,12 +93,12 @@ class Runner:
                             except Exception as exc:
                                 outcome(provider=provider,show=offer.show,performance=record['performance'],status='blocked',reason=str(exc) if isinstance(exc,FlowBlocked) else f'{type(exc).__name__}: form preparation failed before submission')
                                 continue
-                            self.active(run_id)
+                            self.active(run_id,offer,ranges)
                             if heartbeat.done():heartbeat.result()
                             record.update(status='uncertain',run_id=run_id,attempted_at=time.time())
                             if not self.store.once('entry:'+offer.identity,record):continue
                             try:
-                                evidence=await adapter.submit_and_verify(offer,lambda:self.active(run_id))
+                                evidence=await adapter.submit_and_verify(offer,lambda:self.active(run_id,offer,ranges))
                                 record.update(status=evidence['status'],verification=evidence)
                             except Exception as exc:
                                 record.update(status='uncertain',reason=f'{type(exc).__name__}: submission outcome needs reconciliation')
