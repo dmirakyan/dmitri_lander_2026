@@ -2,9 +2,14 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from pydantic import BaseModel, Field
 from .store import key
+import re
 
 NY = ZoneInfo('America/New_York')
 PROVIDERS = ('broadway_direct', 'telecharge', 'lucky_seat')
+
+
+def canonical_show(show):
+    return re.sub(r'\s*\(NY\)\s*$','', ' '.join(show.split()),flags=re.I).casefold()
 
 
 class Offer(BaseModel):
@@ -23,7 +28,7 @@ class Offer(BaseModel):
     @property
     def identity(self):
         # Performance identity survives provider drawing-label changes.
-        return key(f'{self.provider}|{self.show.casefold().strip()}|{self.performance.astimezone(NY).isoformat()}')
+        return key(f'{self.provider}|{canonical_show(self.show)}|{self.performance.astimezone(NY).isoformat()}')
 
 
 def eligibility(profile, offer, now=None):

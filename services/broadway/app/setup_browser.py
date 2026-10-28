@@ -3,6 +3,7 @@ import httpx
 from playwright.async_api import async_playwright
 from .providers import START
 from .budget import browser_allowance
+from .browser import create_hosted_session
 
 async def open_login(store,provider):
     if provider not in START:raise ValueError('Unknown provider')
@@ -18,8 +19,7 @@ async def open_login(store,provider):
             if not context_id:
                 r=await client.post('https://api.browserbase.com/v1/contexts',headers=headers,json={'projectId':config['browserbase_project_id']});r.raise_for_status();context_id=r.json()['id']
                 store.put('bb-context:'+provider,{'context_id':context_id})
-            r=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json={'projectId':config['browserbase_project_id'],'proxies':True,'timeout':1200,'keepAlive':True,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
-            r.raise_for_status();session=r.json()
+            session,_=await create_hosted_session(client,config,{'projectId':config['browserbase_project_id'],'proxies':True,'timeout':1200,'keepAlive':True,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
             store.put('login:'+provider,{'owner':owner,'session_id':session['id']})
             async with async_playwright() as p:
                 browser=await p.chromium.connect_over_cdp(session['connectUrl'])

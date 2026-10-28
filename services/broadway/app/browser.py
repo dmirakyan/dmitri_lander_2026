@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager, suppress
 from urllib.parse import urlparse
 from playwright.async_api import async_playwright
 from .budget import browser_allowance
+from copy import deepcopy
 
 HOSTS = {
  'broadway_direct':{'lottery.broadwaydirect.com'},
@@ -18,6 +19,24 @@ HOSTS = {
 def allowed_url(provider,url):
     p=urlparse(url)
     return p.scheme=='https' and p.hostname in HOSTS[provider] and not p.username and not p.password and p.port in (None,443)
+
+
+async def create_hosted_session(client,config,payload):
+    """Use available basic browsing when paid proxy/solver features are unavailable."""
+    headers={'X-BB-API-Key':config['browserbase_api_key']}
+    result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json=payload)
+    basic=False
+    if result.status_code==402:
+        basic=True
+        payload=deepcopy(payload)
+        payload['proxies']=False
+        payload['browserSettings']['solveCaptchas']=False
+        result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json=payload)
+    if result.status_code>=400:
+        reasons={402:'Browserbase subscription is required for this session; finish the personal-account checkout',
+                 429:'Browserbase session or usage limit reached; check active sessions and plan allowance'}
+        raise FlowBlocked(reasons.get(result.status_code,f'Browserbase session API returned HTTP {result.status_code}; check key, project, and plan'))
+    return result.json(),basic
 
 
 class Browser:
@@ -42,20 +61,19 @@ class Browser:
                         if result.status_code>=400:raise FlowBlocked(f'Browserbase context API returned HTTP {result.status_code}; check key, project, and plan')
                         context_id=result.json()['id']
                         self.store.put('bb-context:'+self.provider,{'context_id':context_id})
-                    result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json={'projectId':self.config['browserbase_project_id'],'proxies':True,'timeout':900,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
-
-                    if result.status_code>=400:
-                        reason='Finish Browserbase Developer checkout to enable proxies and CAPTCHA solving' if result.status_code==402 else f'Browserbase session API returned HTTP {result.status_code}; check key, project, and plan'
-                        self.store.put('integration:browser',{'status':'blocked','reason':reason,'checked_at':time.time()})
-                        raise FlowBlocked(reason)
-                    session=result.json();remote_id=session['id']
+                    try:
+                        session,basic=await create_hosted_session(client,self.config,{'projectId':self.config['browserbase_project_id'],'proxies':True,'timeout':900,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
+                    except FlowBlocked as exc:
+                        self.store.put('integration:browser',{'status':'blocked','reason':str(exc),'checked_at':time.time()})
+                        raise
+                    remote_id=session['id']
                 try:
                     browser=await p.chromium.connect_over_cdp(session['connectUrl'])
                 except Exception:
                     async with httpx.AsyncClient(timeout=20) as client:
                         await client.post('https://api.browserbase.com/v1/sessions/'+remote_id,headers=headers,json={'projectId':self.config['browserbase_project_id'],'status':'REQUEST_RELEASE'})
                     raise
-                self.store.put('integration:browser',{'status':'verified','reason':'Hosted browser connection succeeded; provider acceptance is tracked separately','checked_at':time.time()})
+                self.store.put('integration:browser',{'status':'verified','reason':('Basic hosted browser connected; paid proxy/automatic CAPTCHA features are unavailable. Existing 2Captcha fallback remains available.' if basic else 'Hosted browser connection succeeded; provider acceptance is tracked separately'),'basic_session':basic,'checked_at':time.time()})
             else:
                 browser=await p.chromium.launch(headless=True,args=['--disable-dev-shm-usage'])
             state=self.store.get('browser:'+self.provider)

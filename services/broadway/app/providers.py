@@ -3,6 +3,7 @@ from .errors import FlowBlocked
 import asyncio
 import re
 from datetime import datetime
+from urllib.parse import urlparse,parse_qs
 from .agent import inventory,Inventory
 from .browser import Browser,allowed_url
 from .captcha import Captcha
@@ -12,6 +13,26 @@ START={
  'telecharge':'https://rush.telecharge.com/',
  'lucky_seat':'https://www.luckyseat.com/',
 }
+
+
+def broadway_direct_result_matches(row,existing):
+    from .policy import NY,canonical_show
+    match=re.fullmatch(r'(.+?)\s+-\s+(\d{1,2}/\d{1,2}/\d{2}(?:\d{2})?),\s*(\d{1,2}:\d{2}\s*[ap]m)',row.split('\t')[0].strip(),re.I)
+    if not match or canonical_show(match[1])!=canonical_show(existing['show']):return False
+    try:
+        date=datetime.strptime(match[2]+' '+match[3].upper(),'%m/%d/'+('%Y' if len(match[2].rsplit('/',1)[-1])==4 else '%y')+' %I:%M %p').replace(tzinfo=NY)
+    except ValueError:return False
+    return date==datetime.fromisoformat(existing['performance']).astimezone(NY)
+
+
+def broadway_direct_entry_link(label,url):
+    from .policy import NY
+    if not allowed_url('broadway_direct',url) or urlparse(url).path!='/enter-lottery/':return None
+    match=re.fullmatch(r'Enter Now for (.+?) on (\d{1,2}/\d{1,2}/\d{2}),\s*(\d{1,2}:\d{2}\s*[ap]m)',' '.join(label.split()),re.I)
+    lottery=parse_qs(urlparse(url).query).get('lottery',[])
+    if not match or len(lottery)!=1 or not lottery[0].isdigit():return None
+    performance=datetime.strptime(match[2]+' '+match[3].upper(),'%m/%d/%y %I:%M %p').replace(tzinfo=NY)
+    return {'show':match[1],'performance':performance.isoformat(),'drawing':lottery[0],'url':url}
 
 class Provider:
     provider=''
@@ -33,14 +54,21 @@ class Provider:
                 for _ in range(12):
                     await asyncio.sleep(5)
                     text=await self.page.locator('body').inner_text()
-                    if not any(s in text.casefold() for s in ('403 forbidden','performing security verification','verify you are human','access denied','just a moment')):return None
+                    if not any(s in text.casefold() for s in ('403 forbidden','performing security verification','verify you are human','access denied','just a moment')):
+                        await self.dismiss_cookie_notice();return None
             await self.browser.evidence(self.page,self.run_id,'access-blocked')
             return 'Provider access challenge did not clear; managed browser/session requires attention'
+        await self.dismiss_cookie_notice()
         return None
+    async def dismiss_cookie_notice(self):
+        reject=self.page.locator('#onetrust-reject-all-handler')
+        if await reject.is_visible():await reject.click()
     async def snapshot(self,root=None):
         root=root or self.page
-        text=await root.locator('body').inner_text()
-        links=await root.locator('a[href]').evaluate_all('(els)=>els.map(e=>({label:e.innerText,url:e.href}))')
+        content=root.locator('main')
+        if await content.count()!=1:content=root.locator('body')
+        text=await content.inner_text()
+        links=await content.locator('a[href]').evaluate_all('(els)=>els.map(e=>({label:e.innerText,url:e.href}))')
         return {'url':self.page.url,'text':text[:50000],'links':links}
     async def reconcile(self,existing):return None
     async def prepared_proof(self,offer,root=None):
@@ -55,47 +83,62 @@ class BroadwayDirect(Provider):
         if reason:=await self.accessible():return Inventory(offers=[],closed=[],blockers=[reason])
         links=await self.page.locator('a[href]').evaluate_all('(els)=>els.map(e=>({text:e.innerText,url:e.href}))')
         urls=list(dict.fromkeys(x['url'] for x in links if '/show/' in x['url'] and allowed_url(self.provider,x['url'])))
-        snapshots=[]
+        snapshots=[];observed={}
         for url in urls:
             await self.goto(url)
             if reason:=await self.accessible():snapshots.append({'url':url,'blocked':reason});continue
-            snapshots.append(await self.snapshot())
+            snapshot=await self.snapshot()
+            active=[]
+            for link in snapshot['links']:
+                match=broadway_direct_entry_link(link['label'],link['url'])
+                if match:observed[match['url']]=match;active.append(match)
+            snapshot['links']=[l for l in snapshot['links'] if '/enter-lottery/' in l['url']]
+            snapshot['open_performances']=active
+            snapshots.append(snapshot)
         await self.browser.evidence(self.page,self.run_id,'inventory')
         if not snapshots:return Inventory(offers=[],closed=[],blockers=['No official show cards found; provider layout needs review'])
-        return await inventory(self.provider,snapshots,self.config,self.store)
+        result=await inventory(self.provider,snapshots,self.config,self.store)
+        from .policy import canonical_show,NY
+        matched=[]
+        for offer in result.offers:
+            candidates=[row for row in observed.values() if canonical_show(row['show'])==canonical_show(offer.show) and datetime.fromisoformat(row['performance'])==offer.performance.astimezone(NY)]
+            if len(candidates)!=1:continue
+            offer.url=candidates[0]['url'];offer.drawing=candidates[0]['drawing'];matched.append(offer)
+        result.offers=list({offer.identity:offer for offer in matched}.values())
+        for row in observed.values():
+            if not any(o.url==row['url'] for o in matched):result.blockers.append(f"{row['show']}: open performance was not extracted reliably")
+        return result
     async def fill_profile(self):
         profile=self.profile;names=profile['full_name'].split(' ',1)
-        for label,value in [('First Name',names[0]),('Last Name',names[-1]),('Email',profile['email']),('Zip',profile['zip_code'])]:
-            field=self.page.get_by_label(re.compile(label,re.I))
+        for field_id,value in [('dlslot_name_first',names[0]),('dlslot_name_last',names[-1]),('dlslot_email',profile['email']),('dlslot_zip',profile['zip_code'])]:
+            field=self.page.locator('#'+field_id)
             if await field.count()==1:await field.fill(value)
             else:raise FlowBlocked('Required profile field is not uniquely identifiable')
         dob=datetime.fromisoformat(profile['date_of_birth'])
-        for label,value in [('Month of Birth',str(dob.month)),('Day of Birth',str(dob.day)),('Year of Birth',str(dob.year)),('Country of Residence','USA'),('Quantity of Tickets Requested',str(profile['ticket_count']))]:
-            field=self.page.get_by_label(label,exact=False)
+        for field_id,value in [('dlslot_dob_month',dob.strftime('%m')),('dlslot_dob_day',dob.strftime('%d')),('dlslot_dob_year',dob.strftime('%Y'))]:
+            field=self.page.locator('#'+field_id)
             if await field.count()!=1:raise FlowBlocked('Required selection field is not uniquely identifiable')
-            try:await field.select_option(value=value)
-            except Exception:await field.select_option(label=value)
+            await field.fill(value)
+        if profile.get('eligibility',{}).get('us_legal_resident') is not True:raise FlowBlocked('Country of residence needs to be established')
+        await self.page.locator('#dlslot_country').select_option(label='USA')
+        await self.page.locator('#dlslot_ticket_qty').select_option(str(profile['ticket_count']))
     async def prepare(self,offer):
         await self.goto(offer.url)
-        trigger=self.page.get_by_role('link',name=re.compile('Enter.*Lottery',re.I))
-        if await trigger.count()==1:await trigger.click()
-        elif await self.page.get_by_role('button',name=re.compile('Enter.*Lottery',re.I)).count()==1:
-            await self.page.get_by_role('button',name=re.compile('Enter.*Lottery',re.I)).click()
+        if reason:=await self.accessible():raise FlowBlocked(reason)
+        text=await self.page.locator('body').inner_text()
+        heading=re.search(r'ENTER (.+?) LOTTERY\s+Show time:\s*(\d{1,2}/\d{1,2}/\d{2}),\s*(\d{1,2}:\d{2}\s*[ap]m)',text,re.I)
+        if not heading or not broadway_direct_result_matches(f'{heading[1]} - {heading[2]}, {heading[3]}',offer.model_dump(mode='json')):
+            raise FlowBlocked('Final Broadway Direct form does not match the selected show and performance')
         await self.fill_profile()
-        terms=self.page.get_by_role('checkbox',name=re.compile('terms|official rules|agree',re.I))
+        terms=self.page.locator('#dlslot_agree')
         if await terms.count()!=1:raise FlowBlocked('Required terms checkbox is not uniquely identifiable')
         await terms.check()
-        # A form for the wrong performance must never pass just because the show matches.
-        form=self.page.locator('form').filter(has=self.page.get_by_role('button',name='Enter',exact=True))
-        if await form.count()!=1:raise FlowBlocked('Selected lottery form is ambiguous')
-        form_text=await form.inner_text()
-        if offer.evidence not in form_text:raise FlowBlocked('Exact performance evidence is not present in the final lottery form')
         await self.prepared_proof(offer)
         result=await self.captcha.solve(self.page,self.run_id,offer.identity)
         if result['status']=='blocked':raise FlowBlocked(result['reason'])
     async def submit_and_verify(self,offer,active):
         active()
-        submit=self.page.get_by_role('button',name='Enter',exact=True)
+        submit=self.page.get_by_role('button',name=re.compile('^enter$',re.I))
         if await submit.count()!=1:raise FlowBlocked('Final free-entry control is not uniquely identifiable')
         await submit.click()
         await self.page.wait_for_timeout(2500)
@@ -110,22 +153,21 @@ class BroadwayDirect(Provider):
         await self.goto('https://lottery.broadwaydirect.com/check-status/')
         if await self.accessible():return None
         # Status form uses the same identity fields without first name or ticket quantity.
-        for label,value in [('Last Name',self.profile['full_name'].split(' ',1)[-1]),('Email',self.profile['email'])]:
-            field=self.page.get_by_label(re.compile(label,re.I))
+        for field_id,value in [('dlslot_name_last',self.profile['full_name'].split(' ',1)[-1]),('dlslot_email',self.profile['email'])]:
+            field=self.page.locator('#'+field_id)
             if await field.count()!=1:return None
             await field.fill(value)
         dob=datetime.fromisoformat(self.profile['date_of_birth'])
-        for label,value in [('Month of Birth',str(dob.month)),('Day of Birth',str(dob.day)),('Year of Birth',str(dob.year))]:
-            field=self.page.get_by_label(label,exact=False)
+        for field_id,value in [('dlslot_dob_month',dob.strftime('%m')),('dlslot_dob_day',dob.strftime('%d')),('dlslot_dob_year',dob.strftime('%Y'))]:
+            field=self.page.locator('#'+field_id)
             if await field.count()!=1:return None
-            await field.select_option(value=value)
-        button=self.page.get_by_role('button',name=re.compile('Check.*Status',re.I))
+            await field.fill(value)
+        button=self.page.locator('input[name="check-lottery-status"][type="submit"]')
         if await button.count()!=1:return None
         await button.click();await self.page.wait_for_timeout(2000)
         rows=await self.page.locator('tr').all_inner_texts()
-        performance=datetime.fromisoformat(existing['performance'])
         for row in rows:
-            if existing['show'].casefold() in row.casefold() and performance.strftime('%m/%d/%Y') in row and performance.strftime('%I:%M %p').lstrip('0').lower() in row.lower():
+            if broadway_direct_result_matches(row,existing):
                 return await self.browser.evidence(self.page,self.run_id,'reconciled-'+existing.get('id','entry').replace(':','-'))
         return None
 
