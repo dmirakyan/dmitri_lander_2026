@@ -123,6 +123,7 @@ def create_app(store=None,start_scheduler=True,adapters=None):
         if not profile: blockers.append('Import your existing lottery profile and entry history')
         if not config.get('openai_api_key'):blockers.append('Connect OpenAI')
         if config.get('browser_mode')=='browserbase' and not all(config.get(k) for k in ('browserbase_api_key','browserbase_project_id')):blockers.append('Connect Browserbase')
+        if config.get('browser_mode')=='browserbase' and store.get('integration:browser',{}).get('status')!='verified':blockers.append(store.get('integration:browser',{}).get('reason','Verify hosted browser access with a connection check'))
         if not config.get('calendar_urls') and not config.get('manual_availability_only'):blockers.append('Connect calendars or select saved availability')
         if not config.get('resend_api_key') or not config.get('report_from'):blockers.append('Connect batch email reporting')
         if not store.get('migration:legacy',{}).get('scheduler_disabled'):blockers.append('Complete scheduler handover to avoid two runners')

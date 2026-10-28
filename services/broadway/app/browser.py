@@ -1,6 +1,7 @@
 from .errors import FlowBlocked
 import asyncio
 import base64
+import time
 import httpx
 from contextlib import asynccontextmanager, suppress
 from urllib.parse import urlparse
@@ -43,9 +44,18 @@ class Browser:
                         self.store.put('bb-context:'+self.provider,{'context_id':context_id})
                     result=await client.post('https://api.browserbase.com/v1/sessions',headers=headers,json={'projectId':self.config['browserbase_project_id'],'proxies':True,'timeout':900,'browserSettings':{'context':{'id':context_id,'persist':True},'solveCaptchas':True,'recordSession':False,'logSession':False}})
 
-                    if result.status_code>=400:raise FlowBlocked(f'Browserbase session API returned HTTP {result.status_code}; check key, project, and plan')
+                    if result.status_code>=400:
+                        reason='Finish Browserbase Developer checkout to enable proxies and CAPTCHA solving' if result.status_code==402 else f'Browserbase session API returned HTTP {result.status_code}; check key, project, and plan'
+                        self.store.put('integration:browser',{'status':'blocked','reason':reason,'checked_at':time.time()})
+                        raise FlowBlocked(reason)
                     session=result.json();remote_id=session['id']
-                browser=await p.chromium.connect_over_cdp(session['connectUrl'])
+                try:
+                    browser=await p.chromium.connect_over_cdp(session['connectUrl'])
+                except Exception:
+                    async with httpx.AsyncClient(timeout=20) as client:
+                        await client.post('https://api.browserbase.com/v1/sessions/'+remote_id,headers=headers,json={'projectId':self.config['browserbase_project_id'],'status':'REQUEST_RELEASE'})
+                    raise
+                self.store.put('integration:browser',{'status':'verified','reason':'Hosted browser connection succeeded; provider acceptance is tracked separately','checked_at':time.time()})
             else:
                 browser=await p.chromium.launch(headless=True,args=['--disable-dev-shm-usage'])
             state=self.store.get('browser:'+self.provider)
