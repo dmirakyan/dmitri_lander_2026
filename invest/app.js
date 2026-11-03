@@ -10,12 +10,11 @@ function render(data){
   if(!data.strategy || !Array.isArray(data.runs)) throw new Error('No strategy is available yet.');
   const s=data.strategy;latest=data.runs[0];
   $('initial').textContent=money(s.initial_allocation);$('monthly').textContent=money(s.monthly_allocation);
-  $('budget-rule').textContent=`Start with a ${money(s.initial_allocation)} reallocation; add ${money(s.monthly_allocation)} in fresh funds each month.`;
   $('invested').textContent=money(data.execution.net_purchase_cost);
-  $('fill-note').textContent=`${data.execution.confirmed_fill_count} confirmed fills · net purchase cost`;
+  $('fill-note').textContent=`${data.execution.confirmed_fill_count} confirmed fills`;
   $('next').textContent=s.next_review_date?new Date(`${s.next_review_date}T12:00:00Z`).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'}):'To schedule';
-  $('mode-rule').textContent=s.mode==='rotate'?'When the selection changes, propose rotating only strategy-owned shares, plus the new monthly allocation. Keep existing strategy shares when the pick is unchanged.':'Add each month’s allocation to the new selection. Keep prior strategy purchases; do not automatically rotate or sell them.';
-  if(!latest){$('load-state').textContent='Connected to Supabase · awaiting the first verified signal';return;}
+  $('mode-rule').textContent=s.mode==='rotate'?'Rotate strategy holdings when the pick changes; otherwise hold and add the monthly contribution.':'Add each month’s contribution to the selected stock. Keep prior purchases.';
+  if(!latest){$('load-state').textContent='Awaiting the first monthly signal';return;}
   if(latest.rankings.length!==7)throw new Error('Incomplete signal: all seven companies are required.');
   const selected=latest.rankings.find(r=>r.ticker===latest.selected_ticker);
   if(!selected)throw new Error('Invalid selection');
@@ -24,18 +23,16 @@ function render(data){
   const expected=new Date(Date.UTC(year,month-1,0)).toISOString().slice(0,7);
   const stale=latest.signal_month.slice(0,7)!==expected;
   $('load-state').className=stale?'load-state error':'load-state';
-  $('load-state').textContent=`${stale?'Historical signal—new monthly review needed':'Connected to Supabase'} · signal close ${day(latest.signal_date)} · ${data.execution.confirmed_fill_count?'Execution records available':'No trades recorded'}`;
+  $('load-state').textContent=`${stale?'Overdue review · ':''}Returns through ${day(latest.signal_date)}`;
   $('pick-status').textContent=latest.proposal.status.replaceAll('_',' ');
-  $('pick-content').innerHTML=`<h2 class="pick-symbol">${esc(selected.ticker)}</h2><p class="pick-name">${esc(selected.name)}</p>`;
+  $('pick-content').innerHTML=`<strong class="pick-symbol">${esc(selected.ticker)}</strong><p class="pick-name">${esc(selected.name)}</p>`;
   $('avg').textContent=`${selected.average_rank.toFixed(2)} / 7`;
   $('purchase').textContent=money(latest.proposal.contribution);
-  $('pick-explanation').textContent=`${selected.name} has the worst average rank across the three lookbacks. This is a review candidate, not an executed purchase.`;
   $('signal-date').textContent=`Signal: ${day(latest.signal_date)} close${latest.methodology.initial_off_schedule?' · initial setup after the scheduled review day':''}`;
-  $('rankings').innerHTML=latest.rankings.map(r=>`<tr class="${r.ticker===selected.ticker?'selected-row':''}"><td><div class="company"><span class="monogram" aria-hidden="true">${esc(r.name[0])}</span><span><b>${esc(r.ticker)}</b><small>${esc(r.name)}</small></span></div></td>${['3','6','12'].map(m=>`<td><span class="${r.returns[m]>=0?'positive':'negative'}">${pct(r.returns[m])}</span><span class="rank" aria-label="Rank ${r.ranks[m]}">#${r.ranks[m]}</span></td>`).join('')}<td class="avg">${r.average_rank.toFixed(2)}</td><td>${r.ticker===selected.ticker?'<span class="selected-pill">MONTHLY PICK</span>':'<span class="muted">—</span>'}</td></tr>`).join('');
-  $('asof').textContent=`Adjusted returns through ${day(latest.signal_date)} · rank 1 best / 7 worst`;
+  $('rankings').innerHTML=latest.rankings.map(r=>`<tr class="${r.ticker===selected.ticker?'selected-row':''}"><td><div class="company"><b>${esc(r.ticker)}</b><small>${esc(r.name)}</small></div></td>${['3','6','12'].map(m=>`<td><span class="${r.returns[m]>=0?'positive':'negative'}">${pct(r.returns[m])}</span><span class="rank" aria-label="Rank ${r.ranks[m]}">#${r.ranks[m]}</span></td>`).join('')}<td class="avg">${r.average_rank.toFixed(2)}</td><td>${r.ticker===selected.ticker?'<span class="selected-pill">Selected</span>':'<span class="muted">—</span>'}</td></tr>`).join('');
+  $('asof').textContent='Adjusted returns. Rank 1 = best, 7 = worst; highest average rank is selected.';
   $('provenance').textContent=`Latest retrieval: ${new Date(latest.methodology.retrieved_at).toLocaleString('en-US',{timeZone:'America/New_York'})} New York. Signal version ${latest.methodology.version}.`;
-  $('history').innerHTML=data.runs.map(r=>`<div class="journal-row"><span class="journal-date">${esc(day(r.signal_date))}</span><div class="journal-main"><b>${esc(r.selected_ticker)} · ${r.proposal.kind==='initial'?'Initial allocation':'Monthly allocation'}</b><small>Signal saved · ${esc(r.proposal.note)}</small></div><div class="journal-value">${money(r.proposal.contribution)}<small>${esc(r.proposal.status.replaceAll('_',' '))}</small></div></div>`).join('');
-  if(data.execution.confirmed_fill_count){$('performance-label').textContent='Confirmed fills recorded';$('performance-note').textContent='Performance comparisons require current valuation and cash-flow-matched benchmark purchases; not yet calculated.';}
+  $('history').innerHTML=data.runs.map(r=>`<div class="journal-row"><span class="journal-date">${esc(day(r.signal_date))}</span><div class="journal-main"><b>${esc(r.selected_ticker)} · ${r.proposal.kind==='initial'?'Initial allocation':'Monthly allocation'}</b><small>${esc(r.proposal.note)}</small></div><div class="journal-value">${money(r.proposal.contribution)}<small>${esc(r.proposal.status.replaceAll('_',' '))}</small></div></div>`).join('');
   $('download').disabled=false;
 }
 async function load(){
