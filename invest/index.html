@@ -7,15 +7,21 @@
   <meta name="description" content="Monthly Mag 7 rankings and allocations.">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="config.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
+<!-- ADMIN NAV START -->
+<div class="tool-bar"><a class="tool-home" href="https://dmitri.im/" aria-label="Dmitri homepage">Dmitri<span class="tool-colors" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a><nav class="tool-nav" aria-label="Admin tools"><a href="https://dmitri.im/admin/">Admin</a><a href="https://dmitri.im/invest/" aria-current="page">Investments</a><a href="https://dmitri.im/dates/">Date ideas</a><a href="http://127.0.0.1:18766/admin/twitter/" title="Local tool on this Mac">Writing</a><a href="https://dmitri.im/admin/#connect">Broadway</a></nav></div>
+<!-- ADMIN NAV END -->
+
   <div class="shell">
-    <header><a href="/admin/">← Admin</a><button id="refresh" type="button">Refresh</button></header>
+    <header class="page-heading"><h1>Mag 7</h1><button id="refresh" type="button">Refresh</button></header>
     <main>
-      <h1>Mag 7</h1>
       <ul class="rules">
         <li>Rank the seven stocks by 3-, 6-, and 12-month returns. Buy the worst average rank.</li>
         <li id="mode-rule">Rotate strategy holdings when the pick changes; otherwise hold and add the monthly contribution.</li>
