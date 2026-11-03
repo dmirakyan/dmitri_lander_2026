@@ -17,9 +17,10 @@ This is a research and review bot. It contains no brokerage execution API.
   strategy shares when unchanged and add only the new contribution.
 - No stop-loss or automatic mid-month trading. No leverage or shorts.
 - Never count preexisting holdings as strategy shares. No strategy cap chosen.
-- Initial funding can come from existing retirement-account holdings without
-  withdrawing funds. Fresh $15k/month is not assumed to be an IRA contribution.
-  Each account funds its own purchases; never pool IRA sale proceeds across accounts.
+- Read the current private funding plan and strategy settings before proposing
+  initial sales. Superseded funding drafts must not be reused. Fresh $15k/month
+  is not assumed to be an IRA contribution. Each account funds its own purchases;
+  never pool IRA sale proceeds across accounts.
 - Monthly signals/proposals run at 10 a.m. America/New_York on the first NYSE
   session. Initial November 3 setup is explicitly an off-schedule exception.
 
