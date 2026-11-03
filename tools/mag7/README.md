@@ -94,13 +94,47 @@ details, buys of the wrong ticker, sales beyond recorded strategy holdings,
 unchanged-selection churn, excessive budgets and pre-strategy timestamps.
 There is no broker reconciliation or corporate-action ingestion yet; splits,
 mergers or corrections must be reconciled before any sell proposal. Never edit a
-quantity silently or guess a fill. No performance calculation is implemented yet;
-benchmarks are stored to support later cash-flow-matched measurement.
+quantity silently or guess a fill. Benchmarks are stored to support later
+cash-flow-matched measurement; no benchmark comparison is reported yet.
+
+## Weekly results
+
+Every Friday at 5 p.m. America/New_York, reconcile actual owner-submitted fills
+with Fidelity, then run:
+
+```sh
+.local-secrets/mag7-venv/bin/python tools/mag7/weekly.py \
+  --env-file /Users/dmitri/Documents/GitHub/creed-api/.env
+```
+
+The first setup uses `--migrate` for `weekly.sql`. Snapshots are stored in the
+private `mag7_weekly_snapshots` table, with source responses and a ledger hash.
+Only an allowlisted summary is exposed by `mag7_public_weekly()` on `/invest`.
+The runner uses the last completed NYSE session, allowing an hour after close
+for prices; holidays use the previous session. It never records proposed trades.
+No fills means no invented performance, and no price fetch is needed.
+
+Weekly price P&L = closing stock value minus cumulative net purchase cost. This
+includes trading fees and realized price gains/losses from rotations. Additional
+capital is not profit. It excludes dividends, cash interest, cash reserves, and
+taxes, so label it **price P&L**, never total return or after-tax return. The
+period change subtracts the previous snapshot's price P&L and identifies that
+date; missing weeks are not silently treated as weekly changes. A first snapshot
+has no period change. No percentage return or benchmark claim is inferred.
+
+Only confirmed fills by the session close enter the calculation. A changed
+historical fill ledger, missing exact closing price, insufficient history, or a
+split since the first strategy fill blocks valuation pending reconciliation.
+No corporate-action adjustments are silently invented. The weekly automation
+must also verify positions against the broker; if broker access fails or fills
+are missing, report that blocker and do not publish a newly verified snapshot.
+Report results in this chat each week, including a pending initial allocation.
+Weekly monitoring does not trigger trades. Monthly allocation remains separate.
 
 ## Privacy and deployment
 
-Six tables have RLS and no anonymous/authenticated CRUD grants. Only the
-`mag7_public_tracker()` function is publicly executable. It returns an explicit
+Strategy tables have RLS and no anonymous/authenticated CRUD grants. Only the
+`mag7_public_tracker()` and `mag7_public_weekly()` functions are publicly executable. They return explicit
 settings allowlist, rankings, public proposal summaries and aggregate verified
 holdings/costs. It excludes account aliases, funding positions, execution
 references and provider payloads. Do not store private text in `public_note` or

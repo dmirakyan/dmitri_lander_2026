@@ -26,6 +26,7 @@
         <li>Rank the seven stocks by 3-, 6-, and 12-month returns. Buy the worst average rank.</li>
         <li id="mode-rule">Rotate strategy holdings when the pick changes; otherwise hold and add the monthly contribution.</li>
         <li>Review on the first US trading day each month. Trades are submitted manually. No stop-loss.</li>
+        <li>Track results weekly after Friday’s close.</li>
       </ul>
       <dl class="metrics">
         <div><dt>Initial allocation</dt><dd id="initial">—</dd><small>Proposed reallocation</small></div>
@@ -46,6 +47,7 @@
         </table></div>
         <p id="asof" class="note">Rank 1 = best, 7 = worst. Highest average rank is selected.</p>
       </section>
+      <section class="history" aria-labelledby="weekly-heading"><h2 id="weekly-heading">Weekly results</h2><p id="weekly-status" class="note" role="status">Loading…</p><div id="weekly-results" class="table-wrap"></div><p class="note">Fridays, 5 p.m. New York. Confirmed strategy trades only. Price P&amp;L includes trading fees; excludes dividends, cash interest, and taxes.</p></section>
       <section class="history" aria-labelledby="history-heading"><h2 id="history-heading">Allocations</h2><div id="history"><p class="note">Loading…</p></div></section>
       <details>
         <summary>Methodology & sources</summary>
@@ -53,7 +55,7 @@
         <p>Data: Yahoo Finance’s unofficial chart endpoint. Missing observations block new signals. Source responses and prices are retained in Supabase. Alphabet uses GOOGL.</p>
         <p id="signal-date"></p><p id="provenance"></p>
         <p>Based on <a href="https://x.com/pitdesi/status/2103189414042271914" target="_blank" rel="noopener noreferrer">Sheel Mohnot’s post</a>. His screenshot describes rotation, but his <a href="https://x.com/pitdesi/status/2103485916484624761" target="_blank" rel="noopener noreferrer">sell-timing reply</a> was undecided. Our monthly contributions and dividend treatment may differ from his version. His backtest has not been reproduced here.</p>
-        <p>Only confirmed fills count as strategy holdings. Net invested is purchases plus fees minus sale proceeds, not current market value. Performance is not yet calculated. This strategy concentrates in one company; no allocation cap has been set.</p>
+        <p>Only confirmed fills count as strategy holdings. Net invested is purchases plus fees minus sale proceeds, not current market value. Weekly price P&amp;L is closing stock value minus net purchase cost, including realized gains and losses from rotations. New purchases are not counted as gains. The change since the previous snapshot is shown with its date; missed weeks are not presented as a single week’s result. Uninvested cash, dividends, cash interest, and taxes are excluded, so this is not total return. Missing prices or unreconciled splits block new results. This strategy concentrates in one company; no allocation cap has been set.</p>
       </details>
     </main>
   </div>

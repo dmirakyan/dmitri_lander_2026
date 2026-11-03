@@ -6,6 +6,25 @@ const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const pct = n => `${n>0?'+':''}${(n*100).toFixed(2)}%`;
 let latest;
 let busy=false;
+function renderWeekly(rows){
+  if(!Array.isArray(rows))throw new Error('Invalid weekly results.');
+  if(!rows.length){
+    $('weekly-status').textContent='No weekly results yet. Tracking begins after the first confirmed purchase.';
+    $('weekly-results').innerHTML='';return;
+  }
+  const latestDate=new Date(`${rows[0].session_date}T12:00:00Z`);
+  const overdue=Date.now()-latestDate.getTime()>8*86400000;
+  $('weekly-status').textContent=`${overdue?'Update overdue · ':''}Latest close: ${day(rows[0].session_date)}`;
+  const signed=n=>`${n>0?'+':''}${money(n)}`;
+  $('weekly-results').innerHTML=`<table><caption class="sr-only">Weekly strategy closing values and price profit or loss</caption><thead><tr><th scope="col">Close</th><th scope="col">Stock value</th><th scope="col">Price P&amp;L</th><th scope="col">Since previous</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(day(r.session_date))}</td><td>${money(r.market_value)}</td><td>${signed(r.price_pnl)}</td><td>${r.period_price_pnl==null?'—':`${signed(r.period_price_pnl)} <small>since ${esc(day(r.previous_session))}</small>`}</td></tr>`).join('')}</tbody></table>`;
+}
+async function loadWeekly(c){
+  try{
+    const r=await fetch(`${c.url}/rest/v1/rpc/mag7_public_weekly`,{method:'POST',headers:{apikey:c.key,Authorization:`Bearer ${c.key}`,'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(15000),cache:'no-store'});
+    if(!r.ok)throw new Error('Weekly results are temporarily unavailable.');
+    renderWeekly(await r.json());
+  }catch(e){$('weekly-status').textContent=`${e.message} Any displayed results have not been refreshed.`;}
+}
 function render(data){
   if(!data.strategy || !Array.isArray(data.runs)) throw new Error('No strategy is available yet.');
   const s=data.strategy;latest=data.runs[0];
@@ -42,6 +61,7 @@ async function load(){
     const r=await fetch(`${c.url}/rest/v1/rpc/mag7_public_tracker`,{method:'POST',headers:{apikey:c.key,Authorization:`Bearer ${c.key}`,'Content-Type':'application/json'},body:'{}',signal:AbortSignal.timeout(15000),cache:'no-store'});
     if(!r.ok)throw new Error('The strategy database is temporarily unavailable.');
     render(await r.json());
+    await loadWeekly(c);
   }catch(e){$('load-state').className='load-state error';$('load-state').textContent=`${e.message} ${latest?'Previously loaded figures remain visible; they have not been refreshed.':'No signal or performance is being inferred.'}`;}
   finally{busy=false;$('refresh').disabled=false;}
 }
