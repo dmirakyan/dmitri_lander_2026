@@ -80,3 +80,12 @@ The former hosting records, for rollback reference, were four root A records
 (`185.199.108.153` through `185.199.111.153`) and a `www` CNAME to
 `dmirakyan.github.io`; the old nameservers were `dns1.registrar-servers.com`
 and `dns2.registrar-servers.com`.
+
+## Investment tracker
+
+`/invest/` is a public, unlisted read-only tracker backed by dedicated Supabase
+`mag7_*` tables in the existing project. Only an explicit read projection is
+exposed to the browser. Private funding/account details and raw audit data are
+not returned. The local monthly Codex automation creates research proposals,
+never brokerage orders. See `tools/mag7/README.md` for operation and limitations.
+The existing `/broadway/` lottery route is unchanged.

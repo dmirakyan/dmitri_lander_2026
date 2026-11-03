@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Most hated Mag 7 · Dmitri</title>
+  <meta name="description" content="A monthly contrarian investing experiment. Seven companies, three lookbacks, one selection.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <header><a class="home" href="/">dmitri<span class="dot">.</span></a><span class="header-label">INVESTING EXPERIMENT / 01</span><span class="tag">Research → review → invest</span></header>
+  <main>
+    <section class="intro"><div class="eyebrow"><span class="signal-dot"></span> MOST HATED MAG 7</div><h1>Buy what’s<br><span>out of favor.</span></h1><p class="lede">Seven companies. Three lookbacks. One monthly pick.<br>A rules-based experiment in buying recent underperformance.</p></section>
+    <div id="load-state" role="status" class="load-state">Connecting to the strategy ledger…</div>
+    <div class="metric-grid" aria-label="Strategy allocation">
+      <article><span class="label">INITIAL ALLOCATION</span><strong id="initial">$50,000</strong><small>Proposed reallocation</small></article>
+      <article><span class="label">MONTHLY ALLOCATION</span><strong id="monthly">$15,000</strong><small>Fresh funds · review before buying</small></article>
+      <article><span class="label">CONFIRMED INVESTED</span><strong id="invested">—</strong><small id="fill-note">Awaiting ledger</small></article>
+      <article><span class="label">NEXT REVIEW</span><strong id="next" class="date-metric">—</strong><small>10:00 a.m. New York</small></article>
+    </div>
+    <div class="main-grid">
+      <section class="strategy panel"><div class="section-heading"><span class="eyebrow">01 / THE RULES</span><span class="pill">v1 · review before trading</span></div><h2>A simple monthly discipline.</h2>
+        <ul id="rules"><li>Start with <b>Apple, Microsoft, Nvidia, Amazon, Alphabet, Meta, and Tesla.</b></li><li>Measure each stock’s <b>3-, 6-, and 12-month returns</b> at the prior month-end.</li><li>Rank each period from <b>1 (best) to 7 (worst)</b>. Buy the stock with the highest average rank.</li><li id="budget-rule">Start with a <b>$50,000 reallocation</b>; add <b>$15,000 in fresh funds each month</b>.</li><li id="mode-rule">Monthly position handling is awaiting strategy review.</li><li>No stop-loss rule is currently configured. Review monthly; no automatic mid-month exits.</li><li>Review funding and concentration before trading. Record <b>confirmed fills separately</b> from proposals.</li></ul>
+        <p class="aside">“Hated” means weak price performance here—not negative headlines, sentiment, or a forecast of recovery.</p>
+      </section>
+      <section class="pick panel"><div class="section-heading"><span class="eyebrow">02 / MONTHLY SIGNAL</span><span id="pick-status" class="pill">Awaiting data</span></div><div id="pick-content"><h2 class="pick-symbol">—</h2><p class="pick-name">No verified signal loaded</p></div><div class="pick-bottom"><p id="pick-explanation">The complete seven-stock ranking is required before a selection can be published.</p><div class="pick-numbers"><div><span class="label">AVERAGE RANK</span><b id="avg">—</b></div><div><span class="label">NEW ALLOCATION</span><b id="purchase">—</b></div></div><p id="signal-date" class="data-note">Month-end data, not a live quote.</p></div></section>
+    </div>
+    <section class="panel ranking"><div class="ranking-top"><div><span class="eyebrow">03 / ALL SEVEN, SIDE BY SIDE</span><h2>The ranking behind the pick.</h2><p>Higher average rank = weaker performance across the three periods.</p></div><button id="download" type="button" disabled>↓ Export signal CSV</button></div>
+      <div class="table-wrap"><table><caption class="sr-only">Mag 7 returns and ranks. Returns are adjusted for splits and dividends.</caption><thead><tr><th scope="col">COMPANY</th><th scope="col">3 MONTHS <small>return / rank</small></th><th scope="col">6 MONTHS <small>return / rank</small></th><th scope="col">12 MONTHS <small>return / rank</small></th><th scope="col">AVG. RANK</th><th scope="col">SIGNAL</th></tr></thead><tbody id="rankings"><tr><td colspan="6">Loading verified month-end observations…</td></tr></tbody></table></div>
+      <div class="table-footer"><span id="asof">All seven companies must have all three lookbacks.</span><span>Alphabet uses GOOGL only.</span></div>
+    </section>
+    <div class="bottom-grid">
+      <section class="panel"><span class="eyebrow">04 / ALLOCATION JOURNAL</span><h2>Proposed ≠ purchased.</h2><div id="history"><p class="muted">No history loaded.</p></div><p class="aside">Strategy positions start at zero. Existing investments are never counted as strategy purchases.</p></section>
+      <section class="panel"><span class="eyebrow">05 / MEASUREMENT</span><h2>Evidence before a victory lap.</h2><p class="body-copy">Performance starts with the first confirmed purchase. Compare against the same cash flows invested in <b>SPY</b> and <b>MAGS</b>.</p><div class="empty-chart"><span class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b id="performance-label">No performance record yet</b><span id="performance-note">A proposal is not a return. No simulated gains are shown.</span></div><p class="aside">The original post’s backtest has not been independently reproduced. Its quoted returns are not this strategy’s track record.</p></section>
+    </div>
+    <section class="methodology"><details><summary>Methodology, data provenance & limitations <span>+</span></summary><div class="method-grid"><div><h3>Signal construction</h3><p>Inspired by <a href="https://x.com/pitdesi/status/2103189414042271914" target="_blank" rel="noopener noreferrer">Sheel Mohnot’s original post</a>. Our funding plan adds $15,000 monthly; his pictured example uses a fixed $100,000. The screenshot specifies rotation, but his <a href="https://x.com/pitdesi/status/2103485916484624761" target="_blank" rel="noopener noreferrer">sell-timing reply</a> was undecided. Our monthly rotation rule is an explicit choice; no stop-loss rule was verified.</p><p>Use the last NYSE trading session on or before the previous calendar month-end, and the month-ends 3, 6, and 12 months earlier. Return = adjusted closing price ÷ starting adjusted closing price − 1.</p><p>Exact return ties receive their average rank. Average-rank ties go to the worst 12-month return, then 6-month, then 3-month, then ticker alphabetically.</p></div><div><h3>Data & audit trail</h3><p>Yahoo Finance adjusted daily prices are a total-return proxy. The original post does not specify dividend treatment; our explicit convention may differ from its backtest. This is an unofficial data endpoint; missing or stale observations block new signals. Store original provider responses, retrieval times, source URLs, and the exact price observations in Supabase.</p><p id="provenance">Retrieval timestamp will appear after the signal loads.</p></div><div><h3>Execution & risk</h3><p>The bot prepares research and allocations. It cannot submit brokerage orders. Funding must remain inside the account being reinvested; IRA withdrawals are not part of the strategy.</p><p>A single-company purchase can lose substantially and keep underperforming. The strategy rotates its invested balance into one company. Monthly additions increase that concentration. No maximum strategy allocation has been chosen yet.</p></div></div></details></section>
+  </main><footer><a href="/">← Back to Dmitri</a><span>MONTHLY SIGNALS · VERIFIED FILLS · NO AUTOTRADING</span><button id="refresh" type="button">Refresh data ↻</button></footer>
+</div></body></html>

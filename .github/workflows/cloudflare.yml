@@ -10,6 +10,7 @@ on:
       - 'blog/**'
       - 'dates/**'
       - 'clara/**'
+      - 'invest/**'
       - '_headers'
       - 'admin/index.html'
       - 'admin/admin.css'
@@ -43,7 +44,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: d68925a3a5c8f5a72bd103cc8d4c1135
       - name: Verify deployed pages
         run: |
-          for path in / /blog/ /dates/ /admin/ /clara/; do
+          for path in / /blog/ /dates/ /admin/ /clara/ /invest/; do
             curl --fail --silent --show-error --retry 3 --output /dev/null \
               "https://dmitri-lander.dmitri-d68.workers.dev${path}"
           done
