@@ -54,6 +54,7 @@ def update_profile(profile, values):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--workspace', type=Path, default=DEFAULT_WORKSPACE)
+    parser.add_argument('--port', type=int, default=18765)
     args = parser.parse_args()
     private = args.workspace / 'work/private'
     if not (private / 'profile.json').is_file():
@@ -65,7 +66,9 @@ def main():
             f.write(secrets.token_urlsafe(32))
     token = secret_file.read_text().strip()
     automation_file = Path.home() / '.codex/automations/daily-broadway-lotteries/automation.toml'
-    allowed = {'http://127.0.0.1:18765', 'https://dmitri.im'}
+    host = f'127.0.0.1:{args.port}'
+    origin = f'http://{host}'
+    allowed = {origin}
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -86,7 +89,7 @@ def main():
             self.wfile.write(data if isinstance(data, bytes) else json.dumps(data).encode())
 
         def permitted(self):
-            return self.headers.get('Host') == '127.0.0.1:18765' and self.headers.get('Origin', 'http://127.0.0.1:18765') in allowed
+            return self.headers.get('Host') == host and self.headers.get('Origin', origin) in allowed
 
         def authorized(self):
             return self.permitted() and hmac.compare_digest(self.headers.get('Authorization', ''), 'Bearer ' + token)
@@ -95,7 +98,7 @@ def main():
             if not self.permitted():
                 return self.send(403, {'error': 'Origin not permitted.'})
             self.send_response(204)
-            self.send_header('Access-Control-Allow-Origin', self.headers.get('Origin', 'http://127.0.0.1:18765'))
+            self.send_header('Access-Control-Allow-Origin', self.headers.get('Origin', origin))
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             self.send_header('Access-Control-Allow-Headers', 'Authorization, Content-Type')
             self.send_header('Access-Control-Allow-Private-Network', 'true')
@@ -122,7 +125,9 @@ def main():
             name = files[self.path]
             content = (REPO / 'admin' / name).read_bytes()
             if name == 'index.html':
-                if self.headers.get('Sec-Fetch-Site') not in (None, 'none', 'same-origin'):
+                navigation = (self.headers.get('Sec-Fetch-Mode') == 'navigate'
+                              and self.headers.get('Sec-Fetch-Dest') == 'document')
+                if self.headers.get('Sec-Fetch-Site') not in (None, 'none', 'same-origin') and not navigation:
                     return self.send(403, {'error': 'Open the local dashboard directly.'})
                 content = content.replace(b'<head>', ('<head><meta name="local-runner-key" content="' + token + '">').encode())
             self.send(200, content, {'html': 'text/html; charset=utf-8', 'css': 'text/css', 'js': 'text/javascript'}[name.rsplit('.', 1)[1]])
@@ -157,8 +162,8 @@ def main():
             except OSError:
                 self.send(500, {'error': 'Could not save preferences.'})
 
-    print('Private dashboard: http://127.0.0.1:18765/admin/ (keep this process running)', flush=True)
-    ThreadingHTTPServer(('127.0.0.1', 18765), Handler).serve_forever()
+    print(f'Broadway dashboard: {origin}/admin/', flush=True)
+    ThreadingHTTPServer(('127.0.0.1', args.port), Handler).serve_forever()
 
 
 if __name__ == '__main__':

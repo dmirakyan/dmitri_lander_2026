@@ -1,6 +1,6 @@
 # Broadway admin dashboard
 
-Static frontend served by GitHub Pages at `/admin/`. The public files contain no profile, calendar data, account credentials, or run records. No analytics or third-party scripts load on this page.
+Static tool directory served by Cloudflare at `/admin/`. The public files contain no profile, calendar data, account credentials, or run records. No analytics or third-party scripts load on this page.
 
 The date-night card links to the public static guide at `/dates/`, independently of the private runner connection. The guide contains 28 photo cards, swipe voting, per-person shortlists, and a private share-link board backed by dedicated Creed Supabase tables. See `tools/dates/README.md` for storage and validation. It contains outing recommendations and public venue links; message exports and detailed personal research stay outside this repository. The Pages workflow explicitly includes `dates/` in its public-file staging list.
 
@@ -12,9 +12,11 @@ Requires Python 3.11+ on the Mac that holds the lottery workspace:
 python3 tools/lottery_admin.py
 ```
 
-Open `http://127.0.0.1:18765/admin/` for an automatically authenticated local dashboard. Its “Open this dashboard on dmitri.im” link transfers the connection key in a URL fragment (not sent to the hosting server). The frontend removes that fragment immediately and keeps the key in tab-scoped session storage. The hosted page may require browser permission to access the local network. Use the local page if the browser blocks loopback connections. This is a same-Mac dashboard, not remote/mobile account access.
+Click **Open Broadway** on the admin page, or visit `http://127.0.0.1:18765/admin/`. The local server authenticates the page automatically. No connection form, pasted key, browser storage, or cross-origin API calls are needed. The public admin page is a directory of tools and never fetches private lottery data. Broadway is available on this Mac.
 
-The process must stay running. It binds only to 127.0.0.1. The bearer key is created with owner-only permissions in `work/private/admin-key` outside this repository. Only the exact hosted origin and local origin are accepted; API requests require the key. The local HTML bootstrap rejects cross-site requests and framing. Disconnect clears the browser session key, but does not rotate the server key. To revoke keys, stop the runner, remove the key file, and restart.
+The server binds only to 127.0.0.1. Its private bearer key stays in `work/private/admin-key` outside this repository and is bootstrapped only into the local page. API requests require the key and the local origin. Top-level navigation from the public directory is allowed; cross-site fetches and frames are rejected. To rotate the key, stop the server, remove the key file, and restart.
+
+On this Mac, `im.dmitri.broadway-admin` is a LaunchAgent that starts the dashboard at login and restarts it if it exits. It serves the dashboard only; lottery entries and their schedule remain managed by Codex.
 
 Use `--workspace /path/to/broadway-lotteries` to override the workspace location. Profile changes are validated, version-checked, and written atomically with owner-only permissions. Concurrent stale edits return a conflict rather than overwrite newer settings.
 
