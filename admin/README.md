@@ -34,3 +34,12 @@ node --check admin/admin.js
 ```
 
 Live HTTP checks cover missing/wrong keys, untrusted origins, cross-site bootstrap, path traversal, stale profile revisions, and invalid writes. Browser QA covers reading real data, saving existing preferences, and desktop/mobile layouts.
+
+## Writing room
+
+The admin also links to a separate local writing workspace at
+`http://127.0.0.1:18766/admin/twitter/`. Start it with
+`python3 tools/twitter/server.py`. It supports source-tweet research, draft
+approval/rejection, and scheduling. Approved posts are published by the separately
+authorized local Chrome heartbeat; the web server does not publish them.
+See `tools/twitter/README.md`. No writing data is included in the public build.
