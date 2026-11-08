@@ -16,6 +16,7 @@ import requests
 from dotenv import dotenv_values
 from strategy import (UNIVERSE, VERSION, month_end_before, first_session_after,
                       parse_chart, rank_signals)
+from basket import select_targets
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -65,19 +66,22 @@ def main():
             raise ValueError('Initialize and review the strategy before monthly runs')
         settings=config[0] if config else {
             'name':'Most hated Mag 7','state':'active_research','mode':args.mode,
-            'initial_allocation':50000,'monthly_allocation':15000,
+            'initial_allocation':20000,'monthly_allocation':15000,'selection_count':2,
             'universe':list(UNIVERSE),'rank_direction':'1 = best; 7 = worst',
             'signal_rule':'Highest average rank across 3-, 6-, and 12-month adjusted returns',
             'review_rule':'First US equity trading day of each month, 10:00 a.m. New York',
             'execution_rule':'Research and proposals only. Owner submits trades; record verified fills separately.',
-            'funding_rule':'Initial $50,000 from reviewed existing investments. Monthly $15,000 fresh funding, subject to confirmed availability. Keep proceeds inside each originating account; no IRA withdrawals or assumed IRA contributions.',
+            'funding_rule':'Initial $20,000 from reviewed taxable investments. Monthly $15,000 fresh funding, subject to confirmed availability. Preserve OPEN, warrants and cash reserves. Keep proceeds inside each originating account; no IRA withdrawals or assumed IRA contributions.',
             'stop_loss':None,
             'strategy_cap':None,'next_review_date':first_session_after(date(args.date.year,args.date.month,__import__('calendar').monthrange(args.date.year,args.date.month)[1])).isoformat()
         }
+        if settings.get('pending_strategy_revision', {}).get('status') == 'under_review':
+            raise ValueError('Resolve the pending strategy revision before creating a new proposal')
     series,sources={},{}
     for ticker in [*UNIVERSE,'SPY','MAGS']:
         series[ticker],sources[ticker]=fetch_series(ticker,signal_month)
     anchor,rankings=rank_signals({t:series[t] for t in UNIVERSE},signal_month)
+    targets=select_targets(rankings,settings.get('selection_count',1))
     for ticker in ['SPY','MAGS']:
         if anchor not in series[ticker]: raise ValueError(f'{ticker}: benchmark missing signal date')
     now=datetime.now(timezone.utc)
@@ -86,7 +90,8 @@ def main():
     public_note='Initial allocation proposed; no purchases recorded.' if args.initial else 'Monthly allocation proposed; review funding and existing exposure before submitting orders.'
     method={'version':VERSION,'price_basis':'Split- and dividend-adjusted close (total-return proxy)',
             'provider':'Yahoo Finance chart data (unofficial endpoint)',
-            'lookbacks_months':[3,6,12],'anchors':'Last NYSE session on or before each calendar month-end',
+            'lookbacks_months':[3,6,12],'selection_count':len(targets),'allocation_rule':'Equal split of new contributions; retain selected holdings and rotate departing holdings only',
+            'anchors':'Last NYSE session on or before each calendar month-end',
             'tie_break':'Worst 12-month return, then 6-month, then 3-month, then ticker',
             'retrieved_at':now.isoformat(),'initial_off_schedule':args.initial and args.date!=review_day,
             'data_note':'Monthly signal, not a live quote. Historical adjustments can be revised by the provider. Raw responses and retrieval times are retained.'}
@@ -100,11 +105,11 @@ def main():
             for ticker,source in sources.items():
                 q.execute('insert into public.mag7_market_sources(run_id,ticker,fetched_at,source_url,sha256,payload) values (%s,%s,%s,%s,%s,%s)',(run_id,ticker,source['fetched_at'],source['url'],source['sha256'],Json(source['payload'])))
                 execute_values(q,'insert into public.mag7_prices(run_id,ticker,session_date,close,adjusted_close) values %s',[(run_id,ticker,d,r['close'],r['adjusted_close']) for d,r in series[ticker].items()])
-            q.execute('insert into public.mag7_proposals(id,run_id,contribution,kind,public_note) values (%s,%s,%s,%s,%s)',(proposal_id,run_id,amount,'initial' if args.initial else 'monthly',public_note))
+            q.execute('insert into public.mag7_proposals(id,run_id,contribution,kind,public_note,target_allocations) values (%s,%s,%s,%s,%s,%s)',(proposal_id,run_id,amount,'initial' if args.initial else 'monthly',public_note,Json(targets)))
             next_month_end=date(args.date.year,args.date.month,__import__('calendar').monthrange(args.date.year,args.date.month)[1])
             q.execute("update public.mag7_strategy set settings=jsonb_set(settings,'{next_review_date}',%s),updated_at=now() where id='most-hated'",(Json(first_session_after(next_month_end).isoformat()),))
     print(json.dumps({'status':'proposal_saved','run_id':run_id,'signal_date':anchor.isoformat(),
-                      'selected':rankings[0]['ticker'],'amount':amount,'rankings':rankings},indent=2))
+                      'selected':[t['ticker'] for t in targets],'target_allocations':targets,'amount':amount,'rankings':rankings},indent=2))
 
 if __name__=='__main__':
     try: main()

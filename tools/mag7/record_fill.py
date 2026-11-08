@@ -9,6 +9,7 @@ import uuid
 from datetime import datetime, timezone
 from decimal import Decimal
 from run import connection
+from basket import target_tickers, reviewed_budget
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
@@ -39,16 +40,17 @@ def main():
                 if tuple(map(str,old[:1]))+old[1:]!=expected:
                     raise ValueError('Existing reference has different fill details')
                 print('Already recorded; no duplicate created.');return
-            q.execute('select p.contribution,r.selected_ticker,p.status,r.created_at from public.mag7_proposals p join public.mag7_runs r on r.id=p.run_id where p.id=%s',(str(a.proposal),))
+            q.execute('select p.contribution,r.selected_ticker,p.status,r.created_at,p.target_allocations from public.mag7_proposals p join public.mag7_runs r on r.id=p.run_id where p.id=%s',(str(a.proposal),))
             proposal=q.fetchone()
             if not proposal or proposal[2] in ('cancelled','skipped','filled'):
                 raise ValueError('Proposal unavailable for new fills')
             if a.filled_at<proposal[3]:
                 raise ValueError('Pre-strategy purchases must not be attributed to this strategy')
-            if a.side=='buy' and a.ticker!=proposal[1]:
+            selected=target_tickers(proposal[4],proposal[1])
+            if a.side=='buy' and a.ticker not in selected:
                 raise ValueError('Purchase does not match this monthly signal')
             if a.side=='sell':
-                if a.ticker==proposal[1]:
+                if a.ticker in selected:
                     raise ValueError('Do not churn the unchanged monthly selection')
                 q.execute("select settings->>'mode' from public.mag7_strategy where id='most-hated'")
                 if q.fetchone()[0]!='rotate':raise ValueError('Accumulation mode does not allow strategy sales')
@@ -61,12 +63,15 @@ def main():
             if a.side=='buy':
                 q.execute('select private_funding from public.mag7_proposals where id=%s',(str(a.proposal),))
                 funding=q.fetchone()[0]
-                account_budget=sum((Decimal(str(f['buy_dollars'])) for f in funding if f.get('account_alias')==a.account_alias and f.get('status')=='reviewed'),Decimal(0))
+                account_budget,stock_budget=reviewed_budget(funding,a.account_alias,a.ticker,len(selected)>1)
                 if not account_budget:
                     raise ValueError('Review and record an account-specific purchase budget first')
                 q.execute("select coalesce(sum(quantity*price+fees),0) from public.mag7_fills where proposal_id=%s and account_alias=%s and side='buy'",(str(a.proposal),a.account_alias))
                 if q.fetchone()[0]+a.quantity*a.price+a.fees>account_budget+Decimal('0.01'):
                     raise ValueError('Purchase exceeds this account’s reviewed budget')
+                q.execute("select coalesce(sum(quantity*price+fees),0) from public.mag7_fills where proposal_id=%s and account_alias=%s and ticker=%s and side='buy'",(str(a.proposal),a.account_alias,a.ticker))
+                if not stock_budget or q.fetchone()[0]+a.quantity*a.price+a.fees>stock_budget+Decimal('0.01'):
+                    raise ValueError('Purchase exceeds this ticker’s reviewed budget')
             q.execute('insert into public.mag7_fills(id,proposal_id,external_reference,account_alias,ticker,side,quantity,price,fees,filled_at) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(str(uuid.uuid4()),str(a.proposal),a.reference,a.account_alias,a.ticker,a.side,a.quantity,a.price,a.fees,a.filled_at))
             q.execute('update public.mag7_proposals set status=%s where id=%s',('filled' if a.complete else 'partially_filled',str(a.proposal)))
     print('Verified fill recorded. No brokerage order was submitted by this tool.')

@@ -4,17 +4,19 @@ Live route: https://dmitri.im/invest/. Static frontend on the existing Cloudflar
 Worker; Supabase stores signals, source data, proposals and verified fills.
 This is a research and review bot. It contains no brokerage execution API.
 
-## Agreed strategy, November 3, 2026
+## Agreed strategy, updated November 8, 2026
 
-- Reallocate $50,000 initially, subject to review of the funding positions.
+- Reallocate $20,000 initially. The owner selected taxable ARKG plus sufficient FSCSX; private lot details stay in Supabase.
 - Add $15,000 fresh funds monthly beginning with the next monthly review.
 - Universe: AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA. Alphabet counted once.
 - Prior month-end 3/6/12 calendar-month returns using exact NYSE sessions.
 - Adjusted closes account for splits and dividends (total-return proxy).
-- Rank 1 best, 7 worst; highest average rank wins. Exact return ties get average
+- Rank 1 best, 7 worst; the two highest average ranks are selected. Exact return ties get average
   ranks. Average-rank ties: worst 12-month, 6-month, 3-month, alphabetical ticker.
-- Rotate only strategy-owned shares when selection changes; hold existing
-  strategy shares when unchanged and add only the new contribution.
+- Split the initial allocation and fresh monthly contributions equally between the
+  selected two. Retain any stock still selected; rotate only strategy-owned
+  shares of departing stocks into entering stocks in the same account. Do not
+  trim retained holdings merely to restore equal weights; weights may drift.
 - No stop-loss or automatic mid-month trading. No leverage or shorts.
 - Never count preexisting holdings as strategy shares. No strategy cap chosen.
 - Read the current private funding plan and strategy settings before proposing
@@ -25,7 +27,9 @@ This is a research and review bot. It contains no brokerage execution API.
   session. Initial November 3 setup is explicitly an off-schedule exception.
 
 Source: https://x.com/pitdesi/status/2103189414042271914 and user-supplied screenshot.
-The screenshot describes rotating a fixed $100k sleeve without contributions.
+The screenshot describes rotating a fixed $100k single-stock sleeve without contributions.
+The owner approved our two-stock variation on November 8: $10k GOOGL plus $10k
+AMZN from the saved October ranking. This is a reviewed proposal, not a fill.
 However, when asked when he sells, the author replied "Not sure yet!":
 https://x.com/pitdesi/status/2103485916484624761. He says he uses a traditional IRA:
 https://x.com/pitdesi/status/2103199490480148690. No stop-loss rule was verified.
@@ -45,6 +49,11 @@ Supabase project already used by `/dates`, with dedicated `mag7_*` tables.
   --env-file /Users/dmitri/Documents/GitHub/creed-api/.env
 .local-secrets/mag7-venv/bin/python -m unittest discover -s tools/mag7 -p 'test_*.py' -v
 ```
+
+The one-time `basket.sql` migration adds proposal-level target allocations.
+It preserves every historical signal and its original single selected ticker;
+the proposal records the owner-reviewed pair. New monthly runs snapshot their
+own two targets. Keep signal version 1 because ranking mathematics is unchanged.
 
 `--initial --migrate --mode rotate` is for first setup only. Initial run already
 exists; do not repeat with a new version to create a duplicate allocation.
@@ -86,11 +95,14 @@ The user submits trades in Fidelity; the agent must not submit them.
 
 Only after actual fills are verified, set account-specific funding entries to
 `status: reviewed` with `account_alias` and `buy_dollars` (total purchase budget
-including reviewed same-account sale proceeds) and use `record_fill.py --help`.
+including reviewed same-account sale proceeds), plus `buy_allocations` mapping
+each selected ticker to its reviewed dollar cap, and use `record_fill.py --help`.
+The initial caps are $10,000 each including fees. Owner agreement alone must not
+change a funding entry to execution-ready `reviewed` or record a fill.
 Use an execution-specific unique reference (order ID plus execution ID for partial
 fills). Record sells before buys. `--complete` is explicit, only after all intended
 fills have been verified. The recorder rejects duplicate references with changed
-details, buys of the wrong ticker, sales beyond recorded strategy holdings,
+details, buys outside the proposal target pair or above its per-account/per-ticker caps, sales beyond recorded strategy holdings,
 unchanged-selection churn, excessive budgets and pre-strategy timestamps.
 There is no broker reconciliation or corporate-action ingestion yet; splits,
 mergers or corrections must be reconciled before any sell proposal. Never edit a

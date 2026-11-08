@@ -23,7 +23,7 @@
     <header class="page-heading"><h1>Mag 7</h1><button id="refresh" type="button">Refresh</button></header>
     <main>
       <ul class="rules">
-        <li>Rank the seven stocks by 3-, 6-, and 12-month returns. Buy the worst average rank.</li>
+        <li>Rank the seven stocks by 3-, 6-, and 12-month returns. Select the two worst average ranks; split the initial allocation equally.</li>
         <li id="mode-rule">Rotate strategy holdings when the pick changes; otherwise hold and add the monthly contribution.</li>
         <li>Review on the first US trading day each month. Trades are submitted manually. No stop-loss.</li>
         <li>Track results weekly after Friday’s close.</li>
@@ -35,7 +35,7 @@
         <div><dt>Next review</dt><dd id="next">—</dd><small>10 a.m. New York</small></div>
       </dl>
       <section class="selection" aria-labelledby="pick-heading">
-        <div><h2 id="pick-heading">Current pick <span id="pick-status" class="status">Loading</span></h2><div id="pick-content"><strong class="pick-symbol">—</strong></div></div>
+        <div><h2 id="pick-heading">Current picks <span id="pick-status" class="status">Loading</span></h2><div id="pick-content"><strong class="pick-symbol">—</strong></div></div>
         <dl class="pick-numbers"><div><dt>Average rank</dt><dd id="avg">—</dd></div><div><dt>Proposed allocation</dt><dd id="purchase">—</dd></div></dl>
       </section>
       <section class="ranking" aria-labelledby="ranking-heading">
@@ -45,7 +45,7 @@
           <thead><tr><th scope="col">Company</th><th scope="col">3 months</th><th scope="col">6 months</th><th scope="col">12 months</th><th scope="col">Avg. rank</th><th scope="col"><span class="sr-only">Selection</span></th></tr></thead>
           <tbody id="rankings"><tr><td colspan="6">Loading…</td></tr></tbody>
         </table></div>
-        <p id="asof" class="note">Rank 1 = best, 7 = worst. Highest average rank is selected.</p>
+        <p id="asof" class="note">Rank 1 = best, 7 = worst. The two highest average ranks are selected.</p>
       </section>
       <section class="history" aria-labelledby="weekly-heading"><h2 id="weekly-heading">Weekly results</h2><p id="weekly-status" class="note" role="status">Loading…</p><div id="weekly-results" class="table-wrap"></div><p class="note">Fridays, 5 p.m. New York. Confirmed strategy trades only. Price P&amp;L includes trading fees; excludes dividends, cash interest, and taxes.</p></section>
       <section class="history" aria-labelledby="history-heading"><h2 id="history-heading">Allocations</h2><div id="history"><p class="note">Loading…</p></div></section>
@@ -54,8 +54,8 @@
         <p>Returns use split- and dividend-adjusted closing prices at the last NYSE session of each month. Exact return ties receive average ranks. Average-rank ties go to the worst 12-month return, then 6-month, then 3-month, then ticker.</p>
         <p>Data: Yahoo Finance’s unofficial chart endpoint. Missing observations block new signals. Source responses and prices are retained in Supabase. Alphabet uses GOOGL.</p>
         <p id="signal-date"></p><p id="provenance"></p>
-        <p>Based on <a href="https://x.com/pitdesi/status/2103189414042271914" target="_blank" rel="noopener noreferrer">Sheel Mohnot’s post</a>. His screenshot describes rotation, but his <a href="https://x.com/pitdesi/status/2103485916484624761" target="_blank" rel="noopener noreferrer">sell-timing reply</a> was undecided. Our monthly contributions and dividend treatment may differ from his version. His backtest has not been reproduced here.</p>
-        <p>Only confirmed fills count as strategy holdings. Net invested is purchases plus fees minus sale proceeds, not current market value. Weekly price P&amp;L is closing stock value minus net purchase cost, including realized gains and losses from rotations. New purchases are not counted as gains. The change since the previous snapshot is shown with its date; missed weeks are not presented as a single week’s result. Uninvested cash, dividends, cash interest, and taxes are excluded, so this is not total return. Missing prices or unreconciled splits block new results. This strategy concentrates in one company; no allocation cap has been set.</p>
+        <p>Based on <a href="https://x.com/pitdesi/status/2103189414042271914" target="_blank" rel="noopener noreferrer">Sheel Mohnot’s post</a>. His screenshot describes rotation, but his <a href="https://x.com/pitdesi/status/2103485916484624761" target="_blank" rel="noopener noreferrer">sell-timing reply</a> was undecided. Our two-stock selection, monthly contributions and dividend treatment differ from his version. Initial and fresh contributions are split equally; retained holdings can drift from equal weights. His backtest has not been reproduced here.</p>
+        <p>Only confirmed fills count as strategy holdings. Net invested is purchases plus fees minus sale proceeds, not current market value. Weekly price P&amp;L is closing stock value minus net purchase cost, including realized gains and losses from rotations. New purchases are not counted as gains. The change since the previous snapshot is shown with its date; missed weeks are not presented as a single week’s result. Uninvested cash, dividends, cash interest, and taxes are excluded, so this is not total return. Missing prices or unreconciled splits block new results. This strategy concentrates in two companies; existing fund exposure is separate. No overall allocation cap has been set.</p>
       </details>
     </main>
   </div>
