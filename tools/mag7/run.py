@@ -66,7 +66,7 @@ def main():
             raise ValueError('Initialize and review the strategy before monthly runs')
         settings=config[0] if config else {
             'name':'Most hated Mag 7','state':'active_research','mode':args.mode,
-            'initial_allocation':20000,'monthly_allocation':15000,'selection_count':2,
+            'initial_allocation':20000,'monthly_allocation':15000,'selection_count':1,
             'universe':list(UNIVERSE),'rank_direction':'1 = best; 7 = worst',
             'signal_rule':'Highest average rank across 3-, 6-, and 12-month adjusted returns',
             'review_rule':'First US equity trading day of each month, 10:00 a.m. New York',
@@ -90,7 +90,7 @@ def main():
     public_note='Initial allocation proposed; no purchases recorded.' if args.initial else 'Monthly allocation proposed; review funding and existing exposure before submitting orders.'
     method={'version':VERSION,'price_basis':'Split- and dividend-adjusted close (total-return proxy)',
             'provider':'Yahoo Finance chart data (unofficial endpoint)',
-            'lookbacks_months':[3,6,12],'selection_count':len(targets),'allocation_rule':'Equal split of new contributions; retain selected holdings and rotate departing holdings only',
+            'lookbacks_months':[3,6,12],'selection_count':len(targets),'allocation_rule':'Allocate fresh funds to selected targets by weight; retain selected holdings and rotate departing strategy holdings only',
             'anchors':'Last NYSE session on or before each calendar month-end',
             'tie_break':'Worst 12-month return, then 6-month, then 3-month, then ticker',
             'retrieved_at':now.isoformat(),'initial_off_schedule':args.initial and args.date!=review_day,

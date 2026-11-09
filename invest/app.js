@@ -33,7 +33,8 @@ function render(data){
   $('invested').textContent=money(data.execution.net_purchase_cost);
   $('fill-note').textContent=`${data.execution.confirmed_fill_count} confirmed fills`;
   $('next').textContent=s.next_review_date?new Date(`${s.next_review_date}T12:00:00Z`).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'}):'To schedule';
-  $('mode-rule').textContent=s.mode==='rotate'?'Keep stocks that remain selected. Rotate strategy-owned shares only when a stock drops out; split fresh monthly funds equally.':'Split fresh funds between the selected stocks. Keep prior purchases.';
+  const single=(s.selection_count??1)===1;
+  $('mode-rule').textContent=single?(s.mode==='rotate'?'Rotate strategy holdings when the pick changes; otherwise hold and add the monthly contribution.':'Add fresh funds to the selected stock. Keep prior purchases.'):(s.mode==='rotate'?'Keep stocks that remain selected. Rotate departing strategy holdings; split fresh funds equally.':'Split fresh funds between selected stocks. Keep prior purchases.');
   if(!latest){$('load-state').textContent='Awaiting the first monthly signal';return;}
   if(latest.rankings.length!==7)throw new Error('Incomplete signal: all seven companies are required.');
   const allocations=targets(latest);
@@ -52,7 +53,7 @@ function render(data){
   $('purchase').textContent=money(latest.proposal.contribution);
   $('signal-date').textContent=`Signal: ${day(latest.signal_date)} close${latest.methodology.initial_off_schedule?' · initial setup after the scheduled review day':''}`;
   $('rankings').innerHTML=latest.rankings.map(r=>`<tr class="${selectedTickers.has(r.ticker)?'selected-row':''}"><td><div class="company"><b>${esc(r.ticker)}</b><small>${esc(r.name)}</small></div></td>${['3','6','12'].map(m=>`<td><span class="${r.returns[m]>=0?'positive':'negative'}">${pct(r.returns[m])}</span><span class="rank" aria-label="Rank ${r.ranks[m]}">#${r.ranks[m]}</span></td>`).join('')}<td class="avg">${r.average_rank.toFixed(2)}</td><td>${selectedTickers.has(r.ticker)?'<span class="selected-pill">Selected</span>':'<span class="muted">—</span>'}</td></tr>`).join('');
-  $('asof').textContent='Adjusted returns. Rank 1 = best, 7 = worst; the two highest average ranks are selected.';
+  $('asof').textContent=`Adjusted returns. Rank 1 = best, 7 = worst; ${allocations.length===1?'the highest average rank is selected':'the two highest average ranks are selected'}.`;
   $('provenance').textContent=`Latest retrieval: ${new Date(latest.methodology.retrieved_at).toLocaleString('en-US',{timeZone:'America/New_York'})} New York. Signal version ${latest.methodology.version}.`;
   $('history').innerHTML=data.runs.map(r=>`<div class="journal-row"><span class="journal-date">${esc(day(r.signal_date))}</span><div class="journal-main"><b>${esc(targets(r).map(t=>t.ticker).join(' + '))} · ${r.proposal.kind==='initial'?'Initial allocation':'Monthly allocation'}</b><small>${esc(r.proposal.note)}</small></div><div class="journal-value">${money(r.proposal.contribution)}<small>${esc(r.proposal.status.replaceAll('_',' '))}</small></div></div>`).join('');
   $('download').disabled=false;
