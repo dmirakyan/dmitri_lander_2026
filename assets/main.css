@@ -562,6 +562,17 @@ strong {
 	color: #111827;
 }
 
+.post-body blockquote {
+	margin: 1.5rem 0;
+	padding: 0.2rem 0 0.2rem 1.25rem;
+	border-left: 3px solid var(--magenta);
+	color: #111827;
+}
+
+.post-body blockquote p:last-child {
+	margin-bottom: 0;
+}
+
 .post-body ul {
 	margin: 0 0 1.15rem 1.25rem;
 	color: #111827;

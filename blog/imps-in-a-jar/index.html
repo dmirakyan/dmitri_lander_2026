@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<title>Imps in a jar | Dmitri Mirakyan</title>
+	<meta name="description" content="What AI agents can do, where they fall short, and what that means for the rest of us." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../assets/main.css" />
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9T8W1LRB9N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-9T8W1LRB9N');
+	</script>
+
+</head>
+<body>
+	<div class="page-shell">
+		<aside class="sidebar">
+			<div class="sidebar-top">
+				<div class="identity">
+					<div class="avatar-wrap">
+						<img class="avatar" src="../../assets/images/profile-photo.png" alt="Dmitri Mirakyan" />
+					</div>
+					<div class="site-title">
+						<span class="site-title-mobile">Dmitri</span>
+						<span class="site-title-desktop">Dmitri needs a web presence</span>
+					</div>
+				</div>
+
+				<nav class="site-nav" aria-label="Primary">
+					<a class="nav-link nav-cyan" href="../../#about">About</a>
+					<a class="nav-link nav-magenta" href="../../#writing">Writing</a>
+					<a class="nav-link nav-yellow" href="../../#media">Media</a>
+					<a class="nav-link nav-black" href="../../#contact">Contact</a>
+				</nav>
+			</div>
+
+			<div class="social-links" aria-label="Social links">
+				<a href="https://twitter.com/damirakyan" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19 9.458 12.504H16.59l-5.803-7.584-6.639 7.584H.466l8.6-9.83L0 1.154h7.597l5.242 6.932 6.062-6.932Zm-1.291 19.492h2.039L6.49 3.24H4.302L17.61 20.645Z"/></svg>
+				</a>
+				<a href="https://www.linkedin.com/in/dmirakyan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.983 3.5C4.983 4.881 3.87 6 2.5 6S.017 4.881.017 3.5 1.13 1 2.5 1s2.483 1.119 2.483 2.5ZM.5 8h4V23h-4V8Zm7 0h3.833v2.05h.055c.534-1.013 1.84-2.083 3.79-2.083 4.053 0 4.8 2.668 4.8 6.137V23h-4v-7.925c0-1.89-.034-4.32-2.633-4.32-2.636 0-3.039 2.06-3.039 4.185V23h-4V8Z"/></svg>
+				</a>
+				<a href="https://www.instagram.com/dmitri_am/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.506 5.506 0 0 1 22 7.5v9A5.506 5.506 0 0 1 16.5 22h-9A5.506 5.506 0 0 1 2 16.5v-9A5.506 5.506 0 0 1 7.5 2Zm0 2A3.504 3.504 0 0 0 4 7.5v9A3.504 3.504 0 0 0 7.5 20h9a3.504 3.504 0 0 0 3.5-3.5v-9A3.504 3.504 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+				</a>
+				<a href="mailto:damirakyan@gmail.com" aria-label="Email">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm18.565 2H3.435L12 12.714 20.565 7ZM3 17h18V8.236l-8.445 5.562a1 1 0 0 1-1.11 0L3 8.236V17Z"/></svg>
+				</a>
+			</div>
+
+			<div class="cmyk-bar cmyk-bar-mobile" aria-hidden="true">
+				<span class="cmyk-cyan"></span>
+				<span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span>
+				<span class="cmyk-black"></span>
+			</div>
+
+			<div class="cmyk-bar cmyk-bar-desktop" aria-hidden="true">
+				<span class="cmyk-cyan"></span>
+				<span class="cmyk-magenta"></span>
+				<span class="cmyk-yellow"></span>
+				<span class="cmyk-black"></span>
+			</div>
+		</aside>
+
+		<main class="main-content">
+			<a class="back-link" href="../">← Back to blog</a>
+
+			<header class="post-header">
+				<h1>Imps in a jar</h1>
+			</header>
+
+			<article class="post-body">
+				<p><strong>My small contribution to the doomer discourse.</strong></p>
+
+				<p>I’ve been building a ai agents for other people recently. The more I do it, the more the metaphor of AI as an <a href="https://geohot.github.io/blog/jekyll/update/2026/11/17/my-empire-of-dirt.html" target="_blank" rel="noopener noreferrer">act</a> <a href="https://www.nytimes.com/2023/05/30/technology/shoggoth-meme-ai.html" target="_blank" rel="noopener noreferrer">of</a> <a href="https://read.roonscape.ai/p/agi-futures" target="_blank" rel="noopener noreferrer">summoning</a> starts to resonate.</p>
+
+				<p>You get the sense that the thing you’re creating is more capable than you. If only it had hands, and wasn’t confined to the pentagram on the floor. Young adult fiction prepared me well for this moment. You have your right-hand demon, that does whatever individual task you throw at it.</p>
+
+				<figure class="post-figure"><img src="./images/image-1.png" alt="Cover of The Amulet of Samarkand, a Bartimaeus novel" /><figcaption>The original ai novel</figcaption></figure>
+
+				<p>But the real leverage comes from taking a smaller one and putting in a box. Train it to solve a problem and coach it until it’s good enough. Give it just enough access to do exactly what it needs, and then keep it <a href="https://www.schneier.com/blog/archives/2026/09/ais-as-modern-genies.html" target="_blank" rel="noopener noreferrer">running forever</a>. The zeitgeist around openclaw came and went, but it turns out that AI + a cron job works really really well.</p>
+
+				<p>Another task? Another imp in a jar. Throw in a slightly bigger imp to orchestrate and now you’ve got a whole little org chart.</p>
+
+				<figure class="post-figure"><img src="./images/image-2.png" alt="Four illustrated AI agents in jars labeled Note-taker, Code review, Personal shopper, and SEO Writer" /></figure>
+
+				<p>This feels reminiscent of training machine learning models back when curve fitting (derogatory) the definition of AI. Fitting a regression or tree based model always looked a bit like training a minion. But back then they were limited to predictive tasks, with zero capacity for ambiguity. Sort fruits into buckets, predict likelihood of conversion, that sort of thing.</p>
+
+				<p>Like a precise, autistic employee.</p>
+
+				<figure class="post-figure"><img src="./images/image-3.png" alt="An old AI imp sorting Happy and Sad buckets while a newer imp looks on" /><figcaption>The imps of new probably find the imps of old exhausting at parties</figcaption></figure>
+
+				<p>Naturally the impact was limited. Now that anyone can conjure general intelligence, you’re seeing usage explode along the margins.</p>
+
+				<p>You’ve heard a lot about AI impacting tech hiring - but the real bloodbath is in the white collar gig economy.</p>
+
+				<p>In a past life I had a bootstrapped business A LOT of contractors to do discrete tasks on Upwork. In the AI labor transformation wave, these were the first to go. If I could handle a small discrete task to a human at 5 hours a week, AI could usually do it better.</p>
+
+				<p>Yes it’s cheaper. But the real value is that the AI was faster and easier to manage. Give feedback to a set of contractors and pray that they’ll do it correctly after a enough coaching. Put your feedback in markdown and the agent doesn’t repeat the mistake again.</p>
+
+				<p>Anyone that’s ran a business knows that the most critical skill is hiring. Finding and managing the right people is hard. Now? Just summon more imps.</p>
+
+				<p>On the flip-side of this is a form of abundance. For a global software business this has ushered panic. Now that any feature can be cloned in a day - what defensibility is left?</p>
+
+				<p>For smaller businesses, particularly ones with audience-based or geographic moats, this has opened a world of possibilities.</p>
+
+				<figure class="post-figure"><img src="./images/image-4.png" alt="Jacob Eiting's post about AI helping small businesses in his rural town" /></figure>
+
+				<p>We found ourselves doing more fun things, taking more shots. AI makes new endeavors far less costly, not just to build but to manage. So much of a managerial job used to be deciding what not to do. Now the upper bound is your own creativity and ability to manage.</p>
+
+				<p>How far will this go? TBD, but we’re starting to see the outline.</p>
+
+				<p>Developers? We’re there. AI accountants? Soon. AI CEOs? Not for a long time. AI salespeople? Probably never.</p>
+
+				<p>An imp in a jar works because the task holds still. Sort the fruit, reconcile the invoices, triage the support tickets. But business is innately adversarial, and adversarial tasks don’t hold still. If everyone has access to the same imps, summoning one is no longer enough to win.</p>
+
+				<p>It’s why AI can one-shot a complex software application and still can’t run a marketing team. All the startups that promised fully automated ads <a href="https://www.maginative.com/article/jasper-cuts-internal-valuation-as-ai-growth-slows/" target="_blank" rel="noopener noreferrer">stalled</a>, <a href="https://www.copy.ai/" target="_blank" rel="noopener noreferrer">pivoted</a>, or <a href="https://techstartups.com/2026/03/05/icon-the-ai-ad-startup-shuts-down-after-spending-12m-on-the-icon-com-domain/" target="_blank" rel="noopener noreferrer">shut down</a> (one <a href="https://yespress.io/icon" target="_blank" rel="noopener noreferrer">quietly went back to humans</a>), and I expect them to keep failing. Because the moment a given style of marketing becomes widely saturated, it no longer works at grabbing anyone’s attention.</p>
+
+				<p>Patrick Mackenzie describes this really well in an <a href="https://www.complexsystemspodcast.com/episodes/how-ai-detection-actually-works-with-pangrams-max-spero/" target="_blank" rel="noopener noreferrer">interview with the founder of Pangram</a>.</p>
+
+				<blockquote>
+					<p>…“you could compare, for a given author, politician, et cetera: does this person say something different than you would predict a person in their position as saying?</p>
+					<p>And if someone has no alpha above that LLM baseline, then you can basically discount them as having any informational value. And there are many opinion writers who are very well employed, et cetera, who have no value above the weights.”</p>
+				</blockquote>
+
+				<p>The same test applies to any job. If your work has no value above the weights, off it goes to the imps. The jobs that survive are the ones where landing outside the weights is the whole point, or where the feedback loop is too long to verifiably train an AI to succeed.</p>
+
+				<p>Bigger demons will be summoned, but as long as the free market remains a free market, I think there’s room for humans. It’s a bit sad to boil human value to “a randomization layer on top of the ai” but here we are.</p>
+
+				<p>There is one flavor of contractors where we’ve been hiring more and more than ever: marketers. Content creators, paid and organic. Content to feed the beast. I’ll take paperclip maximizer over the world where each of us becomes a marketer.</p>
+
+				<p>I’ll take the paperclip maximizer over a world where every one of us ends up in marketing or sales.</p>
+
+				<p>Without further ado, my contribution to the AI risk literature:</p>
+
+				<blockquote>
+					<p><em>And lo, the loom did weave itself, and the sons of Adam stood idle in the field, and said unto one another: “Have you heard about our limited-time offer?”</em></p>
+					<p>Every revolution moved our hands to the next kind of work: from the field to the mill, from the mill to the office. By 2033 the machines had taken the last of it, including science, medicine, art, and the factories themselves. Abundance arrived as promised, but abundance has no purchasing department. When anything can be made, the only thing still scarce is being <em>chosen</em>, and only a person could reach a person, so we all became salespeople. Your grandmother has a referral code, and so do the monks on Athos. You pitch your neighbor a mattress the machines designed, and he pitches you an app the machines also designed. Then the buyers became agents too, and the best rhetoricians since Cicero now spend their lives whispering about oat milk to a model that will never drink it.</p>
+					<p>There was no apocalypse, and the machines never turned on us. They just kept everything in stock while eight billion of us knocked on each other’s doors. Somewhere a man is dying, and his last words are sponsored.</p>
+				</blockquote>
+			</article>
+
+			<footer class="site-footer">
+				<p>&copy; 2026 Dmitri Mirakyan.</p>
+				<div class="footer-dots" aria-hidden="true">
+					<span class="cmyk-cyan"></span>
+					<span class="cmyk-magenta"></span>
+					<span class="cmyk-yellow"></span>
+					<span class="cmyk-black"></span>
+				</div>
+			</footer>
+		</main>
+	</div>
+
+	<script src="../../assets/main.js"></script>
+
+</body>
+</html>
