@@ -1,16 +1,58 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "dmitri-lander",
+  "main": "worker/index.js",
   "account_id": "d68925a3a5c8f5a72bd103cc8d4c1135",
   "compatibility_date": "2026-09-28",
   "workers_dev": true,
   "routes": [
-    { "pattern": "dmitri.im", "custom_domain": true },
-    { "pattern": "www.dmitri.im", "custom_domain": true }
+    {
+      "pattern": "dmitri.im",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.dmitri.im",
+      "custom_domain": true
+    }
   ],
   "assets": {
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/twitter",
+      "/twitter/*",
+      "/admin/twitter",
+      "/admin/twitter/*",
+      "/api/writing/*",
+      "/api/jobs/*"
+    ],
     "directory": "./_site",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none"
-  }
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "JOBS_APPLICATIONS",
+        "class_name": "JobsApplication"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "jobs-v1",
+      "new_sqlite_classes": [
+        "JobsApplication"
+      ]
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "JOBS_RATE_LIMIT",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
+  ]
 }
