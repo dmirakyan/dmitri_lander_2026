@@ -172,6 +172,15 @@ for (const pane of document.querySelectorAll('[data-reference-lane]')) {
     videoPicker.value = 'wingman';
     setCut();
   } else {
+    const cutPicker = document.querySelector('#michaela-choices');
+    cutPicker.addEventListener('change', () => {
+      const pairedId = michaelaStories[Number(cutPicker.value)]?.pairedReference;
+      const index = posts.findIndex(post => post.id === pairedId);
+      if (index >= 0) {
+        select.value = String(index);
+        render();
+      }
+    });
     render();
   }
 }

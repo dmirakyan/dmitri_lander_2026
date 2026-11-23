@@ -11,10 +11,11 @@ if (!['seal','unseal'].includes(mode) || !path || !/^[a-f0-9]{64}$/i.test(raw)) 
 }
 const key=Buffer.from(raw,'hex');
 const marker=Buffer.from('YMG1');
-const strictPath=/^\/content\/(?:hinge\/renders\/[a-z0-9-]+-[123]\.png|michaela\/[a-e]_0[12]_(?:selfie|reveal)\.png|video\/[a-z0-9-]+\.(?:mp4|jpg))$/;
+const strictPath=/^\/content\/(?:hinge\/renders\/[a-z0-9-]+-[123]\.png|michaela\/[a-e]_(?:01_(?:selfie|lead-[a-f0-9]{12})|02_reveal)\.png|video\/[a-z0-9-]+\.(?:mp4|jpg))$/;
 const entries=Object.entries(manifest).sort(([a],[b])=>a.localeCompare(b));
 for (const [file,meta] of entries) {
-  if (!strictPath.test(file)||!Number.isSafeInteger(meta.bytes)||meta.bytes<1||meta.bytes>25*1024*1024||! /^[a-f0-9]{64}$/.test(meta.sha256)) throw new Error('Invalid media allowlist');
+  const leadHash = file.match(/_01_lead-([a-f0-9]{12})\.png$/)?.[1];
+  if (!strictPath.test(file)||(leadHash&&!meta.sha256?.startsWith(leadHash))||!Number.isSafeInteger(meta.bytes)||meta.bytes<1||meta.bytes>25*1024*1024||! /^[a-f0-9]{64}$/.test(meta.sha256)) throw new Error('Invalid media allowlist');
 }
 const aad=Buffer.concat([marker,Buffer.from(JSON.stringify(entries))]);
 const verified=(data,meta)=>data.length===meta.bytes&&createHash('sha256').update(data).digest('hex')===meta.sha256;

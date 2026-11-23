@@ -77,10 +77,10 @@
     "bytes": 311982,
     "type": "image/png"
   },
-  "/content/michaela/a_01_selfie.png": {
-    "key": "gallery/v1/1e9da6fca17d146a392b1e528726ddffbfb37b3f8d41bc376121530c7b5165b1",
-    "sha256": "1e9da6fca17d146a392b1e528726ddffbfb37b3f8d41bc376121530c7b5165b1",
-    "bytes": 2084528,
+  "/content/michaela/a_01_lead-76f54d6f3eba.png": {
+    "key": "gallery/v1/76f54d6f3eba64efc905de7f22fc17b4cb59cebaccd7deae0c2e3875a9c591c4",
+    "sha256": "76f54d6f3eba64efc905de7f22fc17b4cb59cebaccd7deae0c2e3875a9c591c4",
+    "bytes": 2289578,
     "type": "image/png"
   },
   "/content/michaela/a_02_reveal.png": {
@@ -89,10 +89,10 @@
     "bytes": 90969,
     "type": "image/png"
   },
-  "/content/michaela/b_01_selfie.png": {
-    "key": "gallery/v1/3bfb0f22d3930a0d868d622fb544a6e24188944e9655ec07d9ea01468ccf3d62",
-    "sha256": "3bfb0f22d3930a0d868d622fb544a6e24188944e9655ec07d9ea01468ccf3d62",
-    "bytes": 2275051,
+  "/content/michaela/b_01_lead-900c081fb82d.png": {
+    "key": "gallery/v1/900c081fb82d07cd18161ae411a5358b186d008be860090f3488ff813ccd91ac",
+    "sha256": "900c081fb82d07cd18161ae411a5358b186d008be860090f3488ff813ccd91ac",
+    "bytes": 2101996,
     "type": "image/png"
   },
   "/content/michaela/b_02_reveal.png": {
@@ -101,10 +101,10 @@
     "bytes": 99462,
     "type": "image/png"
   },
-  "/content/michaela/c_01_selfie.png": {
-    "key": "gallery/v1/2464fc55a36383ff5bcbd9fbf2b1b99fb8e4d9680f3de442ab09cdf24aba8af1",
-    "sha256": "2464fc55a36383ff5bcbd9fbf2b1b99fb8e4d9680f3de442ab09cdf24aba8af1",
-    "bytes": 2334549,
+  "/content/michaela/c_01_lead-db9908e7c12b.png": {
+    "key": "gallery/v1/db9908e7c12b8812157bc1d2d339f994b115ce6717a27d94315473798c18aa4d",
+    "sha256": "db9908e7c12b8812157bc1d2d339f994b115ce6717a27d94315473798c18aa4d",
+    "bytes": 3259293,
     "type": "image/png"
   },
   "/content/michaela/c_02_reveal.png": {
@@ -113,10 +113,10 @@
     "bytes": 72529,
     "type": "image/png"
   },
-  "/content/michaela/d_01_selfie.png": {
-    "key": "gallery/v1/fab827a211be9b352757604b6ab32ce4ee4263f9b05654b1b6bc99669551cf3e",
-    "sha256": "fab827a211be9b352757604b6ab32ce4ee4263f9b05654b1b6bc99669551cf3e",
-    "bytes": 2160734,
+  "/content/michaela/d_01_lead-37a5d1ba22cb.png": {
+    "key": "gallery/v1/37a5d1ba22cbef032c7fac2f01f81480cd8670e730f27704bf73f21d4d78dfcc",
+    "sha256": "37a5d1ba22cbef032c7fac2f01f81480cd8670e730f27704bf73f21d4d78dfcc",
+    "bytes": 2593389,
     "type": "image/png"
   },
   "/content/michaela/d_02_reveal.png": {
@@ -125,10 +125,10 @@
     "bytes": 82013,
     "type": "image/png"
   },
-  "/content/michaela/e_01_selfie.png": {
-    "key": "gallery/v1/bef3173933a648de36a2e6eeb9019125a8beec7208dcf2c8a6381e88d28f3be1",
-    "sha256": "bef3173933a648de36a2e6eeb9019125a8beec7208dcf2c8a6381e88d28f3be1",
-    "bytes": 2466345,
+  "/content/michaela/e_01_lead-2421ab17022f.png": {
+    "key": "gallery/v1/2421ab17022f787d20c8203bc7234feb1433fb4ddb5f7973a391c05f7e579eec",
+    "sha256": "2421ab17022f787d20c8203bc7234feb1433fb4ddb5f7973a391c05f7e579eec",
+    "bytes": 2094757,
     "type": "image/png"
   },
   "/content/michaela/e_02_reveal.png": {
