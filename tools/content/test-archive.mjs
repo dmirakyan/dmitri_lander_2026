@@ -7,8 +7,8 @@ class Element {
   querySelector(s){if(!this.selectors.has(s)) this.selectors.set(s,new Element());return this.selectors.get(s);}
   append(...els){if(this.value===undefined && els[0]?.value!==undefined) this.value=els[0].value;this.children.push(...els);}
   replaceChildren(...els){this.children=els;}
-  addEventListener(name,fn){this.events[name]=fn;}
-  dispatchEvent(e){this.events[e.type]?.(e);}
+  addEventListener(name,fn){(this.events[name]??=[]).push(fn);}
+  dispatchEvent(e){for(const fn of this.events[e.type]??[])fn(e);}
   getAttribute(name){return this[name]??null;}
   removeAttribute(name){delete this[name];}
 }
@@ -27,7 +27,7 @@ for(const cut of videos){
 const formats=['chat-inbox','quote-test-scale'].map((value,i)=>Object.assign(new Element(),{value,checked:i===0}));
 function switchHinge(index){
   formats.forEach((format,i)=>{format.checked=i===index});
-  formats[index].events.change();
+  formats[index].dispatchEvent({type:'change'});
 }
 document.querySelectorAll=selector=>selector==='[data-video-cut]'?videos:selector==='input[name="hinge-format"]'?formats:panes;
 for(const pane of panes) document.selectors.set('#'+pane.dataset.referenceLane+'-references',pane.querySelector('select'));
@@ -40,7 +40,7 @@ for(const [i,lane] of lanes.entries()){
   const pane=panes[i], posts=referenceArchive[lane], picker=pane.querySelector('select'), details=pane.querySelector('details'), frame=pane.querySelector('iframe');
   assert.equal(picker.children.length,lane==='hinge'?6:posts.length);
   assert.equal(frame.src,undefined);
-  details.open=true;details.events.toggle();
+  details.open=true;details.dispatchEvent({type:'toggle'});
   for(const [index,post] of posts.entries()){
     assert.match(post.id,/^\d{19}$/);
     assert.ok(!ids.has(post.id));ids.add(post.id);
@@ -48,7 +48,7 @@ for(const [i,lane] of lanes.entries()){
     assert.ok(post.role&&post.mechanic&&post.source[0]);
     if(lane==='hinge')switchHinge(post.format==='quote-test-scale'?1:0);
     assert.ok(picker.children.some(option=>option.value===String(index)));
-    picker.value=String(index);picker.events.change();
+    picker.value=String(index);picker.dispatchEvent({type:'change'});
     assert.equal(frame.src,`https://www.tiktok.com/player/v1/${post.id}?autoplay=0&description=0`);
     assert.equal(pane.querySelector('.source-link').href,post.url);
     assert.equal(pane.querySelector('.reference-metrics').children.length,Object.keys(post.metrics).length);
@@ -61,30 +61,30 @@ for(const [i,lane] of lanes.entries()){
       assert.ok(secondary.children[1].textContent.includes(post.secondSnapshot.metrics.Views));
     }
   }
-  details.open=false;details.events.toggle();
+  details.open=false;details.dispatchEvent({type:'toggle'});
   assert.equal(frame.src,undefined);
   if(lane==='video'){
     const cuts=document.querySelector('#video-choices');
     const defaultId='7640652226779811094';
     assert.equal(cuts.value,'wingman');
     assert.deepEqual(videos.map(v=>v.hidden),[false,true,true]);
-    cuts.value='flashcards';cuts.events.change();
+    cuts.value='flashcards';cuts.dispatchEvent({type:'change'});
     assert.deepEqual(videos.map(v=>v.hidden),[true,true,false]);
     assert.ok(videos[0].querySelector('video').paused);
     assert.match(pane.querySelector('.source-link').href,/7704270106838191391$/);
     const other=posts.findIndex(p=>p.id!=='7704270106838191391');
-    picker.value=String(other);picker.events.change();
+    picker.value=String(other);picker.dispatchEvent({type:'change'});
     assert.deepEqual(videos.map(v=>v.hidden),[true,true,false]);
-    cuts.value='wingman';cuts.events.change();
+    cuts.value='wingman';cuts.dispatchEvent({type:'change'});
     assert.deepEqual(videos.map(v=>v.hidden),[false,true,true]);
     assert.ok(videos[2].querySelector('video').paused);
     assert.ok(pane.querySelector('.source-link').href.endsWith(defaultId));
-    cuts.value='rush-fee';cuts.events.change();
+    cuts.value='rush-fee';cuts.dispatchEvent({type:'change'});
     assert.deepEqual(videos.map(v=>v.hidden),[true,false,true]);
     assert.match(pane.querySelector('.source-link').href,/7698527792601795842$/);
-    picker.value='0';picker.events.change();
+    picker.value='0';picker.dispatchEvent({type:'change'});
     assert.deepEqual(videos.map(v=>v.hidden),[true,false,true]);
-    cuts.value='wingman';cuts.events.change();
+    cuts.value='wingman';cuts.dispatchEvent({type:'change'});
     assert.ok(videos[1].querySelector('video').paused);
     assert.ok(pane.querySelector('.source-link').href.endsWith(defaultId));
     continue;
@@ -100,9 +100,9 @@ for(const [i,lane] of lanes.entries()){
     assert.equal(picker.children.length,6);
     assert.equal(picks.children.length,5);
     assert.equal(picks.children.at(-1).textContent.includes('Alternate'),true);
-    picker.value=picker.children[1].value;picker.events.change();
+    picker.value=picker.children[1].value;picker.dispatchEvent({type:'change'});
     const alternative=picker.value;
-    picks.value=picks.children[1].value;picks.events.change();
+    picks.value=picks.children[1].value;picks.dispatchEvent({type:'change'});
     assert.equal(picker.value,alternative);
     assert.deepEqual(cards.filter(c=>!c.hidden),[cards[1]]);
     switchHinge(1);
@@ -113,16 +113,28 @@ for(const [i,lane] of lanes.entries()){
     const three=Number(picks.value);
     assert.equal(cards[three].querySelector('.previews').children.length,3);
     assert.equal(cards[three].querySelector('.previews').children[2].href,'hinge/renders/crowded-room-3.png');
-    picker.value=picker.children[1].value;picker.events.change();
+    picker.value=picker.children[1].value;picker.dispatchEvent({type:'change'});
     assert.match(pane.querySelector('.source-link').href,/7711372773574069535$/);
     assert.deepEqual(cards.filter(c=>!c.hidden),[cards[three]]);
     switchHinge(0);
     assert.match(pane.querySelector('.source-link').href,/7708554077088550157$/);
     assert.deepEqual(cards.filter(c=>!c.hidden),[cards[0]]);
   }else{
-    picks.value='4';picks.events.change();
+    picks.value='4';picks.dispatchEvent({type:'change'});
     assert.deepEqual(cards.filter(c=>!c.hidden),[cards[4]]);
     assert.equal(picker.value,String(posts.length-1));
+    picks.value='2';picks.dispatchEvent({type:'change'});
+    assert.match(pane.querySelector('.source-link').href,/7596097372757691670$/);
+    assert.deepEqual(cards.filter(c=>!c.hidden),[cards[2]]);
+    picker.value='0';picker.dispatchEvent({type:'change'});
+    assert.equal(pane.querySelector('.source-link').href,posts[0].url);
+    assert.deepEqual(cards.filter(c=>!c.hidden),[cards[2]]);
+    for(const [i,card] of cards.entries()){
+      picks.value=String(i);picks.dispatchEvent({type:'change'});
+      const [lead,reveal]=card.querySelector('.previews').children;
+      assert.match(lead.href,/^michaela\/[a-e]_01_lead-[a-f0-9]{12}\.png$/);
+      assert.match(reveal.href,/^michaela\/[a-e]_02_reveal\.png$/);
+    }
   }
 }
 assert.equal(ids.size,33);
