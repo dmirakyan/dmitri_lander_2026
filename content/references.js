@@ -8,7 +8,10 @@ const post = (id,handle,format,title,role,mechanic,date,metrics,source) => ({id,
 const v = (id,h,t,r,m,d,n) => post(id,h,'video',t,r,m,d,n,viral(id));
 const a = (id,h,t,r,m,d,n,s=ttanon(h,id)) => post(id,h,'video',t,r,m,d,n,s);
 const m = (id,t,r,m,d,n) => post(id,'datingwithmads','photo',t,r,m,d,n,reels);
-const h = (id,t,r,m,d,n,s=chrome) => post(id,'dating.advice67','photo',t,r,m,d,n,s);
+const h = (id,t,r,m,d,n,s=chrome) => ({
+  ...post(id,'dating.advice67','photo',t,r,m,d,n,s),
+  format: ['7705229880211836173','7711372773574069535'].includes(id) ? 'quote-test-scale' : 'chat-inbox',
+});
 
 export const referenceArchive = {
   video: [
