@@ -3,13 +3,35 @@
 Usage: python tools/content/check_gallery_http.py http://127.0.0.1:8787
 """
 
-from urllib.request import Request, urlopen
+from email.parser import BytesParser
+from pathlib import Path
+import re
+import subprocess
 import sys
+import tempfile
 
 
 def request(url, method="GET", headers=None):
-    with urlopen(Request(url, method=method, headers=headers or {}), timeout=15) as response:
-        return response.status, response.headers, response.read()
+    if method not in ("GET", "HEAD"):
+        raise ValueError("Only GET and HEAD are supported")
+    with tempfile.TemporaryDirectory(prefix="gallery-smoke-") as tmp:
+        header_path = Path(tmp) / "headers"
+        body_path = Path(tmp) / "body"
+        command = [
+            "curl", "--fail", "--silent", "--show-error", "--location",
+            "--retry", "2", "--retry-all-errors", "--max-time", "15",
+            "--dump-header", str(header_path), "--output", str(body_path),
+            "--write-out", "%{http_code}",
+        ]
+        if method == "HEAD":
+            command.append("--head")
+        for name, value in (headers or {}).items():
+            command.extend(("--header", f"{name}: {value}"))
+        status = subprocess.check_output([*command, url], text=True)
+        # Proxy handshakes, retries and redirects may emit their own header blocks.
+        blocks = re.split(rb"(?m)^HTTP/[^\r\n]+\r?\n", header_path.read_bytes())
+        parsed = BytesParser().parsebytes(blocks[-1])
+        return int(status), parsed, b"" if method == "HEAD" else body_path.read_bytes()
 
 
 def main():
