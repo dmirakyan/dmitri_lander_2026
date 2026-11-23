@@ -9,6 +9,8 @@ const output = path.join(root, '_site');
 const publicPaths = [
   'index.html', 'robots.txt', 'sitemap.xml',
   'assets', 'blog', 'book', 'dates', 'clara', 'invest', '_headers',
+  'content/index.html', 'content/style.css', 'content/gallery.js', 'content/references.js',
+  'content/michaela/stories.js', 'content/hinge/stories.js',
   'admin/index.html', 'admin/admin.css', 'admin/admin.js',
 ];
 

@@ -1,0 +1,164 @@
+{
+  "/content/hinge/renders/coffee-shop-1.png": {
+    "key": "gallery/v1/1db5ed3fe8cc894ece2268cca3db5f99e5ec474f68511d4de9d9cdc3dc7c5f60",
+    "sha256": "1db5ed3fe8cc894ece2268cca3db5f99e5ec474f68511d4de9d9cdc3dc7c5f60",
+    "bytes": 94851,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/coffee-shop-2.png": {
+    "key": "gallery/v1/8c3b461ae2689d674ee60a0e07f2ed75c2bca3a7ffce3cc3b59f0a966352a834",
+    "sha256": "8c3b461ae2689d674ee60a0e07f2ed75c2bca3a7ffce3cc3b59f0a966352a834",
+    "bytes": 306710,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/crowded-room-1.png": {
+    "key": "gallery/v1/32760769d04a127a8c346004ee76e2e1d3e3636d39b5286098a1c12e90e0ac5e",
+    "sha256": "32760769d04a127a8c346004ee76e2e1d3e3636d39b5286098a1c12e90e0ac5e",
+    "bytes": 528275,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/crowded-room-2.png": {
+    "key": "gallery/v1/6727e00d2b6d0d71e65317925d61d168814c8db4e82b156fa70264182ed0652e",
+    "sha256": "6727e00d2b6d0d71e65317925d61d168814c8db4e82b156fa70264182ed0652e",
+    "bytes": 105514,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/crowded-room-3.png": {
+    "key": "gallery/v1/3913dd56e3abb8b7ef79d9bae2b459a8d5bf83ecb42115eb324c04d3581be9b1",
+    "sha256": "3913dd56e3abb8b7ef79d9bae2b459a8d5bf83ecb42115eb324c04d3581be9b1",
+    "bytes": 294969,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/dog-approval-1.png": {
+    "key": "gallery/v1/c5634213ead05997dfd0e09d20e353222afcccbf4c59580e333173eaa78200b7",
+    "sha256": "c5634213ead05997dfd0e09d20e353222afcccbf4c59580e333173eaa78200b7",
+    "bytes": 105659,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/dog-approval-2.png": {
+    "key": "gallery/v1/1c3ca2ee5383900de550378e5bcad5c161040c913a2ccbb9987cc5e1226eec38",
+    "sha256": "1c3ca2ee5383900de550378e5bcad5c161040c913a2ccbb9987cc5e1226eec38",
+    "bytes": 325452,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/margin-notes-1.png": {
+    "key": "gallery/v1/b99028eaaefe2823ca7c92983809a110e2beae125fb720d1e7fd86c42ec50d0b",
+    "sha256": "b99028eaaefe2823ca7c92983809a110e2beae125fb720d1e7fd86c42ec50d0b",
+    "bytes": 101111,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/margin-notes-2.png": {
+    "key": "gallery/v1/efed17a49b9ee680c34f1793ca4443bd0555e76726ee5a1689cb6b9e8ac7f1d4",
+    "sha256": "efed17a49b9ee680c34f1793ca4443bd0555e76726ee5a1689cb6b9e8ac7f1d4",
+    "bytes": 318173,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/museum-sunday-1.png": {
+    "key": "gallery/v1/c153c3019635d9cbd90c888f377b79dd3893712a547e156f4fd5725ccb345ef1",
+    "sha256": "c153c3019635d9cbd90c888f377b79dd3893712a547e156f4fd5725ccb345ef1",
+    "bytes": 97667,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/museum-sunday-2.png": {
+    "key": "gallery/v1/a97fc218ecec5629779822cc574dc6ea6483a015551f61d98046867c5edb7054",
+    "sha256": "a97fc218ecec5629779822cc574dc6ea6483a015551f61d98046867c5edb7054",
+    "bytes": 310766,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/playlist-1.png": {
+    "key": "gallery/v1/24e06807318effea7098e4720d6b37e9e1f38b60ee75db61199c4456921fa810",
+    "sha256": "24e06807318effea7098e4720d6b37e9e1f38b60ee75db61199c4456921fa810",
+    "bytes": 103691,
+    "type": "image/png"
+  },
+  "/content/hinge/renders/playlist-2.png": {
+    "key": "gallery/v1/e5dcbec1aadcaf708e6ed2e26178879b938858c8c0141b5c0bb5d067de46c940",
+    "sha256": "e5dcbec1aadcaf708e6ed2e26178879b938858c8c0141b5c0bb5d067de46c940",
+    "bytes": 311982,
+    "type": "image/png"
+  },
+  "/content/michaela/a_01_selfie.png": {
+    "key": "gallery/v1/1e9da6fca17d146a392b1e528726ddffbfb37b3f8d41bc376121530c7b5165b1",
+    "sha256": "1e9da6fca17d146a392b1e528726ddffbfb37b3f8d41bc376121530c7b5165b1",
+    "bytes": 2084528,
+    "type": "image/png"
+  },
+  "/content/michaela/a_02_reveal.png": {
+    "key": "gallery/v1/b9c07a63425ed2069f76ed4b4d4fb246e747e5c970d5eecde6e6dc45e5c03365",
+    "sha256": "b9c07a63425ed2069f76ed4b4d4fb246e747e5c970d5eecde6e6dc45e5c03365",
+    "bytes": 90969,
+    "type": "image/png"
+  },
+  "/content/michaela/b_01_selfie.png": {
+    "key": "gallery/v1/3bfb0f22d3930a0d868d622fb544a6e24188944e9655ec07d9ea01468ccf3d62",
+    "sha256": "3bfb0f22d3930a0d868d622fb544a6e24188944e9655ec07d9ea01468ccf3d62",
+    "bytes": 2275051,
+    "type": "image/png"
+  },
+  "/content/michaela/b_02_reveal.png": {
+    "key": "gallery/v1/2f88d0910a7ef01ff79d39f49669487cce9e3c125d2ef6a40c9c63e276906bce",
+    "sha256": "2f88d0910a7ef01ff79d39f49669487cce9e3c125d2ef6a40c9c63e276906bce",
+    "bytes": 99462,
+    "type": "image/png"
+  },
+  "/content/michaela/c_01_selfie.png": {
+    "key": "gallery/v1/2464fc55a36383ff5bcbd9fbf2b1b99fb8e4d9680f3de442ab09cdf24aba8af1",
+    "sha256": "2464fc55a36383ff5bcbd9fbf2b1b99fb8e4d9680f3de442ab09cdf24aba8af1",
+    "bytes": 2334549,
+    "type": "image/png"
+  },
+  "/content/michaela/c_02_reveal.png": {
+    "key": "gallery/v1/4a9c684988b1d37616cc99aab5e4cfa1de111bc8d6b5a364db6740a548390dcc",
+    "sha256": "4a9c684988b1d37616cc99aab5e4cfa1de111bc8d6b5a364db6740a548390dcc",
+    "bytes": 72529,
+    "type": "image/png"
+  },
+  "/content/michaela/d_01_selfie.png": {
+    "key": "gallery/v1/fab827a211be9b352757604b6ab32ce4ee4263f9b05654b1b6bc99669551cf3e",
+    "sha256": "fab827a211be9b352757604b6ab32ce4ee4263f9b05654b1b6bc99669551cf3e",
+    "bytes": 2160734,
+    "type": "image/png"
+  },
+  "/content/michaela/d_02_reveal.png": {
+    "key": "gallery/v1/191db28664f475409634428dd6cc98fad53d42f8bae85bb462816dde3f315c8a",
+    "sha256": "191db28664f475409634428dd6cc98fad53d42f8bae85bb462816dde3f315c8a",
+    "bytes": 82013,
+    "type": "image/png"
+  },
+  "/content/michaela/e_01_selfie.png": {
+    "key": "gallery/v1/bef3173933a648de36a2e6eeb9019125a8beec7208dcf2c8a6381e88d28f3be1",
+    "sha256": "bef3173933a648de36a2e6eeb9019125a8beec7208dcf2c8a6381e88d28f3be1",
+    "bytes": 2466345,
+    "type": "image/png"
+  },
+  "/content/michaela/e_02_reveal.png": {
+    "key": "gallery/v1/125e5f4c938396f92be9b2e81604cfa59d14bd28f9ee4f4cfe6dc8024f864c1e",
+    "sha256": "125e5f4c938396f92be9b2e81604cfa59d14bd28f9ee4f4cfe6dc8024f864c1e",
+    "bytes": 73497,
+    "type": "image/png"
+  },
+  "/content/video/flashcards-full-bleed.mp4": {
+    "key": "gallery/v1/c1294a20085ff33912dd5b275981ceb1016bae754346294516bec1eda7e35b2a",
+    "sha256": "c1294a20085ff33912dd5b275981ceb1016bae754346294516bec1eda7e35b2a",
+    "bytes": 9798484,
+    "type": "video/mp4"
+  },
+  "/content/video/flashcards-poster.jpg": {
+    "key": "gallery/v1/0937a592e206713831655b3a9ace426136e886c3c93f8e7ef3b5c4e5e156fe83",
+    "sha256": "0937a592e206713831655b3a9ace426136e886c3c93f8e7ef3b5c4e5e156fe83",
+    "bytes": 60496,
+    "type": "image/jpeg"
+  },
+  "/content/video/wingman-bean-poster.jpg": {
+    "key": "gallery/v1/a03cea44439d6d076130e5e7c55442fe94f77dc2213e7c4ae4e544d672d79652",
+    "sha256": "a03cea44439d6d076130e5e7c55442fe94f77dc2213e7c4ae4e544d672d79652",
+    "bytes": 41469,
+    "type": "image/jpeg"
+  },
+  "/content/video/wingman-bean-says-yes.mp4": {
+    "key": "gallery/v1/cc2c17cc6b98f5d7f8168af4993ec7f1d8f984cba3085d6c9bad1cc63d2064ea",
+    "sha256": "cc2c17cc6b98f5d7f8168af4993ec7f1d8f984cba3085d6c9bad1cc63d2064ea",
+    "bytes": 1562268,
+    "type": "video/mp4"
+  }
+}

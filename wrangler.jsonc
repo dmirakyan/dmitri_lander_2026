@@ -18,6 +18,8 @@
   "assets": {
     "binding": "ASSETS",
     "run_worker_first": [
+      "/content",
+      "/content/*",
       "/twitter",
       "/twitter/*",
       "/admin/twitter",

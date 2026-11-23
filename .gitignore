@@ -8,3 +8,12 @@ node_modules/
 .env.*
 .dev.vars
 .dev.vars.*
+
+# Local-only gallery media; production uses preloaded Workers KV.
+/content/michaela/*.png
+/content/video/
+/content/hinge/renders/
+/content/hinge/portraits/
+/content/hinge/*.jpg
+/content/hinge/manifest.json
+/.wrangler.gallery.generated.json
