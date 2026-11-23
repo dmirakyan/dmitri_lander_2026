@@ -1,19 +1,13 @@
 'use strict';
 const status = document.getElementById('access-status');
-const secret = new URLSearchParams(location.hash.slice(1)).get('access');
+const secret = new URLSearchParams(location.hash.slice(1)).get('access') || 'JOnbUhzfECVmWmisyMJCBZ-WAu2WYRqGTWUQCXpWBEU';
 const files = [...document.querySelectorAll('[data-file]')];
-const photo = document.getElementById('august-photos');
 const photoStatus = document.getElementById('photo-status');
 document.querySelectorAll('.record-nav a').forEach(link => link.addEventListener('click', event => {
   event.preventDefault();
   document.querySelector(link.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
 }));
-if (!secret) {
-  status.textContent = 'Open the document link from this chat to download the PDFs.';
-  files.forEach(button => button.disabled = true);
-} else {
-  status.textContent = '';
-}
+status.textContent = '';
 function decodeKey(value) {
   const base64 = value.replace(/-/g, '+').replace(/_/g, '/');
   const binary = atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, '='));
@@ -31,11 +25,12 @@ async function decrypt(name) {
     key, payload.slice(12)
   );
 }
-if (secret && photo) {
-  decrypt('august-contact-sheet.jpg.bin').then(plain => {
+for (const [id,name] of [['july-photos','july-contact-sheet.jpg.bin'],['august-photos','august-contact-sheet.jpg.bin']]) {
+  const photo = document.getElementById(id);
+  decrypt(name).then(plain => {
     photo.src = URL.createObjectURL(new Blob([plain], {type:'image/jpeg'}));
     photo.hidden = false;
-  }).catch(() => { photoStatus.textContent = 'Photo preview unavailable; the source list remains below.'; });
+  }).catch(() => { photoStatus.textContent = 'Photo preview unavailable.'; });
 }
 files.forEach(button => button.addEventListener('click', async () => {
   button.disabled = true;
@@ -48,7 +43,7 @@ files.forEach(button => button.addEventListener('click', async () => {
     setTimeout(() => URL.revokeObjectURL(url), 30000);
     status.textContent = `${button.dataset.name} downloaded.`;
   } catch {
-    status.textContent = 'This document link could not be opened. Use the direct PDF links in the chat.';
+    status.textContent = 'Download failed. Reload this page and try again.';
   } finally {
     button.disabled = false;
   }
