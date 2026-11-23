@@ -40,6 +40,8 @@ export const referenceArchive = {
     m('7629926592097078550','Repeated comeback hook A','Performance control','The alternate comeback hook and two-frame structure land close to the account median.',null,{Views:'673.3K',Engagement:'16.7%'}),
     m('7628532553569389846','Repeated comeback hook B','Performance control','The same alternative hook and two-frame delivery did not replicate the breakout.',null,{Views:'288.6K',Engagement:'15.2%'}),
     m('7625357754525437206','Repeated comeback hook C','Performance control','A third matched ordinary example shows that the hook and slide count are not sufficient.',null,{Views:'452.3K',Engagement:'12.7%'}),
+    post('7596097372757691670','datingwithmads','photo','Pinned torso crop','Close visual benchmark','The lead photo crops out the face completely, using diagonal torso and hand framing.','Jan 16, 2026',{Views:'3.8M',Likes:'561.1K'},chrome),
+    post('7699605539147287830','datingwithmads','photo','Daylight car crop','Performance control','Hard daylight in a car, with part of the face covered by the framing. A lower-reach visual comparison.','Oct 22, 2026',{Views:'22.8K',Likes:'1,110'},chrome),
   ],
   hinge: [
     h('7708554077088550157','Part 67','Selected original','One seemingly personal dating-app exchange is undermined by an inbox of matching lines. This is the user-selected structural reference.',null,{Likes:'54',Comments:'1'}),

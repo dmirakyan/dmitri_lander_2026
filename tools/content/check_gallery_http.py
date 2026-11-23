@@ -40,7 +40,7 @@ def main():
     base = sys.argv[1].rstrip("/")
     status, headers, _ = request(base + "/content/")
     assert status == 200 and "noindex" in headers.get("X-Robots-Tag", "")
-    for name in ("flashcards-full-bleed.mp4", "wingman-bean-says-yes.mp4"):
+    for name in ("flashcards-full-bleed.mp4", "wingman-yourmove-header.mp4", "rush-fee-yourmove-header.mp4"):
         movie = base + "/content/video/" + name
         status, headers, _ = request(movie, "HEAD")
         assert status == 200 and headers.get_content_type() == "video/mp4"
