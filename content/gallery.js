@@ -11,6 +11,7 @@ function frameUrl(lane, story, slide) {
 function addStories(lane, stories) {
   const picker = document.querySelector('#'+lane+'-choices');
   const container = document.querySelector(`#${lane}-stories`);
+  const options = [];
   for (const [index, story] of stories.entries()) {
     const article = document.createElement('article');
     article.className = 'story';
@@ -18,7 +19,7 @@ function addStories(lane, stories) {
     const option = document.createElement('option');
     option.textContent = story.status ? story.title + ' · ' + story.status : story.title;
     option.value = String(index);
-    picker.append(option);
+    options.push(option);
     article.innerHTML = '<p class="eyebrow"></p><h3></h3><p class="description"></p><div class="previews"></div><div class="links"></div>';
     article.querySelector('.eyebrow').textContent = story.status || `CONCEPT ${String(index + 1).padStart(2, '0')}`;
     article.querySelector('h3').textContent = story.title;
@@ -45,23 +46,22 @@ function addStories(lane, stories) {
     }
     container.append(article);
   }
-  picker.addEventListener('change', () => {
+  function showSelection() {
     const selected = Number(picker.value);
     [...container.children].forEach((card, index) => { card.hidden = index !== selected; });
-    const paired = stories[selected]?.pairedReference;
-    if (paired) {
-      const next = referenceArchive[lane].findIndex(post => post.id === paired);
-      const referencePicker = document.querySelector('#'+lane+'-references');
-      if (next >= 0 && Number(referencePicker.value) !== next) {
-        referencePicker.value = String(next);
-        referencePicker.dispatchEvent(new Event('change'));
-      }
-    }
-  });
+  }
+  picker.addEventListener('change', showSelection);
+  function showOptions(allowed) {
+    picker.replaceChildren(...allowed.map(index => options[index]));
+    picker.value = allowed.length ? String(allowed[0]) : '';
+    showSelection();
+  }
+  showOptions(stories.map((_,index) => index));
+  return showOptions;
 }
 
 addStories('michaela', michaelaStories);
-addStories('hinge', hingeStories);
+const showHingeStories = addStories('hinge', hingeStories);
 
 
 for (const pane of document.querySelectorAll('[data-reference-lane]')) {
@@ -80,13 +80,15 @@ for (const pane of document.querySelectorAll('[data-reference-lane]')) {
   const details = pane.querySelector('details');
   const frame = pane.querySelector('iframe');
   const metrics = pane.querySelector('.reference-metrics');
-  posts.forEach((post,index) => {
+  const options = posts.map((post,index) => {
     const option = document.createElement('option');
     option.value = String(index);
     const counts = Object.entries(post.metrics).slice(0,2).map(([name,value]) => `${value} ${name.toLowerCase()}`).join(' / ');
     option.textContent = `${post.title} · ${counts || 'metrics unverified'}`;
-    select.append(option);
+    return option;
   });
+  select.replaceChildren(...options);
+  select.value = '0';
   function render() {
     const post = posts[Number(select.value)];
     pane.querySelector('h3').textContent = post.title;
@@ -134,7 +136,24 @@ for (const pane of document.querySelectorAll('[data-reference-lane]')) {
   }
   details.addEventListener('toggle', setPlayer);
   select.addEventListener('change', render);
-  if (lane === 'video') {
+  if (lane === 'hinge') {
+    const formatInputs = [...document.querySelectorAll('input[name="hinge-format"]')];
+    const defaults = {'chat-inbox':'7708554077088550157','quote-test-scale':'7705229880211836173'};
+    function showFormat(format) {
+      if (!Object.hasOwn(defaults,format)) return;
+      const available = posts.flatMap((post,index) => post.format === format ? [index] : []);
+      const referenceDefault = available.find(index => posts[index].id === defaults[format]);
+      const ordered = [referenceDefault,...available.filter(index => index !== referenceDefault)].filter(index => index !== undefined);
+      select.replaceChildren(...ordered.map(index => options[index]));
+      select.value = String(ordered[0]);
+      render();
+      const cuts = hingeStories.flatMap((story,index) => (story.format || 'chat-inbox') === format ? [index] : []);
+      showHingeStories(cuts);
+      document.querySelector('#hinge-cut-count').textContent = cuts.length === 1 ? 'YOURMOVE EXAMPLE · 1' : `YOURMOVE EXAMPLES · ${cuts.length}`;
+    }
+    for (const input of formatInputs) input.addEventListener('change', () => { if(input.checked) showFormat(input.value); });
+    showFormat(formatInputs.find(input => input.checked)?.value || 'chat-inbox');
+  } else if (lane === 'video') {
     const videoPicker = document.querySelector('#video-choices');
     const videoCuts = Array.from(document.querySelectorAll('[data-video-cut]'));
     const setCut = () => {
