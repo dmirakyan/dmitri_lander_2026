@@ -55,7 +55,7 @@
 <label>August 29–31 valuation<select id="aug-mode"><option value="none">Exclude until loss of use is verified</option><option value="proposed">Include $529.84 combined proposal</option></select><small>Assumes monthly rent shares of $2,975 and $2,500 × 3/31. Confirm Alex’s rent share, loss of use, move-out, and key dates before including.</small></label>
 <label>July 1–7 valuation<select id="july-mode"><option value="room">Bedroom rent × 7 days ($671.77)</option><option value="none">Exclude July</option><option value="full">Full-apartment proposal ($2,483.87)</option><option value="quarter">Illustrative 25% room share ($620.97)</option><option value="custom">Custom amount with evidence</option></select><small>Dmitri confirmed $2,975 monthly bedroom rent and that heavy construction made the entire bedroom unusable, with its shower demolished. $2,975 × 7/31 = $671.77 is a proposed value; match the full period to evidence.</small></label>
 <label id="custom-wrap" hidden>Custom July amount ($)<input id="july-custom" type="number" min="0" max="10000" step="0.01" value="671.77"></label>
-<label>July basis / evidence to confirm<input id="july-basis" type="text" value="Dmitri reports $2,975 monthly bedroom rent; heavy construction made entire bedroom unusable July 1–7, 2026; shower inside room demolished. Match all dates to photos/messages"></label>
+<label>July basis / evidence to confirm<input id="july-basis" type="text" value="Dmitri reports $2,975 monthly bedroom rent; heavy construction made entire bedroom unusable July 1–7, 2026; shower inside room demolished"><small>Match the full seven-day period to photos, messages, or other dated evidence before filing.</small></label>
 </div>
 <p id="math-error" class="error" role="alert"></p>
 <div class="table-wrap"><table><thead><tr><th>Component</th><th>Combined</th><th>Dmitri</th><th>Alex</th></tr></thead><tbody id="math-body"></tbody></table></div>
@@ -70,7 +70,7 @@
 <section id="drafts"><div class="eyebrow">05 / REVIEWABLE DRAFTS</div><h2>Prepared for the next move.</h2>
 <p>Drafts regenerate from the worksheet. Bracketed fields and provisional figures must be resolved before use. These are review text and supporting statements, not completed official filings.</p>
 <div class="form-grid">
-<label>Landlord named in lease and statement<input id="defendant" value="188 South 8th Street Realty Too LLC"><small>Verified against New York Department of State registry, DOS ID 3911580.</small></label>
+<label>Landlord named in lease and statement<input id="defendant" value="188 South 8th Street Realty Too, LLC"><small>Registry spelling and punctuation; DOS ID 3911580. Lease omits the comma.</small></label>
 <label>Defendant address for court form<input id="service" placeholder="[Choose and verify defendant address]"><small>Lease notices: c/o Law Offices of Scott D. Gross, 400 Post Avenue, Suite 400B, Westbury NY 11590. DOS process mail-to: The Dorf Law Firm, LLP, 740 West Boston Post Rd S-304, Mamaroneck NY 10543. Confirm which address belongs on the claim form.</small></label>
 <label>Optional further settlement deadline<input id="deadline" type="date"><small>Set a fresh date only if sending another proposal. This is not a court deadline.</small></label>
 </div>
