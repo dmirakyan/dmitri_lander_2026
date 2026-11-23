@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Book a 30-minute meeting with Dmitri Mirakyan.">
+  <link rel="canonical" href="https://dmitri.im/book/">
+  <link rel="icon" href="/assets/images/favicon.ico">
+  <link rel="preconnect" href="https://app.cal.com">
+  <title>Book 30 minutes · Dmitri</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #231f20; background: #fdfdfb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; }
+    .site-header { max-width: 1120px; margin: auto; padding: 24px 28px; border-bottom: 1px solid #e5e7eb; }
+    .home { display: inline-flex; align-items: center; gap: 12px; font-size: 19px; font-weight: 700; letter-spacing: -.6px; text-decoration: none; }
+    .colors { display: flex; width: 24px; height: 6px; }
+    .colors i { width: 6px; background: #00aeef; }
+    .colors i:nth-child(2) { background: #ec008c; }
+    .colors i:nth-child(3) { background: #fff200; }
+    .colors i:nth-child(4) { background: #231f20; }
+    main { max-width: 1120px; margin: auto; padding: 42px 28px 72px; }
+    h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -1.7px; margin: 0 0 10px; }
+    .intro { color: #6b7280; margin: 0 0 28px; }
+    .booking { height: 620px; }
+    .fallback { color: #6b7280; font-size: 13px; margin-top: 20px; }
+    .fallback a { text-underline-offset: 3px; }
+    @media (max-width: 650px) { .site-header { padding: 18px; } main { padding: 30px 12px 48px; } h1, .intro, .fallback { margin-left: 6px; margin-right: 6px; } .booking { height: 780px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><a class="home" href="/" aria-label="Dmitri homepage">Dmitri<span class="colors" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></header>
+  <main>
+    <h1>Let’s find a time.</h1>
+    <p class="intro">Book a 30-minute meeting with me. Times are shown in your time zone.</p>
+    <div id="cal-booking" class="booking" aria-label="30-minute booking calendar"></div>
+    <p class="fallback">Having trouble with the calendar? <a href="https://cal.com/damirakyan/30min">Open the booking page on Cal.com ↗</a></p>
+  </main>
+  <script>
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement('script')).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === 'string') {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ['initNamespace', namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    Cal('init', '30min', { origin: 'https://app.cal.com' });
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+    Cal.ns['30min']('inline', {
+      elementOrSelector: '#cal-booking',
+      config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
+      calLink: 'damirakyan/30min'
+    });
+    Cal.ns['30min']('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+  </script>
+</body>
+</html>
