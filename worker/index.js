@@ -1,8 +1,10 @@
+import {handleContent} from './content-gallery.mjs';
 import {handleJobs} from './jobs.mjs';
 export {JobsApplication} from './jobs.mjs';
 export default {
   async fetch(request, env) {
     const url=new URL(request.url);
+    if(url.pathname==='/content'||url.pathname.startsWith('/content/')) return handleContent(request,env);
     if(url.pathname.startsWith('/api/jobs/')) return handleJobs(request,env);
     if(url.pathname==='/admin/twitter'||url.pathname.startsWith('/admin/twitter/')){
       const target='https://dmitri.im'+url.pathname.replace(/^\/admin\/twitter\/?/,'/twitter/')+url.search;

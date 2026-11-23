@@ -12,11 +12,16 @@ on:
       - 'dates/**'
       - 'clara/**'
       - 'invest/**'
+      - 'content/**'
       - '_headers'
       - 'admin/index.html'
       - 'admin/admin.css'
       - 'admin/admin.js'
       - 'tools/build-site.mjs'
+      - 'tools/content/**'
+      - 'worker/content-gallery.mjs'
+      - 'worker/content-media.json'
+      - 'worker/index.js'
       - 'package.json'
       - 'package-lock.json'
       - 'wrangler.jsonc'
@@ -29,6 +34,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -38,14 +44,20 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
+      - name: Verify gallery delivery and resource isolation
+        run: node tools/content/test-delivery.mjs
       - name: Build and deploy public website
         run: npm run deploy
         env:
+          CONTENT_MEDIA_KV_NAMESPACE_ID: ${{ vars.CONTENT_MEDIA_KV_NAMESPACE_ID }}
+          GALLERY_MEDIA_KEY: ${{ secrets.GALLERY_MEDIA_KEY }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: d68925a3a5c8f5a72bd103cc8d4c1135
       - name: Verify deployed pages
         run: |
-          for path in / /blog/ /book/ /dates/ /admin/ /clara/ /invest/; do
+          for path in / /blog/ /book/ /dates/ /admin/ /clara/ /invest/ /content/; do
             curl --fail --silent --show-error --retry 3 --output /dev/null \
               "https://dmitri-lander.dmitri-d68.workers.dev${path}"
           done
+      - name: Verify gallery playback headers on the public site
+        run: python tools/content/check_gallery_http.py https://dmitri.im

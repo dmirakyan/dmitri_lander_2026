@@ -12,3 +12,10 @@
   X-Robots-Tag: noindex, nofollow, noarchive
   Referrer-Policy: no-referrer
   X-Content-Type-Options: nosniff
+/content
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Referrer-Policy: no-referrer
+/content/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff

@@ -1,0 +1,19 @@
+# Gallery production handoff
+The public Git repository contains only gallery code and an exact hash/size/MIME allowlist. Build output omits all gallery media. Runtime uses a private Workers KV namespace; do not commit the assets or the generated Wrangler config.
+
+1. Verify Wrangler is authenticated in the existing account and check the existing Workers/KV allocation. Create or select a dedicated gallery namespace only after approval. Do not enable R2 or change plans.
+2. Export its ID as CONTENT_MEDIA_KV_NAMESPACE_ID. From the isolated checkout, dry-run `node tools/content/upload-kv.mjs /absolute/path/to/content`, then run the same command with `--confirm-remote-upload` once explicitly cleared. The uploader verifies every exact SHA-256 before writing and removes its private temporary bulk file.
+3. Set the repository Actions variable CONTENT_MEDIA_KV_NAMESPACE_ID before merging, so the existing main deployment can add the binding while preserving all other configuration and its current token. If manually deploying, export the same variable and run the existing `npm run deploy`. A missing ID fails before deploy.
+4. After KV propagation and production deployment, use `python tools/content/check_gallery_http.py https://dmitri.im`, verify noindex on /content/index.html and the Workers preview hostname, and open the gallery logged out on desktop and mobile. Check admin launcher, three reference fallbacks, and seek playback on Safari and Chrome. A noindex URL is publicly readable by anyone with the URL; it is not private.
+
+## What is automatic after bootstrap
+Normal pushes to main build, run the gallery route tests, deploy through the existing Cloudflare Actions workflow, and smoke-test the public gallery, including MP4 range support. Unchanged media is addressed by SHA-256 and remains in the same KV namespace across deployments. Text, links, ordering, and layout changes need no media upload. A later media change requires preloading only its new hash(es) before merging the updated allowlist; the public repository is not a binary source. Do not prune old keys until rollback is no longer needed.
+
+## Local review before publishing
+Open the standalone YourMove Reference Comparison HTML in a desktop browser, or extract the comparison ZIP and open its index.html. YourMove examples are included. Original TikTok embeds and source links require internet. Reviewing a local preview neither authenticates nor changes Cloudflare. The local delivery test is `node tools/content/test-delivery.mjs`.
+
+## Sealed package when direct Cloudflare KV access is unavailable
+Existing trusted pushes to main can use the approved byte-for-byte gallery media sealed with an independent random 256-bit AES-GCM key. The encrypted file contains no plaintext media. Store only the new gallery-specific decryption key in the repository Actions secret GALLERY_MEDIA_KEY (use stdin; never log, commit, or reuse any auth token as key). The deploy job is restricted to main and verifies the file against the exact path/size/hash manifest before materializing plaintext in its ephemeral build directory. The key is not passed to Wrangler. The Worker uses the already-existing static asset binding, adding Range support itself. A later media change requires sealing the newly approved manifest and asset bytes together; normal text changes re-use the sealed bundle unchanged. The gallery still deploys automatically on main.
+
+## Video provenance
+The 17.8-second Wingman default cuts and composites Anna Bondarenko's [Pexels dog footage](https://www.pexels.com/video/cute-dog-looking-at-camera-5640912/) under the [Pexels license](https://www.pexels.com/license/). The opening, DM thumbnail and return use that same source. The zoom, send and reaction sound effects are synthesized for this edit, with no stock dialogue or music. Flashcards uses edited Pexels clips 6150668, 6150669 and 5871327 with project-generated audio.
