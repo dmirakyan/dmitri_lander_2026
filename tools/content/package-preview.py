@@ -24,7 +24,7 @@ sources = sorted((root/'hinge/renders').glob('*.png'))+sorted((root/'michaela').
 assert len(sources)==23
 movies = re.findall(r'src="(video/[^"]+\.mp4)"',index)
 posters = re.findall(r'poster="(video/[^"]+\.jpg)"',index)
-assert len(movies)==len(posters)==2
+assert len(movies)==len(posters)==3
 def b64(data): return base64.b64encode(data).decode()
 outzip = output/'YourMove-Reference-Archive-Preview.zip'
 with ZipFile(outzip,'w',ZIP_DEFLATED,compresslevel=5) as archive:

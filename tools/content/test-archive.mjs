@@ -17,6 +17,7 @@ const panes=lanes.map(lane=>Object.assign(new Element(),{dataset:{referenceLane:
 const document=new Element();
 const videos=[
   Object.assign(new Element(),{dataset:{videoCut:'wingman',pairedReference:'7640652226779811094'},hidden:false}),
+  Object.assign(new Element(),{dataset:{videoCut:'rush-fee',pairedReference:'7698527792601795842'},hidden:true}),
   Object.assign(new Element(),{dataset:{videoCut:'flashcards',pairedReference:'7704270106838191391'},hidden:true})
 ];
 for(const cut of videos){
@@ -66,16 +67,24 @@ for(const [i,lane] of lanes.entries()){
     const cuts=document.querySelector('#video-choices');
     const defaultId='7640652226779811094';
     assert.equal(cuts.value,'wingman');
-    assert.deepEqual(videos.map(v=>v.hidden),[false,true]);
+    assert.deepEqual(videos.map(v=>v.hidden),[false,true,true]);
     cuts.value='flashcards';cuts.events.change();
-    assert.deepEqual(videos.map(v=>v.hidden),[true,false]);
+    assert.deepEqual(videos.map(v=>v.hidden),[true,true,false]);
     assert.ok(videos[0].querySelector('video').paused);
     assert.match(pane.querySelector('.source-link').href,/7704270106838191391$/);
     const other=posts.findIndex(p=>p.id!=='7704270106838191391');
     picker.value=String(other);picker.events.change();
-    assert.deepEqual(videos.map(v=>v.hidden),[true,false]);
+    assert.deepEqual(videos.map(v=>v.hidden),[true,true,false]);
     cuts.value='wingman';cuts.events.change();
-    assert.deepEqual(videos.map(v=>v.hidden),[false,true]);
+    assert.deepEqual(videos.map(v=>v.hidden),[false,true,true]);
+    assert.ok(videos[2].querySelector('video').paused);
+    assert.ok(pane.querySelector('.source-link').href.endsWith(defaultId));
+    cuts.value='rush-fee';cuts.events.change();
+    assert.deepEqual(videos.map(v=>v.hidden),[true,false,true]);
+    assert.match(pane.querySelector('.source-link').href,/7698527792601795842$/);
+    picker.value='0';picker.events.change();
+    assert.deepEqual(videos.map(v=>v.hidden),[true,false,true]);
+    cuts.value='wingman';cuts.events.change();
     assert.ok(videos[1].querySelector('video').paused);
     assert.ok(pane.querySelector('.source-link').href.endsWith(defaultId));
     continue;
@@ -116,8 +125,8 @@ for(const [i,lane] of lanes.entries()){
     assert.equal(picker.value,String(posts.length-1));
   }
 }
-assert.equal(ids.size,31);
+assert.equal(ids.size,33);
 assert.ok(existsSync('_site/content/references.js'));
 assert.match(readFileSync('content/index.html','utf8'),/Flashcards in the Soup · Alternate/);
 assert.match(readFileSync('content/index.html','utf8'),/<fieldset class="format-switch">[\s\S]*<legend>Carousel format<\/legend>[\s\S]*type="radio" name="hinge-format"[\s\S]*type="radio" name="hinge-format"/);
-console.log(`Archive: ${ids.size} unique posts, exact source/evidence and counts, lazy player teardown, 11 still outputs, two video cuts, independent archive selection, and both native-radio Hinge groups with independent benchmark and sample selection verified`);
+console.log(`Archive: ${ids.size} unique posts, exact source/evidence and counts, lazy player teardown, 11 still outputs, three video cuts, independent archive selection, and both native-radio Hinge groups with independent benchmark and sample selection verified`);

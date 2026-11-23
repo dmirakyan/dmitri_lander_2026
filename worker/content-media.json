@@ -149,16 +149,28 @@
     "bytes": 60496,
     "type": "image/jpeg"
   },
-  "/content/video/wingman-bean-poster.jpg": {
-    "key": "gallery/v1/a03cea44439d6d076130e5e7c55442fe94f77dc2213e7c4ae4e544d672d79652",
-    "sha256": "a03cea44439d6d076130e5e7c55442fe94f77dc2213e7c4ae4e544d672d79652",
-    "bytes": 41469,
+  "/content/video/rush-fee-yourmove-header-poster.jpg": {
+    "key": "gallery/v1/44d43edc89f68be475d66e2327650cf237b053223784eaf4772b6217e13124a3",
+    "sha256": "44d43edc89f68be475d66e2327650cf237b053223784eaf4772b6217e13124a3",
+    "bytes": 55567,
     "type": "image/jpeg"
   },
-  "/content/video/wingman-bean-says-yes.mp4": {
-    "key": "gallery/v1/cc2c17cc6b98f5d7f8168af4993ec7f1d8f984cba3085d6c9bad1cc63d2064ea",
-    "sha256": "cc2c17cc6b98f5d7f8168af4993ec7f1d8f984cba3085d6c9bad1cc63d2064ea",
-    "bytes": 1562268,
+  "/content/video/rush-fee-yourmove-header.mp4": {
+    "key": "gallery/v1/4d78a6457a0ce9eb237e2cb522b6f39623f19d45d0bde2b9dafab2e15cf8e550",
+    "sha256": "4d78a6457a0ce9eb237e2cb522b6f39623f19d45d0bde2b9dafab2e15cf8e550",
+    "bytes": 16876615,
+    "type": "video/mp4"
+  },
+  "/content/video/wingman-yourmove-header-poster.jpg": {
+    "key": "gallery/v1/8a96b9dc89131c60643c5a5bec1de56d3d0911b6d5ef57b84e70747250931baa",
+    "sha256": "8a96b9dc89131c60643c5a5bec1de56d3d0911b6d5ef57b84e70747250931baa",
+    "bytes": 40817,
+    "type": "image/jpeg"
+  },
+  "/content/video/wingman-yourmove-header.mp4": {
+    "key": "gallery/v1/5bcdf249a218428128ac960353667f8fcfa1d6fbcf639941d3a3ffe5a1917202",
+    "sha256": "5bcdf249a218428128ac960353667f8fcfa1d6fbcf639941d3a3ffe5a1917202",
+    "bytes": 1558184,
     "type": "video/mp4"
   }
 }

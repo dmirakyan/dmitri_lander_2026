@@ -76,21 +76,22 @@ let failure=await worker.fetch(new Request('https://dmitri.im'+path),{...env,CON
 assert.equal(failure.status,503);noindex(failure);
 failure=await worker.fetch(new Request('https://dmitri.im'+path),{...env,CONTENT_MEDIA:{get:async()=>null}});
 assert.equal(failure.status,503);noindex(failure);
-assert.equal(Object.keys(manifest).length,27);
+assert.equal(Object.keys(manifest).length,29);
 for(const p of Object.keys(manifest).filter(p=>p!==path)){
   const r=await request(p,{method:'HEAD'});
   assert.equal(r.status,200);
   assert.equal(r.headers.get('Content-Type'),manifest[p].type);
   noindex(r);
 }
-const wingman='/content/video/wingman-bean-says-yes.mp4';
-const wing=manifest[wingman];
-const wingRange=await request(wingman,{headers:{Range:'bytes=8-13'}});
-assert.equal(wingRange.status,206);noindex(wingRange);
-assert.equal(wingRange.headers.get('Content-Range'),`bytes 8-13/${wing.bytes}`);
-assert.equal((await wingRange.arrayBuffer()).byteLength,6);
-const wingBad=await request(wingman,{headers:{Range:'bytes='+wing.bytes+'-'}});
-assert.equal(wingBad.status,416);noindex(wingBad);
+for (const path of ['/content/video/wingman-yourmove-header.mp4','/content/video/rush-fee-yourmove-header.mp4']) {
+ const media=manifest[path];
+ const ranged=await request(path,{headers:{Range:'bytes=8-13'}});
+ assert.equal(ranged.status,206);noindex(ranged);
+ assert.equal(ranged.headers.get('Content-Range'),`bytes 8-13/${media.bytes}`);
+ assert.equal((await ranged.arrayBuffer()).byteLength,6);
+ const bad=await request(path,{headers:{Range:'bytes='+media.bytes+'-'}});
+ assert.equal(bad.status,416);noindex(bad);
+}
 assert.ok(accessed.every(([key,type])=>key.startsWith('gallery/v1/')&&type==='stream'));
 const fallbackEnv={...env,CONTENT_MEDIA:null,ASSETS:{async fetch(req){
   assert.equal(new URL(req.url).pathname,path);
@@ -111,4 +112,4 @@ for(const p of ['/','/admin/','/contentful','/blog/']){
  assert.equal(r.headers.get('X-Robots-Tag'),null);
  assert.equal(delegated.at(-1),p);
 }
-console.log('Gallery delivery: 27 allowlisted media; live-path/alias noindex; GET, HEAD, 206, 304, 405, 416, 503 and unchanged non-gallery routing verified.');
+console.log('Gallery delivery: 29 allowlisted media; live-path/alias noindex; GET, HEAD, 206, 304, 405, 416, 503 and unchanged non-gallery routing verified.');
