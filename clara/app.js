@@ -10,6 +10,7 @@ try {
   const saved = JSON.parse(localStorage.getItem(key) || 'null');
   if (saved && typeof saved === 'object') {
     for (const id of fields) if (typeof saved[id] === 'string') $(id).value = saved[id];
+    if ($('deadline').value && $('deadline').value < new Date().toISOString().slice(0,10)) $('deadline').value = '';
     for (const el of checks) el.checked = saved[el.id] === true;
   }
 } catch { $('save-status').textContent = 'Browser storage is unavailable. Download your review notes before leaving.'; }
@@ -84,7 +85,7 @@ function drafts() {
 }
 function renderReview() {
   const count = checks.filter(el => el.checked).length;
-  const unresolved = !model || !$('defendant').value.trim() || !$('service').value.trim() || $('july-mode').value === 'pending' || !$('deadline').value || !$('reviewer').value.trim() || (model.july > 0 && !$('july-basis').value.trim());
+  const unresolved = !model || !$('defendant').value.trim() || !$('service').value.trim() || $('july-mode').value === 'pending' || !$('reviewer').value.trim() || (model.july > 0 && !$('july-basis').value.trim());
   $('review-status').textContent = `${count} of ${checks.length} review checks marked on this device. ` + (count === checks.length && !unresolved ? 'Review checklist complete locally. Export for Dmitri’s review; signatures, official forms, final approval, and filing are still required.' : 'Review remains open. Resolve the unchecked items, required fields, and July decision before finalizing.');
   if (model && (model.dTotal > 10000 || model.aTotal > 10000)) $('review-status').textContent += ' This scenario exceeds the $10,000 limit for at least one claimant. Do not file it as shown.';
 }

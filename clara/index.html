@@ -7,18 +7,30 @@
   <meta name="referrer" content="no-referrer">
   <title>Clara / Case workspace</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="next-steps.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-<header><a class="wordmark" href="#overview">DM <span>/ CLARA</span></a><span class="tag">DRAFT · NOT FILED</span><a href="#review">Alex’s review ↗</a></header>
+<header><a class="wordmark" href="#execute">DM <span>/ CLARA</span></a><span class="tag">CASE PREP · STATUS UNVERIFIED</span><a href="#review">Review checklist</a></header>
 <div class="layout">
-<nav aria-label="Case sections"><span class="eyebrow">CASE WORKSPACE</span><a href="#overview">01 &nbsp; Overview</a><a href="#timeline">02 &nbsp; Timeline</a><a href="#numbers">03 &nbsp; Claim worksheet</a><a href="#drafts">04 &nbsp; Drafts</a><a href="#filing">05 &nbsp; Filing routes</a><a href="#evidence">06 &nbsp; Evidence</a><a href="#review">07 &nbsp; Alex’s review</a><p>Handoff: Oct 4, 2026<br>Research: Oct 4, 2026 EDT</p><button id="print" class="secondary">Print / save PDF</button></nav>
+<nav aria-label="Case sections"><span class="eyebrow">CASE WORKSPACE</span><a href="#execute">Next steps</a><a href="#overview">Overview</a><a href="#timeline">Timeline</a><a href="#numbers">Claim worksheet</a><a href="#drafts">Drafts</a><a href="#filing">Filing routes</a><a href="#evidence">Evidence</a><a href="#review">Alex’s review</a><p>Last verified: Oct 4, 2026<br>Court guidance checked: Nov 23, 2026</p><button id="print" class="secondary">Print / save PDF</button></nav>
 <main>
+<section id="execute" class="execution">
+<div class="execution-heading"><div class="eyebrow">NEXT STEPS / 188 S 8TH ST</div><h1>Get this filed.</h1><p>Last record check: October 4, 2026. Check for later activity before using the drafts.</p></div>
+<ol class="execution-list">
+<li><div class="step-copy"><h3>Check for later activity</h3><p>Read the full Clara thread after October 4. Confirm any new invoices, settlement, refunds, AG submission, or court case number before sending or filing anything.</p><span class="step-done">Done when: the timeline and balance reflect the latest record.</span></div><a href="#timeline">View record</a></li>
+<li><div class="step-copy"><h3>Lock each claimant’s amount</h3><p>Dmitri and Alex confirm deposit contributions, Nick’s roommate adjustments, cleared refunds, and the August and July construction claims. Choose a supported July amount or omit it.</p><span class="step-done">Done when: Alex exports the <a href="#review">review notes</a> and each person has a final amount.</span></div><a href="#numbers">Open worksheet</a></li>
+<li><div class="step-copy"><h3>Confirm the defendant and filing details</h3><p>The lease names 188 South 8th Street Realty Too LLC. Verify its exact legal name and usable street address, then call the Kings County clerk about venue, two related claims, and filing method.</p><span class="step-done">Done when: the name, address, and clerk instructions are recorded.</span></div><a href="#filing">Clerk details</a></li>
+<li><div class="step-copy"><h3>Sign and file the claims</h3><p>Complete a <a href="https://www.nycourts.gov/forms/statement-claim-small-claims" target="_blank" rel="noopener noreferrer">CIV-SC-50 claim form</a> for each claimant using the final figures. Bring the signed forms, damages schedules, claimant contacts, defendant address, and filing fees to the confirmed clerk route.</p><span class="step-done">Done when: the clerk accepts the claims and gives case numbers.</span></div><a href="#drafts">Use drafts</a></li>
+<li><div class="step-copy"><h3>Save the case details</h3><p>Keep the filed copies, case numbers, hearing dates, and service updates. Assemble the original lease, accounting, emails, invoice, payment proof, and dated photos for the hearing.</p><span class="step-done">Optional: submit the deposit-only <a href="#filing">Attorney General complaint</a> after checking for any existing submission.</span></div><a href="#evidence">Evidence index</a></li>
+</ol>
+<p class="execution-note">This page does not submit a form or share review edits between devices. Keep claimant contact details and source files off this public URL.</p>
+</section>
 <section id="overview">
 <div class="eyebrow">188 S 8TH ST · APT PH · BROOKLYN</div>
-<h1>The deposit dispute.<br><em>Everything in one place.</em></h1>
+<h2 class="overview-title">The record.<br><em>The numbers.</em></h2>
 <p class="lede">Dmitri Mirakyan + Alexander Nie<br>188 South 8th Street Realty Too LLC<br>Correspondence: Clara Lorenz Chan / Chan Clan Holdings</p>
-<div class="stats"><div><span>Original proposed claim</span><strong>$4,984.59</strong><small>Handoff figure. Does not reconcile.</small></div><div><span>Current worksheet</span><strong id="hero-total">Calculating…</strong><small>Illustrative only. Review assumptions below.</small></div><div><span>Next step</span><strong class="text-stat">Alex’s review</strong><small>Then verify, sign, and authorize filing.</small></div></div>
+<div class="stats"><div><span>Original proposed claim</span><strong>$4,984.59</strong><small>Handoff figure. Does not reconcile.</small></div><div><span>Current worksheet</span><strong id="hero-total">Calculating…</strong><small>Illustrative only. Review assumptions below.</small></div><div><span>Next step</span><strong class="text-stat">Check updates</strong><small>Then Alex’s review, verification, and filing.</small></div></div>
 <div class="notice"><strong>Ready to review, not ready to file.</strong> The lease and deduction statement identify the landlord LLC. Service details, agreed roommate adjustments, payment clearance, July valuation, and the full construction periods still need confirmation. Nothing on this page sends email, submits a complaint, or records a legal signature.</div>
 <p class="small">This is an unlisted public page, not a private portal. Search engines are asked not to index it. Claimant home addresses, personal emails, and source attachments are omitted. Edits stay in this browser; export them to share with Dmitri. There is no shared approval database.</p>
 <div class="two-col"><article><h3>The tenancy</h3><p>September 1, 2025 to August 31, 2026. Monthly rent and security deposit were each $11,000. Nick Metzler and Joseph were co-tenants; this workspace prepares only Dmitri’s and Alex’s claims.</p></article><article><h3>The dispute</h3><p>The original statement lists $4,165 across 11 deduction items, an additional unexplained $25, and acceptance of only items 6 and 8, lightbulbs totaling $175. It also proposes two construction-related rent abatements.</p></article></div>
@@ -55,7 +67,7 @@
 <div class="form-grid">
 <label>Landlord named in lease and statement<input id="defendant" value="188 South 8th Street Realty Too LLC"><small>Named consistently in lease, signature page, and deduction statement. Registry and service details still need verification.</small></label>
 <label>Verified defendant street address<input id="service" placeholder="[Verified address and ZIP, not a PO box]"></label>
-<label>Optional further settlement deadline<input id="deadline" type="date" value="2026-10-11"><small>This is a proposed negotiation deadline, not a court deadline.</small></label>
+<label>Optional further settlement deadline<input id="deadline" type="date"><small>Set a fresh date only if sending another proposal. This is not a court deadline.</small></label>
 </div>
 <details open><summary>A. Optional settlement follow-up / hold for review</summary><p class="small">Reply-all to the existing “Re: Move out inspection” thread after verifying its actual recipients. An escalation email was already sent October 4. This optional further proposal would offer a new deadline; decide whether it is useful before sending. It is not a transcript of the sent email.</p><pre id="demand"></pre><button data-copy="demand">Copy demand draft</button></details>
 <details><summary>B. NYS Attorney General / deposit complaint</summary><p class="small">Requests deposit mediation. Abatements remain a separate court demand. The live form starts with a single complainant’s contact details, including a required phone number; confirm Alex’s participation and describe the second claimant accurately.</p><pre id="ag-draft"></pre><button data-copy="ag-draft">Copy AG narrative</button></details>
@@ -107,7 +119,7 @@ Bring: completed forms, claimant contact details, verified defendant name/addres
 <label>Reviewer name<input id="reviewer" placeholder="Alex / Dmitri"></label><label>Corrections, evidence locations, and decisions<textarea id="notes" rows="5" placeholder="Add exact corrections and which documents support them. Avoid putting sensitive material into a public link."></textarea></label>
 <p id="review-status" class="notice" aria-live="polite"></p><button id="export-review">Download review notes</button><p id="save-status" class="small" role="status"></p>
 </section>
-<footer>Drafting and filing strategy workspace. Updated from original Gmail records reviewed October 4, 2026. Disputed allegations remain attributed to their authors. This page is not a legal opinion, and no claim has been filed. Source links were checked October 4, 2026 EDT.</footer>
+<footer>Drafting and filing workspace. Case records last reviewed October 4, 2026; court starting instructions checked November 23, 2026. Disputed allegations remain attributed to their authors. No filing was recorded in the materials reviewed October 4.</footer>
 </main></div>
 <noscript><p class="notice">Enable JavaScript for calculations and draft generation. The static chronology, filing guidance, evidence index, and official links remain available.</p></noscript>
 </body></html>

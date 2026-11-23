@@ -1,0 +1,19 @@
+.execution{background:#20372e;color:#f7f7f2;padding:38px 42px 30px;margin:-12px 0 38px;border:0}
+.execution .eyebrow{color:#f1b794;font-size:12px}
+.execution-heading{padding-bottom:24px}
+.execution h1{font-size:clamp(36px,4vw,54px);margin:12px 0 12px;max-width:660px}
+.execution-heading p{max-width:650px;margin:0;color:#d9e3dc;font-size:16px;line-height:1.55}
+.step-done{display:block;color:#c3d2c8;font-size:13px;line-height:1.5}
+.execution-list{list-style:none;counter-reset:step;margin:0;padding:0;border-top:1px solid #53675a}
+.execution-list li{counter-increment:step;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;position:relative;padding:22px 0 22px 52px;border-bottom:1px solid #53675a}
+.execution-list li::before{content:counter(step,decimal-leading-zero);position:absolute;top:24px;left:0;color:#f1b794;font-size:15px;font-variant-numeric:tabular-nums;font-weight:650}
+.execution-list h3{font-size:19px;margin:0 0 5px;color:#fff}
+.execution-list p{font-size:15px;line-height:1.55;margin:0 0 6px;color:#e0e9e2}
+.execution-list a{color:#fff;text-underline-offset:4px}
+.execution-list>li>a{align-self:center;white-space:nowrap;border:1px solid #82988a;padding:9px 13px;border-radius:3px;text-decoration:none;font-size:14px}
+.execution-list>li>a:hover,.execution-list>li>a:focus-visible{background:#e5ede4;color:#20372e}
+.execution-note{font-size:13px;line-height:1.5;color:#c3d2c8;margin:20px 0 0}
+.overview-title em{color:#778170}
+@media(max-width:950px){.execution{margin:0 0 32px}}
+@media(max-width:600px){.execution{padding:25px 22px;margin:0 -1vw 28px}.execution h1{font-size:36px}.execution-list li{grid-template-columns:1fr;gap:10px;padding:20px 0 20px 40px}.execution-list li::before{top:22px}.execution-list>li>a{justify-self:start}}
+@media print{.execution{background:#fff;color:#111;padding:0;margin:0}.execution-heading p,.execution-list p,.step-done,.execution-note{color:#333}.execution h1,.execution-list h3{color:#111}.execution-list a{color:#111}.execution-list li,.execution-list{border-color:#aaa}.execution-list li::before{color:#111}}
