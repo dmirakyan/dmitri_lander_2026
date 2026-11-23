@@ -483,6 +483,11 @@ strong {
 	margin-bottom: 0.85rem;
 }
 
+.post-date {
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
 .post-toc {
 	max-width: 44rem;
 	margin-bottom: 2rem;
